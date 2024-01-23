@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 3240954545339651727}
   - component: {fileID: 5010955515207986907}
   - component: {fileID: 1166977942748086502}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Lemming
-  m_TagString: Untagged
+  m_TagString: Lemming
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

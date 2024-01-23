@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Right_Sign
   - Left_Sign
+  - Lemming
+  - Fan
   layers:
   - Default
   - TransparentFX
