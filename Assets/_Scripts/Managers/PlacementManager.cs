@@ -37,7 +37,7 @@ public class PlacementManager : MonoBehaviour
                 bool canPlace = CheckIfObjectFits(); // in real game this func should be on the 
                                                      // parent class of all placeable object so it can be customized for each
                 if(canPlace)                                                    
-                SpawnPrefab(hitPoint); // spawn actual object
+                    SpawnPrefab(hitPoint); // spawn actual object
                 // should probably add them to list or something to keep track of them
                 // maybe add last placed and a control + z
                 // also add cost system
@@ -52,7 +52,9 @@ public class PlacementManager : MonoBehaviour
 
     bool CheckIfObjectFits()
     {
-        return Physics.CheckBox(tempGO.transform.position,tempGO.GetComponent<BoxCollider>().size);
+        MeshRenderer mr = tempGO.GetComponentInChildren<MeshRenderer>();
+        tempGO.GetComponentInChildren<Collider>().enabled = false;
+        return !Physics.CheckBox(mr.bounds.center, mr.bounds.size/2, tempGO.transform.rotation, ~groundLayer);
     }
 
     void SpawnPrefab(Vector3 spawnPosition)
@@ -62,5 +64,11 @@ public class PlacementManager : MonoBehaviour
     public void SetNewItemToPlace(GameObject item)
     {
         itemToPlace = item;
+    }
+    void OnDrawGizmos()
+    {
+        if(tempGO == null) return;
+        MeshRenderer mr = tempGO.GetComponentInChildren<MeshRenderer>();
+        Gizmos.DrawWireCube(mr.bounds.center, mr.bounds.size);
     }
 }
