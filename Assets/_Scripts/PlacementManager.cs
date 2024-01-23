@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Placement : MonoBehaviour
+public class PlacementManager : MonoBehaviour
 {
     // this code is disgusting 
     Camera cam;
