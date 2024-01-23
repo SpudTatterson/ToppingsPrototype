@@ -8,6 +8,8 @@ public class PlacementManager : MonoBehaviour
     [SerializeField] LayerMask groundLayer;
     [SerializeField] GameObject itemToPlace;
     GameObject tempGO;
+    MeshRenderer mr;
+
 
     void Awake()
     {
@@ -17,26 +19,31 @@ public class PlacementManager : MonoBehaviour
     {
         Ray camRay = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        
+
         if (Physics.Raycast(camRay, out hit, Mathf.Infinity, groundLayer) && itemToPlace != null)
         {
-            if(Input.GetButtonDown("Fire2"))
+            if (Input.GetButtonDown("Fire2"))
             {
                 itemToPlace = null;
                 Destroy(tempGO);
                 return;
             }
             Vector3 hitPoint = hit.point;
-            if(tempGO == null && itemToPlace != null)
+            if (tempGO == null && itemToPlace != null)
+            {
                 tempGO = Instantiate(itemToPlace);// spawn visual aid if it doesn't exist
+                mr = tempGO.GetComponentInChildren<MeshRenderer>(); // get mesh render for later
+                tempGO.GetComponentInChildren<Collider>().enabled = false; // disable collider on tempGameObject so it wont interrupt placement
+            }
+
             tempGO.transform.position = hitPoint;
             if (Input.GetButtonDown("Fire1"))
             {
                 Destroy(tempGO); // destroy visual aid
-                
+
                 bool canPlace = CheckIfObjectFits(); // in real game this func should be on the 
                                                      // parent class of all placeable object so it can be customized for each
-                if(canPlace)                                                    
+                if (canPlace)
                     SpawnPrefab(hitPoint); // spawn actual object
                 // should probably add them to list or something to keep track of them
                 // maybe add last placed and a control + z
@@ -45,16 +52,15 @@ public class PlacementManager : MonoBehaviour
         }
         else
         {
-            Destroy(tempGO);    
+            Destroy(tempGO);    // destroy temp if player isn't pointing at ground
         }
 
     }
 
     bool CheckIfObjectFits()
     {
-        MeshRenderer mr = tempGO.GetComponentInChildren<MeshRenderer>();
-        tempGO.GetComponentInChildren<Collider>().enabled = false;
-        return !Physics.CheckBox(mr.bounds.center, mr.bounds.size/2, tempGO.transform.rotation, ~groundLayer);
+
+        return !Physics.CheckBox(mr.bounds.center, mr.bounds.size / 2, tempGO.transform.rotation, ~groundLayer);
     }
 
     void SpawnPrefab(Vector3 spawnPosition)
@@ -67,7 +73,7 @@ public class PlacementManager : MonoBehaviour
     }
     void OnDrawGizmos()
     {
-        if(tempGO == null) return;
+        if (tempGO == null) return;
         MeshRenderer mr = tempGO.GetComponentInChildren<MeshRenderer>();
         Gizmos.DrawWireCube(mr.bounds.center, mr.bounds.size);
     }
