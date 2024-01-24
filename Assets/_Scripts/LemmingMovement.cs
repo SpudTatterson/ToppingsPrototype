@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class LemmingMovement : MonoBehaviour
 {
-    public Rigidbody rb;
-
-    public float walkSpeed;
-    public float rotationSpeed;
+    [Header("LemmingSettings")]
+    [Space]
+    [Tooltip("How fast the lemming will reach his max speed")]
+    public float accelerationSpeed;
+    [Tooltip("How far the lemming will be knocked back when hitting an obstacle")]
     public float knockbackPower;
+    [Tooltip("The max speed of the lemming")]
     public float maxWalkSpeed;
-    public float knockbackTimer;
 
-    public bool walking;
-    public bool rotatingRight;
-    public bool rotatingLeft;
-    public bool rotatingBack;
+    Rigidbody rb;
+    float knockbackTimer;
+    bool walking;
+    bool rotatingRight;
+    bool rotatingLeft;
+    bool rotatingBack;
 
     public string[] collidingObjects;
 
@@ -58,7 +61,7 @@ public class LemmingMovement : MonoBehaviour
     {
         if (rb.velocity.magnitude < maxWalkSpeed && walking)
         {
-            rb.AddRelativeForce(Vector3.forward * walkSpeed * Time.deltaTime);
+            rb.AddRelativeForce(Vector3.forward * accelerationSpeed * Time.deltaTime);
         }
     }
 
@@ -80,7 +83,7 @@ public class LemmingMovement : MonoBehaviour
             rotatingLeft = true;
         }
 
-        for(int i = 0; i < collidingObjects.Length; i++)
+        for (int i = 0; i < collidingObjects.Length; i++)
         {
             if(other.collider.tag == collidingObjects[i])
             {

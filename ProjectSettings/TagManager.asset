@@ -8,6 +8,7 @@ TagManager:
   - Left_Sign
   - Lemming
   - Fan
+  - Ground
   layers:
   - Default
   - TransparentFX

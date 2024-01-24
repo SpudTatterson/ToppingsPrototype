@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class LemmingSpawner : MonoBehaviour
 {
+    [Header("Spawner Settings")]
+    [Space]
+    [Tooltip("The object that the spawner will spawn")]
     public GameObject lemming;
+    [Tooltip("The position and rotation the object will be spawned")]
     public Transform spawnPoint;
-
+    [Tooltip("the delay between lemming spawns")]
     public float delayBetweenSpawns;
+    [Tooltip("How many lemming to spawn")]
     public int lemmingCount;
 
-    public float timer;
+    float timer;
 
     private void Start()
     {
-        timer = delayBetweenSpawns - 1f;
+        timer = delayBetweenSpawns - .5f;
     }
 
     private void Update()
