@@ -14,7 +14,7 @@ public class LemmingMovement : MonoBehaviour
     public float maxWalkSpeed;
     [Tooltip("How fast the rotation in any direction will be in seconds")]
     public float RotationTime;
-    [Tooltip("Insert here the tags that the lemming will hit and rotate 180 degrees back")]
+    [Tooltip("Insert here the tags of the obstacles that the lemming will hit and rotate 180 degrees back")]
     public string[] collidingObjects;
 
     private Rigidbody rb;
