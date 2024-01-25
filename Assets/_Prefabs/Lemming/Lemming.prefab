@@ -98,16 +98,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b281c008b2b2584b981229244f7cd11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  walkSpeed: 500
-  rotationSpeed: 50
+  accelerationSpeed: 500
   knockbackPower: 150
   maxWalkSpeed: 5
   knockbackTimer: 0
+  RotationTime: 1
   walking: 0
-  rotatingRight: 0
-  rotatingLeft: 0
-  rotatingBack: 0
   collidingObjects:
   - Wall
   - Obstacle

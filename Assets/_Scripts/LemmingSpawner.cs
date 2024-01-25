@@ -10,12 +10,12 @@ public class LemmingSpawner : MonoBehaviour
     public GameObject lemming;
     [Tooltip("The position and rotation the object will be spawned")]
     public Transform spawnPoint;
-    [Tooltip("the delay between lemming spawns")]
+    [Tooltip("The delay between lemming spawns in seconds")]
     public float delayBetweenSpawns;
     [Tooltip("How many lemming to spawn")]
     public int lemmingCount;
 
-    float timer;
+    private float timer;
 
     private void Start()
     {

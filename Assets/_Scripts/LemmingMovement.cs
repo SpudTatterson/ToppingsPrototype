@@ -12,15 +12,18 @@ public class LemmingMovement : MonoBehaviour
     public float knockbackPower;
     [Tooltip("The max speed of the lemming")]
     public float maxWalkSpeed;
-
-    Rigidbody rb;
-    float knockbackTimer;
-    bool walking;
-    bool rotatingRight;
-    bool rotatingLeft;
-    bool rotatingBack;
-
+    [Tooltip("How fast the rotation in any direction will be in seconds")]
+    public float RotationTime;
+    [Tooltip("Insert here the tags that the lemming will hit and rotate 180 degrees back")]
     public string[] collidingObjects;
+
+    private Rigidbody rb;
+    [HideInInspector] public float knockbackTimer;
+    [HideInInspector] public float turnSpeedSide;
+    [HideInInspector] public bool walking;
+    [HideInInspector] public bool rotateBack, rotateLeft, rotateRight;
+    [HideInInspector] public Vector3 startRotation;
+    [HideInInspector] public Vector3 endRotation;
 
     private void Awake()
     {
@@ -32,27 +35,36 @@ public class LemmingMovement : MonoBehaviour
     {
         knockbackTimer += Time.deltaTime;
 
-        if (rb.velocity.magnitude == 0 && knockbackTimer > 0.05)
+        float turnSpeedBack = knockbackTimer / RotationTime;
+        turnSpeedSide = knockbackTimer / (RotationTime / 2f);
+
+        if (rotateBack)
         {
-            if (rotatingRight)
+            transform.localEulerAngles = Vector3.Lerp(startRotation, endRotation, turnSpeedBack);
+            if(turnSpeedBack >= 1)
             {
-                transform.Rotate(Vector3.up, 90);
                 walking = true;
-                rotatingRight = false;
+                rotateBack = false;
             }
+        }
 
-            if (rotatingLeft)
+        if (rotateRight)
+        {
+            transform.localEulerAngles = Vector3.Lerp(startRotation, endRotation, turnSpeedSide);
+            if (turnSpeedSide >= 1)
             {
-                transform.Rotate(Vector3.up, -90);
                 walking = true;
-                rotatingLeft = false;
+                rotateRight = false;
             }
+        }
 
-            if (rotatingBack)
+        if (rotateLeft)
+        {
+            transform.localEulerAngles = Vector3.Lerp(startRotation, endRotation, turnSpeedSide);
+            if (turnSpeedSide >= 1)
             {
-                transform.Rotate(Vector3.up, 180);
                 walking = true;
-                rotatingBack = false;
+                rotateLeft = false;
             }
         }
     }
@@ -67,31 +79,22 @@ public class LemmingMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if(other.collider.tag == "Right_Sign")
-        {
-            walking = false;
-            rb.AddRelativeForce(new Vector3(0, 0, -knockbackPower));
-            knockbackTimer = 0;
-            rotatingRight = true;
-        }
-
-        if (other.collider.tag == "Left_Sign")
-        {
-            walking = false;
-            rb.AddRelativeForce(new Vector3(0, 0, -knockbackPower));
-            knockbackTimer = 0;
-            rotatingLeft = true;
-        }
-
         for (int i = 0; i < collidingObjects.Length; i++)
         {
             if(other.collider.tag == collidingObjects[i])
             {
-                walking = false;
-                rb.AddRelativeForce(new Vector3(0, 0, -knockbackPower));
-                knockbackTimer = 0;
-                rotatingBack = true;
+                Knockback();
+                startRotation = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
+                endRotation = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y + 180f, transform.localEulerAngles.z);
+                rotateBack = true;
             }
         }
+    }
+
+    public void Knockback()
+    {
+        walking = false;
+        rb.AddRelativeForce(new Vector3(0, 0, -knockbackPower));
+        knockbackTimer = 0;
     }
 }

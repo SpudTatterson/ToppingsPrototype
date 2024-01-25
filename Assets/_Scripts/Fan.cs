@@ -8,7 +8,7 @@ public class Fan : MonoBehaviour
     [Header("Fan Settings")]
     [Space]
     [Tooltip("How strong the fan will be")]
-    public float fanForce;
+    [SerializeField] float fanForce;
 
     List<GameObject> lemmings = new List<GameObject>();
 
@@ -19,10 +19,10 @@ public class Fan : MonoBehaviour
             var rb = lemmings[i].GetComponent<Rigidbody>();
             RaycastHit hit;
 
-            Physics.Raycast(lemmings[i].transform.position, -transform.forward, out hit, 10f);
-            Debug.DrawRay(lemmings[i].transform.position, -transform.forward * 10, Color.red);
+            Physics.Raycast(lemmings[i].transform.position + new Vector3(0, 1f, 0), -transform.forward, out hit, 10f);
+            Debug.DrawRay(lemmings[i].transform.position + new Vector3(0, 1f, 0), -transform.forward * 10, Color.red);
 
-            if (hit.collider.tag.Equals("Fan"))
+            if (hit.collider != null && hit.collider.tag.Equals("Fan"))
             {
                 rb.AddForce(transform.forward * (fanForce / hit.distance) * Time.deltaTime);
             }

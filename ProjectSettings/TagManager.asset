@@ -8,7 +8,8 @@ TagManager:
   - Left_Sign
   - Lemming
   - Fan
-  - Ground
+  - Wall
+  - Obstacle
   layers:
   - Default
   - TransparentFX
