@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 3595313813693489504}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 7628013159403524322}
   m_Layer: 0
   m_Name: Cube (4)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -412,9 +412,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lemming: {fileID: 1385723183956263404, guid: 8443945175bc0304d80f07448ec4de15, type: 3}
   spawnPoint: {fileID: 2481745453220349916}
-  delayBetweenSpawns: 3
-  lemmingCount: 10
-  timer: 0
+  delayBetweenSpawns: 1.75
+  lemmingCount: 20
 --- !u!1 &5277556229746230735
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,7 +428,7 @@ GameObject:
   - component: {fileID: 6335898181846284797}
   m_Layer: 0
   m_Name: Cube (6)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -534,7 +533,7 @@ GameObject:
   - component: {fileID: 853961357819496324}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -639,7 +638,7 @@ GameObject:
   - component: {fileID: 1675725668624559395}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -744,7 +743,7 @@ GameObject:
   - component: {fileID: 1049235252081956339}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -849,7 +848,7 @@ GameObject:
   - component: {fileID: 4734422514175166171}
   m_Layer: 0
   m_Name: Cube (7)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -954,7 +953,7 @@ GameObject:
   - component: {fileID: 1544326285649288655}
   m_Layer: 0
   m_Name: Cube (5)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
