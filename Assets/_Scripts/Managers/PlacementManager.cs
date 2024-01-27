@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PlacementManager : MonoBehaviour
@@ -7,6 +6,7 @@ public class PlacementManager : MonoBehaviour
     Camera cam;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] GameObject itemToPlace;
+    
     GameObject tempGO;
     MeshRenderer mr;
 
