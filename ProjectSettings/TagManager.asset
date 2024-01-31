@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Right_Sign
   - Left_Sign
+  - Lemming
+  - Fan
+  - Wall
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -14,7 +18,10 @@ TagManager:
   - Water
   - UI
   - Lemming
+  - Obstacle
+  - Wall
   - Ground
+  - 
   - 
   - 
   - 
