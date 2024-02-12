@@ -17,6 +17,9 @@ public class LemmingMovement : MonoBehaviour
     [Tooltip("Insert here the tags of the obstacles that the lemming will hit and rotate 180 degrees back")]
     public string[] collidingObjects;
 
+    public Vector3 groundedOffset = new Vector3 (0,0.1f,0);
+    public float maxDistanceOffGround = 0.2f;
+
     private Rigidbody rb;
     private float rotationTimer, delayVelocityCheck;
 
@@ -25,6 +28,8 @@ public class LemmingMovement : MonoBehaviour
     [HideInInspector] public bool rotateBack, rotateLeft, rotateRight;
     [HideInInspector] public Vector3 startRotation;
     [HideInInspector] public Vector3 endRotation;
+    bool isGrounded;
+    
 
     public Vector3 boxCastSize;
     private RaycastHit hit;
@@ -37,19 +42,30 @@ public class LemmingMovement : MonoBehaviour
 
     private void Update()
     {
+        isGrounded = GroundCheck();
+
+        rb.drag = isGrounded ? 1 : 0;
+
         LemmingRotation();
+        knockbackTimer += Time.deltaTime;
 
         Physics.BoxCast(transform.localPosition + transform.up, boxCastSize, transform.forward, out hit, transform.localRotation, 1);
     }
 
     private void FixedUpdate()
     {
-        if (rb.velocity.magnitude < maxWalkSpeed && walking)
+        if ((rb.velocity.magnitude < maxWalkSpeed) && walking && isGrounded)
         {
             rb.AddRelativeForce(Vector3.forward * accelerationSpeed * Time.fixedDeltaTime);
         }
     }
 
+    bool GroundCheck()
+    {
+        Vector3 offset = transform.position + groundedOffset;
+        return Physics.Raycast(offset, Vector3.down, maxDistanceOffGround);
+    }
+    private void OnCollisionEnter(Collision other)
     private void OnCollisionEnter(Collision collision)
     {
         TurnBackOnCollision(collision);
@@ -101,6 +117,11 @@ public class LemmingMovement : MonoBehaviour
             rotateRight = false;
             rotateLeft = false;
         }
+    }
+    void OnDrawGizmos()
+    {
+        Vector3 offset = transform.position + groundedOffset;
+        Gizmos.DrawRay(offset, Vector3.down * maxDistanceOffGround);
     }
 
     private void RotationLogic(bool direction)
