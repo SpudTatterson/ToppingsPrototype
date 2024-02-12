@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,19 +15,7 @@ public class Fan : MonoBehaviour
 
     private void FixedUpdate()
     {
-        for (int i = 0; i < lemmings.Count; i++)
-        {
-            var rb = lemmings[i].GetComponent<Rigidbody>();
-            RaycastHit hit;
-
-            Physics.Raycast(lemmings[i].transform.position + new Vector3(0, 1f, 0), -transform.forward, out hit, 10f);
-            Debug.DrawRay(lemmings[i].transform.position + new Vector3(0, 1f, 0), -transform.forward * 10, Color.red);
-
-            if (hit.collider != null && hit.collider.tag.Equals("Fan"))
-            {
-                rb.AddForce(transform.forward * (fanForce / hit.distance) * Time.deltaTime);
-            }
-        }
+        PushLemming();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -42,6 +31,22 @@ public class Fan : MonoBehaviour
         if (other.gameObject.tag.Equals("Lemming"))
         {
             lemmings.Remove(other.gameObject);
+        }
+    }
+
+    private void PushLemming()
+    {
+        for (int i = 0; i < lemmings.Count; i++)
+        {
+            var rb = lemmings[i].GetComponent<Rigidbody>();
+
+            Physics.Raycast(lemmings[i].transform.position + new Vector3(0, 1f, 0), -transform.forward, out RaycastHit hit, 10f);
+            Debug.DrawRay(lemmings[i].transform.position + new Vector3(0, 1f, 0), -transform.forward * 10, Color.red);
+
+            if (hit.collider != null && hit.collider.gameObject.GetComponentInParent<Fan>() != null)
+            {
+                rb.AddForce(transform.forward * (fanForce / hit.distance) * Time.fixedDeltaTime);
+            }
         }
     }
 }

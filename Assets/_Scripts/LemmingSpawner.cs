@@ -19,14 +19,19 @@ public class LemmingSpawner : MonoBehaviour
 
     private void Start()
     {
-        timer = delayBetweenSpawns - .5f;
+        timer = delayBetweenSpawns - .5f; // Setting first spawn to be faster and not delayed
     }
 
     private void Update()
     {
+        Spawner();
+    }
+
+    private void Spawner()
+    {
         timer += Time.deltaTime;
 
-        if(timer > delayBetweenSpawns && lemmingCount > 0)
+        if (timer > delayBetweenSpawns && lemmingCount > 0)
         {
             Instantiate(lemming, spawnPoint.position, spawnPoint.rotation);
             timer = 0f;
