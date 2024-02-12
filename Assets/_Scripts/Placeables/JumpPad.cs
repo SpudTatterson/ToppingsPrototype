@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class JumpPad : MonoBehaviour
+[RequireComponent(typeof(LineRenderer))]
+public class JumpPad : Placeable
 {
     [SerializeField] Transform endPoint;
     [SerializeField] LineRenderer lineRenderer;
@@ -11,6 +11,7 @@ public class JumpPad : MonoBehaviour
     [Header("Display Controls")]
     [SerializeField] [Range(10, 100)] int LinePoints = 25;
     [SerializeField] [Range(0.01f, 0.25f)] float TimeBetweenPoints = 0.1f;
+    [SerializeField] LayerMask groundLayer;
     Vector3 launchForce;
     void OnTriggerEnter(Collider other)
     {
@@ -25,7 +26,12 @@ public class JumpPad : MonoBehaviour
     {
         DrawProjection();
     }
+    public override void SecondaryPlacement()
+    {
+        PlacementManager manager = FindObjectOfType<PlacementManager>();
+        manager.SetNewItemToPlace(secondaryPlacable);
 
+    }
     void Launch(Rigidbody rb)
     {
         rb.velocity = Vector3.zero;
@@ -84,13 +90,12 @@ public class JumpPad : MonoBehaviour
             point.y = startPosition.y + startVelocity.y * time + (Physics.gravity.y / 2f * time * time); // offsets y of the point using kinematic equation 
 
             lineRenderer.SetPosition(i, point);
-            Debug.Log("test");
 
             Vector3 lastPosition = lineRenderer.GetPosition(i - 1);
 
             Vector3 direction = point - lastPosition;
 
-            if(Physics.Raycast(lastPosition, direction.normalized, out RaycastHit hit, direction.magnitude))
+            if(Physics.Raycast(lastPosition, direction.normalized, out RaycastHit hit, direction.magnitude, groundLayer))
             {
                 lineRenderer.SetPosition(i, hit.point);
                 lineRenderer.positionCount = i + 1;

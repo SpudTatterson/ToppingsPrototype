@@ -106,6 +106,8 @@ MonoBehaviour:
   collidingObjects:
   - Wall
   - Obstacle
+  groundedOffset: {x: 0, y: 0.1, z: 0}
+  maxDistanceOffGround: 0.2
   knockbackTimer: 0
   turnSpeedSide: 0
   walking: 0
@@ -126,8 +128,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9395cd1d9bbb545989389670a8a842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boxCastSize: {x: 0, y: 0, z: 0}
   basicOutfit: {fileID: 4318848190420655394}
   woodCutterOutfit: {fileID: 6993598415611193169}
+  woodCutter: 0
 --- !u!1 &2129188674362226817
 GameObject:
   m_ObjectHideFlags: 0
