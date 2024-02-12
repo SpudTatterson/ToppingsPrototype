@@ -17,6 +17,9 @@ public class LemmingMovement : MonoBehaviour
     [Tooltip("Insert here the tags of the obstacles that the lemming will hit and rotate 180 degrees back")]
     public string[] collidingObjects;
 
+    public Vector3 groundedOffset = new Vector3 (0,0.1f,0);
+    public float maxDistanceOffGround = 0.2f;
+
     private Rigidbody rb;
     [HideInInspector] public float knockbackTimer;
     [HideInInspector] public float turnSpeedSide;
@@ -24,6 +27,8 @@ public class LemmingMovement : MonoBehaviour
     [HideInInspector] public bool rotateBack, rotateLeft, rotateRight;
     [HideInInspector] public Vector3 startRotation;
     [HideInInspector] public Vector3 endRotation;
+    bool isGrounded;
+    
 
     private void Awake()
     {
@@ -33,6 +38,10 @@ public class LemmingMovement : MonoBehaviour
 
     private void Update()
     {
+        isGrounded = GroundCheck();
+
+        rb.drag = isGrounded ? 1 : 0;
+
         knockbackTimer += Time.deltaTime;
 
         float turnSpeedBack = knockbackTimer / RotationTime;
@@ -67,16 +76,22 @@ public class LemmingMovement : MonoBehaviour
                 rotateLeft = false;
             }
         }
+        
     }
 
     private void FixedUpdate()
     {
-        if (rb.velocity.magnitude < maxWalkSpeed && walking)
+        if ((rb.velocity.magnitude < maxWalkSpeed) && walking && isGrounded)
         {
             rb.AddRelativeForce(Vector3.forward * accelerationSpeed * Time.deltaTime);
         }
     }
 
+    bool GroundCheck()
+    {
+        Vector3 offset = transform.position + groundedOffset;
+        return Physics.Raycast(offset, Vector3.down, maxDistanceOffGround);
+    }
     private void OnCollisionEnter(Collision other)
     {
         for (int i = 0; i < collidingObjects.Length; i++)
@@ -96,5 +111,10 @@ public class LemmingMovement : MonoBehaviour
         walking = false;
         rb.AddRelativeForce(new Vector3(0, 0, -knockbackPower));
         knockbackTimer = 0;
+    }
+    void OnDrawGizmos()
+    {
+        Vector3 offset = transform.position + groundedOffset;
+        Gizmos.DrawRay(offset, Vector3.down * maxDistanceOffGround);
     }
 }
