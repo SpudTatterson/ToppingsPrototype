@@ -28,7 +28,7 @@ public class LemmingMovement : MonoBehaviour
     [HideInInspector] public bool rotateBack, rotateLeft, rotateRight;
     [HideInInspector] public Vector3 startRotation;
     [HideInInspector] public Vector3 endRotation;
-    bool isGrounded;
+    public bool isGrounded;
     
 
     public Vector3 boxCastSize;
@@ -47,7 +47,6 @@ public class LemmingMovement : MonoBehaviour
         rb.drag = isGrounded ? 1 : 0;
 
         LemmingRotation();
-        knockbackTimer += Time.deltaTime;
 
         Physics.BoxCast(transform.localPosition + transform.up, boxCastSize, transform.forward, out hit, transform.localRotation, 1);
     }
@@ -65,7 +64,7 @@ public class LemmingMovement : MonoBehaviour
         Vector3 offset = transform.position + groundedOffset;
         return Physics.Raycast(offset, Vector3.down, maxDistanceOffGround);
     }
-    private void OnCollisionEnter(Collision other)
+
     private void OnCollisionEnter(Collision collision)
     {
         TurnBackOnCollision(collision);

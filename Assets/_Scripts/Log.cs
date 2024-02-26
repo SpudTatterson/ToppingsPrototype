@@ -11,6 +11,8 @@ public class Log : MonoBehaviour
 
     public int logHealth;
 
+    public GameObject lemmingCutting;
+
     private void Update()
     {
         SetLogGraphics(baseLog, 76, 100);
@@ -28,6 +30,11 @@ public class Log : MonoBehaviour
         else
         {
             logType.SetActive(false);
+        }
+
+        if(logHealth <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }

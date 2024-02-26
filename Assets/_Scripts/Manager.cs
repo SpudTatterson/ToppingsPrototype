@@ -5,17 +5,22 @@ using UnityEngine;
 public class Manager : MonoBehaviour
 {
     [SerializeField] float fastForwardMultiplier = 1;
+    [SerializeField] float slowDownMultiplier = .1f;
 
     private void Update()
     {
-        FastForward();
+        ManipulateTime();
     }
 
-    private void FastForward()
+    private void ManipulateTime()
     {
         if(Input.GetKey(KeyCode.Space)) 
         {
             Time.timeScale = fastForwardMultiplier;
+        }
+        else if (Input.GetKey(KeyCode.LeftControl))
+        {
+            Time.timeScale = slowDownMultiplier;
         }
         else
         {
