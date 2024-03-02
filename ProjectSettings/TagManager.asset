@@ -10,6 +10,7 @@ TagManager:
   - Fan
   - Wall
   - Obstacle
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -21,11 +22,8 @@ TagManager:
   - Obstacle
   - Wall
   - Ground
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Bullet
+  - Shield
   - 
   - 
   - 

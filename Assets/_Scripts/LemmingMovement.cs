@@ -21,14 +21,18 @@ public class LemmingMovement : MonoBehaviour
     public float maxDistanceOffGround = 0.2f;
 
     private Rigidbody rb;
-    [HideInInspector] public float knockbackTimer;
+    private float rotationTimer, delayVelocityCheck;
+
     [HideInInspector] public float turnSpeedSide;
     [HideInInspector] public bool walking;
     [HideInInspector] public bool rotateBack, rotateLeft, rotateRight;
     [HideInInspector] public Vector3 startRotation;
     [HideInInspector] public Vector3 endRotation;
-    bool isGrounded;
+    public bool isGrounded;
     
+
+    public Vector3 boxCastSize;
+    private RaycastHit hit;
 
     private void Awake()
     {
@@ -42,48 +46,16 @@ public class LemmingMovement : MonoBehaviour
 
         rb.drag = isGrounded ? 1 : 0;
 
-        knockbackTimer += Time.deltaTime;
+        LemmingRotation();
 
-        float turnSpeedBack = knockbackTimer / RotationTime;
-        turnSpeedSide = knockbackTimer / (RotationTime / 2f);
-
-        if (rotateBack)
-        {
-            transform.localEulerAngles = Vector3.Lerp(startRotation, endRotation, turnSpeedBack);
-            if(turnSpeedBack >= 1)
-            {
-                walking = true;
-                rotateBack = false;
-            }
-        }
-
-        if (rotateRight)
-        {
-            transform.localEulerAngles = Vector3.Lerp(startRotation, endRotation, turnSpeedSide);
-            if (turnSpeedSide >= 1)
-            {
-                walking = true;
-                rotateRight = false;
-            }
-        }
-
-        if (rotateLeft)
-        {
-            transform.localEulerAngles = Vector3.Lerp(startRotation, endRotation, turnSpeedSide);
-            if (turnSpeedSide >= 1)
-            {
-                walking = true;
-                rotateLeft = false;
-            }
-        }
-        
+        Physics.BoxCast(transform.localPosition + transform.up, boxCastSize, transform.forward, out hit, transform.localRotation, 1);
     }
 
     private void FixedUpdate()
     {
         if ((rb.velocity.magnitude < maxWalkSpeed) && walking && isGrounded)
         {
-            rb.AddRelativeForce(Vector3.forward * accelerationSpeed * Time.deltaTime);
+            rb.AddRelativeForce(Vector3.forward * accelerationSpeed * Time.fixedDeltaTime);
         }
     }
 
@@ -92,11 +64,31 @@ public class LemmingMovement : MonoBehaviour
         Vector3 offset = transform.position + groundedOffset;
         return Physics.Raycast(offset, Vector3.down, maxDistanceOffGround);
     }
-    private void OnCollisionEnter(Collision other)
+
+    private void OnCollisionEnter(Collision collision)
     {
+        TurnBackOnCollision(collision);
+    }
+
+    public void Knockback()
+    {
+        /* add a knockback effect relative to the facing direction og the Lemming */
+
+        walking = false;
+        rb.velocity = Vector3.zero;
+        rb.AddRelativeForce(new Vector3(0, 0, -knockbackPower));
+        rotationTimer = 0;
+        delayVelocityCheck = 0; //This is here to make the rotation work better (Temporary untill I find a better solution)
+    }
+
+    private void TurnBackOnCollision(Collision collision)
+    {
+        /* Sets the current position and the position the Lemming will rotate to,
+         This happens only if the lemming is colliding with the correctly tagged objects */        
+
         for (int i = 0; i < collidingObjects.Length; i++)
         {
-            if(other.collider.tag == collidingObjects[i])
+            if (collision.collider.tag == collidingObjects[i] && hit.collider.name == collision.collider.name)
             {
                 Knockback();
                 startRotation = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
@@ -106,15 +98,41 @@ public class LemmingMovement : MonoBehaviour
         }
     }
 
-    public void Knockback()
+    private void LemmingRotation()
     {
-        walking = false;
-        rb.AddRelativeForce(new Vector3(0, 0, -knockbackPower));
-        knockbackTimer = 0;
+        /* Rotating the lemming after the knockback effect and only after the lemming
+         has stopped moving */
+         
+        delayVelocityCheck += Time.deltaTime;
+        turnSpeedSide = rotationTimer / RotationTime;
+
+        RotationLogic(rotateBack);
+        RotationLogic(rotateLeft);
+        RotationLogic(rotateRight);
+
+        if (walking)
+        {
+            rotateBack = false;
+            rotateRight = false;
+            rotateLeft = false;
+        }
     }
     void OnDrawGizmos()
     {
         Vector3 offset = transform.position + groundedOffset;
         Gizmos.DrawRay(offset, Vector3.down * maxDistanceOffGround);
+    }
+
+    private void RotationLogic(bool direction)
+    {
+        if (direction & rb.velocity == Vector3.zero && delayVelocityCheck > 0.1f)
+        {
+            rotationTimer += Time.deltaTime;
+            transform.localEulerAngles = Vector3.Lerp(startRotation, endRotation, turnSpeedSide);
+            if (turnSpeedSide >= 1)
+            {
+                walking = true;
+            }
+        }
     }
 }
