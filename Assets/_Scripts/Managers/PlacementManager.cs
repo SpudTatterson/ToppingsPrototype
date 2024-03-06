@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class PlacementManager : MonoBehaviour
@@ -39,7 +40,10 @@ public class PlacementManager : MonoBehaviour
                 mr = tempGO.GetComponentInChildren<MeshRenderer>(); // get mesh render for later
                 tempGO.GetComponentInChildren<Collider>().enabled = false; // disable collider on tempGameObject so it wont interrupt placement
             }
-
+            if(Input.GetKeyDown(KeyCode.R))
+            {
+                tempGO.transform.Rotate(Vector3.up * 90);
+            }
             tempGO.transform.position = placementPoint;
             if (isPlacingSecondaryObject && CanPlaceSecondaryObject())
             {
@@ -56,7 +60,7 @@ public class PlacementManager : MonoBehaviour
                 if (canPlace)
                 {
 
-                    GameObject actualGO = SpawnPrefab(tempGO.transform.position); // spawn actual object
+                    GameObject actualGO = SpawnPrefab(tempGO.transform.position, tempGO.transform.rotation); // spawn actual object
                     Placeable placeable = actualGO.GetComponent<Placeable>();
                     lastPlaced = placeable;
 
@@ -99,9 +103,9 @@ public class PlacementManager : MonoBehaviour
         return Vector3.Distance(lastPlaced.transform.position, tempGO.transform.position) < lastPlaced.maxSecondaryObjectDistance;
     }
 
-    GameObject SpawnPrefab(Vector3 spawnPosition)
+    GameObject SpawnPrefab(Vector3 spawnPosition, quaternion rotation)
     {
-        return Instantiate(itemToPlace, spawnPosition, Quaternion.identity);
+        return Instantiate(itemToPlace, spawnPosition, rotation);
     }
     public void SetNewItemToPlace(GameObject item)
     {
