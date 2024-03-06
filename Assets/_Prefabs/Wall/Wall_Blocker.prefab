@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 104465357273312318}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,8 +43,7 @@ GameObject:
   - component: {fileID: 3392007171709460621}
   - component: {fileID: 8092054319337342954}
   - component: {fileID: 2219035685732505583}
-  - component: {fileID: 1648009119680321910}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_Blocker (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,27 +115,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1648009119680321910
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4074401957281535586}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6333847648618664668
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3807878699560361860}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +156,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 77516794168428319}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_Blocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 851799376266109828}
   - component: {fileID: 5588424361985877271}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Box Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
