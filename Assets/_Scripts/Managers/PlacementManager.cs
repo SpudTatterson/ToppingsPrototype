@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -11,7 +12,9 @@ public class PlacementManager : MonoBehaviour
     GameObject tempGO;
     MeshRenderer mr;
     bool isPlacingSecondaryObject = false;
+    bool isDestroying = false;
     Placeable lastPlaced;
+    List<GameObject> placedObjects = new List<GameObject>();
 
 
     void Awake()
@@ -20,6 +23,11 @@ public class PlacementManager : MonoBehaviour
     }
     void Update()
     {
+        if (isDestroying)
+        {
+            LookForObjectsToDestroy();
+            return;
+        }
         Ray camRay = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
@@ -63,6 +71,7 @@ public class PlacementManager : MonoBehaviour
                     GameObject actualGO = SpawnPrefab(tempGO.transform.position, tempGO.transform.rotation); // spawn actual object
                     Placeable placeable = actualGO.GetComponent<Placeable>();
                     lastPlaced = placeable;
+                    placedObjects.Add(actualGO);
 
                     if (isPlacingSecondaryObject)
                     {
@@ -102,7 +111,25 @@ public class PlacementManager : MonoBehaviour
     {
         return Vector3.Distance(lastPlaced.transform.position, tempGO.transform.position) < lastPlaced.maxSecondaryObjectDistance;
     }
-
+    bool IsPlaced(GameObject gameObjectToDestroy)
+    {
+        return placedObjects.Contains(gameObjectToDestroy);
+            
+    }
+    void LookForObjectsToDestroy()
+    {
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if(Physics.Raycast(ray, out hit))
+        {
+            GameObject selectedGameObject = hit.collider.gameObject;
+            Debug.Log(gameObject);
+        }
+    }
+    void TurnOnObjectDestruction()
+    {
+        
+    }
     GameObject SpawnPrefab(Vector3 spawnPosition, quaternion rotation)
     {
         return Instantiate(itemToPlace, spawnPosition, rotation);
