@@ -11,6 +11,7 @@ TagManager:
   - Wall
   - Obstacle
   - Shield
+  - Stair
   layers:
   - Default
   - TransparentFX
