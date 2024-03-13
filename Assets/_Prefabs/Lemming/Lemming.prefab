@@ -377,6 +377,7 @@ MonoBehaviour:
   collidingObjects:
   - Wall
   - Obstacle
+  force: 8
   groundedOffset: {x: 0, y: 0.1, z: 0}
   maxDistanceOffGround: 0.2
   turnSpeedSide: 0
@@ -387,6 +388,7 @@ MonoBehaviour:
   startRotation: {x: 0, y: 0, z: 0}
   endRotation: {x: 0, y: 0, z: 0}
   isGrounded: 0
+  climbStairs: 0
   boxCastSize: {x: 0.4, y: 1, z: 0.4}
 --- !u!114 &1002216912117578390
 MonoBehaviour:
