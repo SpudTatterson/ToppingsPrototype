@@ -120,12 +120,11 @@ public class PlacementManager : MonoBehaviour
     }
     void LookForObjectsToDestroy()
     {
-        Debug.Log("test");
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit) && Input.GetKeyDown(KeyCode.Mouse0))
         {
-            GameObject selectedGameObject = hit.collider.gameObject;
+            GameObject selectedGameObject = hit.collider.gameObject.GetComponentInParent<Placeable>().gameObject;
             if (IsPlaced(selectedGameObject))
             {
                 Destroy(selectedGameObject);
