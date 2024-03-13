@@ -96,7 +96,7 @@ public class PlacementManager : MonoBehaviour
     bool CheckIfObjectFits()
     {
         if (mr == null) return true;
-        return !Physics.CheckBox(mr.bounds.center, mr.bounds.size / 2, tempGO.transform.rotation, ~groundLayer);
+        return !Physics.CheckBox(mr.bounds.center, mr.bounds.size / 2, tempGO.transform.rotation, ~groundLayer, QueryTriggerInteraction.Ignore);
     }
     bool CanPlaceSecondaryObject()
     {
