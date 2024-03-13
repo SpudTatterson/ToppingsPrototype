@@ -1988,12 +1988,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647947762}
   m_CullTransparentMesh: 1
---- !u!1 &704928470 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5113305972013826573, guid: ea2317a71c4378c41a01e75863a1af6a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8793397001326667119}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &730478416
 GameObject:
   m_ObjectHideFlags: 0
@@ -2483,12 +2477,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6727730002719883008, guid: 8443945175bc0304d80f07448ec4de15,
     type: 3}
   m_PrefabInstance: {fileID: 1191565324}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1034822620 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3326316102902556689, guid: ea2317a71c4378c41a01e75863a1af6a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8793397001326667119}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1036451248
 GameObject:
@@ -3150,12 +3138,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d1ee00db12f8e14cbe18fb0ff06685d, type: 3}
---- !u!1 &1355728680 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8835714038786464960, guid: ea2317a71c4378c41a01e75863a1af6a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8793397001326667119}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1365198838
 GameObject:
   m_ObjectHideFlags: 0
@@ -3517,12 +3499,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &1508552314 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 682154605314534883, guid: ea2317a71c4378c41a01e75863a1af6a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8793397001326667119}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1521299774
 GameObject:
   m_ObjectHideFlags: 0
@@ -4392,18 +4368,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1914114633 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4748002828590076246, guid: ea2317a71c4378c41a01e75863a1af6a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8793397001326667119}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2002907683 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7966259396197754419, guid: ea2317a71c4378c41a01e75863a1af6a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8793397001326667119}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2046531866
 GameObject:
   m_ObjectHideFlags: 0
@@ -4602,12 +4566,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90d6cc9d0b9d73b4897014e37af1db4f, type: 3}
---- !u!1 &2143012328 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6418249791009261917, guid: ea2317a71c4378c41a01e75863a1af6a,
-    type: 3}
-  m_PrefabInstance: {fileID: 8793397001326667119}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &81670895542102911 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2743861471600301799, guid: 8c939e073a15f104c98bf2ef3d510dab,
@@ -5143,51 +5101,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6019666951839019732, guid: ea2317a71c4378c41a01e75863a1af6a,
-        type: 3}
-      propertyPath: unlimitedParachutes
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6019666951839019732, guid: ea2317a71c4378c41a01e75863a1af6a,
-        type: 3}
-      propertyPath: parachutes.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6019666951839019732, guid: ea2317a71c4378c41a01e75863a1af6a,
-        type: 3}
-      propertyPath: parachutes.Array.data[0]
-      value: 
-      objectReference: {fileID: 1034822620}
-    - target: {fileID: 6019666951839019732, guid: ea2317a71c4378c41a01e75863a1af6a,
-        type: 3}
-      propertyPath: parachutes.Array.data[1]
-      value: 
-      objectReference: {fileID: 2002907683}
-    - target: {fileID: 6019666951839019732, guid: ea2317a71c4378c41a01e75863a1af6a,
-        type: 3}
-      propertyPath: parachutes.Array.data[2]
-      value: 
-      objectReference: {fileID: 2143012328}
-    - target: {fileID: 6019666951839019732, guid: ea2317a71c4378c41a01e75863a1af6a,
-        type: 3}
-      propertyPath: parachutes.Array.data[3]
-      value: 
-      objectReference: {fileID: 1508552314}
-    - target: {fileID: 6019666951839019732, guid: ea2317a71c4378c41a01e75863a1af6a,
-        type: 3}
-      propertyPath: parachutes.Array.data[4]
-      value: 
-      objectReference: {fileID: 1914114633}
-    - target: {fileID: 6019666951839019732, guid: ea2317a71c4378c41a01e75863a1af6a,
-        type: 3}
-      propertyPath: parachutes.Array.data[5]
-      value: 
-      objectReference: {fileID: 704928470}
-    - target: {fileID: 6019666951839019732, guid: ea2317a71c4378c41a01e75863a1af6a,
-        type: 3}
-      propertyPath: parachutes.Array.data[6]
-      value: 
-      objectReference: {fileID: 1355728680}
     - target: {fileID: 7714466212057560990, guid: ea2317a71c4378c41a01e75863a1af6a,
         type: 3}
       propertyPath: m_Name

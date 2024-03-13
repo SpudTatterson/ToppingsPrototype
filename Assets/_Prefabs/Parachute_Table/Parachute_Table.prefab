@@ -911,6 +911,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd34567d84786f94ba4e8575a4612ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unlimitedParachutes: 0
+  parachutes:
+  - {fileID: 3326316102902556689}
+  - {fileID: 7966259396197754419}
+  - {fileID: 6418249791009261917}
+  - {fileID: 682154605314534883}
+  - {fileID: 4748002828590076246}
+  - {fileID: 5113305972013826573}
+  - {fileID: 8835714038786464960}
 --- !u!1 &7966259396197754419
 GameObject:
   m_ObjectHideFlags: 0

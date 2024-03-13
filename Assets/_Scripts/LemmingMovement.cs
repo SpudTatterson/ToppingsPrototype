@@ -64,11 +64,11 @@ public class LemmingMovement : MonoBehaviour
 
         if (climbStairs)
         {
-            rb.AddForce(transform.up * force);
-        }
-        else
-        {
-
+            rb.AddForce(transform.up * force * Time.fixedDeltaTime);
+            if ((rb.velocity.magnitude < maxWalkSpeed) && walking)
+            {
+                rb.AddRelativeForce(Vector3.forward * accelerationSpeed * Time.fixedDeltaTime);
+            }
         }
     }
 
