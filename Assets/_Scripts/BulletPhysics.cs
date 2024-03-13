@@ -50,6 +50,11 @@ public class BulletPhysics : MonoBehaviour
                 gameObject.GetComponentInChildren<Renderer>().material.color = Color.red; // This here is for testing only - remove if not needed
             }
         }
+        else if (hit.collider.TryGetComponent(out Turret turret) && hit.distance <= (bulletSpeed / 200))
+        {
+            turret.TakeDamage(bulletDamage);
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -59,4 +64,6 @@ public class BulletPhysics : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
 }

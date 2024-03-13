@@ -12,6 +12,7 @@ public class Turret : MonoBehaviour
     [SerializeField] LayerMask lemmingLayer;
     [SerializeField] Transform turretHead;
     [SerializeField] GameObject lightBulb;
+    [SerializeField] float turretHealth;
 
     [Header("Turret Idle Status Settings")]
     [SerializeField] float radiusOfScan;
@@ -69,13 +70,29 @@ public class Turret : MonoBehaviour
     {
         Spotting();
 
-        if (targettedLemming != null) AimAtTarget();
-        else Idle();
+        if (targettedLemming != null)
+        {
+            AimAtTarget();
+        }
+        else
+        {
+            Idle();
+        }
+
+        if(turretHealth <= 0f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void FixedUpdate()
     {
         Shoot();
+    }
+
+    public void TakeDamage(float damage)
+    {
+        turretHealth -= damage;
     }
 
     private void Idle()
