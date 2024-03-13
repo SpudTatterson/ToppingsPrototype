@@ -17,6 +17,8 @@ public class LemmingMovement : MonoBehaviour
     [Tooltip("Insert here the tags of the obstacles that the lemming will hit and rotate 180 degrees back")]
     public string[] collidingObjects;
 
+    public float force;
+
     public Vector3 groundedOffset = new Vector3 (0,0.1f,0);
     public float maxDistanceOffGround = 0.2f;
 
@@ -29,6 +31,7 @@ public class LemmingMovement : MonoBehaviour
     [HideInInspector] public Vector3 startRotation;
     [HideInInspector] public Vector3 endRotation;
     public bool isGrounded;
+    public bool climbStairs;
     
 
     public Vector3 boxCastSize;
@@ -47,6 +50,7 @@ public class LemmingMovement : MonoBehaviour
         rb.drag = isGrounded ? 1 : 0;
 
         LemmingRotation();
+        Climb();
 
         Physics.BoxCast(transform.localPosition + transform.up, boxCastSize, transform.forward, out hit, transform.localRotation, 1);
     }
@@ -56,6 +60,15 @@ public class LemmingMovement : MonoBehaviour
         if ((rb.velocity.magnitude < maxWalkSpeed) && walking && isGrounded)
         {
             rb.AddRelativeForce(Vector3.forward * accelerationSpeed * Time.fixedDeltaTime);
+        }
+
+        if (climbStairs)
+        {
+            rb.AddForce(transform.up * force);
+        }
+        else
+        {
+
         }
     }
 
@@ -68,6 +81,28 @@ public class LemmingMovement : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         TurnBackOnCollision(collision);
+    }
+
+    private void Climb()
+    {
+        Ray ray = new Ray(transform.position + new Vector3(0,0.1f,0), transform.forward);
+        RaycastHit hitStair;
+        Physics.Raycast(ray, out hitStair, 0.5f);
+
+        if (hitStair.collider == null)
+        {
+            climbStairs = false;
+            return;
+        }
+
+        if (hitStair.collider.CompareTag("Stair"))
+        {
+            climbStairs = true;
+        }
+        else
+        {
+            climbStairs = false;
+        }
     }
 
     public void Knockback()
@@ -88,6 +123,7 @@ public class LemmingMovement : MonoBehaviour
 
         for (int i = 0; i < collidingObjects.Length; i++)
         {
+            if (hit.collider == null) return;
             if (collision.collider.tag == collidingObjects[i] && hit.collider.name == collision.collider.name)
             {
                 Knockback();
