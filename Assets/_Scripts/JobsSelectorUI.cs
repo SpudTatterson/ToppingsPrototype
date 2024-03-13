@@ -8,11 +8,11 @@ using UnityEngine.UI;
 public class JobsSelectorUI : MonoBehaviour
 {
     [SerializeField] Button woodCutter;
-    [SerializeField] Button paratrooper;
+    //[SerializeField] Button paratrooper;
     [SerializeField] Button shieldLemming;
 
     private bool woodCutterUI;
-    private bool paratrooperUI;
+    //private bool paratrooperUI;
     private bool ShieldLemmingUI;
 
     EventSystem currentUI;
@@ -30,21 +30,21 @@ public class JobsSelectorUI : MonoBehaviour
             if (currentUI.currentSelectedGameObject.name == woodCutter.name)
             {
                 woodCutterUI = true;
-                paratrooperUI = false;
+                //paratrooperUI = false;
                 ShieldLemmingUI = false;
             }
 
-            if (currentUI.currentSelectedGameObject.name == paratrooper.name)
+/*            if (currentUI.currentSelectedGameObject.name == paratrooper.name)
             {
                 paratrooperUI = true;
                 woodCutterUI = false;
                 ShieldLemmingUI = false;
-            }
+            }*/
 
             if (currentUI.currentSelectedGameObject.name == shieldLemming.name)
             {
                 ShieldLemmingUI = true;
-                paratrooperUI = false;
+                //paratrooperUI = false;
                 woodCutterUI = false;
             }
         }
@@ -67,7 +67,7 @@ public class JobsSelectorUI : MonoBehaviour
             }
         }
 
-        if (paratrooperUI)
+/*        if (paratrooperUI)
         {
             if (hit.collider.TryGetComponent(out WorkerLogic workerLogicScript) && Input.GetKeyDown(KeyCode.Mouse0) && workerLogicScript.basicOutfit.activeSelf)
             {
@@ -79,7 +79,7 @@ public class JobsSelectorUI : MonoBehaviour
             {
                 paratrooperUI = false;
             }
-        }
+        }*/
 
         if (ShieldLemmingUI)
         {
