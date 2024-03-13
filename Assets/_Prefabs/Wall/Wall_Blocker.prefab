@@ -156,6 +156,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 77516794168428319}
+  - component: {fileID: -306606829835341705}
   m_Layer: 8
   m_Name: Wall_Blocker
   m_TagString: Untagged
@@ -180,6 +181,21 @@ Transform:
   - {fileID: 3807878699560361860}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-306606829835341705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7970550664078928142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8edd797819526f4f89173ba3d790b08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondaryPlacable: {fileID: 0}
+  hasSecondaryPlacement: 0
+  maxSecondaryObjectDistance: 5
 --- !u!1 &8563089321921398122
 GameObject:
   m_ObjectHideFlags: 0
