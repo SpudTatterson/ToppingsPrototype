@@ -916,6 +916,7 @@ GameObject:
   - component: {fileID: 8444422551205644782}
   - component: {fileID: 4299545297918880498}
   - component: {fileID: 6019666951839019732}
+  - component: {fileID: -6458035174220811381}
   m_Layer: 0
   m_Name: Parachute_Table
   m_TagString: Untagged
@@ -1004,6 +1005,21 @@ MonoBehaviour:
   - {fileID: 4748002828590076246}
   - {fileID: 5113305972013826573}
   - {fileID: 8835714038786464960}
+--- !u!114 &-6458035174220811381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7714466212057560990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8edd797819526f4f89173ba3d790b08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondaryPlacable: {fileID: 0}
+  hasSecondaryPlacement: 0
+  maxSecondaryObjectDistance: 5
 --- !u!1 &7966259396197754419
 GameObject:
   m_ObjectHideFlags: 0

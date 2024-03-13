@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 3812836029062408391}
   - component: {fileID: 6458705154611654912}
   - component: {fileID: 2913351593048149966}
+  - component: {fileID: 9184680787794379513}
   m_Layer: 0
   m_Name: Sign_Left
   m_TagString: Left_Sign
@@ -150,6 +151,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.403163, y: 2.0050678, z: 0.233423}
   m_Center: {x: 0.0028390884, y: 1.0022287, z: -0.0028390884}
+--- !u!114 &9184680787794379513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882610876595308751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8edd797819526f4f89173ba3d790b08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondaryPlacable: {fileID: 0}
+  hasSecondaryPlacement: 0
+  maxSecondaryObjectDistance: 5
 --- !u!1 &2461941912807302771
 GameObject:
   m_ObjectHideFlags: 0
