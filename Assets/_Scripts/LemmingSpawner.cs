@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LemmingSpawner : MonoBehaviour
 {
+    [SerializeField] private AudioClip[] MinionSoundClips;
     [Header("Spawner Settings")]
     [Space]
     [Tooltip("The object that the spawner will spawn")]
@@ -24,18 +25,21 @@ public class LemmingSpawner : MonoBehaviour
 
     private void Update()
     {
+        
         Spawner();
     }
 
     private void Spawner()
     {
         timer += Time.deltaTime;
-
+        
         if (timer > delayBetweenSpawns && lemmingCount > 0)
         {
+            SoundsFXManager.instance.PlayRandomSoundFXClip(MinionSoundClips, transform, 1f);
             Instantiate(lemming, spawnPoint.position, spawnPoint.rotation);
             timer = 0f;
             lemmingCount -= 1;
+            
         }
     }
 }
