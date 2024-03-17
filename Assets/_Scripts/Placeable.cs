@@ -3,9 +3,10 @@ using NaughtyAttributes;
 
 public class Placeable : MonoBehaviour
 {
-    [ShowIf("hasSecondaryPlacement")]public GameObject secondaryPlacable;
+    public bool lockToGrid = true;
     public bool hasSecondaryPlacement = false;
-    [ShowIf("hasSecondaryPlacement")]public float maxSecondaryObjectDistance = 5;
+    [ShowIf("hasSecondaryPlacement")] public GameObject secondaryPlacable;
+    [ShowIf("hasSecondaryPlacement")] public float maxSecondaryObjectDistance = 5;
     public virtual void SecondaryPlacement()
     {
 
