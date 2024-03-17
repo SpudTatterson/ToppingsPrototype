@@ -1,10 +1,11 @@
 using UnityEngine;
+using NaughtyAttributes;
 
 public class Placeable : MonoBehaviour
 {
-    public GameObject secondaryPlacable;
+    [ShowIf("hasSecondaryPlacement")]public GameObject secondaryPlacable;
     public bool hasSecondaryPlacement = false;
-    public float maxSecondaryObjectDistance = 5;
+    [ShowIf("hasSecondaryPlacement")]public float maxSecondaryObjectDistance = 5;
     public virtual void SecondaryPlacement()
     {
 
