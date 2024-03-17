@@ -7,6 +7,7 @@ public class GridInfo : MonoBehaviour
     Renderer mr;
     Vector3 centerPoint;
     Vector3 rightSide, leftSide, top, bottom;
+    Vector3[] points;
 
     [Tooltip("Control how close to the edge the point is (0.0 = center, 1.0 = edge)")]
     [SerializeField, Range(0, 1)] float lerpFactor = 0.75f;
@@ -53,7 +54,25 @@ public class GridInfo : MonoBehaviour
     {
         return centerPoint;
     }
+    public Vector3 FindClosestPoint(Vector3 hitPosition)
+    {
+        if(points == null)
+            points = new Vector3[] { GetCenter(), GetRightSide(), GetLeftSide(), GetTop(), GetBottom() };
+        float closestDistanceSqr = Mathf.Infinity;
+        Vector3 closestPoint = Vector3.zero;
 
+        foreach (Vector3 point in points)
+        {
+            float distanceSqr = (hitPosition - point).sqrMagnitude;
+            if (distanceSqr < closestDistanceSqr)
+            {
+                closestDistanceSqr = distanceSqr;
+                closestPoint = point;
+            }
+        }
+
+        return closestPoint;
+    }
     void InitAllVectors() //for gizmos
     {
         GetRightSide();

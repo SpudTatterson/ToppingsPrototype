@@ -42,8 +42,8 @@ public class PlacementManager : MonoBehaviour
                 if (isPlacingSecondaryObject) Destroy(lastPlaced.gameObject);
                 return;
             }
-
-            Vector3 placementPoint = hit.point;
+            GridInfo currentGrid = hit.collider.GetComponentInParent<GridInfo>();
+            Vector3 placementPoint = currentGrid.FindClosestPoint(hit.point);
             if (tempGO == null && itemToPlace != null)// initialization 
             {
                 tempGO = Instantiate(itemToPlace);// spawn visual aid if it doesn't exist
