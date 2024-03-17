@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -48,17 +49,17 @@ public class PlacementManager : MonoBehaviour
 
             if (Input.GetButtonDown("Fire2")) // if pressed right click cancel everything
             {
-                itemToPlace = null;
-                heldPlaceable = null;
-                Destroy(tempGO);
-                if (isPlacingSecondaryObject) Destroy(lastPlaced.gameObject);
+                ClearCurrentVars();
                 return;
             }
             Vector3 placementPoint;
             if (heldPlaceable.lockToGrid)
             {
                 GridInfo currentGrid = hit.collider.GetComponentInParent<GridInfo>();
-                placementPoint = currentGrid.FindClosestPoint(hit.point);
+                if (heldPlaceable.lockToCenter)
+                    placementPoint = currentGrid.GetCenter();
+                else
+                    placementPoint = currentGrid.FindClosestPoint(hit.point);
             }
             else
                 placementPoint = hit.point;
@@ -117,7 +118,13 @@ public class PlacementManager : MonoBehaviour
         }
 
     }
-
+    void ClearCurrentVars()
+    {
+        itemToPlace = null;
+        heldPlaceable = null;
+        Destroy(tempGO);
+        if (isPlacingSecondaryObject) Destroy(lastPlaced.gameObject);
+    }
     bool CheckIfObjectFits()
     {
         if (mr == null) return true;
@@ -148,6 +155,7 @@ public class PlacementManager : MonoBehaviour
     }
     public void TurnOnObjectDestruction()
     {
+        ClearCurrentVars();
         isDestroying = true;
     }
     GameObject SpawnPrefab(Vector3 spawnPosition, quaternion rotation)
@@ -156,6 +164,7 @@ public class PlacementManager : MonoBehaviour
     }
     public void SetNewItemToPlace(GameObject item)
     {
+        ClearCurrentVars();
         itemToPlace = item;
     }
     void OnDrawGizmos()

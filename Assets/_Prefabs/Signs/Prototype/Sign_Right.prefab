@@ -448,8 +448,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8edd797819526f4f89173ba3d790b08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondaryPlacable: {fileID: 0}
+  lockToGrid: 1
+  lockToCenter: 0
   hasSecondaryPlacement: 0
+  secondaryPlacable: {fileID: 0}
   maxSecondaryObjectDistance: 5
 --- !u!1 &7044007668830413724
 GameObject:
