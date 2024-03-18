@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LemmingHealth : MonoBehaviour
 {
-    [SerializeField] public float health;
+    [SerializeField] private float health;
 
     private void Update()
     {
@@ -12,5 +12,10 @@ public class LemmingHealth : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
     }
 }

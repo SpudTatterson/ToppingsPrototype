@@ -209,7 +209,7 @@ public class Turret : MonoBehaviour
             if (shotCooldown >= timeBetweenShots)
             {
                 var cloneBullet = Instantiate(bullet, bulletSpawnPoint.position + PositionAccuracy(bulletDispersion), bulletSpawnPoint.rotation * RotationAccuracy(accuracy));
-                cloneBullet.GetComponent<Rigidbody>().AddForce(cloneBullet.transform.forward * bulletSpeed);
+                cloneBullet.GetComponent<Rigidbody>().AddForce(cloneBullet.transform.forward * bulletSpeed * Time.fixedDeltaTime);
                 Destroy(cloneBullet, 5f);
                 shotCooldown = 0;
             }
