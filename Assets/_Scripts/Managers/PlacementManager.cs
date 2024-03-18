@@ -46,7 +46,8 @@ public class PlacementManager : MonoBehaviour
 
             if (heldPlaceable == null)
                 heldPlaceable = itemToPlace.GetComponent<Placeable>();
-
+            if (isPlacingSecondaryObject)
+                heldPlaceable = lastPlaced;
             if (Input.GetButtonDown("Fire2")) // if pressed right click cancel everything
             {
                 ClearCurrentVars();
@@ -124,6 +125,7 @@ public class PlacementManager : MonoBehaviour
         heldPlaceable = null;
         Destroy(tempGO);
         if (isPlacingSecondaryObject) Destroy(lastPlaced.gameObject);
+        isPlacingSecondaryObject = false;
     }
     bool CheckIfObjectFits()
     {
