@@ -2141,13 +2141,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203844586}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.62026584, y: -0.1975496, z: 0.20494203, w: 0.7309195}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 81.005, y: -12.766, z: 20.41}
 --- !u!1 &205520528
 GameObject:
   m_ObjectHideFlags: 0
@@ -2308,13 +2308,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5021534874080856315, guid: 65a3cd14a73e4bf49afc521d4d7aec30,
         type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.94664824
+      objectReference: {fileID: 0}
+    - target: {fileID: 5021534874080856315, guid: 65a3cd14a73e4bf49afc521d4d7aec30,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.55
+      value: -22.676
       objectReference: {fileID: 0}
     - target: {fileID: 5021534874080856315, guid: 65a3cd14a73e4bf49afc521d4d7aec30,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.2100008
+      value: -1.21
       objectReference: {fileID: 0}
     - target: {fileID: 5021534874080856315, guid: 65a3cd14a73e4bf49afc521d4d7aec30,
         type: 3}
@@ -2355,6 +2360,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5021534874080856315, guid: 65a3cd14a73e4bf49afc521d4d7aec30,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5691357990853218881, guid: 65a3cd14a73e4bf49afc521d4d7aec30,
         type: 3}
@@ -14208,6 +14218,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fan (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7358771534479230291, guid: 8c939e073a15f104c98bf2ef3d510dab,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16697,13 +16712,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 77df6ffcfb6b1354b9df610817457bb4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.481
+  m_Volume: 0.008
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 142
+  Priority: 188
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
