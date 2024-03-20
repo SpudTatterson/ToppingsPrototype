@@ -49,10 +49,14 @@ public class PlacementManager : MonoBehaviour
                     c.enabled = false;
                 }
                 tempGO.GetComponent<Placeable>().enabled = false;
-                MeshRenderer[] mrs = tempGO.GetComponentsInChildren<MeshRenderer>();
-                foreach (MeshRenderer mr in mrs)
+                
+                if(unplacedMaterial != null)
+                {
+                    MeshRenderer[] mrs = tempGO.GetComponentsInChildren<MeshRenderer>();
+                    foreach (MeshRenderer mr in mrs)
                 {
                     mr.material = unplacedMaterial;
+                }
                 }
             }
 
