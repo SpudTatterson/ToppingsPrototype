@@ -9,6 +9,7 @@ public class PlacementManager : MonoBehaviour
     Camera cam;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] GameObject itemToPlace;
+    [SerializeField] Material unplacedMaterial;
 
     GameObject tempGO;
     MeshRenderer mr;
@@ -48,6 +49,11 @@ public class PlacementManager : MonoBehaviour
                     c.enabled = false;
                 }
                 tempGO.GetComponent<Placeable>().enabled = false;
+                MeshRenderer[] mrs = tempGO.GetComponentsInChildren<MeshRenderer>();
+                foreach (MeshRenderer mr in mrs)
+                {
+                    mr.material = unplacedMaterial;
+                }
             }
 
             if (heldPlaceable == null)
