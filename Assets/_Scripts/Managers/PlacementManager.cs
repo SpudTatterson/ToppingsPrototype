@@ -41,7 +41,13 @@ public class PlacementManager : MonoBehaviour
             {
                 tempGO = Instantiate(itemToPlace);// spawn visual aid if it doesn't exist
                 mr = tempGO.GetComponentInChildren<MeshRenderer>(); // get mesh render for later
-                tempGO.GetComponentInChildren<Collider>().enabled = false; // disable collider on tempGameObject so it wont interrupt placement
+
+                Collider[] colliders = tempGO.GetComponentsInChildren<Collider>(); // get all colliders
+                foreach (Collider c in colliders) // disable collider on tempGameObject so it wont interrupt placement
+                {
+                    c.enabled = false;
+                }
+                tempGO.GetComponent<Placeable>().enabled = false;
             }
 
             if (heldPlaceable == null)
