@@ -65,6 +65,7 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+<<<<<<< HEAD
     "com.unity.postprocessing": {
       "version": "3.4.0",
       "depth": 0,
@@ -74,6 +75,8 @@
       },
       "url": "https://packages.unity.com"
     },
+=======
+>>>>>>> origin/TurretBugFix
     "com.unity.probuilder": {
       "version": "5.2.2",
       "depth": 0,

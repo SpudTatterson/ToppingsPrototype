@@ -27,8 +27,14 @@ TagManager:
   - Shield
   - Draggable
   - 
+<<<<<<< HEAD
   - Player
   - 
+=======
+  - Turret
+  - 
+  - Fan
+>>>>>>> origin/TurretBugFix
   - 
   - 
   - 
