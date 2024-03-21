@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sign : MonoBehaviour
+public class Sign : Placeable
 {
     private float degree;
 
