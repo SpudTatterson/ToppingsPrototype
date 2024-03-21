@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 
 public class Turret : MonoBehaviour
 {
+    [SerializeField] private AudioClip[] BulletsSoundClips;
     [Header("Basic Settings")]
     [SerializeField] LayerMask lemmingLayer;
     [SerializeField] Transform turretHead;
@@ -87,7 +88,7 @@ public class Turret : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Shoot();
+        Shoot();       
     }
 
     public void TakeDamage(float damage)
@@ -194,7 +195,6 @@ public class Turret : MonoBehaviour
             turretHead.eulerAngles = new Vector3(0, turretHead.eulerAngles.y, 0);                       // Clamps the turret so it will only rotate on the Y axis
 
             var gap = RotateToTarget.eulerAngles.y - turretHead.eulerAngles.y;
-
             if (gap < 7 && gap > -7) shoot = true;
         }
     }
@@ -205,13 +205,14 @@ public class Turret : MonoBehaviour
         {
             StatusLightColor(Color.red);
             shotCooldown += Time.deltaTime;
-
+            
             if (shotCooldown >= timeBetweenShots)
-            {
+            {               
                 var cloneBullet = Instantiate(bullet, bulletSpawnPoint.position + PositionAccuracy(bulletDispersion), bulletSpawnPoint.rotation * RotationAccuracy(accuracy));
                 cloneBullet.GetComponent<Rigidbody>().AddForce(cloneBullet.transform.forward * bulletSpeed);
                 Destroy(cloneBullet, 5f);
                 shotCooldown = 0;
+                SoundsFXManager.instance.PlayRandomSoundFXClip(BulletsSoundClips, transform, 1f);
             }
         }
     }

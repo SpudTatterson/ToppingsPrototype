@@ -402,6 +402,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9395cd1d9bbb545989389670a8a842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChopingSoundClips:
+  - {fileID: 8300000, guid: 3cd07582c4312f542b97cf4fa4ca649c, type: 3}
+  - {fileID: 8300000, guid: 8413442508cd0344995a2757fc0a1052, type: 3}
+  - {fileID: 8300000, guid: 2698aaaeecfee6d4c9d52e093ffb29ba, type: 3}
   basicOutfit: {fileID: 4318848190420655394}
   woodCutterOutfit: {fileID: 6993598415611193169}
   hitCooldown: 2
