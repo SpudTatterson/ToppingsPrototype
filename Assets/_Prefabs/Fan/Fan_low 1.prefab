@@ -1706,7 +1706,7 @@ GameObject:
   - component: {fileID: 6316193446147033885}
   - component: {fileID: 6920270929467095555}
   - component: {fileID: 3357414391758192181}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Fan_low 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -25,6 +25,8 @@ public class JobsSelectorUI : MonoBehaviour
 
     private void Update()
     {
+        if (currentUI.currentSelectedGameObject == null) return;
+
         if (currentUI.currentSelectedGameObject != null)
         {
             if (currentUI.currentSelectedGameObject.name == woodCutter.name)
