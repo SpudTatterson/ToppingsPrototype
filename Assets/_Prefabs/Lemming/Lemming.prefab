@@ -402,11 +402,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9395cd1d9bbb545989389670a8a842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  smokePoof: {fileID: 8352661515953205377, guid: a2506a08c013c404784a1fa7c4bf53d2,
+    type: 3}
   basicOutfit: {fileID: 4318848190420655394}
   woodCutterOutfit: {fileID: 6993598415611193169}
-  hitCooldown: 2
   shieldLemmingOutfit: {fileID: 5818376540280807464}
   paratrooperOutfit: {fileID: 641319572095750431}
+  hitCooldown: 2
   parachuteFloat: 2
   velocityStop: 1.01
   woodCutter: 0

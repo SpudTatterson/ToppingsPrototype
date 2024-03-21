@@ -25,8 +25,6 @@ public class JobsSelectorUI : MonoBehaviour
 
     private void Update()
     {
-        if (currentUI.currentSelectedGameObject == null) return;
-
         if (currentUI.currentSelectedGameObject != null)
         {
             if (currentUI.currentSelectedGameObject.name == woodCutter.name)
@@ -36,12 +34,12 @@ public class JobsSelectorUI : MonoBehaviour
                 ShieldLemmingUI = false;
             }
 
-/*            if (currentUI.currentSelectedGameObject.name == paratrooper.name)
-            {
-                paratrooperUI = true;
-                woodCutterUI = false;
-                ShieldLemmingUI = false;
-            }*/
+            /*            if (currentUI.currentSelectedGameObject.name == paratrooper.name)
+                        {
+                            paratrooperUI = true;
+                            woodCutterUI = false;
+                            ShieldLemmingUI = false;
+                        }*/
 
             if (currentUI.currentSelectedGameObject.name == shieldLemming.name)
             {
@@ -51,7 +49,7 @@ public class JobsSelectorUI : MonoBehaviour
             }
         }
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);       
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Physics.Raycast(ray, out hit);
 
         if (hit.collider == null) return;
@@ -69,19 +67,19 @@ public class JobsSelectorUI : MonoBehaviour
             }
         }
 
-/*        if (paratrooperUI)
-        {
-            if (hit.collider.TryGetComponent(out WorkerLogic workerLogicScript) && Input.GetKeyDown(KeyCode.Mouse0) && workerLogicScript.basicOutfit.activeSelf)
-            {
-                workerLogicScript.paratrooper = true;
-                workerLogicScript.SetWorkerOutfit();
-                paratrooperUI = false;
-            }
-            else if (Input.GetKeyDown(KeyCode.Mouse0) && !hit.collider.CompareTag("Lemming"))
-            {
-                paratrooperUI = false;
-            }
-        }*/
+        /*        if (paratrooperUI)
+                {
+                    if (hit.collider.TryGetComponent(out WorkerLogic workerLogicScript) && Input.GetKeyDown(KeyCode.Mouse0) && workerLogicScript.basicOutfit.activeSelf)
+                    {
+                        workerLogicScript.paratrooper = true;
+                        workerLogicScript.SetWorkerOutfit();
+                        paratrooperUI = false;
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Mouse0) && !hit.collider.CompareTag("Lemming"))
+                    {
+                        paratrooperUI = false;
+                    }
+                }*/
 
         if (ShieldLemmingUI)
         {

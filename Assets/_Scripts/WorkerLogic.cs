@@ -6,18 +6,19 @@ using UnityEngine;
 
 public class WorkerLogic : MonoBehaviour
 {
-    [Header("Base Lemming Settings")]
+    [Header("Effects")]
+    [SerializeField] private GameObject smokePoof;
+
+    [Header("Lemming Outfits")]
     [SerializeField] public GameObject basicOutfit;
+    [SerializeField] private GameObject woodCutterOutfit;
+    [SerializeField] private GameObject shieldLemmingOutfit;
+    [SerializeField] private GameObject paratrooperOutfit;
 
     [Header("Wood Cutter Lemming Settings")]
-    [SerializeField] private GameObject woodCutterOutfit;
     [SerializeField] private float hitCooldown;
 
-    [Header("Shield Lemming Settings")]
-    [SerializeField] private GameObject shieldLemmingOutfit;
-
     [Header("Paratrooper Lemming Settings")]
-    [SerializeField] private GameObject paratrooperOutfit;
     [SerializeField] private float parachuteFloat;
     [SerializeField][Range(1.01f, 1.1f)] private float velocityStop;
 
@@ -58,6 +59,8 @@ public class WorkerLogic : MonoBehaviour
         if (woodCutter) { woodCutterOutfit.SetActive(true); }
         if (paratrooper) { paratrooperOutfit.SetActive(true); }
         if (shieldLemming) { shieldLemmingOutfit.SetActive(true); }
+        var smoke = Instantiate(smokePoof, transform);
+        Destroy(smoke, 5);
     }
 
     private void WoodCutterLogic()

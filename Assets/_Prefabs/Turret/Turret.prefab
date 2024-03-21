@@ -489,6 +489,8 @@ MonoBehaviour:
     m_Bits: 64
   turretHead: {fileID: 2904002252169734177}
   lightBulb: {fileID: 8884321690717255432}
+  bulletSmoke: {fileID: 5878572897445837893, guid: ca2e73def1fbba84097df0ee925a2545,
+    type: 3}
   turretHealth: 100
   radiusOfScan: 130
   rotationSpeed: 4
@@ -1759,7 +1761,7 @@ Transform:
   m_GameObject: {fileID: 8865652664178213125}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.1610032}
+  m_LocalPosition: {x: 0, y: 0, z: 1.253}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

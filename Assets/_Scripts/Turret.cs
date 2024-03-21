@@ -12,6 +12,7 @@ public class Turret : MonoBehaviour
     [SerializeField] LayerMask lemmingLayer;
     [SerializeField] Transform turretHead;
     [SerializeField] GameObject lightBulb;
+    [SerializeField] GameObject bulletSmoke;
     [SerializeField] float turretHealth;
 
     [Header("Turret Idle Status Settings")]
@@ -209,7 +210,10 @@ public class Turret : MonoBehaviour
             if (shotCooldown >= timeBetweenShots)
             {
                 var cloneBullet = Instantiate(bullet, bulletSpawnPoint.position + PositionAccuracy(bulletDispersion), bulletSpawnPoint.rotation * RotationAccuracy(accuracy));
+                var bulletSmokePosition = new Vector3(cloneBullet.transform.position.x, cloneBullet.transform.position.y, bulletSpawnPoint.position.z);
+                var bulletSmoke = Instantiate(this.bulletSmoke, bulletSmokePosition, cloneBullet.transform.rotation);
                 cloneBullet.GetComponent<Rigidbody>().AddForce(cloneBullet.transform.forward * bulletSpeed * Time.fixedDeltaTime);
+                Destroy(bulletSmoke, 2f);
                 Destroy(cloneBullet, 5f);
                 shotCooldown = 0;
             }
