@@ -5,12 +5,13 @@ using System.Collections;
 
 public class CameraController : MonoBehaviour
 {
-    [Header("Settings")]
+    [Header("Movement Settings")]
     [SerializeField] Vector2 minMaxDistance = new Vector2(10, 40);
     [SerializeField, DisableIf("useFollowTarget")] float speed = 0.1f;
     [SerializeField] float rotationIncrement = 45;
     [SerializeField] bool useFollowTarget = true;
     [SerializeField] float CamResetSpeed = 1f;
+    [Header("Drag Settings")]
     [SerializeField] KeyCode dragToMoveCameraKeyCode = KeyCode.Mouse2;
     [SerializeField]float dragSmoothing = 2;
     [SerializeField] LayerMask draggableLayers;
@@ -54,8 +55,8 @@ public class CameraController : MonoBehaviour
     {
         if (!useFollowTarget)
         {
-        //     Vector3 movementDirection = new Vector3(vert, 0, -horiz);
-        //     cameraPivot.Translate(movementDirection.normalized * speed);
+            Vector3 movementDirection = new Vector3(vert, 0, -horiz);
+            cameraPivot.Translate(movementDirection.normalized * speed);
         }
         else
         cameraPivot.position = followTarget.position;
