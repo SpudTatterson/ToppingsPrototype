@@ -3,15 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Right_Sign
-  - Left_Sign
-  - Lemming
-  - Fan
-  - Wall
-  - Obstacle
-  - Shield
-  - Stair
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -19,15 +11,15 @@ TagManager:
   - 
   - Water
   - UI
-  - Lemming
-  - Obstacle
-  - Wall
-  - Ground
-  - Bullet
-  - Shield
-  - Draggable
   - 
-  - Player
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
