@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParachuteTable : MonoBehaviour
+public class ParachuteTable : Placeable
 {
     public bool unlimitedParachutes;
     public List<GameObject> parachutes = new List<GameObject>();

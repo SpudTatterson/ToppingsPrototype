@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.IO;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -7,11 +9,15 @@ public class PlacementManager : MonoBehaviour
     Camera cam;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] GameObject itemToPlace;
+    [SerializeField] Material unplacedMaterial;
 
     GameObject tempGO;
     MeshRenderer mr;
     bool isPlacingSecondaryObject = false;
+    bool isDestroying = false;
+    Placeable heldPlaceable;
     Placeable lastPlaced;
+    List<GameObject> placedObjects = new List<GameObject>();
 
 
     void Awake()
@@ -20,27 +26,62 @@ public class PlacementManager : MonoBehaviour
     }
     void Update()
     {
+        if (isDestroying)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+                isDestroying = false;
+            LookForObjectsToDestroy();
+            return;
+        }
         Ray camRay = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
         if (Physics.Raycast(camRay, out hit, Mathf.Infinity, groundLayer) && itemToPlace != null)
         {
-            if (Input.GetButtonDown("Fire2")) // if pressed right click cancel everything
-            {
-                itemToPlace = null;
-                Destroy(tempGO);
-                if (isPlacingSecondaryObject) Destroy(lastPlaced.gameObject);
-                return;
-            }
-
-            Vector3 placementPoint = hit.point;
             if (tempGO == null && itemToPlace != null)// initialization 
             {
                 tempGO = Instantiate(itemToPlace);// spawn visual aid if it doesn't exist
                 mr = tempGO.GetComponentInChildren<MeshRenderer>(); // get mesh render for later
-                tempGO.GetComponentInChildren<Collider>().enabled = false; // disable collider on tempGameObject so it wont interrupt placement
+
+                Collider[] colliders = tempGO.GetComponentsInChildren<Collider>(); // get all colliders
+                foreach (Collider c in colliders) // disable collider on tempGameObject so it wont interrupt placement
+                {
+                    c.enabled = false;
+                }
+                tempGO.GetComponent<Placeable>().enabled = false;
+                
+                if(unplacedMaterial != null)
+                {
+                    MeshRenderer[] mrs = tempGO.GetComponentsInChildren<MeshRenderer>();
+                    foreach (MeshRenderer mr in mrs)
+                {
+                    mr.material = unplacedMaterial;
+                }
+                }
             }
-            if(Input.GetKeyDown(KeyCode.R))
+
+            if (heldPlaceable == null)
+                heldPlaceable = itemToPlace.GetComponent<Placeable>();
+            if (isPlacingSecondaryObject)
+                heldPlaceable = lastPlaced;
+            if (Input.GetButtonDown("Fire2")) // if pressed right click cancel everything
+            {
+                ClearCurrentVars();
+                return;
+            }
+            Vector3 placementPoint;
+            if (heldPlaceable.lockToGrid)
+            {
+                GridInfo currentGrid = hit.collider.GetComponentInParent<GridInfo>();
+                if (heldPlaceable.lockToCenter)
+                    placementPoint = currentGrid.GetCenter();
+                else
+                    placementPoint = currentGrid.FindClosestPoint(hit.point);
+            }
+            else
+                placementPoint = hit.point;
+
+            if (Input.GetKeyDown(KeyCode.R))
             {
                 tempGO.transform.Rotate(Vector3.up * 90);
             }
@@ -49,7 +90,7 @@ public class PlacementManager : MonoBehaviour
             {
                 itemToPlace.transform.position = tempGO.transform.position;
             }
-            if(isPlacingSecondaryObject  && !CanPlaceSecondaryObject())
+            if (isPlacingSecondaryObject && !CanPlaceSecondaryObject())
             {
                 tempGO.transform.position = itemToPlace.transform.position;
             }
@@ -63,12 +104,14 @@ public class PlacementManager : MonoBehaviour
                     GameObject actualGO = SpawnPrefab(tempGO.transform.position, tempGO.transform.rotation); // spawn actual object
                     Placeable placeable = actualGO.GetComponent<Placeable>();
                     lastPlaced = placeable;
+                    placedObjects.Add(actualGO);
 
                     if (isPlacingSecondaryObject)
                     {
                         itemToPlace.transform.position = actualGO.transform.position;
                         Destroy(actualGO);
                         itemToPlace = null;
+                        heldPlaceable = null;
                         isPlacingSecondaryObject = false;
                     }
                     if (placeable != null && placeable.hasSecondaryPlacement)
@@ -92,23 +135,54 @@ public class PlacementManager : MonoBehaviour
         }
 
     }
-
+    void ClearCurrentVars()
+    {
+        itemToPlace = null;
+        heldPlaceable = null;
+        Destroy(tempGO);
+        if (isPlacingSecondaryObject) Destroy(lastPlaced.gameObject);
+        isPlacingSecondaryObject = false;
+    }
     bool CheckIfObjectFits()
     {
         if (mr == null) return true;
-        return !Physics.CheckBox(mr.bounds.center, mr.bounds.size / 2, tempGO.transform.rotation, ~groundLayer);
+        return !Physics.CheckBox(mr.bounds.center, mr.bounds.size / 2, tempGO.transform.rotation, ~groundLayer, QueryTriggerInteraction.Ignore);
     }
     bool CanPlaceSecondaryObject()
     {
         return Vector3.Distance(lastPlaced.transform.position, tempGO.transform.position) < lastPlaced.maxSecondaryObjectDistance;
     }
+    bool IsPlaced(GameObject gameObjectToDestroy)
+    {
+        return placedObjects.Contains(gameObjectToDestroy);
 
+    }
+    void LookForObjectsToDestroy()
+    {
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit) && Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            GameObject selectedGameObject = hit.collider.gameObject.GetComponentInParent<Placeable>().gameObject;
+            if (IsPlaced(selectedGameObject))
+            {
+                Destroy(selectedGameObject);
+                isDestroying = false;
+            }
+        }
+    }
+    public void TurnOnObjectDestruction()
+    {
+        ClearCurrentVars();
+        isDestroying = true;
+    }
     GameObject SpawnPrefab(Vector3 spawnPosition, quaternion rotation)
     {
         return Instantiate(itemToPlace, spawnPosition, rotation);
     }
     public void SetNewItemToPlace(GameObject item)
     {
+        ClearCurrentVars();
         itemToPlace = item;
     }
     void OnDrawGizmos()

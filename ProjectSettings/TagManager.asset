@@ -25,6 +25,7 @@ TagManager:
   - Ground
   - Bullet
   - Shield
+  - Draggable
   - 
   - Turret
   - 

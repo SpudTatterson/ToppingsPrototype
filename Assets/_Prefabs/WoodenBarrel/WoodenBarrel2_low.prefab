@@ -73,6 +73,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodenBarrel2_low
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2d10565b9069098479f10317f4cdcbe8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 6496617965536900457, guid: 2d10565b9069098479f10317f4cdcbe8,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

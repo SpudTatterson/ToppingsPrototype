@@ -51,7 +51,7 @@ public class WorkerLogic : MonoBehaviour
         basicOutfit.SetActive(true);
         woodCutterOutfit.SetActive(false);
         paratrooperOutfit.SetActive(false);
-        shieldLemmingOutfit.SetActive(false);
+        shieldLemmingOutfit.SetActive(false);  
         smokePoof.Play();
     }
 
