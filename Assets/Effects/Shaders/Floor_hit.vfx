@@ -65,7 +65,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 40
+      m_SerializableObject: 55
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -3483,7 +3483,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 40
+      m_SerializableObject: 55
     m_Space: 2147483647
   m_Property:
     name: o
@@ -4403,9 +4403,9 @@ MonoBehaviour:
   compositionPosition: 0
   compositionAxes: 0
   compositionDirection: 0
-  positionMode: 1
+  positionMode: 0
   spawnMode: 0
-  heightMode: 1
+  heightMode: 0
 --- !u!114 &8926484042661614896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4433,7 +4433,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.TArcCone, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"cone":{"transform":{"position":{"x":0.0,"y":0.0,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":1.0,"y":1.0,"z":1.0}},"baseRadius":0.20000000298023225,"topRadius":0.15000000596046449,"height":0.0},"arc":6.28000020980835}'
+      m_SerializableObject: '{"cone":{"transform":{"position":{"x":0.0,"y":0.0,"z":0.0},"angles":{"x":0.0,"y":0.0,"z":0.0},"scale":{"x":1.0,"y":1.0,"z":1.0}},"baseRadius":0.30000001192092898,"topRadius":0.3499999940395355,"height":0.0},"arc":6.28000020980835}'
     m_Space: 0
   m_Property:
     name: arcCone
@@ -5171,7 +5171,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: -3
+      m_SerializableObject: 3
     m_Space: 2147483647
   m_Property:
     name: MinSpeed
@@ -5205,7 +5205,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: -1
+      m_SerializableObject: 1
     m_Space: 2147483647
   m_Property:
     name: MaxSpeed
