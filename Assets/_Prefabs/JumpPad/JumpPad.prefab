@@ -267,8 +267,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282a6643faf01d24aadcdf939866bc35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondaryPlacable: {fileID: 8335445645703859904}
+  lockToGrid: 1
+  lockToCenter: 1
   hasSecondaryPlacement: 1
+  secondaryPlacable: {fileID: 8335445645703859904}
+  maxSecondaryObjectDistance: 15
   endPoint: {fileID: 3197293596424300494}
   lineRenderer: {fileID: 6005879439112842613}
   speed: 20
