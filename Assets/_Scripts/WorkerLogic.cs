@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class WorkerLogic : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class WorkerLogic : MonoBehaviour
     
     [Header("Base Lemming Settings")]
     [Header("Effects")]
-    [SerializeField] private GameObject smokePoof;
+    [SerializeField] private VisualEffect smokePoof;
 
     [Header("Lemming Outfits")]
     [SerializeField] public GameObject basicOutfit;
@@ -54,7 +55,8 @@ public class WorkerLogic : MonoBehaviour
         basicOutfit.SetActive(true);
         woodCutterOutfit.SetActive(false);
         paratrooperOutfit.SetActive(false);
-        shieldLemmingOutfit.SetActive(false);
+        shieldLemmingOutfit.SetActive(false);  
+        smokePoof.Play();
     }
 
     public void SetWorkerOutfit()
@@ -63,8 +65,7 @@ public class WorkerLogic : MonoBehaviour
         if (woodCutter) { woodCutterOutfit.SetActive(true); }
         if (paratrooper) { paratrooperOutfit.SetActive(true); }
         if (shieldLemming) { shieldLemmingOutfit.SetActive(true); }
-        var smoke = Instantiate(smokePoof, transform);
-        Destroy(smoke, 5);
+        smokePoof.Play();
     }
 
     private void WoodCutterLogic()
