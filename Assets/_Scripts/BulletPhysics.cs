@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BulletPhysics : MonoBehaviour
@@ -9,48 +11,75 @@ public class BulletPhysics : MonoBehaviour
     [HideInInspector] public float bulletDamage;
     [HideInInspector] public float bulletSpeed;
 
+    [SerializeField] public LayerMask layer;
+
     private Vector3 startPosition;
+    private Vector3 previousPosition;
+    private Vector3 currentPosition;
+    private RaycastHit hit;
 
     private void Start()
     {
-        startPosition = transform.position;
+        startPosition = transform.position;         // Gets the spawn position of the bullet
+        previousPosition = transform.position;      // Gets the previous position
+        layer = ~layer;                             // Takes the inputed layer and inverts it
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        Physics.Raycast(new Ray(transform.position, transform.forward), out RaycastHit hit);
-        //Debug.DrawRay(transform.position, transform.forward * 2, Color.red);
+        currentPosition = transform.position;                                    
+        var distance = Vector3.Distance(previousPosition, currentPosition);        
+
+        var directionFromPreviousBullet = currentPosition - previousPosition;
+        Ray ray = new Ray(previousPosition, directionFromPreviousBullet);
+        Physics.Raycast(ray, out hit, distance, layer);
+
+        if (hit.collider == null)
+        {
+            var directionToPreviousBullet = previousPosition - currentPosition;   
+            ray = new Ray(currentPosition, directionToPreviousBullet);            
+            Physics.Raycast(ray, out hit, distance, layer);                         
+        }
+
+        previousPosition = currentPosition;
 
         if (hit.collider == null) return;
-        if (hit.collider.TryGetComponent(out LemmingHealth lemmingHealthScript) && hit.distance <= (bulletSpeed / 200))
+
+        if (hit.collider.TryGetComponent(out LemmingHealth lemmingHealth))
         {
-            lemmingHealthScript.health -= bulletDamage;
+            lemmingHealth.TakeDamage(bulletDamage);
             Destroy(gameObject);
         }
-        else if (hit.collider.CompareTag("Shield") && hit.distance <= (bulletSpeed / 200))
+
+        if (hit.collider.CompareTag("Shield"))
         {
             if (reflectRealistic)
-            {
-                var rb = gameObject.GetComponent<Rigidbody>();
-                var direction = Vector3.Reflect(transform.forward, hit.normal);               
-                transform.forward = direction;
-                transform.position = hit.point + (transform.forward * 0.1f);               
-                rb.velocity = Vector3.zero;
-                rb.AddForce(transform.forward * bulletSpeed);
-                gameObject.GetComponentInChildren<Renderer>().material.color = Color.red; // This here is for testing only - remove if not needed
+            {               
+                var direction = Vector3.Reflect(transform.forward, hit.normal);
+                var position = hit.point - (transform.forward * .2f);
+                var cloneBullet = Instantiate(gameObject, position, Quaternion.LookRotation(direction));
+                cloneBullet.GetComponent<Rigidbody>().AddForce(cloneBullet.transform.forward * bulletSpeed * Time.fixedDeltaTime);
+                cloneBullet.GetComponent<BulletPhysics>().layer = ~layer;
+                Destroy(cloneBullet, 5f);
+                Destroy(gameObject);
             }
             else if (reflectBackToShooter)
             {
-                var rb = gameObject.GetComponent<Rigidbody>();
                 var direction = startPosition - transform.position;
-                transform.forward = direction;
-                transform.position = hit.point + (transform.forward * 0.1f);
-                rb.velocity = Vector3.zero;
-                rb.AddForce(transform.forward * bulletSpeed);
-                gameObject.GetComponentInChildren<Renderer>().material.color = Color.red; // This here is for testing only - remove if not needed
+                var position = hit.point - (transform.forward * .2f);
+                var cloneBullet = Instantiate(gameObject, position, Quaternion.LookRotation(direction));
+                cloneBullet.GetComponent<Rigidbody>().AddForce(cloneBullet.transform.forward * bulletSpeed * Time.fixedDeltaTime);
+                cloneBullet.GetComponent<BulletPhysics>().layer = ~layer;
+                Destroy(cloneBullet, 5f);
+                Destroy(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
             }
         }
-        else if (hit.collider.TryGetComponent(out Turret turret) && hit.distance <= (bulletSpeed / 200))
+
+        if (hit.collider.TryGetComponent(out Turret turret))
         {
             turret.TakeDamage(bulletDamage);
             Destroy(gameObject);
@@ -64,6 +93,4 @@ public class BulletPhysics : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-
 }

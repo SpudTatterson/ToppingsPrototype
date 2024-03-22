@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class LemmingMovement : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class LemmingMovement : MonoBehaviour
     public float RotationTime;
     [Tooltip("Insert here the tags of the obstacles that the lemming will hit and rotate 180 degrees back")]
     public string[] collidingObjects;
+
+    public VisualEffect groundStomp;
+    private float stompTimer;
 
     public float force;
 
@@ -41,10 +45,24 @@ public class LemmingMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         walking = true;
+        stompTimer = 1;
     }
 
     private void Update()
     {
+        if (isGrounded)
+        {
+            if(stompTimer == 0)
+            {
+                groundStomp.Play();
+            }
+            stompTimer += Time.time;
+        }
+        else
+        {
+            stompTimer = 0;
+        }
+
         isGrounded = GroundCheck();
 
         rb.drag = isGrounded ? 1 : 0;

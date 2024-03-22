@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.VFX;
 using Random = UnityEngine.Random;
 
 public class Turret : MonoBehaviour
@@ -12,6 +13,7 @@ public class Turret : MonoBehaviour
     [SerializeField] LayerMask lemmingLayer;
     [SerializeField] Transform turretHead;
     [SerializeField] GameObject lightBulb;
+    [SerializeField] VisualEffect bulletSmoke;
     [SerializeField] float turretHealth;
 
     [Header("Turret Idle Status Settings")]
@@ -209,8 +211,9 @@ public class Turret : MonoBehaviour
             if (shotCooldown >= timeBetweenShots)
             {
                 var cloneBullet = Instantiate(bullet, bulletSpawnPoint.position + PositionAccuracy(bulletDispersion), bulletSpawnPoint.rotation * RotationAccuracy(accuracy));
-                cloneBullet.GetComponent<Rigidbody>().AddForce(cloneBullet.transform.forward * bulletSpeed);
+                cloneBullet.GetComponent<Rigidbody>().AddForce(cloneBullet.transform.forward * bulletSpeed * Time.fixedDeltaTime);
                 Destroy(cloneBullet, 5f);
+                bulletSmoke.Play();
                 shotCooldown = 0;
             }
         }
