@@ -11,10 +11,12 @@ public class GridInfo : MonoBehaviour
     Vector3[] points;
 
     [Tooltip("Control how close to the edge the point is (0.0 = center, 1.0 = edge)")]
-    [SerializeField, Range(0, 1)] float lerpFactor = 0.75f;
+    [SerializeField, Range(0, 1), EnableIf("includeSides")] float lerpFactor = 0.75f;
 
     [Tooltip("Use the corners in the grid(effectively turning it to a 9x9)")]
-    [SerializeField] bool includeCorners = false;
+    [SerializeField, EnableIf("includeSides")] bool includeCorners = false;
+    [Tooltip("Use the sides in the grid")]
+    [SerializeField] bool includeSides = false;
 
     void Start()
     {
@@ -88,7 +90,7 @@ public class GridInfo : MonoBehaviour
     void UpdatePointsArray()
     {
         // This should be called after all individual points have been initialized.
-        if (includeCorners)
+        if (includeCorners && includeSides)
         {
             points = new Vector3[]
             {
@@ -96,18 +98,25 @@ public class GridInfo : MonoBehaviour
                 GetTopLeft(), GetTopRight(), GetBottomLeft(), GetBottomRight()
             };
         }
-        else
+        if (includeSides)
         {
             points = new Vector3[]
             {
                 GetCenter(), GetRightSide(), GetLeftSide(), GetTop(), GetBottom()
             };
         }
+        if(!includeCorners && !includeSides)
+        {
+            points = new Vector3[]
+            {
+                GetCenter()
+            };
+        }
     }
     public Vector3 FindClosestPoint(Vector3 hitPosition)
     {
         if (points == null)
-            points = new Vector3[] { GetCenter(), GetRightSide(), GetLeftSide(), GetTop(), GetBottom() };
+            UpdatePointsArray();
         float closestDistanceSqr = Mathf.Infinity;
         Vector3 closestPoint = Vector3.zero;
 
@@ -125,10 +134,13 @@ public class GridInfo : MonoBehaviour
     }
     void InitAllVectors() // For gizmos and initialization
     {
-        GetRightSide();
-        GetLeftSide();
-        GetTop();
-        GetBottom();
+        if (includeSides)
+        {
+            GetRightSide();
+            GetLeftSide();
+            GetTop();
+            GetBottom();
+        }
         if (includeCorners)
         {
             GetTopLeft();
