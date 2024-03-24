@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Log : MonoBehaviour
 {
+    
     public GameObject baseLog;
     public GameObject slightlyDamaged;
     public GameObject damaged;
@@ -15,6 +16,8 @@ public class Log : MonoBehaviour
 
     private void Update()
     {
+        
+
         SetLogGraphics(baseLog, 76, 100);
         SetLogGraphics(slightlyDamaged, 51, 75);
         SetLogGraphics(damaged, 26, 50);
@@ -26,6 +29,7 @@ public class Log : MonoBehaviour
         if(logHealth >= minHP && logHealth <= maxHP) 
         {
             logType.SetActive(true);
+            
         }
         else
         {
