@@ -6,10 +6,13 @@ public class Manager : MonoBehaviour
 {
     [SerializeField] float fastForwardMultiplier = 1;
     [SerializeField] float slowDownMultiplier = .1f;
+    [SerializeField] GameObject jobsButton;
+    [SerializeField] GameObject placeablesButton;
 
     private void Update()
     {
         ManipulateTime();
+        Hotkeys();
     }
 
     private void ManipulateTime()
@@ -26,5 +29,20 @@ public class Manager : MonoBehaviour
         {
             Time.timeScale = 1;
         }
+    }
+
+    private void Hotkeys()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            jobsButton.SetActive(true);
+            placeablesButton.SetActive(false);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            placeablesButton.SetActive(true);
+            jobsButton.SetActive(false);
+        }
+
     }
 }
