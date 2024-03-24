@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockToGrid: 1
-  lockToCenter: 1
+  lockToCenter: 0
   hasSecondaryPlacement: 1
   secondaryPlacable: {fileID: 8335445645703859904}
   maxSecondaryObjectDistance: 15
