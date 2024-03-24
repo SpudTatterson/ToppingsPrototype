@@ -28,6 +28,7 @@ public class Turret : MonoBehaviour
     [SerializeField] float delayToShoot;
 
     [Header("Turret Shooting Settings")]
+    [SerializeField] GameObject muzzleFlash;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] LayerMask ignoreLayers;
@@ -47,7 +48,7 @@ public class Turret : MonoBehaviour
     private float timerToAim;
     private float timerToIdle;
     private float shotCooldown;
-    private Quaternion lastIdlePos;
+    private Quaternion lastIdlePos; 
 
     private void OnDrawGizmos()
     {
@@ -104,7 +105,7 @@ public class Turret : MonoBehaviour
 
         if (lastIdlePos != turretHead.rotation)
         {
-            StatusLightColor(new Color(255, 90, 0, 255));
+            StatusLightColor(Color.yellow);
             turretHead.rotation = Quaternion.RotateTowards(turretHead.rotation, lastIdlePos, aimRotationSpeed * Time.deltaTime);
             timerToIdle = 0f;
             return;
@@ -188,7 +189,7 @@ public class Turret : MonoBehaviour
 
         if (hit.collider == null) return;
 
-        if (!shoot) StatusLightColor(new Color(255, 90, 0, 255));
+        if (!shoot) StatusLightColor(Color.yellow);
 
         if (hit.collider.gameObject == targettedLemming && timerToAim > delayToShoot)
         {
@@ -213,6 +214,7 @@ public class Turret : MonoBehaviour
                 var cloneBullet = Instantiate(bullet, bulletSpawnPoint.position + PositionAccuracy(bulletDispersion), bulletSpawnPoint.rotation * RotationAccuracy(accuracy));
                 cloneBullet.GetComponent<Rigidbody>().AddForce(cloneBullet.transform.forward * bulletSpeed * Time.fixedDeltaTime);
                 Destroy(cloneBullet, 5f);
+                MuzzleFlash();
                 bulletSmoke.Play();
                 shotCooldown = 0;
                 SoundsFXManager.instance.PlayRandomSoundFXClip(BulletsSoundClips, transform, 1f);
@@ -224,7 +226,7 @@ public class Turret : MonoBehaviour
     {
         var renderer = lightBulb.GetComponent<Renderer>();
         renderer.material.SetColor("_BaseColor", color);
-        renderer.material.SetColor("_EmissionColor", color);
+        //renderer.material.SetColor("_EmissionColor", color);
     }
 
     private Vector3 predictedPosition(GameObject target, Transform shooter, GameObject projectile, float bulletSpeed)
@@ -257,5 +259,24 @@ public class Turret : MonoBehaviour
         var quaternionOffset = Quaternion.Euler(PositionAccuracy(accuracy));
 
         return quaternionOffset;
+    }
+
+    private void MuzzleFlash()
+    {
+        if (muzzleFlash.activeSelf == false)
+        {
+            muzzleFlash.SetActive(true);
+            StartCoroutine(FlashEnd(muzzleFlash));
+        }
+        else
+        {
+            muzzleFlash.SetActive(false);
+        }
+    }
+
+    IEnumerator FlashEnd(GameObject gameObject)
+    {
+        yield return new WaitForSeconds(.02f);
+        gameObject.SetActive(false);
     }
 }
