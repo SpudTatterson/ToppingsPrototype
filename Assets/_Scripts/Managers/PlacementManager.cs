@@ -48,19 +48,19 @@ public class PlacementManager : MonoBehaviour
                 {
                     c.enabled = false;
                 }
-                if(tempGO.TryGetComponent<Placeable>(out Placeable placeable))
+                if (tempGO.TryGetComponent<Placeable>(out Placeable placeable))
                 {
                     placeable.enabled = false;
                 }
-                
-                
-                if(unplacedMaterial != null)
+
+
+                if (unplacedMaterial != null)
                 {
                     MeshRenderer[] mrs = tempGO.GetComponentsInChildren<MeshRenderer>();
                     foreach (MeshRenderer mr in mrs)
-                {
-                    mr.material = unplacedMaterial;
-                }
+                    {
+                        mr.material = unplacedMaterial;
+                    }
                 }
             }
 
@@ -68,6 +68,7 @@ public class PlacementManager : MonoBehaviour
                 heldPlaceable = itemToPlace.GetComponent<Placeable>();
             if (isPlacingSecondaryObject)
                 heldPlaceable = lastPlaced;
+
             if (Input.GetButtonDown("Fire2")) // if pressed right click cancel everything
             {
                 ClearCurrentVars();
@@ -112,6 +113,7 @@ public class PlacementManager : MonoBehaviour
 
                     if (isPlacingSecondaryObject)
                     {
+                        itemToPlace.GetComponentInParent<Placeable>().FullyPlaced = true;
                         itemToPlace.transform.position = actualGO.transform.position;
                         Destroy(actualGO);
                         itemToPlace = null;
