@@ -7,6 +7,10 @@ using UnityEngine.VFX;
 
 public class WorkerLogic : MonoBehaviour
 {
+    [SerializeField] private AudioClip[] ChopingSoundClips;
+
+    
+    [Header("Base Lemming Settings")]
     [Header("Effects")]
     [SerializeField] private VisualEffect smokePoof;
 
@@ -85,6 +89,7 @@ public class WorkerLogic : MonoBehaviour
             {
                 timer = 0;
                 logScript.logHealth -= 25;
+                SoundsFXManager.instance.PlayRandomSoundFXClip(ChopingSoundClips, transform, 1f);
                 if (logScript.logHealth <= 0)
                 {
                     woodCutter = false;
