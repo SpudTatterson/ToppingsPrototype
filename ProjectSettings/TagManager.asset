@@ -4,12 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Right_Sign
+  - Left_Sign
+  - Lemming
+  - Fan
   - Wall
   - Obstacle
-  - Lemming
   - Shield
-  - Left_Sign
-  - Right_Sign
   - Stair
   layers:
   - Default
@@ -18,8 +19,17 @@ TagManager:
   - 
   - Water
   - UI
+  - Lemming
+  - Obstacle
+  - Wall
+  - Ground
+  - Bullet
+  - Shield
+  - Draggable
   - 
+  - Turret
   - 
+  - Fan
   - 
   - 
   - 
