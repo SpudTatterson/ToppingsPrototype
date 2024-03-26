@@ -378,6 +378,9 @@ MonoBehaviour:
   collidingObjects:
   - Wall
   - Obstacle
+  ignoreThis:
+    serializedVersion: 2
+    m_Bits: 64
   groundStomp: {fileID: 3469237661159358257}
   force: 350
   groundedOffset: {x: 0, y: 0.1, z: 0}
@@ -408,6 +411,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3cd07582c4312f542b97cf4fa4ca649c, type: 3}
   - {fileID: 8300000, guid: 8413442508cd0344995a2757fc0a1052, type: 3}
   - {fileID: 8300000, guid: 2698aaaeecfee6d4c9d52e093ffb29ba, type: 3}
+  ignoreThis:
+    serializedVersion: 2
+    m_Bits: 64
   smokePoof: {fileID: 4205210673636375058}
   basicOutfit: {fileID: 4318848190420655394}
   woodCutterOutfit: {fileID: 6993598415611193169}
@@ -914,10 +920,10 @@ VisualEffect:
         m_Overridden: 1
     m_Vector3f:
       m_Array:
-      - m_Value: {x: -0.5, y: 0, z: -0.5}
+      - m_Value: {x: -0.8, y: 0, z: -0.8}
         m_Name: MinRandomPosition
         m_Overridden: 1
-      - m_Value: {x: 0.5, y: 2, z: 0.5}
+      - m_Value: {x: 0.8, y: 2, z: 0.8}
         m_Name: MaxRandomPosition
         m_Overridden: 1
       - m_Value: {x: 0, y: 4, z: 0}

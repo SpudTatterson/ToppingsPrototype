@@ -8,7 +8,7 @@ using UnityEngine.VFX;
 public class WorkerLogic : MonoBehaviour
 {
     [SerializeField] private AudioClip[] ChopingSoundClips;
-
+    [SerializeField] private LayerMask ignoreThis;
     
     [Header("Base Lemming Settings")]
     [Header("Effects")]
@@ -38,6 +38,7 @@ public class WorkerLogic : MonoBehaviour
     {
         timer = 0;
         movementScript = GetComponent<LemmingMovement>();
+        ignoreThis = ~ignoreThis;
     }
 
     private void Update()
@@ -55,7 +56,7 @@ public class WorkerLogic : MonoBehaviour
         basicOutfit.SetActive(true);
         woodCutterOutfit.SetActive(false);
         paratrooperOutfit.SetActive(false);
-        shieldLemmingOutfit.SetActive(false);  
+        shieldLemmingOutfit.SetActive(false);
         smokePoof.Play();
     }
 
@@ -72,7 +73,7 @@ public class WorkerLogic : MonoBehaviour
     {
         if (!woodCutter) return;
 
-        Physics.BoxCast(transform.localPosition + transform.up, new Vector3(.4f, 1f, .4f), transform.forward, out RaycastHit hit, transform.localRotation, 1.5f);
+        Physics.BoxCast(transform.localPosition + transform.up, new Vector3(.4f, 0.99f, .4f), transform.forward, out RaycastHit hit, transform.localRotation, 1.5f, ignoreThis);
         if (hit.collider == null) return;
         if (hit.collider.TryGetComponent(out Log logScript))
         {
@@ -80,6 +81,7 @@ public class WorkerLogic : MonoBehaviour
 
             if(logScript.lemmingCutting ==  gameObject)
             {
+                print("cut");
                 movementScript.walking = false;
                 timer += Time.deltaTime;
                 // Insert cutting log animation here.

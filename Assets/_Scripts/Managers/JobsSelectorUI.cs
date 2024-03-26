@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class JobsSelectorUI : MonoBehaviour
-{
+{    
     [SerializeField] Button woodCutter;
     //[SerializeField] Button paratrooper;
     [SerializeField] Button shieldLemming;

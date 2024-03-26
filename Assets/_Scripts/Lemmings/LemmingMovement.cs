@@ -17,6 +17,7 @@ public class LemmingMovement : MonoBehaviour
     public float RotationTime;
     [Tooltip("Insert here the tags of the obstacles that the lemming will hit and rotate 180 degrees back")]
     public string[] collidingObjects;
+    public LayerMask ignoreThis;
 
     public VisualEffect groundStomp;
     private float stompTimer;
@@ -27,13 +28,13 @@ public class LemmingMovement : MonoBehaviour
     public float maxDistanceOffGround = 0.2f;
 
     private Rigidbody rb;
-    private float rotationTimer, delayVelocityCheck;
+    public float rotationTimer, delayVelocityCheck;
 
     [HideInInspector] public float turnSpeedSide;
     [HideInInspector] public bool walking;
     [HideInInspector] public bool rotateBack, rotateLeft, rotateRight;
-    [HideInInspector] public Vector3 startRotation;
-    [HideInInspector] public Vector3 endRotation;
+     public Vector3 startRotation;
+     public Vector3 endRotation;
     public bool isGrounded;
     public bool climbStairs;
     
@@ -46,6 +47,7 @@ public class LemmingMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         walking = true;
         stompTimer = 1;
+        ignoreThis = ~ignoreThis;
     }
 
     private void Update()
@@ -70,7 +72,7 @@ public class LemmingMovement : MonoBehaviour
         LemmingRotation();
         Climb();
 
-        Physics.BoxCast(transform.localPosition + transform.up, boxCastSize, transform.forward, out hit, transform.localRotation, 1);
+        Physics.BoxCast(transform.localPosition + transform.up, boxCastSize, transform.forward, out hit, transform.localRotation, 1, ignoreThis);
     }
 
     private void FixedUpdate()

@@ -1,27 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
-public class Sign : Placeable
+public class SignNew : MonoBehaviour
 {
+    public float direction;
     private float degree;
+    private int trigger;
 
     List<GameObject> lemmings = new List<GameObject>();
 
     private void Start()
     {
-        var collider = GetComponentInChildren<Collider>();
-
-        if (collider.CompareTag("Right_Sign"))
-        {
-            degree = 90f;
-        }
-
-        if (collider.CompareTag("Left_Sign"))
-        {
-            degree = -90f;
-        }
+        print(transform.rotation.eulerAngles);
+        this.direction = transform.rotation.y;
+        degree = 90f;
+        trigger = 0;
     }
 
     private void Update()
@@ -49,14 +44,16 @@ public class Sign : Placeable
         for (int i = 0; i < lemmings.Count; i++)
         {
             var lemmingScript = lemmings[i].GetComponent<LemmingMovement>();
-            lemmingScript.startRotation = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
-            lemmingScript.endRotation = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y + degree, transform.localEulerAngles.z);
+
+            if (trigger == 0)
+            {
+            lemmingScript.startRotation = new Vector3(lemmingScript.transform.eulerAngles.x, lemmingScript.transform.eulerAngles.y, lemmingScript.transform.eulerAngles.z);
+            lemmingScript.endRotation = new Vector3(transform.eulerAngles.x, direction, transform.eulerAngles.z);
+            trigger++;
+            }
 
             if (degree == 90f)
                 lemmingScript.rotateRight = true;
-
-            if (degree == -90f)
-                lemmingScript.rotateLeft = true;
 
             if (lemmingScript.turnSpeedSide >= 1)
             {
