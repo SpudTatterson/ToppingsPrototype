@@ -2936,12 +2936,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8689950}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &254642417 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1185353526538770604, guid: fbd670ab475a88a4ebb7e9ce14db4f34,
-    type: 3}
-  m_PrefabInstance: {fileID: 1283953881}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &261441093
 GameObject:
   m_ObjectHideFlags: 0
@@ -3522,18 +3516,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!1 &309125215 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1185353526538770604, guid: fbd670ab475a88a4ebb7e9ce14db4f34,
-    type: 3}
-  m_PrefabInstance: {fileID: 318437285}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &317712386 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1185353526538770604, guid: fbd670ab475a88a4ebb7e9ce14db4f34,
-    type: 3}
-  m_PrefabInstance: {fileID: 1797314952}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &318437285
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3600,11 +3582,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1185353526538770604, guid: fbd670ab475a88a4ebb7e9ce14db4f34,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 318437287}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbd670ab475a88a4ebb7e9ce14db4f34, type: 3}
 --- !u!4 &318437286 stripped
 Transform:
@@ -3612,19 +3590,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 318437285}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &318437287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 309125215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0520f12f96d1edd489a028bbc1e1e9ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTag: Lemming
 --- !u!1001 &330071435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3999,11 +3964,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1185353526538770604, guid: fbd670ab475a88a4ebb7e9ce14db4f34,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1063876641}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbd670ab475a88a4ebb7e9ce14db4f34, type: 3}
 --- !u!4 &413856060 stripped
 Transform:
@@ -5782,12 +5743,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1286400338}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &624458622 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1185353526538770604, guid: fbd670ab475a88a4ebb7e9ce14db4f34,
-    type: 3}
-  m_PrefabInstance: {fileID: 815240454}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &636250328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7486,46 +7441,42 @@ PrefabInstance:
     - target: {fileID: 1961573188545135126, guid: fbd670ab475a88a4ebb7e9ce14db4f34,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.99999994
       objectReference: {fileID: 0}
     - target: {fileID: 1961573188545135126, guid: fbd670ab475a88a4ebb7e9ce14db4f34,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.00032345465
       objectReference: {fileID: 0}
     - target: {fileID: 1961573188545135126, guid: fbd670ab475a88a4ebb7e9ce14db4f34,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.000075226715
       objectReference: {fileID: 0}
     - target: {fileID: 1961573188545135126, guid: fbd670ab475a88a4ebb7e9ce14db4f34,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.00009458857
       objectReference: {fileID: 0}
     - target: {fileID: 1961573188545135126, guid: fbd670ab475a88a4ebb7e9ce14db4f34,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -0.037
       objectReference: {fileID: 0}
     - target: {fileID: 1961573188545135126, guid: fbd670ab475a88a4ebb7e9ce14db4f34,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -0.009
       objectReference: {fileID: 0}
     - target: {fileID: 1961573188545135126, guid: fbd670ab475a88a4ebb7e9ce14db4f34,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -0.011
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1185353526538770604, guid: fbd670ab475a88a4ebb7e9ce14db4f34,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 815240456}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbd670ab475a88a4ebb7e9ce14db4f34, type: 3}
 --- !u!4 &815240455 stripped
 Transform:
@@ -7533,19 +7484,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 815240454}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &815240456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624458622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0520f12f96d1edd489a028bbc1e1e9ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTag: Lemming
 --- !u!1 &818209664
 GameObject:
   m_ObjectHideFlags: 0
@@ -9823,25 +9761,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1049773575}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1063876640 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1185353526538770604, guid: fbd670ab475a88a4ebb7e9ce14db4f34,
-    type: 3}
-  m_PrefabInstance: {fileID: 413856059}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1063876641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1063876640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0520f12f96d1edd489a028bbc1e1e9ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTag: Lemming
 --- !u!1001 &1067430194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12336,11 +12255,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1185353526538770604, guid: fbd670ab475a88a4ebb7e9ce14db4f34,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1283953883}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbd670ab475a88a4ebb7e9ce14db4f34, type: 3}
 --- !u!4 &1283953882 stripped
 Transform:
@@ -12348,19 +12263,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1283953881}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1283953883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 254642417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0520f12f96d1edd489a028bbc1e1e9ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTag: Lemming
 --- !u!1001 &1286400338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20429,11 +20331,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1185353526538770604, guid: fbd670ab475a88a4ebb7e9ce14db4f34,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1797314954}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbd670ab475a88a4ebb7e9ce14db4f34, type: 3}
 --- !u!4 &1797314953 stripped
 Transform:
@@ -20441,19 +20339,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1797314952}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1797314954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 317712386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0520f12f96d1edd489a028bbc1e1e9ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTag: Lemming
 --- !u!1001 &1798345702
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22469,12 +22354,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1479385306}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1974400062 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1185353526538770604, guid: fbd670ab475a88a4ebb7e9ce14db4f34,
-    type: 3}
-  m_PrefabInstance: {fileID: 2147188971}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1976054277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23895,11 +23774,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1185353526538770604, guid: fbd670ab475a88a4ebb7e9ce14db4f34,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2147188973}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbd670ab475a88a4ebb7e9ce14db4f34, type: 3}
 --- !u!4 &2147188972 stripped
 Transform:
@@ -23907,19 +23782,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2147188971}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2147188973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974400062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0520f12f96d1edd489a028bbc1e1e9ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTag: Lemming
 --- !u!1001 &8306027985309937404
 PrefabInstance:
   m_ObjectHideFlags: 0
