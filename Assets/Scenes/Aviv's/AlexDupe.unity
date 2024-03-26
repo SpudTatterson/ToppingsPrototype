@@ -123,6 +123,74 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &13064585
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 622903967988545279, guid: f9637a8e845ca2149892ba29a8d064d5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 622903967988545279, guid: f9637a8e845ca2149892ba29a8d064d5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 622903967988545279, guid: f9637a8e845ca2149892ba29a8d064d5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 622903967988545279, guid: f9637a8e845ca2149892ba29a8d064d5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 622903967988545279, guid: f9637a8e845ca2149892ba29a8d064d5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 622903967988545279, guid: f9637a8e845ca2149892ba29a8d064d5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 622903967988545279, guid: f9637a8e845ca2149892ba29a8d064d5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 622903967988545279, guid: f9637a8e845ca2149892ba29a8d064d5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 622903967988545279, guid: f9637a8e845ca2149892ba29a8d064d5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 622903967988545279, guid: f9637a8e845ca2149892ba29a8d064d5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 861039418426682954, guid: f9637a8e845ca2149892ba29a8d064d5,
+        type: 3}
+      propertyPath: m_Name
+      value: SoundFXManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f9637a8e845ca2149892ba29a8d064d5, type: 3}
 --- !u!1 &52809231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,6 +1543,74 @@ Transform:
   - {fileID: 331914940}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &452168213
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 484790526101088080, guid: 22c260c8372b7b843889136e05a72ae3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 484790526101088080, guid: 22c260c8372b7b843889136e05a72ae3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 484790526101088080, guid: 22c260c8372b7b843889136e05a72ae3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 484790526101088080, guid: 22c260c8372b7b843889136e05a72ae3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 484790526101088080, guid: 22c260c8372b7b843889136e05a72ae3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 484790526101088080, guid: 22c260c8372b7b843889136e05a72ae3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 484790526101088080, guid: 22c260c8372b7b843889136e05a72ae3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 484790526101088080, guid: 22c260c8372b7b843889136e05a72ae3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 484790526101088080, guid: 22c260c8372b7b843889136e05a72ae3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 484790526101088080, guid: 22c260c8372b7b843889136e05a72ae3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5896900647497908261, guid: 22c260c8372b7b843889136e05a72ae3,
+        type: 3}
+      propertyPath: m_Name
+      value: SoundFXObject
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 22c260c8372b7b843889136e05a72ae3, type: 3}
 --- !u!1 &461973750
 GameObject:
   m_ObjectHideFlags: 0
@@ -5809,6 +5945,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lemming_Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 5440665837334927486, guid: 90d6cc9d0b9d73b4897014e37af1db4f,
+        type: 3}
+      propertyPath: MinionSoundClips.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440665837334927486, guid: 90d6cc9d0b9d73b4897014e37af1db4f,
+        type: 3}
+      propertyPath: MinionSoundClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 23fbe296855d4cd4fb7b83da0ffa88d0, type: 3}
+    - target: {fileID: 5440665837334927486, guid: 90d6cc9d0b9d73b4897014e37af1db4f,
+        type: 3}
+      propertyPath: MinionSoundClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 268a6aa19f5515248bd87fbfdf94cc50, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5820,6 +5971,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 430715376}
   - {fileID: 6168335154020210014}
+  - {fileID: 13064585}
+  - {fileID: 452168213}
   - {fileID: 1413300293}
   - {fileID: 606117185}
   - {fileID: 1150142790}
