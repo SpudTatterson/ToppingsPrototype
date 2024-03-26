@@ -126,7 +126,7 @@ MonoBehaviour:
         m_MethodName: SetNewItemToPlace
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 7970550664078928142, guid: 34103729dd278b34ca118cccdded6061,
+          m_ObjectArgument: {fileID: 4835412239959711423, guid: bcfc139676e768c4797350babe9ff81e,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
