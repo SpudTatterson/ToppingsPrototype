@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class JumpPad : Placeable
 {
+    [SerializeField] private AudioClip[] JumpSoundClips;
     [SerializeField] Transform endPoint;
     [SerializeField] LineRenderer lineRenderer;
     [SerializeField] float speed = 20f;
@@ -34,6 +35,7 @@ public class JumpPad : Placeable
     }
     void Launch(Rigidbody rb)
     {
+        SoundsFXManager.instance.PlayRandomSoundFXClip(JumpSoundClips, transform, 1f);
         rb.velocity = Vector3.zero;
         launchForce = CalculateLaunchVector();
         rb.AddForce(launchForce, ForceMode.VelocityChange);
