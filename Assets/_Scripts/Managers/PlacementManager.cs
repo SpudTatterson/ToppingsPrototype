@@ -48,7 +48,11 @@ public class PlacementManager : MonoBehaviour
                 {
                     c.enabled = false;
                 }
-                tempGO.GetComponent<Placeable>().enabled = false;
+                if(tempGO.TryGetComponent<Placeable>(out Placeable placeable))
+                {
+                    placeable.enabled = false;
+                }
+                
                 
                 if(unplacedMaterial != null)
                 {
