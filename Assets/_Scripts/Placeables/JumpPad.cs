@@ -16,6 +16,7 @@ public class JumpPad : Placeable
     Vector3 launchForce;
     void OnTriggerEnter(Collider other)
     {
+        if(!FullyPlaced) return;
         Launch(other.attachedRigidbody);
     }
 
