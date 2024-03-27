@@ -60,4 +60,8 @@ public class LevelEndPoint : MonoBehaviour
     {
         return initialMinionCount;
     }
+    public int GetMinPassedForVictory()
+    {
+        return minPassedForVictory;
+    }
 }
