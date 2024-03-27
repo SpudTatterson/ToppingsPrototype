@@ -11,7 +11,7 @@ public class VictoryManager : MonoBehaviour
     int initialMinionCount;
     int passedMinionCount;
     int minPassedForVictory;
-    bool minOneStar = true;
+    [SerializeField] bool minOneStar = true;
     void Start()
     {
         ui = FindObjectOfType<UIManager>();
