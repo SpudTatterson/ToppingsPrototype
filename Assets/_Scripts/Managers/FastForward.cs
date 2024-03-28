@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Manager : MonoBehaviour
+public class TimeManager : MonoBehaviour
 {
     [SerializeField] float fastForwardMultiplier = 1;
     [SerializeField] float slowDownMultiplier = .1f;
     [SerializeField] GameObject jobsButton;
     [SerializeField] GameObject placeablesButton;
+    [HideInInspector]public bool toggle = true;
 
     private void Update()
     {
@@ -17,6 +18,7 @@ public class Manager : MonoBehaviour
 
     private void ManipulateTime()
     {
+        if(!toggle) return;
         if(Input.GetKey(KeyCode.Space)) 
         {
             Time.timeScale = fastForwardMultiplier;
