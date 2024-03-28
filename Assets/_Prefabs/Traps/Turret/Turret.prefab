@@ -617,6 +617,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5535b6cb314f32f41929f481a369cf97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BulletsSoundClips:
+  - {fileID: 8300000, guid: c3fc0474df279d1489d661b015b2ce77, type: 3}
+  - {fileID: 8300000, guid: 67e3fc33bf32a654bb7ac5e0aae16963, type: 3}
+  - {fileID: 8300000, guid: 3282e6e5de615cf45b0cd6675f1ae649, type: 3}
+  - {fileID: 8300000, guid: f8f2f0148b3bf9a4883bdeb397d449d9, type: 3}
+  - {fileID: 8300000, guid: 4e1650e32b5790b478b60c8ce7a926ee, type: 3}
   lemmingLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -637,7 +643,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3072
   timeBetweenShots: 0.05
-  bulletDamage: 1
+  bulletDamage: 5
   bulletSpeed: 4000
   bulletMass: 0.1
   reflectRealistic: 1

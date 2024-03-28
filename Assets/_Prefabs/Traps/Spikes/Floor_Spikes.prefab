@@ -94,6 +94,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0520f12f96d1edd489a028bbc1e1e9ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeathSoundClips:
+  - {fileID: 8300000, guid: 0af93cee858374548bd6c449c0aa7cfa, type: 3}
+  - {fileID: 8300000, guid: a15d693d61cd2bb48aa054cbee52ffa1, type: 3}
+  - {fileID: 8300000, guid: 050e96a71d1875343b2a55ea8bc55090, type: 3}
   playerTag: Lemming
 --- !u!65 &8222428748574707102
 BoxCollider:
