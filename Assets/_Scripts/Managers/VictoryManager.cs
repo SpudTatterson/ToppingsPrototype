@@ -10,7 +10,6 @@ public class VictoryManager : MonoBehaviour
     LevelEndPoint endPoint;
     int initialMinionCount;
     int passedMinionCount;
-    int minPassedForVictory;
     [SerializeField] bool minOneStar = true;
     void Start()
     {
@@ -46,7 +45,6 @@ public class VictoryManager : MonoBehaviour
 
     private void RetrieveNumbers()//retrieve required numbers
     {
-        minPassedForVictory = endPoint.GetMinPassedForVictory();
         passedMinionCount = endPoint.GetPassedMinionCount();
         initialMinionCount = endPoint.GetInitialMinionCount();
     }
