@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class LevelEndPoint : MonoBehaviour
 {
+    [Header("Settings")]
     [SerializeField] string minionTag = "Lemming";
+    [Tooltip("Minimum amount of minions that need to pass to qualify for the next level")]
     [SerializeField] int minPassedForVictory = 10;
     int passedMinionCount = 0;
     int initialMinionCount;
     UIManager uiManager;
-    
+
     void Start()
     {
         initialMinionCount = FindAnyObjectByType<LemmingSpawner>().lemmingCount;
@@ -32,9 +34,9 @@ public class LevelEndPoint : MonoBehaviour
         {
             uiManager.victoryButton.SetActive(true);
             if (LevelFinished())
-             {
+            {
 
-             }
+            }
 
         }
     }
@@ -48,10 +50,6 @@ public class LevelEndPoint : MonoBehaviour
         return passedMinionCount == initialMinionCount;
     }
 
-    void NextLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
     public int GetPassedMinionCount()
     {
         return passedMinionCount;
