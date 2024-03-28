@@ -14,5 +14,6 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI bestTimeText;
     public Image starFillUpBar;
+    public Image bestStarFillUpBar;
 
 }

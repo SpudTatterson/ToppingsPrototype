@@ -14,11 +14,16 @@ public class VictoryManager : MonoBehaviour
     int passedMinionCount;
     float bestTime;
     string bestTimeKey;
+    float starCount;
+    float bestScore;
+    string highScoreKey;
     [SerializeField] bool minOneStar = true;
     void Start()
     {
         bestTimeKey = "BestTimeScene" + SceneManager.GetActiveScene().buildIndex.ToString();
+        highScoreKey = "BestScoreScene" + SceneManager.GetActiveScene().buildIndex.ToString();
         bestTime = PlayerPrefs.GetFloat(bestTimeKey);
+        bestScore = PlayerPrefs.GetFloat(highScoreKey, 0);
         ui = FindObjectOfType<UIManager>();
         endPoint = FindObjectOfType<LevelEndPoint>();
     }
@@ -32,12 +37,29 @@ public class VictoryManager : MonoBehaviour
     }
     void UpdateStars()
     {
-        float starCount = Mathf.InverseLerp(0, initialMinionCount, passedMinionCount);
+        starCount = Mathf.InverseLerp(0, initialMinionCount, passedMinionCount);
 
         if (minOneStar && starCount < 0.33f) starCount = 0.33f;
 
+        CheckForNewHighScore();
+
         ui.starFillUpBar.fillAmount = starCount;
+        ui.bestStarFillUpBar.fillAmount = bestScore;
     }
+
+    void CheckForNewHighScore()
+    {
+        if(starCount > bestScore)
+        {
+            SetNewHighScore();
+        }
+    }
+
+    void SetNewHighScore()
+    {
+        PlayerPrefs.SetFloat(highScoreKey, starCount);
+    }
+
     void UpdateVictoryScreenUI()
     {
         CheckForBestTime(Time.timeSinceLevelLoad);
@@ -53,7 +75,7 @@ public class VictoryManager : MonoBehaviour
 
     void CheckForBestTime(float time)
     {
-        if(time < bestTime || bestTime == 0)
+        if (time < bestTime || bestTime == 0)
         {
             bestTime = time;
             TriggerNewBestTime();
