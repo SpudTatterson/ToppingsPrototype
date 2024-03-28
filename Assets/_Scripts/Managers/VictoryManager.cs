@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class VictoryManager : MonoBehaviour
 {
@@ -10,9 +12,13 @@ public class VictoryManager : MonoBehaviour
     LevelEndPoint endPoint;
     int initialMinionCount;
     int passedMinionCount;
+    float bestTime;
+    string bestTimeKey;
     [SerializeField] bool minOneStar = true;
     void Start()
     {
+        bestTimeKey = "BestTimeScene" + SceneManager.GetActiveScene().buildIndex.ToString();
+        bestTime = PlayerPrefs.GetFloat(bestTimeKey);
         ui = FindObjectOfType<UIManager>();
         endPoint = FindObjectOfType<LevelEndPoint>();
     }
@@ -34,13 +40,30 @@ public class VictoryManager : MonoBehaviour
     }
     void UpdateVictoryScreenUI()
     {
+        CheckForBestTime(Time.timeSinceLevelLoad);
+        UpdateStars();
         //calculate percentage
         float passedMinionPercentage = passedMinionCount / (float)initialMinionCount * 100f;
         //set ui to numbers
         ui.alivePercentageText.text = passedMinionPercentage.ToString("F0") + "%";
         ui.aliveNumberText.text = passedMinionCount.ToString();
-        ui.timeText.text = FormatTime(Time.time);
-        UpdateStars();
+        ui.timeText.text = FormatTime(Time.timeSinceLevelLoad);
+        ui.bestTimeText.text = FormatTime(bestTime);
+    }
+
+    void CheckForBestTime(float time)
+    {
+        if(time < bestTime || bestTime == 0)
+        {
+            bestTime = time;
+            TriggerNewBestTime();
+        }
+    }
+
+    void TriggerNewBestTime()
+    {
+        ui.newBestTimeScreen.SetActive(true);
+        PlayerPrefs.SetFloat(bestTimeKey, bestTime);
     }
 
     private void RetrieveNumbers()//retrieve required numbers

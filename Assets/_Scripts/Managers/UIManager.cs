@@ -8,9 +8,11 @@ public class UIManager : MonoBehaviour
 {
     public GameObject victoryButton;
     public GameObject victoryScreen;
+    public GameObject newBestTimeScreen;
     public TextMeshProUGUI aliveNumberText;
     public TextMeshProUGUI alivePercentageText;
     public TextMeshProUGUI timeText;
+    public TextMeshProUGUI bestTimeText;
     public Image starFillUpBar;
 
 }
