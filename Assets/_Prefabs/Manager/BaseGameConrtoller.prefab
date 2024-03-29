@@ -1138,7 +1138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7612414116717531849
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3174,6 +3174,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4837751775857390807}
     m_Modifications:
+    - target: {fileID: 1676456626429935202, guid: b3efaf7c90f41d246b9be26c18120e71,
+        type: 3}
+      propertyPath: jobsButton
+      value: 
+      objectReference: {fileID: 1347122958866610765}
+    - target: {fileID: 1676456626429935202, guid: b3efaf7c90f41d246b9be26c18120e71,
+        type: 3}
+      propertyPath: placeablesButton
+      value: 
+      objectReference: {fileID: 5407461874518033746}
     - target: {fileID: 4660443121711575765, guid: b3efaf7c90f41d246b9be26c18120e71,
         type: 3}
       propertyPath: woodCutter
@@ -3728,6 +3738,18 @@ PrefabInstance:
 --- !u!224 &20543817294842603 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8670018268178008143, guid: a1ecf636f1f9d8f4ab84b01df45129bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 8654488929356300964}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1347122958866610765 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7686266748929128681, guid: a1ecf636f1f9d8f4ab84b01df45129bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 8654488929356300964}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5407461874518033746 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3679935947145267190, guid: a1ecf636f1f9d8f4ab84b01df45129bc,
     type: 3}
   m_PrefabInstance: {fileID: 8654488929356300964}
   m_PrefabAsset: {fileID: 0}
