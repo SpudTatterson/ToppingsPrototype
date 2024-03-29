@@ -5,7 +5,9 @@ using UnityEngine.Audio;
 
 public class SoundMixerManager : MonoBehaviour
 {
-    [SerializeField] private AudioMixer audioMixer;
+    [SerializeField] AudioMixer audioMixer;
+
+    [SerializeField] UIManager UI;
 
     const string masterKey = "MasterVolume";
     const string soundFXKey = "SoundFXVolume";
@@ -13,13 +15,12 @@ public class SoundMixerManager : MonoBehaviour
 
     void Start()
     {
-        SetMasterVolume(PlayerPrefs.GetFloat(masterKey, Mathf.Log10(1) * 20f));
-        SetSoundFXVolume(PlayerPrefs.GetFloat(soundFXKey, Mathf.Log10(1) * 20f));
-        SetMusicVolume(PlayerPrefs.GetFloat(musicKey, Mathf.Log10(1) * 20f));
+        UI.masterVolume.value = PlayerPrefs.GetFloat(masterKey, 1);
+        UI.soundFXVolume.value = PlayerPrefs.GetFloat(soundFXKey, 1);
+        UI.musicVolume.value = PlayerPrefs.GetFloat(musicKey, 1);
     }
     public void SetMasterVolume(float level)
     {
-        Debug.Log(level);
         //  audioMixer.SetFloat("MasterVolume", level);
         audioMixer.SetFloat(masterKey, Mathf.Log10(level) * 20f);
         PlayerPrefs.SetFloat(masterKey, level);
