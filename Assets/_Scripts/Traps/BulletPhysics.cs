@@ -11,7 +11,8 @@ public class BulletPhysics : MonoBehaviour
     [HideInInspector] public float bulletDamage;
     [HideInInspector] public float bulletSpeed;
 
-    [SerializeField] public LayerMask layer;
+    [SerializeField] public LayerMask bulletLayer;
+    [SerializeField] public string shieldTag;
 
     private Vector3 startPosition;
     private Vector3 previousPosition;
@@ -22,23 +23,23 @@ public class BulletPhysics : MonoBehaviour
     {
         startPosition = transform.position;         // Gets the spawn position of the bullet
         previousPosition = transform.position;      // Gets the previous position
-        layer = ~layer;                             // Takes the inputed layer and inverts it
+        bulletLayer = ~bulletLayer;                 // Takes the inputed layer and inverts it
     }
 
     private void Update()
     {
-        currentPosition = transform.position;                                    
-        var distance = Vector3.Distance(previousPosition, currentPosition);        
+        currentPosition = transform.position;
+        var distance = Vector3.Distance(previousPosition, currentPosition);
 
         var directionFromPreviousBullet = currentPosition - previousPosition;
         Ray ray = new Ray(previousPosition, directionFromPreviousBullet);
-        Physics.Raycast(ray, out hit, distance, layer);
+        Physics.Raycast(ray, out hit, distance, bulletLayer);
 
         if (hit.collider == null)
         {
-            var directionToPreviousBullet = previousPosition - currentPosition;   
-            ray = new Ray(currentPosition, directionToPreviousBullet);            
-            Physics.Raycast(ray, out hit, distance, layer);                         
+            var directionToPreviousBullet = previousPosition - currentPosition;
+            ray = new Ray(currentPosition, directionToPreviousBullet);
+            Physics.Raycast(ray, out hit, distance, bulletLayer);
         }
 
         previousPosition = currentPosition;
@@ -54,12 +55,12 @@ public class BulletPhysics : MonoBehaviour
         if (hit.collider.CompareTag("Shield"))
         {
             if (reflectRealistic)
-            {               
+            {
                 var direction = Vector3.Reflect(transform.forward, hit.normal);
                 var position = hit.point - (transform.forward * .2f);
                 var cloneBullet = Instantiate(gameObject, position, Quaternion.LookRotation(direction));
                 cloneBullet.GetComponent<Rigidbody>().AddForce(cloneBullet.transform.forward * bulletSpeed * Time.fixedDeltaTime);
-                cloneBullet.GetComponent<BulletPhysics>().layer = ~layer;
+                cloneBullet.GetComponent<BulletPhysics>().bulletLayer = ~bulletLayer;
                 Destroy(cloneBullet, 5f);
                 Destroy(gameObject);
             }
@@ -69,7 +70,7 @@ public class BulletPhysics : MonoBehaviour
                 var position = hit.point - (transform.forward * .2f);
                 var cloneBullet = Instantiate(gameObject, position, Quaternion.LookRotation(direction));
                 cloneBullet.GetComponent<Rigidbody>().AddForce(cloneBullet.transform.forward * bulletSpeed * Time.fixedDeltaTime);
-                cloneBullet.GetComponent<BulletPhysics>().layer = ~layer;
+                cloneBullet.GetComponent<BulletPhysics>().bulletLayer = ~bulletLayer;
                 Destroy(cloneBullet, 5f);
                 Destroy(gameObject);
             }
@@ -92,5 +93,10 @@ public class BulletPhysics : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void WorkingPhysics()
+    {
+
     }
 }
