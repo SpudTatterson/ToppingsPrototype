@@ -3196,24 +3196,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1756125273}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1512637902 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3780836443604923971, guid: a81fc51a9bf42a4428406576b5286d14,
-    type: 3}
-  m_PrefabInstance: {fileID: 617495031960721648}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1512637910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1512637902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d2707d0a966bb44eb596d2b9edbdfae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1516952719
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4077,12 +4059,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 328b6b130ad31f847ad545ac3194310a, type: 3}
---- !u!1 &2036194742 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1466917904903955846, guid: a81fc51a9bf42a4428406576b5286d14,
-    type: 3}
-  m_PrefabInstance: {fileID: 617495031960721648}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2086630279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4239,11 +4215,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1933078512526811821, guid: a81fc51a9bf42a4428406576b5286d14,
-        type: 3}
-      propertyPath: PauseScreen
-      value: 
-      objectReference: {fileID: 2036194742}
     - target: {fileID: 2131796194579368419, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4258,16 +4229,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.2779043
-      objectReference: {fileID: 0}
-    - target: {fileID: 3051572925674731212, guid: a81fc51a9bf42a4428406576b5286d14,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1512637910}
-    - target: {fileID: 3051572925674731212, guid: a81fc51a9bf42a4428406576b5286d14,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: PauseManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4837751775857390807, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
@@ -4327,11 +4288,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3780836443604923971, guid: a81fc51a9bf42a4428406576b5286d14,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1512637910}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a81fc51a9bf42a4428406576b5286d14, type: 3}
 --- !u!1001 &2042844738056848240
 PrefabInstance:
