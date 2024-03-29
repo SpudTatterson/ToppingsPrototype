@@ -31,4 +31,8 @@ public class SceneUtility : MonoBehaviour
     {
         LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    public void UnPause()
+    {
+        Time.timeScale = 1;
+    }
 }

@@ -13,7 +13,7 @@ public class TimeManager : MonoBehaviour
 
     private void Update()
     {
-        ManipulateTime();
+        //ManipulateTime(); i ruined it for now sorry
         Hotkeys();
     }
 
@@ -30,7 +30,7 @@ public class TimeManager : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 1;
+            Time.timeScale = 1; 
         }
     }
 

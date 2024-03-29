@@ -22,5 +22,6 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI bestTimeText;
     public Image starFillUpBar;
     public Image bestStarFillUpBar;
-
+    [Header("Pause Menu")]
+    public GameObject PauseScreen;
 }
