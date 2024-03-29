@@ -3327,7 +3327,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 2125452547056753512}
+      objectReference: {fileID: 913218043830286937}
     - target: {fileID: 1370002259767961428, guid: c49c98481ad24db46b49780e9a0f3be9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
@@ -3341,7 +3341,7 @@ PrefabInstance:
     - target: {fileID: 1370002259767961428, guid: c49c98481ad24db46b49780e9a0f3be9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: SceneUtility, Assembly-CSharp
+      value: PauseManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1370002259767961428, guid: c49c98481ad24db46b49780e9a0f3be9,
         type: 3}
@@ -4035,6 +4035,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2125452547056753512}
+    - targetCorrespondingSourceObject: {fileID: 7547876916279834406, guid: b3efaf7c90f41d246b9be26c18120e71,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 913218043830286937}
   m_SourcePrefab: {fileID: 100100000, guid: b3efaf7c90f41d246b9be26c18120e71, type: 3}
 --- !u!4 &3692600750806529139 stripped
 Transform:
@@ -4069,6 +4073,7 @@ MonoBehaviour:
   bestTimeText: {fileID: 7293361424576325810}
   starFillUpBar: {fileID: 2746012100638838748}
   bestStarFillUpBar: {fileID: 649357835416885984}
+  PauseScreen: {fileID: 1466917904903955846}
 --- !u!114 &5367407540252698256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4097,6 +4102,18 @@ MonoBehaviour:
   StartEvents:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &913218043830286937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3780836443604923971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d2707d0a966bb44eb596d2b9edbdfae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7622497436540926886 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3823491961714522819, guid: b3efaf7c90f41d246b9be26c18120e71,
