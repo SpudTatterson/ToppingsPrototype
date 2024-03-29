@@ -5,17 +5,10 @@ using UnityEngine.VFX;
 
 public class LemmingMovement : MonoBehaviour
 {
-    [Header("LemmingSettings")]
-    [Space]
-    [Tooltip("How fast the lemming will reach his max speed")]
     public float accelerationSpeed;
-    [Tooltip("How far the lemming will be knocked back when hitting an obstacle")]
     public float knockbackPower;
-    [Tooltip("The max speed of the lemming")]
     public float maxWalkSpeed;
-    [Tooltip("How fast the rotation in any direction will be in seconds")]
     public float RotationTime;
-    [Tooltip("Insert here the tags of the obstacles that the lemming will hit and rotate 180 degrees back")]
     public string[] collidingObjects;
     public LayerMask ignoreThis;
 
@@ -24,7 +17,7 @@ public class LemmingMovement : MonoBehaviour
 
     public float force;
 
-    public Vector3 groundedOffset = new Vector3 (0,0.1f,0);
+    public Vector3 groundedOffset = new Vector3(0, 0.1f, 0);
     public float maxDistanceOffGround = 0.2f;
 
     private Rigidbody rb;
@@ -33,14 +26,13 @@ public class LemmingMovement : MonoBehaviour
     [HideInInspector] public float turnSpeedSide;
     [HideInInspector] public bool walking;
     [HideInInspector] public bool rotateBack, rotateLeft, rotateRight;
-     public Vector3 startRotation;
-     public Vector3 endRotation;
+    public Vector3 startRotation;
+    public Vector3 endRotation;
     public bool isGrounded;
     public bool climbStairs;
-    
 
     public Vector3 boxCastSize;
-    private RaycastHit hit;
+    public RaycastHit[] allHits;
 
     private void Awake()
     {
@@ -72,12 +64,12 @@ public class LemmingMovement : MonoBehaviour
         LemmingRotation();
         Climb();
 
-        Physics.BoxCast(transform.localPosition + transform.up, boxCastSize, transform.forward, out hit, transform.localRotation, 1, ignoreThis);
+        allHits = Physics.BoxCastAll(transform.localPosition + transform.up, boxCastSize, transform.forward, transform.localRotation, 1, ignoreThis);
     }
 
     private void FixedUpdate()
     {
-        if ((rb.velocity.magnitude < maxWalkSpeed) && walking && isGrounded)
+        if ((rb.velocity.magnitude < maxWalkSpeed) && walking && isGrounded && !climbStairs)
         {
             rb.AddRelativeForce(Vector3.forward * accelerationSpeed * Time.fixedDeltaTime);
         }
@@ -127,7 +119,7 @@ public class LemmingMovement : MonoBehaviour
 
     public void Knockback()
     {
-        /* add a knockback effect relative to the facing direction og the Lemming */
+        /* Adds a knockback effect relative to the facing direction og the Lemming */
 
         walking = false;
         rb.velocity = Vector3.zero;
@@ -139,12 +131,24 @@ public class LemmingMovement : MonoBehaviour
     private void TurnBackOnCollision(Collision collision)
     {
         /* Sets the current position and the position the Lemming will rotate to,
-         This happens only if the lemming is colliding with the correctly tagged objects */        
+         This happens only if the lemming is colliding with the correctly tagged objects */
+
+        bool tagged = false;
 
         for (int i = 0; i < collidingObjects.Length; i++)
         {
-            if (hit.collider == null) return;
-            if (collision.collider.tag == collidingObjects[i] && hit.collider.name == collision.collider.name)
+            if (collision.collider.CompareTag(collidingObjects[i]))
+            {
+                tagged = true;
+                break;
+            }
+        }
+
+        if (allHits == null) return;
+
+        for (int i = 0; i < allHits.Length; i++) 
+        {
+            if(collision.collider == allHits[i].collider && tagged)
             {
                 Knockback();
                 startRotation = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
@@ -182,6 +186,19 @@ public class LemmingMovement : MonoBehaviour
     private void RotationLogic(bool direction)
     {
         if (direction & rb.velocity == Vector3.zero && delayVelocityCheck > 0.1f)
+        {
+            rotationTimer += Time.deltaTime;
+            transform.localEulerAngles = Vector3.Lerp(startRotation, endRotation, turnSpeedSide);
+            if (turnSpeedSide >= 1)
+            {
+                walking = true;
+            }
+        }
+    }
+
+    public void RotationLogicTest(Vector3 direction)
+    {
+        if (rb.velocity == Vector3.zero && delayVelocityCheck > 0.1f)
         {
             rotationTimer += Time.deltaTime;
             transform.localEulerAngles = Vector3.Lerp(startRotation, endRotation, turnSpeedSide);

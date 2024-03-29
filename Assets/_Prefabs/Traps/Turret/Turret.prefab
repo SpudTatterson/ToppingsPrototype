@@ -558,8 +558,7 @@ GameObject:
   - component: {fileID: 2095007036544341403}
   - component: {fileID: 59619961273993124}
   - component: {fileID: 4773553594949285670}
-  - component: {fileID: 372821461842378161}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -617,6 +616,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5535b6cb314f32f41929f481a369cf97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BulletsSoundClips:
+  - {fileID: 8300000, guid: 904e2921a2383f7429fd220b9952cd3d, type: 3}
+  - {fileID: 8300000, guid: 1e4022a1bfeea4b43bb7b958597ea53b, type: 3}
+  - {fileID: 8300000, guid: 6caac6a723bdde84d98916780ba7e013, type: 3}
+  - {fileID: 8300000, guid: 28b4efe8b4c3a7540bcd6508734ce352, type: 3}
+  - {fileID: 8300000, guid: ef35c07afd983e74a93eaaa2fd7de685, type: 3}
+  - {fileID: 8300000, guid: 02c79d7c9e563394aa186b3da34bb38b, type: 3}
   lemmingLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -637,6 +643,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3072
   timeBetweenShots: 0.05
+  timeBetweenShotSounds: 0.15
   bulletDamage: 1
   bulletSpeed: 4000
   bulletMass: 0.1
@@ -644,27 +651,6 @@ MonoBehaviour:
   reflectBackToShooter: 0
   bulletDispersion: 0.2
   accuracy: 3.5
---- !u!95 &372821461842378161
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3165338213539300308}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e5ec6b501f71687428d2254cfcdaccd9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3366325012042097824
 GameObject:
   m_ObjectHideFlags: 0

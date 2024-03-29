@@ -8,11 +8,10 @@ using UnityEngine.UI;
 public class JobsSelectorUI : MonoBehaviour
 {    
     [SerializeField] Button woodCutter;
-    //[SerializeField] Button paratrooper;
     [SerializeField] Button shieldLemming;
+    [SerializeField] LayerMask lemmingLayer;
 
     private bool woodCutterUI;
-    //private bool paratrooperUI;
     private bool ShieldLemmingUI;
 
     EventSystem currentUI;
@@ -30,27 +29,18 @@ public class JobsSelectorUI : MonoBehaviour
             if (currentUI.currentSelectedGameObject.name == woodCutter.name)
             {
                 woodCutterUI = true;
-                //paratrooperUI = false;
                 ShieldLemmingUI = false;
             }
-
-            /*            if (currentUI.currentSelectedGameObject.name == paratrooper.name)
-                        {
-                            paratrooperUI = true;
-                            woodCutterUI = false;
-                            ShieldLemmingUI = false;
-                        }*/
 
             if (currentUI.currentSelectedGameObject.name == shieldLemming.name)
             {
                 ShieldLemmingUI = true;
-                //paratrooperUI = false;
                 woodCutterUI = false;
             }
         }
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Physics.Raycast(ray, out hit);
+        Physics.Raycast(ray, out hit, Mathf.Infinity, lemmingLayer);
 
         if (hit.collider == null) return;
         if (woodCutterUI)
@@ -66,20 +56,6 @@ public class JobsSelectorUI : MonoBehaviour
                 woodCutterUI = false;
             }
         }
-
-        /*        if (paratrooperUI)
-                {
-                    if (hit.collider.TryGetComponent(out WorkerLogic workerLogicScript) && Input.GetKeyDown(KeyCode.Mouse0) && workerLogicScript.basicOutfit.activeSelf)
-                    {
-                        workerLogicScript.paratrooper = true;
-                        workerLogicScript.SetWorkerOutfit();
-                        paratrooperUI = false;
-                    }
-                    else if (Input.GetKeyDown(KeyCode.Mouse0) && !hit.collider.CompareTag("Lemming"))
-                    {
-                        paratrooperUI = false;
-                    }
-                }*/
 
         if (ShieldLemmingUI)
         {

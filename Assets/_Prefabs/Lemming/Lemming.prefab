@@ -359,6 +359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  velocityForDeath: 8
 --- !u!114 &1166977942748086502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,6 +386,8 @@ MonoBehaviour:
   force: 350
   groundedOffset: {x: 0, y: 0.1, z: 0}
   maxDistanceOffGround: 0.2
+  rotationTimer: 0
+  delayVelocityCheck: 0
   turnSpeedSide: 0
   walking: 0
   rotateBack: 0
