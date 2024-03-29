@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: c104985513aa8424f91cd59b0886456d, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.0032712384, g: 0.28854826, b: 0.30656487, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11076,6 +11076,79 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1065801592}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &717759462
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2910206075923672014, guid: 0d36631ddb19e1642a34071573259124,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1edc28009e606394db618bd9519d681e, type: 2}
+    - target: {fileID: 3127030685187591112, guid: 0d36631ddb19e1642a34071573259124,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127030685187591112, guid: 0d36631ddb19e1642a34071573259124,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127030685187591112, guid: 0d36631ddb19e1642a34071573259124,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -160.65521
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127030685187591112, guid: 0d36631ddb19e1642a34071573259124,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127030685187591112, guid: 0d36631ddb19e1642a34071573259124,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127030685187591112, guid: 0d36631ddb19e1642a34071573259124,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127030685187591112, guid: 0d36631ddb19e1642a34071573259124,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127030685187591112, guid: 0d36631ddb19e1642a34071573259124,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127030685187591112, guid: 0d36631ddb19e1642a34071573259124,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127030685187591112, guid: 0d36631ddb19e1642a34071573259124,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7704558245969271029, guid: 0d36631ddb19e1642a34071573259124,
+        type: 3}
+      propertyPath: m_Name
+      value: EndPoint
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0d36631ddb19e1642a34071573259124, type: 3}
 --- !u!1001 &718239919
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32071,6 +32144,16 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.2779043
       objectReference: {fileID: 0}
+    - target: {fileID: 3164444609424003256, guid: a81fc51a9bf42a4428406576b5286d14,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164444609424003256, guid: a81fc51a9bf42a4428406576b5286d14,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5fa487b135080c0418e401bab1867cbe, type: 3}
     - target: {fileID: 3982876594345514639, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38843,3 +38926,4 @@ SceneRoots:
   - {fileID: 7963523806452056704}
   - {fileID: 811406345}
   - {fileID: 2101814170}
+  - {fileID: 717759462}
