@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ilay/Toutorial Level.unity
     guid: a83f96cbc4d625441af77f4a0266b6c9
+  - enabled: 1
+    path: Assets/Scenes/Ilay/Level_0.1.unity
+    guid: 24b19c7b7ba759148bc432e46671e241
+  - enabled: 1
+    path: Assets/Scenes/Ilay/Level_2.unity
+    guid: 62beab786b982b74698a00baeee722d3
+  - enabled: 1
+    path: Assets/Scenes/Ilay/Level_3.unity
+    guid: a7a7fafad4930f34a9aabce58805a584
   m_configObjects: {}
