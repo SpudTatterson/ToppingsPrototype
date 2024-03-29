@@ -33,6 +33,7 @@ public class Turret : MonoBehaviour
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] LayerMask ignoreLayers;
     [SerializeField] float timeBetweenShots;
+    [SerializeField] float timeBetweenShotSounds;
     [SerializeField] float bulletDamage;
     [SerializeField] float bulletSpeed;
     [SerializeField] float bulletMass;
@@ -48,6 +49,7 @@ public class Turret : MonoBehaviour
     private float timerToAim;
     private float timerToIdle;
     private float shotCooldown;
+    private float soundCooldown;
     private Quaternion lastIdlePos; 
 
     private void OnDrawGizmos()
@@ -102,6 +104,8 @@ public class Turret : MonoBehaviour
     private void Idle()
     {
         shoot = false;
+        shotCooldown = timeBetweenShots;
+        soundCooldown = timeBetweenShotSounds;
 
         if (lastIdlePos != turretHead.rotation)
         {
@@ -208,7 +212,8 @@ public class Turret : MonoBehaviour
         {
             StatusLightColor(Color.red);
             shotCooldown += Time.deltaTime;
-            
+            soundCooldown += Time.deltaTime;
+
             if (shotCooldown >= timeBetweenShots)
             {               
                 var cloneBullet = Instantiate(bullet, bulletSpawnPoint.position + PositionAccuracy(bulletDispersion), bulletSpawnPoint.rotation * RotationAccuracy(accuracy));
@@ -217,7 +222,11 @@ public class Turret : MonoBehaviour
                 MuzzleFlash();
                 bulletSmoke.Play();
                 shotCooldown = 0;
-                SoundsFXManager.instance.PlayRandomSoundFXClip(BulletsSoundClips, transform, 1f);
+                if(soundCooldown >= timeBetweenShotSounds)
+                {
+                    SoundsFXManager.instance.PlayRandomSoundFXClip(BulletsSoundClips, transform, 1f);
+                    soundCooldown = 0;
+                }
             }
         }
     }

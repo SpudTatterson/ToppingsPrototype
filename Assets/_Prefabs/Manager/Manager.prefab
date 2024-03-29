@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fastForwardMultiplier: 1
   slowDownMultiplier: 0.1
+  jobsButton: {fileID: 0}
+  placeablesButton: {fileID: 0}
 --- !u!114 &4660443121711575765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,6 +64,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   woodCutter: {fileID: 0}
   shieldLemming: {fileID: 0}
+  lemmingLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &3823491961714522819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,4 +83,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   itemToPlace: {fileID: 0}
-  unplacedMaterial: {fileID: 0}
+  unplacedMaterial: {fileID: 2100000, guid: 50e868728a5f34347b39f128a4a9887b, type: 2}

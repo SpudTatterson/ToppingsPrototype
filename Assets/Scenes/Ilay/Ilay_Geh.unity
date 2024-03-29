@@ -2475,6 +2475,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fan (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4730515967838965759, guid: 8c939e073a15f104c98bf2ef3d510dab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19460,7 +19465,7 @@ Transform:
   m_GameObject: {fileID: 1652300225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.94, y: 3.3292682, z: -25.81}
+  m_LocalPosition: {x: 17.94, y: 3.08, z: -25.81}
   m_LocalScale: {x: 1.396213, y: 1, z: 0.619}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20284,6 +20289,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 328b6b130ad31f847ad545ac3194310a, type: 3}
+--- !u!1001 &1750049301
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2350668968240332121, guid: ea2317a71c4378c41a01e75863a1af6a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.854
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350668968240332121, guid: ea2317a71c4378c41a01e75863a1af6a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350668968240332121, guid: ea2317a71c4378c41a01e75863a1af6a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -17.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350668968240332121, guid: ea2317a71c4378c41a01e75863a1af6a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350668968240332121, guid: ea2317a71c4378c41a01e75863a1af6a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350668968240332121, guid: ea2317a71c4378c41a01e75863a1af6a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350668968240332121, guid: ea2317a71c4378c41a01e75863a1af6a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350668968240332121, guid: ea2317a71c4378c41a01e75863a1af6a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350668968240332121, guid: ea2317a71c4378c41a01e75863a1af6a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350668968240332121, guid: ea2317a71c4378c41a01e75863a1af6a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714466212057560990, guid: ea2317a71c4378c41a01e75863a1af6a,
+        type: 3}
+      propertyPath: m_Name
+      value: Parachute_Table
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ea2317a71c4378c41a01e75863a1af6a, type: 3}
 --- !u!4 &1774952100 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6685741922627053002, guid: 328b6b130ad31f847ad545ac3194310a,
@@ -20920,6 +20993,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fan
+      objectReference: {fileID: 0}
+    - target: {fileID: 4730515967838965759, guid: 8c939e073a15f104c98bf2ef3d510dab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
