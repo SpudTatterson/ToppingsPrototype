@@ -217,9 +217,10 @@ MonoBehaviour:
   reflectBackToShooter: 0
   bulletDamage: 1
   bulletSpeed: 4000
-  layer:
+  bulletLayer:
     serializedVersion: 2
     m_Bits: 1024
+  shieldTag: Shield
 --- !u!96 &-7257222466587410682
 TrailRenderer:
   serializedVersion: 3
