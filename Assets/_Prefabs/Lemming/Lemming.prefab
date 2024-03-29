@@ -360,6 +360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   velocityForDeath: 8
+  currentVelocity: 0
 --- !u!114 &1166977942748086502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -938,6 +939,12 @@ VisualEffect:
       - m_Value: {x: 0.333, y: 1, z: 0.333}
         m_Name: MinSmokeDirection
         m_Overridden: 1
+      - m_Value: {x: 0, y: 0, z: 0}
+        m_Name: Parent_position
+        m_Overridden: 0
+      - m_Value: {x: 0, y: 0, z: 0}
+        m_Name: Parent_angles
+        m_Overridden: 0
     m_Vector4f:
       m_Array: []
     m_Uint:

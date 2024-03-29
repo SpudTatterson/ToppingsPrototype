@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class SignNew : MonoBehaviour
@@ -47,9 +46,9 @@ public class SignNew : MonoBehaviour
 
             if (trigger == 0)
             {
-            lemmingScript.startRotation = new Vector3(lemmingScript.transform.eulerAngles.x, lemmingScript.transform.eulerAngles.y, lemmingScript.transform.eulerAngles.z);
-            lemmingScript.endRotation = new Vector3(transform.eulerAngles.x, direction, transform.eulerAngles.z);
-            trigger++;
+                lemmingScript.startRotation = new Vector3(lemmingScript.transform.eulerAngles.x, lemmingScript.transform.eulerAngles.y, lemmingScript.transform.eulerAngles.z);
+                lemmingScript.endRotation = new Vector3(transform.eulerAngles.x, direction, transform.eulerAngles.z);
+                trigger++;
             }
 
             if (degree == 90f)
