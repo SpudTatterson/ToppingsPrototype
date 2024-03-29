@@ -27,4 +27,8 @@ public class SceneUtility : MonoBehaviour
         UnityEditor.EditorApplication.ExitPlaymode();
         #endif
     }
+    public void NextScene()
+    {
+        LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
