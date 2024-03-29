@@ -11,6 +11,8 @@ public class LemmingHealth : MonoBehaviour
     public float currentVelocity;
     private LemmingMovement lemmingMovement;
 
+    public bool usingJumpPad = false;
+
     private void Start()
     {
         lemmingMovement = GetComponent<LemmingMovement>();
@@ -19,12 +21,17 @@ public class LemmingHealth : MonoBehaviour
 
     private void Update()
     {
-        if(health <= 0)
+        if (health <= 0)
         {
-            Destroy(gameObject);
+            Death();
         }
 
         DeathOnFall();
+    }
+
+    private void Death()
+    {
+        Destroy(gameObject);
     }
 
     public void TakeDamage(float damage)
@@ -34,13 +41,20 @@ public class LemmingHealth : MonoBehaviour
 
     private void DeathOnFall()
     {
+        
         var rb = GetComponent<Rigidbody>();
 
         if (lemmingMovement.isGrounded)
         {
-            if(currentVelocity < velocityForDeath)
+            if (currentVelocity < velocityForDeath)
             {
-                Destroy(gameObject);
+                if(usingJumpPad) 
+                {
+                    usingJumpPad = false;
+                    currentVelocity = 0;
+                    return;
+                }
+                Death();
             }
             else
             {
