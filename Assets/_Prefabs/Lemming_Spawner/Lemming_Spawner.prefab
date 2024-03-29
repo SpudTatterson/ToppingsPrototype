@@ -410,6 +410,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b812eea2b50aad94b91fb98dc33ff6cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MinionSoundClips:
+  - {fileID: 8300000, guid: 268a6aa19f5515248bd87fbfdf94cc50, type: 3}
+  - {fileID: 8300000, guid: 23fbe296855d4cd4fb7b83da0ffa88d0, type: 3}
+  - {fileID: 8300000, guid: 7985b4888276b5c47996199f693fd3cf, type: 3}
   lemming: {fileID: 1385723183956263404, guid: 8443945175bc0304d80f07448ec4de15, type: 3}
   spawnPoint: {fileID: 2481745453220349916}
   delayBetweenSpawns: 1.75
