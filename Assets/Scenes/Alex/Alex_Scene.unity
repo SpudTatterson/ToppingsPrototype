@@ -2764,13 +2764,73 @@ PrefabInstance:
     - target: {fileID: 4773553594949285670, guid: 8025e3360ed99d343b3c6ab702040741,
         type: 3}
       propertyPath: reflectRealistic
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4773553594949285670, guid: 8025e3360ed99d343b3c6ab702040741,
         type: 3}
       propertyPath: reflectBackToShooter
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4773553594949285670, guid: 8025e3360ed99d343b3c6ab702040741,
+        type: 3}
+      propertyPath: BulletsSoundClips.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4773553594949285670, guid: 8025e3360ed99d343b3c6ab702040741,
+        type: 3}
+      propertyPath: BulletsSoundClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: c3fc0474df279d1489d661b015b2ce77, type: 3}
+    - target: {fileID: 4773553594949285670, guid: 8025e3360ed99d343b3c6ab702040741,
+        type: 3}
+      propertyPath: BulletsSoundClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 67e3fc33bf32a654bb7ac5e0aae16963, type: 3}
+    - target: {fileID: 4773553594949285670, guid: 8025e3360ed99d343b3c6ab702040741,
+        type: 3}
+      propertyPath: BulletsSoundClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3282e6e5de615cf45b0cd6675f1ae649, type: 3}
+    - target: {fileID: 4773553594949285670, guid: 8025e3360ed99d343b3c6ab702040741,
+        type: 3}
+      propertyPath: BulletsSoundClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: f8f2f0148b3bf9a4883bdeb397d449d9, type: 3}
+    - target: {fileID: 4773553594949285670, guid: 8025e3360ed99d343b3c6ab702040741,
+        type: 3}
+      propertyPath: BulletsSoundClips.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4e1650e32b5790b478b60c8ce7a926ee, type: 3}
+    - target: {fileID: 4773553594949285670, guid: 8025e3360ed99d343b3c6ab702040741,
+        type: 3}
+      propertyPath: BulletsSoundClips.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4e1650e32b5790b478b60c8ce7a926ee, type: 3}
+    - target: {fileID: 4773553594949285670, guid: 8025e3360ed99d343b3c6ab702040741,
+        type: 3}
+      propertyPath: BulletsSoundClips.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4e1650e32b5790b478b60c8ce7a926ee, type: 3}
+    - target: {fileID: 4773553594949285670, guid: 8025e3360ed99d343b3c6ab702040741,
+        type: 3}
+      propertyPath: BulletsSoundClips.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4e1650e32b5790b478b60c8ce7a926ee, type: 3}
+    - target: {fileID: 4773553594949285670, guid: 8025e3360ed99d343b3c6ab702040741,
+        type: 3}
+      propertyPath: BulletsSoundClips.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4e1650e32b5790b478b60c8ce7a926ee, type: 3}
+    - target: {fileID: 4773553594949285670, guid: 8025e3360ed99d343b3c6ab702040741,
+        type: 3}
+      propertyPath: BulletsSoundClips.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4e1650e32b5790b478b60c8ce7a926ee, type: 3}
+    - target: {fileID: 4773553594949285670, guid: 8025e3360ed99d343b3c6ab702040741,
+        type: 3}
+      propertyPath: BulletsSoundClips.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4e1650e32b5790b478b60c8ce7a926ee, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

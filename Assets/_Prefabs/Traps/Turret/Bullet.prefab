@@ -215,8 +215,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reflectRealistic: 1
   reflectBackToShooter: 0
-  bulletDamage: 1
-  bulletSpeed: 4000
+  bulletDamage: 5
+  bulletSpeed: 7000
   bulletLayer:
     serializedVersion: 2
     m_Bits: 1024
