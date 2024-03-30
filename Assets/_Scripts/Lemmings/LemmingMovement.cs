@@ -153,11 +153,12 @@ public class LemmingMovement : MonoBehaviour
             }
         }
 
+        if (!tagged) return;
         if (allHits == null) return;
 
         for (int i = 0; i < allHits.Length; i++) 
         {
-            if(collision.collider == allHits[i].collider && tagged)
+            if(collision.collider == allHits[i].collider)
             {
                 Knockback();
                 startRotationTest = transform.rotation;
@@ -177,23 +178,23 @@ public class LemmingMovement : MonoBehaviour
         turnComplete = rotationTimer / RotationTime;
         RotationLogic();
     }
+
+    public void RotationLogic()
+    {
+        if (rb.velocity == Vector3.zero && delayVelocityCheck > 0.1f && !knockable)
+        {
+            rotationTimer += Time.deltaTime;
+            transform.rotation = Quaternion.Slerp(startRotationTest, targetRotationTest, Mathf.SmoothStep(0,1,turnComplete));
+            if (turnComplete >= 1)
+            {
+                walking = true;
+                knockable = true;
+            }
+        }
+    }
     void OnDrawGizmos()
     {
         Vector3 offset = transform.position + groundedOffset;
         Gizmos.DrawRay(offset, Vector3.down * maxDistanceOffGround);
-    }
-
-    public void RotationLogic()
-    {
-        if (rb.velocity == Vector3.zero && delayVelocityCheck > 0.1f)
-        {
-            knockable = true;
-            rotationTimer += Time.deltaTime;
-            transform.rotation = Quaternion.Slerp(startRotationTest, targetRotationTest, turnComplete);
-            if (turnComplete >= 1)
-            {
-                walking = true;
-            }
-        }
     }
 }

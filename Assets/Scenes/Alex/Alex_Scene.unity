@@ -458,7 +458,7 @@ GameObject:
   - component: {fileID: 61784921}
   m_Layer: 0
   m_Name: Ground_High
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3865,7 +3865,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1002711049
 Transform:
   m_ObjectHideFlags: 0
@@ -3874,13 +3874,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002711048}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.25881904, z: -0, w: 0.9659259}
   m_LocalPosition: {x: -3.25, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 4, z: 9.77}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 613726095}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -30, z: 0}
 --- !u!65 &1002711050
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8038,14 +8038,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5718985497029329170}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.0000002533197, z: -0, w: -1}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: -0.00000035762784}
   m_LocalPosition: {x: -5.25, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7934733128760235532}
   m_Father: {fileID: 613726095}
-  m_LocalEulerAnglesHint: {x: 0, y: 360, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 540, z: 0}
 --- !u!33 &4966806327053100043
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8112,7 +8112,7 @@ GameObject:
   - component: {fileID: 677544313}
   m_Layer: 0
   m_Name: Sign
-  m_TagString: Right_Sign
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
