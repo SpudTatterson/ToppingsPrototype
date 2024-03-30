@@ -4,19 +4,7 @@ using UnityEngine;
 
 public class SignNew : MonoBehaviour
 {
-    public float direction;
-    private float degree;
-    private int trigger;
-
-    List<GameObject> lemmings = new List<GameObject>();
-
-    private void Start()
-    {
-        print(transform.rotation.eulerAngles);
-        this.direction = transform.rotation.y;
-        degree = 90f;
-        trigger = 0;
-    }
+    private List<GameObject> lemmings = new List<GameObject>();
 
     private void Update()
     {
@@ -33,7 +21,15 @@ public class SignNew : MonoBehaviour
         if (collision.gameObject.CompareTag("Lemming"))
         {
             var lemmingScript = collision.gameObject.GetComponent<LemmingMovement>();
+
             lemmingScript.Knockback();
+
+            Vector3 signDirection = transform.forward;
+            Quaternion targetRotation = Quaternion.LookRotation(signDirection);
+
+            lemmingScript.startRotationTest = lemmingScript.transform.rotation;
+            lemmingScript.targetRotationTest = targetRotation;
+
             lemmings.Add(collision.gameObject); // Adds lemming to a list so i can still access him after the collision
         }
     }
@@ -44,17 +40,7 @@ public class SignNew : MonoBehaviour
         {
             var lemmingScript = lemmings[i].GetComponent<LemmingMovement>();
 
-            if (trigger == 0)
-            {
-                lemmingScript.startRotation = new Vector3(lemmingScript.transform.eulerAngles.x, lemmingScript.transform.eulerAngles.y, lemmingScript.transform.eulerAngles.z);
-                lemmingScript.endRotation = new Vector3(transform.eulerAngles.x, direction, transform.eulerAngles.z);
-                trigger++;
-            }
-
-            if (degree == 90f)
-                lemmingScript.rotateRight = true;
-
-            if (lemmingScript.turnSpeedSide >= 1)
+            if (lemmingScript.turnComplete >= 1)
             {
                 lemmings.RemoveAt(i);
             }
