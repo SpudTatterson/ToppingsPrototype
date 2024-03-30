@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SignNew : MonoBehaviour
+public class SignNew : Placeable
 {
     private List<GameObject> lemmings = new List<GameObject>();
 
