@@ -31,7 +31,7 @@ public class Turret : MonoBehaviour
     [SerializeField] GameObject muzzleFlash;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform bulletSpawnPoint;
-    [SerializeField] LayerMask ignoreLayers;
+    [SerializeField] LayerMask seeThrough;
     [SerializeField] float timeBetweenShots;
     [SerializeField] float timeBetweenShotSounds;
     [SerializeField] float bulletDamage;
@@ -157,7 +157,7 @@ public class Turret : MonoBehaviour
         for (int i = 0; i < lemmingColliders.Length; i++)
         {
             var lookDirection = (lemmingColliders[i].transform.position + Vector3.up) - turretHead.position;
-            Physics.Raycast(new Ray(turretHead.position, lookDirection), out RaycastHit hit, Mathf.Infinity, ~ignoreLayers);
+            Physics.Raycast(new Ray(turretHead.position, lookDirection), out RaycastHit hit, Mathf.Infinity, ~seeThrough);
 
             if (hit.collider == null) continue;
 
@@ -176,7 +176,7 @@ public class Turret : MonoBehaviour
         if (targettedLemming == null) return;
 
         var direction = (targettedLemming.transform.position + Vector3.up) - turretHead.position;
-        Physics.Raycast(new Ray(turretHead.position, direction), out RaycastHit hitLemming, Mathf.Infinity, ~ignoreLayers);
+        Physics.Raycast(new Ray(turretHead.position, direction), out RaycastHit hitLemming, Mathf.Infinity, ~seeThrough);
 
         if (targettedLemming != null && !lemmingColliders.Contains(targettedLemming.GetComponent<Collider>())) targettedLemming = null;
         if (targettedLemming != null && hitLemming.collider != targettedLemming.GetComponent<Collider>()) targettedLemming = null;
@@ -186,10 +186,10 @@ public class Turret : MonoBehaviour
     {
         timerToAim += Time.deltaTime;
 
-        var predictedPos = predictedPosition(targettedLemming, turretHead, bullet, bulletSpeed);
+        var predictedPos = PredictedPosition(targettedLemming, turretHead, bullet, bulletSpeed);
         var desiredLookDirection = targettedLemming.transform.position - turretHead.position;       // The direction the turret will aim
 
-        Physics.Raycast(new Ray(turretHead.position, desiredLookDirection), out RaycastHit hit, Mathf.Infinity, ~ignoreLayers);    // Shoots a ray in the direction of the target and stores collider data
+        Physics.Raycast(new Ray(turretHead.position, desiredLookDirection), out RaycastHit hit, Mathf.Infinity, ~seeThrough);    // Shoots a ray in the direction of the target and stores collider data
 
         if (hit.collider == null) return;
 
@@ -217,7 +217,7 @@ public class Turret : MonoBehaviour
             if (shotCooldown >= timeBetweenShots)
             {               
                 var cloneBullet = Instantiate(bullet, bulletSpawnPoint.position + PositionAccuracy(bulletDispersion), bulletSpawnPoint.rotation * RotationAccuracy(accuracy));
-                cloneBullet.GetComponent<Rigidbody>().AddForce(cloneBullet.transform.forward * bulletSpeed * Time.fixedDeltaTime);
+                //cloneBullet.GetComponent<Rigidbody>().AddForce(cloneBullet.transform.forward * bulletSpeed * Time.fixedDeltaTime);
                 Destroy(cloneBullet, 5f);
                 MuzzleFlash();
                 bulletSmoke.Play();
@@ -238,7 +238,7 @@ public class Turret : MonoBehaviour
         //renderer.material.SetColor("_EmissionColor", color);
     }
 
-    private Vector3 predictedPosition(GameObject target, Transform shooter, GameObject projectile, float bulletSpeed)
+    private Vector3 PredictedPosition(GameObject target, Transform shooter, GameObject projectile, float bulletSpeed)
     {
         float magnitude = (bulletSpeed / projectile.GetComponent<Rigidbody>().mass) * Time.fixedDeltaTime;      // Calculates the magnitude of the projectile before it is being shot.
 

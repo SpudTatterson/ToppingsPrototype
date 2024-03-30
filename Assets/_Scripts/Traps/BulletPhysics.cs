@@ -11,7 +11,7 @@ public class BulletPhysics : MonoBehaviour
     [HideInInspector] public float bulletDamage;
     [HideInInspector] public float bulletSpeed;
 
-    [SerializeField] public LayerMask bulletLayer;
+    [SerializeField] public LayerMask seeThrough;
     [SerializeField] public string shieldTag;
 
     private Vector3 startPosition;
@@ -23,23 +23,25 @@ public class BulletPhysics : MonoBehaviour
     {
         startPosition = transform.position;         // Gets the spawn position of the bullet
         previousPosition = transform.position;      // Gets the previous position
-        bulletLayer = ~bulletLayer;                 // Takes the inputed layer and inverts it
+        seeThrough = ~seeThrough;                 // Takes the inputed layer and inverts it
+        gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed * Time.fixedDeltaTime);
     }
 
     private void Update()
     {
         currentPosition = transform.position;
+
         var distance = Vector3.Distance(previousPosition, currentPosition);
 
         var directionFromPreviousBullet = currentPosition - previousPosition;
         Ray ray = new Ray(previousPosition, directionFromPreviousBullet);
-        Physics.Raycast(ray, out hit, distance, bulletLayer);
+        Physics.Raycast(ray, out hit, distance, seeThrough);
 
         if (hit.collider == null)
         {
             var directionToPreviousBullet = previousPosition - currentPosition;
             ray = new Ray(currentPosition, directionToPreviousBullet);
-            Physics.Raycast(ray, out hit, distance, bulletLayer);
+            Physics.Raycast(ray, out hit, distance, seeThrough);
         }
 
         previousPosition = currentPosition;
@@ -54,30 +56,7 @@ public class BulletPhysics : MonoBehaviour
 
         if (hit.collider.CompareTag("Shield"))
         {
-            if (reflectRealistic)
-            {
-                var direction = Vector3.Reflect(transform.forward, hit.normal);
-                var position = hit.point - (transform.forward * .2f);
-                var cloneBullet = Instantiate(gameObject, position, Quaternion.LookRotation(direction));
-                cloneBullet.GetComponent<Rigidbody>().AddForce(cloneBullet.transform.forward * bulletSpeed * Time.fixedDeltaTime);
-                cloneBullet.GetComponent<BulletPhysics>().bulletLayer = ~bulletLayer;
-                Destroy(cloneBullet, 5f);
-                Destroy(gameObject);
-            }
-            else if (reflectBackToShooter)
-            {
-                var direction = startPosition - transform.position;
-                var position = hit.point - (transform.forward * .2f);
-                var cloneBullet = Instantiate(gameObject, position, Quaternion.LookRotation(direction));
-                cloneBullet.GetComponent<Rigidbody>().AddForce(cloneBullet.transform.forward * bulletSpeed * Time.fixedDeltaTime);
-                cloneBullet.GetComponent<BulletPhysics>().bulletLayer = ~bulletLayer;
-                Destroy(cloneBullet, 5f);
-                Destroy(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+            ReflectBullet();
         }
 
         if (hit.collider.TryGetComponent(out Turret turret))
@@ -89,14 +68,47 @@ public class BulletPhysics : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider)
+        if (collision.collider.TryGetComponent(out Turret turret))
         {
+            turret.TakeDamage(bulletDamage);
+            Destroy(gameObject);
+        }
+
+        if (collision.collider.CompareTag("Shield"))
+        {
+            ReflectBullet();
+        }
+
+        if (collision.collider.TryGetComponent(out LemmingHealth lemmingHealth))
+        {
+            lemmingHealth.TakeDamage(bulletDamage);
             Destroy(gameObject);
         }
     }
 
-    private void WorkingPhysics()
+    private void ReflectBullet()
     {
-
+        if (reflectRealistic)
+        {
+            var direction = Vector3.Reflect(transform.forward, hit.normal);
+            var position = hit.point - (transform.forward * .2f);
+            var cloneBullet = Instantiate(gameObject, position, Quaternion.LookRotation(direction));
+            cloneBullet.GetComponent<BulletPhysics>().seeThrough = ~seeThrough;
+            Destroy(cloneBullet, 5f);
+            Destroy(gameObject);
+        }
+        else if (reflectBackToShooter)
+        {
+            var direction = startPosition - transform.position;
+            var position = hit.point - (transform.forward * .2f);
+            var cloneBullet = Instantiate(gameObject, position, Quaternion.LookRotation(direction));
+            cloneBullet.GetComponent<BulletPhysics>().seeThrough = ~seeThrough;
+            Destroy(cloneBullet, 5f);
+            Destroy(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
