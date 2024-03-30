@@ -22,5 +22,10 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI bestTimeText;
     public Image starFillUpBar;
     public Image bestStarFillUpBar;
-
+    [Header("Pause Menu")]
+    public GameObject PauseScreen;
+    [Header("Sound Settings")]
+    public Slider masterVolume;
+    public Slider soundFXVolume;
+    public Slider musicVolume;
 }
