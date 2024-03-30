@@ -2568,17 +2568,17 @@ PrefabInstance:
     - target: {fileID: 686182855405038883, guid: 908bd483ebfafb2448f92ec81332842a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.349525
+      value: -11.389525
       objectReference: {fileID: 0}
     - target: {fileID: 686182855405038883, guid: 908bd483ebfafb2448f92ec81332842a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.493089
+      value: 6.463089
       objectReference: {fileID: 0}
     - target: {fileID: 686182855405038883, guid: 908bd483ebfafb2448f92ec81332842a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.27790433
+      value: -0.2779043
       objectReference: {fileID: 0}
     - target: {fileID: 1882913846614951189, guid: 908bd483ebfafb2448f92ec81332842a,
         type: 3}
@@ -2629,6 +2629,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546332431340876367, guid: 908bd483ebfafb2448f92ec81332842a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.58173835
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546332431340876367, guid: 908bd483ebfafb2448f92ec81332842a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.22091457
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546332431340876367, guid: 908bd483ebfafb2448f92ec81332842a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7318104
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546332431340876367, guid: 908bd483ebfafb2448f92ec81332842a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.2779043
       objectReference: {fileID: 0}
     - target: {fileID: 2680331391616235721, guid: 908bd483ebfafb2448f92ec81332842a,
         type: 3}
@@ -3546,6 +3566,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7622497436540926886}
+    - target: {fileID: 1227267515237561786, guid: a1ecf636f1f9d8f4ab84b01df45129bc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 4892887417133948678, guid: 529cb020fab155442a97db896629a0f6,
+        type: 3}
     - target: {fileID: 2616106709799456642, guid: a1ecf636f1f9d8f4ab84b01df45129bc,
         type: 3}
       propertyPath: m_Value
