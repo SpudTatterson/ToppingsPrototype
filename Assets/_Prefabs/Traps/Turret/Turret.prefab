@@ -617,12 +617,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletsSoundClips:
-  - {fileID: 8300000, guid: 904e2921a2383f7429fd220b9952cd3d, type: 3}
-  - {fileID: 8300000, guid: 1e4022a1bfeea4b43bb7b958597ea53b, type: 3}
-  - {fileID: 8300000, guid: 6caac6a723bdde84d98916780ba7e013, type: 3}
-  - {fileID: 8300000, guid: 28b4efe8b4c3a7540bcd6508734ce352, type: 3}
-  - {fileID: 8300000, guid: ef35c07afd983e74a93eaaa2fd7de685, type: 3}
-  - {fileID: 8300000, guid: 02c79d7c9e563394aa186b3da34bb38b, type: 3}
+  - {fileID: 8300000, guid: c3fc0474df279d1489d661b015b2ce77, type: 3}
+  - {fileID: 8300000, guid: 67e3fc33bf32a654bb7ac5e0aae16963, type: 3}
+  - {fileID: 8300000, guid: 3282e6e5de615cf45b0cd6675f1ae649, type: 3}
+  - {fileID: 8300000, guid: f8f2f0148b3bf9a4883bdeb397d449d9, type: 3}
+  - {fileID: 8300000, guid: 4e1650e32b5790b478b60c8ce7a926ee, type: 3}
   lemmingLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -643,7 +642,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3072
   timeBetweenShots: 0.05
-  timeBetweenShotSounds: 0.15
+  timeBetweenShotSounds: 0.5
   bulletDamage: 5
   bulletSpeed: 7000
   bulletMass: 0.1
