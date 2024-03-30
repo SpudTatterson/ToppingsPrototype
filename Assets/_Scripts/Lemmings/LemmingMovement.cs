@@ -6,38 +6,47 @@ using UnityEngine.VFX;
 public class LemmingMovement : MonoBehaviour
 {
     public float accelerationSpeed;
-    public float knockbackPower;
     public float maxWalkSpeed;
+    public float climbForce;
+
+    public float knockbackPower;
     public float RotationTime;
     public string[] collidingObjects;
+
     public LayerMask ignoreThis;
-
     public VisualEffect groundStomp;
-    private float stompTimer;
-
-    public float force;
 
     public Vector3 groundedOffset = new Vector3(0, 0.1f, 0);
     public float maxDistanceOffGround = 0.2f;
 
+    private float stompTimer;
     private Rigidbody rb;
-    public float rotationTimer, delayVelocityCheck;
 
-    [HideInInspector] public float turnSpeedSide;
+    private float rotationTimer;
+    private float delayVelocityCheck;
+    [HideInInspector] public float turnComplete;
+
     [HideInInspector] public bool walking;
     [HideInInspector] public bool rotateBack, rotateLeft, rotateRight;
-    public Vector3 startRotation;
-    public Vector3 endRotation;
-    public bool isGrounded;
-    public bool climbStairs;
+    [HideInInspector] public bool climbStairs;
+    [HideInInspector] public bool knockable;
+    [HideInInspector] public bool isGrounded;
 
     public Vector3 boxCastSize;
-    public RaycastHit[] allHits;
+    private RaycastHit[] allHits;
 
+    [HideInInspector] public Quaternion targetRotationTest;
+    [HideInInspector] public Quaternion startRotationTest;
+
+    // ------ DEPRECATED ------ //
+    [HideInInspector] public Vector3 startRotation;
+    [HideInInspector] public Vector3 endRotation;
+    // ------ DEPRECATED ------ //
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         walking = true;
+        knockable = true;
         stompTimer = 1;
         ignoreThis = ~ignoreThis;
     }
@@ -76,7 +85,7 @@ public class LemmingMovement : MonoBehaviour
 
         if (climbStairs)
         {
-            rb.AddForce(transform.up * force * Time.fixedDeltaTime);
+            rb.AddForce(transform.up * climbForce * Time.fixedDeltaTime);
             if ((rb.velocity.magnitude < maxWalkSpeed) && walking)
             {
                 rb.AddRelativeForce(Vector3.forward * accelerationSpeed * Time.fixedDeltaTime);
@@ -120,7 +129,7 @@ public class LemmingMovement : MonoBehaviour
     public void Knockback()
     {
         /* Adds a knockback effect relative to the facing direction og the Lemming */
-
+        knockable = false;
         walking = false;
         rb.velocity = Vector3.zero;
         rb.AddRelativeForce(new Vector3(0, 0, -knockbackPower));
@@ -144,16 +153,18 @@ public class LemmingMovement : MonoBehaviour
             }
         }
 
+        if (!tagged) return;
         if (allHits == null) return;
 
         for (int i = 0; i < allHits.Length; i++) 
         {
-            if(collision.collider == allHits[i].collider && tagged)
+            if(collision.collider == allHits[i].collider)
             {
                 Knockback();
-                startRotation = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
-                endRotation = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y + 180f, transform.localEulerAngles.z);
-                rotateBack = true;
+                startRotationTest = transform.rotation;
+                Vector3 targetDirection = -transform.forward;
+                Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+                targetRotationTest = targetRotation;
             }
         }
     }
@@ -164,48 +175,26 @@ public class LemmingMovement : MonoBehaviour
          has stopped moving */
          
         delayVelocityCheck += Time.deltaTime;
-        turnSpeedSide = rotationTimer / RotationTime;
+        turnComplete = rotationTimer / RotationTime;
+        RotationLogic();
+    }
 
-        RotationLogic(rotateBack);
-        RotationLogic(rotateLeft);
-        RotationLogic(rotateRight);
-
-        if (walking)
+    public void RotationLogic()
+    {
+        if (rb.velocity == Vector3.zero && delayVelocityCheck > 0.1f && !knockable)
         {
-            rotateBack = false;
-            rotateRight = false;
-            rotateLeft = false;
+            rotationTimer += Time.deltaTime;
+            transform.rotation = Quaternion.Slerp(startRotationTest, targetRotationTest, Mathf.SmoothStep(0,1,turnComplete));
+            if (turnComplete >= 1)
+            {
+                walking = true;
+                knockable = true;
+            }
         }
     }
     void OnDrawGizmos()
     {
         Vector3 offset = transform.position + groundedOffset;
         Gizmos.DrawRay(offset, Vector3.down * maxDistanceOffGround);
-    }
-
-    private void RotationLogic(bool direction)
-    {
-        if (direction & rb.velocity == Vector3.zero && delayVelocityCheck > 0.1f)
-        {
-            rotationTimer += Time.deltaTime;
-            transform.localEulerAngles = Vector3.Lerp(startRotation, endRotation, turnSpeedSide);
-            if (turnSpeedSide >= 1)
-            {
-                walking = true;
-            }
-        }
-    }
-
-    public void RotationLogicTest(Vector3 direction)
-    {
-        if (rb.velocity == Vector3.zero && delayVelocityCheck > 0.1f)
-        {
-            rotationTimer += Time.deltaTime;
-            transform.localEulerAngles = Vector3.Lerp(startRotation, endRotation, turnSpeedSide);
-            if (turnSpeedSide >= 1)
-            {
-                walking = true;
-            }
-        }
     }
 }

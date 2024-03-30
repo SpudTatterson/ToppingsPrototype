@@ -58,7 +58,7 @@ public class Sign : Placeable
             if (degree == -90f)
                 lemmingScript.rotateLeft = true;
 
-            if (lemmingScript.turnSpeedSide >= 1)
+            if (lemmingScript.turnComplete >= 1)
             {
                 lemmings.RemoveAt(i);
             }
