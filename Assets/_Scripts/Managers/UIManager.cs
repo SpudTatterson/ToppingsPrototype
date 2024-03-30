@@ -24,4 +24,8 @@ public class UIManager : MonoBehaviour
     public Image bestStarFillUpBar;
     [Header("Pause Menu")]
     public GameObject PauseScreen;
+    [Header("Sound Settings")]
+    public Slider masterVolume;
+    public Slider soundFXVolume;
+    public Slider musicVolume;
 }
