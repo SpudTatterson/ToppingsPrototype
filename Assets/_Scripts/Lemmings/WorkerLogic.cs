@@ -121,6 +121,7 @@ public class WorkerLogic : MonoBehaviour
         else if (movementScript.isGrounded == true && timer > 0)
         {
             paratrooper = false;
+            timer = 0;
             SetLemmingToBasic();
         }
         
