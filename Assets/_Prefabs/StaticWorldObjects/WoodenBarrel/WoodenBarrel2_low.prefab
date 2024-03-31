@@ -68,6 +68,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 754133f52008d0549bc509085ec92d5e, type: 2}
+    - target: {fileID: -3396363259376524721, guid: 2d10565b9069098479f10317f4cdcbe8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2d10565b9069098479f10317f4cdcbe8,
         type: 3}
       propertyPath: m_Name
@@ -78,11 +83,21 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 2365858610744869290, guid: 2d10565b9069098479f10317f4cdcbe8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6496617965536900457, guid: 2d10565b9069098479f10317f4cdcbe8,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 754133f52008d0549bc509085ec92d5e, type: 2}
+    - target: {fileID: 8689573065406075036, guid: 2d10565b9069098479f10317f4cdcbe8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
