@@ -30,14 +30,22 @@ public class PauseManager : MonoBehaviour
         }
         else
         {
-            UI.PauseScreen.SetActive(true);
-            Time.timeScale = 0;
+            Pause();
         }
     }
+
+    public void Pause()
+    {
+        UI.PauseScreen.SetActive(true);
+        Time.timeScale = 0;
+        paused = true;
+    }
+
     public void UnPause()
     {
         UI.PauseScreen.SetActive(false);
         Time.timeScale = 1;
+        paused = false;
     }
 
 }
