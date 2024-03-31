@@ -18,6 +18,7 @@ public class SceneUtility : MonoBehaviour
     }
     public void LoadScene(int buildIndex)
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(buildIndex);
     }
     public void Exit()
@@ -30,6 +31,7 @@ public class SceneUtility : MonoBehaviour
     }
     public void NextScene()
     {
+        Time.timeScale = 1;
         LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

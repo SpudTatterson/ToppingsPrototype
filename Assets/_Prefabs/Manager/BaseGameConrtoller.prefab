@@ -4534,6 +4534,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3063858716056645224, guid: a1ecf636f1f9d8f4ab84b01df45129bc,
         type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063858716056645224, guid: a1ecf636f1f9d8f4ab84b01df45129bc,
+        type: 3}
       propertyPath: m_fontSize
       value: 15.12
       objectReference: {fileID: 0}
@@ -4601,8 +4606,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 5718985495973517330, guid: 13276c7fa19433e4b87e382834389e40,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 5482037435402729666, guid: a1ecf636f1f9d8f4ab84b01df45129bc,
         type: 3}
       propertyPath: m_Value
