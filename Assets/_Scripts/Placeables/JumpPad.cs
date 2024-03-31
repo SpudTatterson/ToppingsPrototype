@@ -43,12 +43,12 @@ public class JumpPad : Placeable
     {
         SoundsFXManager.instance.PlayRandomSoundFXClip(JumpSoundClips, transform, 1f);
         rb.velocity = Vector3.zero;
-        launchForce = CalculateLaunchVector();
+        launchForce = CalculateLaunchVector(rb.transform);
         rb.AddForce(launchForce, ForceMode.VelocityChange);
     }
-    private Vector3 CalculateLaunchVector()
+    private Vector3 CalculateLaunchVector(Transform initialPosition)
     {
-        Vector3 toTarget = endPoint.position - transform.position;
+        Vector3 toTarget = endPoint.position - initialPosition.position;
 
         // Set up the terms we need to solve the quadratic equations.
         float gSquared = Physics.gravity.sqrMagnitude;
@@ -88,7 +88,7 @@ public class JumpPad : Placeable
         lineRenderer.enabled = true;
         lineRenderer.positionCount = Mathf.CeilToInt(LinePoints / TimeBetweenPoints) + 1;
         Vector3 startPosition = transform.position;
-        Vector3 startVelocity = CalculateLaunchVector();
+        Vector3 startVelocity = CalculateLaunchVector(transform);
         int i = 0;
         lineRenderer.SetPosition(i, startPosition);
         for (float time = 0; time < LinePoints; time += TimeBetweenPoints)
