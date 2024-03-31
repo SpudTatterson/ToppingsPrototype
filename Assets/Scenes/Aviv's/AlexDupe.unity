@@ -4549,25 +4549,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4002153688655664586, guid: 8c939e073a15f104c98bf2ef3d510dab,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.042
-      objectReference: {fileID: 0}
-    - target: {fileID: 4002153688655664586, guid: 8c939e073a15f104c98bf2ef3d510dab,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.176
-      objectReference: {fileID: 0}
     - target: {fileID: 4730515967838965759, guid: 8c939e073a15f104c98bf2ef3d510dab,
         type: 3}
       propertyPath: m_Name
       value: Fan
-      objectReference: {fileID: 0}
-    - target: {fileID: 9103006838151321396, guid: 8c939e073a15f104c98bf2ef3d510dab,
-        type: 3}
-      propertyPath: ShapeModule.radius.value
-      value: 0.23
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
