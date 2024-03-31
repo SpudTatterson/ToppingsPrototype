@@ -375,8 +375,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accelerationSpeed: 500
-  knockbackPower: 150
   maxWalkSpeed: 5
+  climbForce: 350
+  knockbackPower: 150
   RotationTime: 0.5
   collidingObjects:
   - Wall
@@ -385,21 +386,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   groundStomp: {fileID: 3469237661159358257}
-  force: 350
   groundedOffset: {x: 0, y: 0.1, z: 0}
   maxDistanceOffGround: 0.2
-  rotationTimer: 0
-  delayVelocityCheck: 0
-  turnSpeedSide: 0
+  turnComplete: 0
   walking: 0
   rotateBack: 0
   rotateLeft: 0
   rotateRight: 0
+  climbStairs: 0
+  knockable: 0
+  isGrounded: 1
+  boxCastSize: {x: 0.4, y: 1, z: 0.4}
+  targetRotationTest: {x: 0, y: 0, z: 0, w: 0}
+  startRotationTest: {x: 0, y: 0, z: 0, w: 0}
   startRotation: {x: 0, y: 0, z: 0}
   endRotation: {x: 0, y: 0, z: 0}
-  isGrounded: 1
-  climbStairs: 0
-  boxCastSize: {x: 0.4, y: 1, z: 0.4}
 --- !u!114 &1002216912117578390
 MonoBehaviour:
   m_ObjectHideFlags: 0
