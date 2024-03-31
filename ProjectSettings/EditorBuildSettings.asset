@@ -12,10 +12,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu/LevelPicker.unity
     guid: 5d1584efcdaef484ea37f08ec9ca7c08
   - enabled: 1
-    path: Assets/Scenes/Ilay/Ilay_Geh.unity
+    path: Assets/Scenes/Ilay/Toturial.unity
     guid: a83f96cbc4d625441af77f4a0266b6c9
   - enabled: 1
-    path: Assets/Scenes/Ilay/Level_0.1.unity
+    path: Assets/Scenes/Ilay/Level_01.unity
     guid: 24b19c7b7ba759148bc432e46671e241
   - enabled: 1
     path: Assets/Scenes/Ilay/Level_2.unity
