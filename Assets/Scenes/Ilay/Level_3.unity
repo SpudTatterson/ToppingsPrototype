@@ -32142,7 +32142,7 @@ PrefabInstance:
     - target: {fileID: 2131796194579368419, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.2779043
+      value: -0.27790433
       objectReference: {fileID: 0}
     - target: {fileID: 3164444609424003256, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
@@ -32187,7 +32187,7 @@ PrefabInstance:
     - target: {fileID: 3982876594345514639, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.2779043
+      value: -0.27790433
       objectReference: {fileID: 0}
     - target: {fileID: 4215508603477785886, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
@@ -36096,7 +36096,7 @@ PrefabInstance:
     - target: {fileID: 2095007036544341403, guid: 8025e3360ed99d343b3c6ab702040741,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -105.92
+      value: -105.27
       objectReference: {fileID: 0}
     - target: {fileID: 2095007036544341403, guid: 8025e3360ed99d343b3c6ab702040741,
         type: 3}
@@ -36147,6 +36147,16 @@ PrefabInstance:
         type: 3}
       propertyPath: radiusOfScan
       value: 93.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4773553594949285670, guid: 8025e3360ed99d343b3c6ab702040741,
+        type: 3}
+      propertyPath: reflectRealistic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4773553594949285670, guid: 8025e3360ed99d343b3c6ab702040741,
+        type: 3}
+      propertyPath: reflectBackToShooter
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
