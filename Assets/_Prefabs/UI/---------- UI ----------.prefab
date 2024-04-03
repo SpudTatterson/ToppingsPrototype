@@ -887,7 +887,7 @@ MonoBehaviour:
         m_MethodName: SetNewItemToPlace
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 882610876595308751, guid: 89496e092e4c61c4a94787a7d206885c,
+          m_ObjectArgument: {fileID: 5718985495973517330, guid: 8cb74bd79f0a1804798e6fbd57ae0da2,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
@@ -3340,7 +3340,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8670018268178008143
 RectTransform:
   m_ObjectHideFlags: 0

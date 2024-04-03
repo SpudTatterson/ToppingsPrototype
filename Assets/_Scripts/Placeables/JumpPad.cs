@@ -4,19 +4,25 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class JumpPad : Placeable
 {
+    [SerializeField] private AudioClip[] JumpSoundClips;
     [SerializeField] Transform endPoint;
     [SerializeField] LineRenderer lineRenderer;
     [SerializeField] float speed = 20f;
 
     [Header("Display Controls")]
-    [SerializeField] [Range(10, 100)] int LinePoints = 25;
-    [SerializeField] [Range(0.01f, 0.25f)] float TimeBetweenPoints = 0.1f;
+    [SerializeField][Range(10, 100)] int LinePoints = 25;
+    [SerializeField][Range(0.01f, 0.25f)] float TimeBetweenPoints = 0.1f;
     [SerializeField] LayerMask groundLayer;
     Vector3 launchForce;
     void OnTriggerEnter(Collider other)
     {
-        if(!FullyPlaced) return;
-        Launch(other.attachedRigidbody);
+        if (!FullyPlaced) return;
+        if (other.tag == "Lemming")
+        {
+            other.GetComponent<LemmingHealth>().usingJumpPad = true;
+            Launch(other.attachedRigidbody);
+        }
+            
     }
 
     void Start()
@@ -35,13 +41,14 @@ public class JumpPad : Placeable
     }
     void Launch(Rigidbody rb)
     {
+        SoundsFXManager.instance.PlayRandomSoundFXClip(JumpSoundClips, transform, 1f);
         rb.velocity = Vector3.zero;
-        launchForce = CalculateLaunchVector();
+        launchForce = CalculateLaunchVector(rb.transform);
         rb.AddForce(launchForce, ForceMode.VelocityChange);
     }
-    private Vector3 CalculateLaunchVector()
+    private Vector3 CalculateLaunchVector(Transform initialPosition)
     {
-        Vector3 toTarget = endPoint.position - transform.position;
+        Vector3 toTarget = endPoint.position - initialPosition.position;
 
         // Set up the terms we need to solve the quadratic equations.
         float gSquared = Physics.gravity.sqrMagnitude;
@@ -53,9 +60,9 @@ public class JumpPad : Placeable
         {
             // Target is too far away to hit at this speed.
             // Abort, or fire at max speed in its general direction?
-            
+
             Debug.Log("too far");
-            return new Vector3(0,0,1) + transform.position;
+            return new Vector3(0, 0, 1) + transform.position;
         }
 
         float discRoot = Mathf.Sqrt(discriminant);
@@ -66,7 +73,7 @@ public class JumpPad : Placeable
         // Most direct shot with the given max speed:
         float T_min = Mathf.Sqrt((b - discRoot) * 2f / gSquared);
 
-        float T = (T_max + T_min)/2;
+        float T = (T_max + T_min) / 2;
 
         // Convert from time-to-hit to a launch velocity:
 
@@ -76,12 +83,12 @@ public class JumpPad : Placeable
 
     }
 
-     private void DrawProjection()
+    private void DrawProjection()
     {
         lineRenderer.enabled = true;
         lineRenderer.positionCount = Mathf.CeilToInt(LinePoints / TimeBetweenPoints) + 1;
         Vector3 startPosition = transform.position;
-        Vector3 startVelocity = CalculateLaunchVector();
+        Vector3 startVelocity = CalculateLaunchVector(transform);
         int i = 0;
         lineRenderer.SetPosition(i, startPosition);
         for (float time = 0; time < LinePoints; time += TimeBetweenPoints)
@@ -96,7 +103,7 @@ public class JumpPad : Placeable
 
             Vector3 direction = point - lastPosition;
 
-            if(Physics.Raycast(lastPosition, direction.normalized, out RaycastHit hit, direction.magnitude, groundLayer))
+            if (Physics.Raycast(lastPosition, direction.normalized, out RaycastHit hit, direction.magnitude, groundLayer))
             {
                 lineRenderer.SetPosition(i, hit.point);
                 lineRenderer.positionCount = i + 1;

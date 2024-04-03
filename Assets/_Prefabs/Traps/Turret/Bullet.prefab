@@ -81,7 +81,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3883491374783697045}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -215,11 +215,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reflectRealistic: 1
   reflectBackToShooter: 0
-  bulletDamage: 1
-  bulletSpeed: 4000
-  layer:
+  bulletDamage: 5
+  bulletSpeed: 7000
+  seeThrough:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1028
+  shieldTag: Shield
 --- !u!96 &-7257222466587410682
 TrailRenderer:
   serializedVersion: 3

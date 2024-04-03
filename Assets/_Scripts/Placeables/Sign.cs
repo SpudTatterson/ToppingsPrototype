@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Sign : Placeable
 {
@@ -57,7 +58,7 @@ public class Sign : Placeable
             if (degree == -90f)
                 lemmingScript.rotateLeft = true;
 
-            if (lemmingScript.turnSpeedSide >= 1)
+            if (lemmingScript.turnComplete >= 1)
             {
                 lemmings.RemoveAt(i);
             }

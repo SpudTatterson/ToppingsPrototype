@@ -1,22 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Manager : MonoBehaviour
+public class TimeManager : MonoBehaviour
 {
     [SerializeField] float fastForwardMultiplier = 1;
     [SerializeField] float slowDownMultiplier = .1f;
     [SerializeField] GameObject jobsButton;
     [SerializeField] GameObject placeablesButton;
+    [HideInInspector]public bool toggle = true;
 
     private void Update()
     {
-        ManipulateTime();
+        //ManipulateTime(); i ruined it for now sorry
         Hotkeys();
     }
 
     private void ManipulateTime()
     {
+        if(!toggle) return;
         if(Input.GetKey(KeyCode.Space)) 
         {
             Time.timeScale = fastForwardMultiplier;
@@ -27,7 +30,7 @@ public class Manager : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 1;
+            Time.timeScale = 1; 
         }
     }
 

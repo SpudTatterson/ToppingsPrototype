@@ -13,10 +13,12 @@ public class SceneUtility : MonoBehaviour
     }
     public void RestartScene()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void LoadScene(int buildIndex)
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(buildIndex);
     }
     public void Exit()
@@ -26,5 +28,10 @@ public class SceneUtility : MonoBehaviour
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.ExitPlaymode();
         #endif
+    }
+    public void NextScene()
+    {
+        Time.timeScale = 1;
+        LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
