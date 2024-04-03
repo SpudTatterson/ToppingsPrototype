@@ -23,7 +23,7 @@ public class GridGuideLine : MonoBehaviour
         gridGuideMat.color = new Color(guideColor.r, guideColor.g, guideColor.b,transparency);
         
     }
-    public void DontShow()
+    public void DoNotShow()
     {
         gridGuideline.enabled = false;
     }

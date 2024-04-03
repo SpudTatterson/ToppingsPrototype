@@ -22,7 +22,7 @@ public class GuideLineShower : MonoBehaviour
         {
             foreach (GridGuideLine grid in oldGrids)
             {
-                grid.DontShow();
+                grid.DoNotShow();
             }
         }
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
