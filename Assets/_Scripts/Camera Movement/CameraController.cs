@@ -1,15 +1,18 @@
 using UnityEngine;
 using NaughtyAttributes;
-using UnityEditor.Rendering;
 using System.Collections;
 
 public class CameraController : MonoBehaviour
 {
     [Header("Movement Settings")]
+    [Tooltip("Minimum and maximum distance the camera can go from the pivotPoint")]
     [SerializeField] Vector2 minMaxDistance = new Vector2(10, 40);
-    [SerializeField, DisableIf("useFollowTarget")] float speed = 15f; // units per second
+    [Tooltip("Speed in units per second")]
+    [SerializeField, DisableIf("useFollowTarget")] float speed = 15f; 
+    [Tooltip("Speed to add when sprinting")]
     [SerializeField, DisableIf("useFollowTarget")] float sprintSpeedAddition = 5f;
     [SerializeField] bool useFollowTarget = true;
+    [Tooltip("Time it takes for the camera to go back to the follow target(in seconds)")]
     [SerializeField] float CamResetSpeed = 1f;
     bool sprinting;
 
@@ -22,13 +25,18 @@ public class CameraController : MonoBehaviour
     bool isDragging;
 
     [Header("Rotation Settings")]
-    [SerializeField] float initialRotationSpeed = 45f; // degrees per second
+    [Tooltip("Initial speed of rotation in degrees per second")]
+    [SerializeField] float initialRotationSpeed = 45f; 
+    [Tooltip("Maximum speed of rotation in degrees per second")]
     [SerializeField] float maxRotationSpeed = 90f; 
-    [SerializeField] float rotationAcceleration = 22.5f; // pre second
+    [Tooltip("Speed of acceleration in degrees per second")]
+    [SerializeField] float rotationAcceleration = 22.5f; 
     float currentRotationSpeed = 0f; 
 
     [Header("References")]
+    [Tooltip("The point in the world the camera rotates around")]
     [SerializeField] Transform cameraPivot;
+    [Tooltip("The cameras location and rotation")]
     [SerializeField] Transform cameraHolder;
     [SerializeField] Camera cam;
     [SerializeField, EnableIf("useFollowTarget")] Transform followTarget;
