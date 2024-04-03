@@ -7,15 +7,25 @@ public class CameraController : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField] Vector2 minMaxDistance = new Vector2(10, 40);
-    [SerializeField, DisableIf("useFollowTarget")] float speed = 15f;
+    [SerializeField, DisableIf("useFollowTarget")] float speed = 15f; // units per second
     [SerializeField, DisableIf("useFollowTarget")] float sprintSpeedAddition = 5f;
-    [SerializeField] float rotationIncrement = 45;
     [SerializeField] bool useFollowTarget = true;
     [SerializeField] float CamResetSpeed = 1f;
+    bool sprinting;
+
     [Header("Drag Settings")]
     [SerializeField] KeyCode dragToMoveCameraKeyCode = KeyCode.Mouse2;
-    [SerializeField]float dragSmoothing = 2;
+    [SerializeField] float dragSmoothing = 2;
     [SerializeField] LayerMask draggableLayers;
+    Vector3 dragOrigin;
+    Vector3 dragDiff;
+    bool isDragging;
+
+    [Header("Rotation Settings")]
+    [SerializeField] float initialRotationSpeed = 45f; // degrees per second
+    [SerializeField] float maxRotationSpeed = 90f; 
+    [SerializeField] float rotationAcceleration = 22.5f; // pre second
+    float currentRotationSpeed = 0f; 
 
     [Header("References")]
     [SerializeField] Transform cameraPivot;
@@ -28,11 +38,7 @@ public class CameraController : MonoBehaviour
     float mouseScroll;
     float horiz;
     float vert;
-    [Header("Private Variables")]
-    Vector3 dragOrigin;
-    Vector3 dragDiff;
-    bool isDragging;
-    bool sprinting;
+
 
     void Update()
     {
@@ -44,33 +50,33 @@ public class CameraController : MonoBehaviour
         Rotation();
     }
     void LateUpdate()
-{
-    if (isDragging)
     {
-        // Calculate target position for smoother movement
-        Vector3 targetPosition = dragOrigin - dragDiff;
-        // Use Lerp or MoveTowards for smooth transition
-        transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * dragSmoothing);
+        if (isDragging)
+        {
+            // Calculate target position for smoother movement
+            Vector3 targetPosition = dragOrigin - dragDiff;
+            // Use Lerp or MoveTowards for smooth transition
+            cameraPivot.position = Vector3.Lerp(cameraPivot.position, targetPosition, Time.deltaTime * dragSmoothing);
+        }
     }
-}
 
     void Movement()
     {
         if (!useFollowTarget)
         {
             float speed = this.speed;
-            if(sprinting)
-            {   
+            if (sprinting)
+            {
                 Debug.Log(speed);
                 speed += sprintSpeedAddition;
                 Debug.Log(speed);
             }
-                
+
             Vector3 movementDirection = new Vector3(vert, 0, -horiz);
             cameraPivot.Translate(movementDirection.normalized * speed * Time.deltaTime);
         }
         else
-        cameraPivot.position = followTarget.position;
+            cameraPivot.position = followTarget.position;
 
     }
     void DragToMove()
@@ -86,25 +92,41 @@ public class CameraController : MonoBehaviour
                 isDragging = true;
                 useFollowTarget = false;
             }
-            dragDiff = hit.point - transform.position;
+            dragDiff = hit.point - cameraPivot.position;
         }
         else if (Input.GetKeyUp(dragToMoveCameraKeyCode))
         {
-           isDragging = false; 
+            isDragging = false;
         }
-            
+
     }
     void Rotation()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        // Check for input to start rotation
+        if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.E))
         {
-            Quaternion targetRotation = Quaternion.Euler(cameraPivot.rotation.eulerAngles + new Vector3(0, rotationIncrement, 0));
-            cameraPivot.rotation = targetRotation;
+            // Determine direction based on key pressed
+            int direction = Input.GetKey(KeyCode.Q) ? 1 : -1;
+
+            // If currentRotationSpeed is not already greater than the initial rotationSpeed, set it to rotationSpeed
+            if (currentRotationSpeed < initialRotationSpeed)
+            {
+                currentRotationSpeed = initialRotationSpeed;
+            }
+
+            // Accelerate rotation speed
+            currentRotationSpeed += rotationAcceleration * Time.deltaTime;
+            // Clamp the currentRotationSpeed to ensure it doesn't exceed maxRotationSpeed
+            currentRotationSpeed = Mathf.Clamp(currentRotationSpeed, 0, maxRotationSpeed);
+
+            // Apply rotation
+            // Use currentRotationSpeed multiplied by direction and Time.deltaTime to ensure frame-rate independent rotation
+            cameraPivot.Rotate(Vector3.up, direction * currentRotationSpeed * Time.deltaTime);
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        else
         {
-            Quaternion targetRotation = Quaternion.Euler(cameraPivot.rotation.eulerAngles - new Vector3(0, rotationIncrement, 0));
-            cameraPivot.rotation = targetRotation;
+            // Reset rotation speed when no input is detected
+            currentRotationSpeed = 0;
         }
     }
 

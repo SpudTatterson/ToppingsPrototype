@@ -2782,17 +2782,17 @@ PrefabInstance:
     - target: {fileID: 686182855405038883, guid: 908bd483ebfafb2448f92ec81332842a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.389525
+      value: -21.319527
       objectReference: {fileID: 0}
     - target: {fileID: 686182855405038883, guid: 908bd483ebfafb2448f92ec81332842a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.463089
+      value: 12.493089
       objectReference: {fileID: 0}
     - target: {fileID: 686182855405038883, guid: 908bd483ebfafb2448f92ec81332842a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.27790433
+      value: -0.2779043
       objectReference: {fileID: 0}
     - target: {fileID: 1882913846614951189, guid: 908bd483ebfafb2448f92ec81332842a,
         type: 3}
@@ -2873,6 +2873,21 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612194182482434993, guid: 908bd483ebfafb2448f92ec81332842a,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612194182482434993, guid: 908bd483ebfafb2448f92ec81332842a,
+        type: 3}
+      propertyPath: maxRotationSpeed
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612194182482434993, guid: 908bd483ebfafb2448f92ec81332842a,
+        type: 3}
+      propertyPath: rotationAcceleration
+      value: 22.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
