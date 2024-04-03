@@ -7,7 +7,8 @@ public class CameraController : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField] Vector2 minMaxDistance = new Vector2(10, 40);
-    [SerializeField, DisableIf("useFollowTarget")] float speed = 0.1f;
+    [SerializeField, DisableIf("useFollowTarget")] float speed = 15f;
+    [SerializeField, DisableIf("useFollowTarget")] float sprintSpeedAddition = 5f;
     [SerializeField] float rotationIncrement = 45;
     [SerializeField] bool useFollowTarget = true;
     [SerializeField] float CamResetSpeed = 1f;
@@ -23,6 +24,7 @@ public class CameraController : MonoBehaviour
     [SerializeField, EnableIf("useFollowTarget")] Transform followTarget;
 
     [Header("Inputs")]
+    [SerializeField] KeyCode sprintKey = KeyCode.LeftShift;
     float mouseScroll;
     float horiz;
     float vert;
@@ -30,6 +32,7 @@ public class CameraController : MonoBehaviour
     Vector3 dragOrigin;
     Vector3 dragDiff;
     bool isDragging;
+    bool sprinting;
 
     void Update()
     {
@@ -55,8 +58,16 @@ public class CameraController : MonoBehaviour
     {
         if (!useFollowTarget)
         {
+            float speed = this.speed;
+            if(sprinting)
+            {   
+                Debug.Log(speed);
+                speed += sprintSpeedAddition;
+                Debug.Log(speed);
+            }
+                
             Vector3 movementDirection = new Vector3(vert, 0, -horiz);
-            cameraPivot.Translate(movementDirection.normalized * speed);
+            cameraPivot.Translate(movementDirection.normalized * speed * Time.deltaTime);
         }
         else
         cameraPivot.position = followTarget.position;
@@ -102,6 +113,7 @@ public class CameraController : MonoBehaviour
         mouseScroll = Input.mouseScrollDelta.y;
         horiz = Input.GetAxisRaw("Horizontal");
         vert = Input.GetAxisRaw("Vertical");
+        sprinting = Input.GetKey(sprintKey);
     }
 
     void ScrollToZoom()
