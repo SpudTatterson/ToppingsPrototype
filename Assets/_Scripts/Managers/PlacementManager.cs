@@ -156,7 +156,14 @@ public class PlacementManager : MonoBehaviour
     }
     bool CanPlaceSecondaryObject()
     {
-        return Vector3.Distance(lastPlaced.transform.position, tempGO.transform.position) < lastPlaced.maxSecondaryObjectDistance;
+        bool canPlace = Vector3.Distance(lastPlaced.transform.position, tempGO.transform.position) < lastPlaced.maxSecondaryObjectDistance;
+        if(!canPlace)
+        return canPlace;
+        else 
+        {
+            Debug.Log(Vector3.Dot(lastPlaced.transform.position.normalized, itemToPlace.transform.position.normalized)); 
+        }
+        return canPlace;
     }
     bool IsPlaced(GameObject gameObjectToDestroy)
     {

@@ -192,6 +192,19 @@ public class LemmingMovement : MonoBehaviour
             }
         }
     }
+     public void RotationLogic(Quaternion targetRotation)
+    {
+        if (rb.velocity == Vector3.zero && delayVelocityCheck > 0.1f && !knockable)
+        {
+            rotationTimer += Time.deltaTime;
+            transform.rotation = Quaternion.Slerp(startRotationTest, targetRotation, Mathf.SmoothStep(0,1,turnComplete));
+            if (turnComplete >= 1)
+            {
+                walking = true;
+                knockable = true;
+            }
+        }
+    }
     void OnDrawGizmos()
     {
         Vector3 offset = transform.position + groundedOffset;
