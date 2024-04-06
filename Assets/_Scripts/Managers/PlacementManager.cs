@@ -102,13 +102,14 @@ public class PlacementManager : MonoBehaviour
             {
                 tempGO.transform.position = itemToPlace.transform.position;
             }
+            bool canPlace = CheckIfObjectFits();
+            unplacedMaterial.color = canPlace ? Color.green: Color.red;
             if (Input.GetButtonDown("Fire1"))
             {
-                bool canPlace = CheckIfObjectFits(); // in real game this func should be on the 
+                 // in real game this func should be on the 
                                                      // parent class of all placeable object so it can be customized for each
                 if (canPlace)
                 {
-
                     GameObject actualGO = SpawnPrefab(tempGO.transform.position, tempGO.transform.rotation); // spawn actual object
                     Placeable placeable = actualGO.GetComponent<Placeable>();
                     lastPlaced = placeable;
