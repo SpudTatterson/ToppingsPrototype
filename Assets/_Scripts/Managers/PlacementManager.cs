@@ -18,11 +18,13 @@ public class PlacementManager : MonoBehaviour
     Placeable heldPlaceable;
     Placeable lastPlaced;
     List<GameObject> placedObjects = new List<GameObject>();
+    GuideLineShower guideLine;
 
 
     void Awake()
     {
         cam = Camera.main;
+        guideLine = GetComponent<GuideLineShower>();
     }
     void Update()
     {
@@ -40,6 +42,7 @@ public class PlacementManager : MonoBehaviour
         {
             if (tempGO == null && itemToPlace != null)// initialization 
             {
+                guideLine.toggle = true;
                 tempGO = Instantiate(itemToPlace);// spawn visual aid if it doesn't exist
                 mr = tempGO.GetComponentInChildren<MeshRenderer>(); // get mesh render for later
 
@@ -148,6 +151,7 @@ public class PlacementManager : MonoBehaviour
         Destroy(tempGO);
         if (isPlacingSecondaryObject) Destroy(lastPlaced.gameObject);
         isPlacingSecondaryObject = false;
+        guideLine.toggle = false;
     }
     bool CheckIfObjectFits()
     {
