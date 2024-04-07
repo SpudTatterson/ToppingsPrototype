@@ -7,7 +7,6 @@ public class SoundMixerManager : MonoBehaviour
 {
     [SerializeField] AudioMixer audioMixer;
 
-    [SerializeField] UIManager UI;
 
     const string masterKey = "MasterVolume";
     const string soundFXKey = "SoundFXVolume";
@@ -15,9 +14,9 @@ public class SoundMixerManager : MonoBehaviour
 
     void Start()
     {
-        UI.masterVolume.value = PlayerPrefs.GetFloat(masterKey, 1);
-        UI.soundFXVolume.value = PlayerPrefs.GetFloat(soundFXKey, 1);
-        UI.musicVolume.value = PlayerPrefs.GetFloat(musicKey, 1);
+        UIManager.instance.masterVolume.value = PlayerPrefs.GetFloat(masterKey, 1);
+        UIManager.instance.soundFXVolume.value = PlayerPrefs.GetFloat(soundFXKey, 1);
+        UIManager.instance.musicVolume.value = PlayerPrefs.GetFloat(musicKey, 1);
     }
     public void SetMasterVolume(float level)
     {
