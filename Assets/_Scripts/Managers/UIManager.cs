@@ -29,6 +29,11 @@ public class UIManager : MonoBehaviour
     public Slider masterVolume;
     public Slider soundFXVolume;
     public Slider musicVolume;
+    [Header("Cursors")]
+    public Texture2D defaultCursor;
+    public Texture2D deleteCursor;
+    public Texture2D placeCursor;
+
 
     void Awake()
     {
