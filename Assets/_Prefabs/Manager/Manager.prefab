@@ -86,6 +86,8 @@ MonoBehaviour:
     m_Bits: 512
   itemToPlace: {fileID: 0}
   unplacedMaterial: {fileID: 2100000, guid: 50e868728a5f34347b39f128a4a9887b, type: 2}
+  canPlaceColor: {r: 0, g: 1, b: 0, a: 0.29803923}
+  cantPlaceColor: {r: 1, g: 0, b: 0, a: 0.29803923}
 --- !u!114 &3777285664324936292
 MonoBehaviour:
   m_ObjectHideFlags: 0
