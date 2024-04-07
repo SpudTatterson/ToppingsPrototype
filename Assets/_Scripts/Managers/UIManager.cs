@@ -33,6 +33,12 @@ public class UIManager : MonoBehaviour
     public Texture2D defaultCursor;
     public Texture2D deleteCursor;
     public Texture2D placeCursor;
+    [Header("HUD")]
+    public TextMeshProUGUI minionCountHUDText;
+    public TextMeshProUGUI timeHUDText;
+    public Image starFillUpBarHUD;
+    public Image bestStarFillUpBarHUD;
+
 
 
     void Awake()
