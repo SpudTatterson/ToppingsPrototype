@@ -10,6 +10,9 @@ public class PlacementManager : MonoBehaviour
     [SerializeField] LayerMask groundLayer;
     [SerializeField] GameObject itemToPlace;
     [SerializeField] Material unplacedMaterial;
+    [SerializeField] Color canPlaceColor = Color.green;
+    [SerializeField] Color cantPlaceColor = Color.red;
+    [SerializeField] KeyCode destroyShortCut = KeyCode.LeftAlt;
 
     GameObject tempGO;
     MeshRenderer mr;
@@ -18,18 +21,22 @@ public class PlacementManager : MonoBehaviour
     Placeable heldPlaceable;
     Placeable lastPlaced;
     List<GameObject> placedObjects = new List<GameObject>();
+    GuideLineShower guideLine;
 
 
     void Awake()
     {
         cam = Camera.main;
+        guideLine = GetComponent<GuideLineShower>();
     }
     void Update()
     {
+        CheckForDestroyShortCut();
+
         if (isDestroying)
         {
             if (Input.GetKeyDown(KeyCode.Mouse1))
-                isDestroying = false;
+                ResetAllVariables();
             LookForObjectsToDestroy();
             return;
         }
@@ -40,6 +47,10 @@ public class PlacementManager : MonoBehaviour
         {
             if (tempGO == null && itemToPlace != null)// initialization 
             {
+                guideLine.toggle = true;
+                Texture2D placeCursor = UIManager.instance.placeCursor;
+                Cursor.SetCursor(placeCursor, new Vector2(placeCursor.width / 2, placeCursor.height), CursorMode.Auto);
+
                 tempGO = Instantiate(itemToPlace);// spawn visual aid if it doesn't exist
                 mr = tempGO.GetComponentInChildren<MeshRenderer>(); // get mesh render for later
 
@@ -59,7 +70,7 @@ public class PlacementManager : MonoBehaviour
                     MeshRenderer[] mrs = tempGO.GetComponentsInChildren<MeshRenderer>();
                     foreach (MeshRenderer mr in mrs)
                     {
-                        mr.material = unplacedMaterial;
+                        unplacedMaterial = mr.material;
                     }
                 }
             }
@@ -71,7 +82,7 @@ public class PlacementManager : MonoBehaviour
 
             if (Input.GetButtonDown("Fire2")) // if pressed right click cancel everything
             {
-                ClearCurrentVars();
+                ResetAllVariables();
                 return;
             }
             Vector3 placementPoint;
@@ -99,13 +110,16 @@ public class PlacementManager : MonoBehaviour
             {
                 tempGO.transform.position = itemToPlace.transform.position;
             }
+            bool canPlace = CheckIfObjectFits();
+
+            unplacedMaterial.color = canPlace ? canPlaceColor : cantPlaceColor; // visually show if player can or cant place object
+
             if (Input.GetButtonDown("Fire1"))
             {
-                bool canPlace = CheckIfObjectFits(); // in real game this func should be on the 
-                                                     // parent class of all placeable object so it can be customized for each
+                // in real game this func should be on the 
+                // parent class of all placeable object so it can be customized for each
                 if (canPlace)
                 {
-
                     GameObject actualGO = SpawnPrefab(tempGO.transform.position, tempGO.transform.rotation); // spawn actual object
                     Placeable placeable = actualGO.GetComponent<Placeable>();
                     lastPlaced = placeable;
@@ -119,6 +133,7 @@ public class PlacementManager : MonoBehaviour
                         itemToPlace = null;
                         heldPlaceable = null;
                         isPlacingSecondaryObject = false;
+                        ResetAllVariables();
                     }
                     if (placeable != null && placeable.hasSecondaryPlacement)
                     {
@@ -141,13 +156,25 @@ public class PlacementManager : MonoBehaviour
         }
 
     }
-    void ClearCurrentVars()
+
+    void CheckForDestroyShortCut()
     {
+        if (Input.GetKeyDown(destroyShortCut))
+            TurnOnObjectDestruction();
+        if (Input.GetKeyUp(destroyShortCut))
+            ResetAllVariables();
+    }
+
+    void ResetAllVariables()
+    {
+        isDestroying = false;
         itemToPlace = null;
         heldPlaceable = null;
         Destroy(tempGO);
         if (isPlacingSecondaryObject) Destroy(lastPlaced.gameObject);
         isPlacingSecondaryObject = false;
+        guideLine.toggle = false;
+        Cursor.SetCursor(UIManager.instance.defaultCursor, Vector2.zero, CursorMode.Auto);
     }
     bool CheckIfObjectFits()
     {
@@ -173,14 +200,15 @@ public class PlacementManager : MonoBehaviour
             if (IsPlaced(selectedGameObject))
             {
                 Destroy(selectedGameObject);
-                isDestroying = false;
+                //isDestroying = false;
             }
         }
     }
     public void TurnOnObjectDestruction()
     {
-        ClearCurrentVars();
+        ResetAllVariables();
         isDestroying = true;
+        Cursor.SetCursor(UIManager.instance.deleteCursor, Vector2.zero, CursorMode.Auto);
     }
     GameObject SpawnPrefab(Vector3 spawnPosition, quaternion rotation)
     {
@@ -188,7 +216,7 @@ public class PlacementManager : MonoBehaviour
     }
     public void SetNewItemToPlace(GameObject item)
     {
-        ClearCurrentVars();
+        ResetAllVariables();
         itemToPlace = item;
     }
     void OnDrawGizmos()

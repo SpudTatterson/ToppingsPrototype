@@ -4123,6 +4123,9 @@ MonoBehaviour:
   masterVolume: {fileID: 6653132640336055590}
   soundFXVolume: {fileID: 3751208027207236198}
   musicVolume: {fileID: 926423965784207235}
+  defaultCursor: {fileID: 2800000, guid: f8fccb4f656707045b93b59c5e662042, type: 3}
+  deleteCursor: {fileID: 2800000, guid: d6f064df196d41d4aa9cafc962ee4e5d, type: 3}
+  placeCursor: {fileID: 2800000, guid: 04aa3f70e3acd98469adadf95903f56f, type: 3}
 --- !u!114 &5367407540252698256
 MonoBehaviour:
   m_ObjectHideFlags: 0

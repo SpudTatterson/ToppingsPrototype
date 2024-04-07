@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1676456626429935202}
   - component: {fileID: 4660443121711575765}
   - component: {fileID: 3823491961714522819}
+  - component: {fileID: 3777285664324936292}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -50,6 +51,7 @@ MonoBehaviour:
   slowDownMultiplier: 0.1
   jobsButton: {fileID: 0}
   placeablesButton: {fileID: 0}
+  toggle: 1
 --- !u!114 &4660443121711575765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,3 +86,22 @@ MonoBehaviour:
     m_Bits: 512
   itemToPlace: {fileID: 0}
   unplacedMaterial: {fileID: 2100000, guid: 50e868728a5f34347b39f128a4a9887b, type: 2}
+  canPlaceColor: {r: 0, g: 1, b: 0, a: 0.29803923}
+  cantPlaceColor: {r: 1, g: 0, b: 0, a: 0.29803923}
+--- !u!114 &3777285664324936292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7547876916279834406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78a119af409060941a60aede90659d10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  showRadius: 5
+  toggle: 0
