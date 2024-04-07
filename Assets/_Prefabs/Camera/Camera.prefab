@@ -112,7 +112,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1882913846614951189}
-  - component: {fileID: 873649281671276512}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -139,22 +138,6 @@ Transform:
   - {fileID: 6100318057904391476}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &873649281671276512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2680331391616235721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78a119af409060941a60aede90659d10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  showRadius: 5
 --- !u!1 &6080485294420548101
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,7 +412,6 @@ MonoBehaviour:
   minMaxDistance: {x: 10, y: 40}
   speed: 0.1
   sprintSpeedAddition: 5
-  rotationIncrement: 45
   useFollowTarget: 0
   CamResetSpeed: 1
   dragToMoveCameraKeyCode: 325
@@ -437,6 +419,9 @@ MonoBehaviour:
   draggableLayers:
     serializedVersion: 2
     m_Bits: 4096
+  initialRotationSpeed: 45
+  maxRotationSpeed: 90
+  rotationAcceleration: 22.5
   cameraPivot: {fileID: 3355208447924296158}
   cameraHolder: {fileID: 1894024929182567880}
   cam: {fileID: 6131836505824572164}
