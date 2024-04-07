@@ -49,7 +49,7 @@ public class PlacementManager : MonoBehaviour
             {
                 guideLine.toggle = true;
                 Texture2D placeCursor = UIManager.instance.placeCursor;
-                Cursor.SetCursor(placeCursor, new Vector2(placeCursor.width/2, placeCursor.height), CursorMode.Auto);
+                Cursor.SetCursor(placeCursor, new Vector2(placeCursor.width / 2, placeCursor.height), CursorMode.Auto);
 
                 tempGO = Instantiate(itemToPlace);// spawn visual aid if it doesn't exist
                 mr = tempGO.GetComponentInChildren<MeshRenderer>(); // get mesh render for later
@@ -70,7 +70,7 @@ public class PlacementManager : MonoBehaviour
                     MeshRenderer[] mrs = tempGO.GetComponentsInChildren<MeshRenderer>();
                     foreach (MeshRenderer mr in mrs)
                     {
-                        mr.material = unplacedMaterial;
+                        unplacedMaterial = mr.material;
                     }
                 }
             }
