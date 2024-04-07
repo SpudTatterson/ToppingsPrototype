@@ -10,6 +10,8 @@ public class PlacementManager : MonoBehaviour
     [SerializeField] LayerMask groundLayer;
     [SerializeField] GameObject itemToPlace;
     [SerializeField] Material unplacedMaterial;
+    [SerializeField] Color canPlaceColor = Color.green;
+    [SerializeField] Color cantPlaceColor = Color.red;
 
     GameObject tempGO;
     MeshRenderer mr;
@@ -103,7 +105,9 @@ public class PlacementManager : MonoBehaviour
                 tempGO.transform.position = itemToPlace.transform.position;
             }
             bool canPlace = CheckIfObjectFits();
-            unplacedMaterial.color = canPlace ? Color.green: Color.red;
+            
+            unplacedMaterial.color = canPlace ? canPlaceColor : cantPlaceColor; // visually show if player can or cant place object
+
             if (Input.GetButtonDown("Fire1"))
             {
                  // in real game this func should be on the 
