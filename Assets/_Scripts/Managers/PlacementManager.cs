@@ -48,6 +48,9 @@ public class PlacementManager : MonoBehaviour
             if (tempGO == null && itemToPlace != null)// initialization 
             {
                 guideLine.toggle = true;
+                Texture2D placeCursor = UIManager.instance.placeCursor;
+                Cursor.SetCursor(placeCursor, new Vector2(placeCursor.width/2, placeCursor.height), CursorMode.Auto);
+
                 tempGO = Instantiate(itemToPlace);// spawn visual aid if it doesn't exist
                 mr = tempGO.GetComponentInChildren<MeshRenderer>(); // get mesh render for later
 
@@ -171,6 +174,7 @@ public class PlacementManager : MonoBehaviour
         if (isPlacingSecondaryObject) Destroy(lastPlaced.gameObject);
         isPlacingSecondaryObject = false;
         guideLine.toggle = false;
+        Cursor.SetCursor(UIManager.instance.defaultCursor, Vector2.zero, CursorMode.Auto);
     }
     bool CheckIfObjectFits()
     {
@@ -204,6 +208,7 @@ public class PlacementManager : MonoBehaviour
     {
         ResetAllVariables();
         isDestroying = true;
+        Cursor.SetCursor(UIManager.instance.deleteCursor, Vector2.zero, CursorMode.Auto);
     }
     GameObject SpawnPrefab(Vector3 spawnPosition, quaternion rotation)
     {
