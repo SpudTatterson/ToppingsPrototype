@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager instance {get; private set;}
     [Header("Victory UI")]
     [Tooltip("Container of the button to finish the level")]
     public GameObject victoryButton;
@@ -28,4 +29,9 @@ public class UIManager : MonoBehaviour
     public Slider masterVolume;
     public Slider soundFXVolume;
     public Slider musicVolume;
+
+    void Awake()
+    {
+        instance = this;
+    }
 }
