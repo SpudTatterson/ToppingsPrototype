@@ -12,6 +12,7 @@ public class PlacementManager : MonoBehaviour
     [SerializeField] Material unplacedMaterial;
     [SerializeField] Color canPlaceColor = Color.green;
     [SerializeField] Color cantPlaceColor = Color.red;
+    [SerializeField] KeyCode destroyShortCut = KeyCode.LeftAlt;
 
     GameObject tempGO;
     MeshRenderer mr;
@@ -30,10 +31,12 @@ public class PlacementManager : MonoBehaviour
     }
     void Update()
     {
+        CheckForDestroyShortCut();
+
         if (isDestroying)
         {
             if (Input.GetKeyDown(KeyCode.Mouse1))
-                isDestroying = false;
+                ResetAllVariables();
             LookForObjectsToDestroy();
             return;
         }
@@ -76,7 +79,7 @@ public class PlacementManager : MonoBehaviour
 
             if (Input.GetButtonDown("Fire2")) // if pressed right click cancel everything
             {
-                ClearCurrentVars();
+                ResetAllVariables();
                 return;
             }
             Vector3 placementPoint;
@@ -105,13 +108,13 @@ public class PlacementManager : MonoBehaviour
                 tempGO.transform.position = itemToPlace.transform.position;
             }
             bool canPlace = CheckIfObjectFits();
-            
+
             unplacedMaterial.color = canPlace ? canPlaceColor : cantPlaceColor; // visually show if player can or cant place object
 
             if (Input.GetButtonDown("Fire1"))
             {
-                 // in real game this func should be on the 
-                                                     // parent class of all placeable object so it can be customized for each
+                // in real game this func should be on the 
+                // parent class of all placeable object so it can be customized for each
                 if (canPlace)
                 {
                     GameObject actualGO = SpawnPrefab(tempGO.transform.position, tempGO.transform.rotation); // spawn actual object
@@ -127,6 +130,7 @@ public class PlacementManager : MonoBehaviour
                         itemToPlace = null;
                         heldPlaceable = null;
                         isPlacingSecondaryObject = false;
+                        ResetAllVariables();
                     }
                     if (placeable != null && placeable.hasSecondaryPlacement)
                     {
@@ -149,8 +153,18 @@ public class PlacementManager : MonoBehaviour
         }
 
     }
-    void ClearCurrentVars()
+
+    void CheckForDestroyShortCut()
     {
+        if (Input.GetKeyDown(destroyShortCut))
+            TurnOnObjectDestruction();
+        if (Input.GetKeyUp(destroyShortCut))
+            ResetAllVariables();
+    }
+
+    void ResetAllVariables()
+    {
+        isDestroying = false;
         itemToPlace = null;
         heldPlaceable = null;
         Destroy(tempGO);
@@ -182,13 +196,13 @@ public class PlacementManager : MonoBehaviour
             if (IsPlaced(selectedGameObject))
             {
                 Destroy(selectedGameObject);
-                isDestroying = false;
+                //isDestroying = false;
             }
         }
     }
     public void TurnOnObjectDestruction()
     {
-        ClearCurrentVars();
+        ResetAllVariables();
         isDestroying = true;
     }
     GameObject SpawnPrefab(Vector3 spawnPosition, quaternion rotation)
@@ -197,7 +211,7 @@ public class PlacementManager : MonoBehaviour
     }
     public void SetNewItemToPlace(GameObject item)
     {
-        ClearCurrentVars();
+        ResetAllVariables();
         itemToPlace = item;
     }
     void OnDrawGizmos()
