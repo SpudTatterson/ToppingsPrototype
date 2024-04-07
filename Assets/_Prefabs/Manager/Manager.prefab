@@ -86,8 +86,9 @@ MonoBehaviour:
     m_Bits: 512
   itemToPlace: {fileID: 0}
   unplacedMaterial: {fileID: 2100000, guid: 50e868728a5f34347b39f128a4a9887b, type: 2}
-  canPlaceColor: {r: 0, g: 1, b: 0, a: 0.29803923}
-  cantPlaceColor: {r: 1, g: 0, b: 0, a: 0.29803923}
+  canPlaceColor: {r: 0.25564253, g: 0.8113208, b: 0.25564253, a: 0.29803923}
+  cantPlaceColor: {r: 0.79622644, g: 0.21483088, b: 0.21483088, a: 0.29803923}
+  destroyShortCut: 308
 --- !u!114 &3777285664324936292
 MonoBehaviour:
   m_ObjectHideFlags: 0
