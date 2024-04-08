@@ -84,7 +84,8 @@ public class PlacementManager : MonoBehaviour
             }
             bool canPlace = CheckIfObjectFits();
 
-            mr.material.color = canPlace ? canPlaceColor : cantPlaceColor; // visually show if player can or cant place object
+            if(mr)
+                mr.material.color = canPlace ? canPlaceColor : cantPlaceColor; // visually show if player can or cant place object
 
             if (Input.GetButtonDown("Fire1"))
             {
