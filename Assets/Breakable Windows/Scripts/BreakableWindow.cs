@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class BreakableWindow : MonoBehaviour {
 
-    
+    [SerializeField] LayerMask playerLayer;
     [Tooltip("Layer should be TransparentFX or your own layer for breakable windows.")]
     public LayerMask layer;
     [Range(2,25)]
@@ -155,6 +155,7 @@ public class BreakableWindow : MonoBehaviour {
         if (destroyPhysicsTime > 0 && destroyColliderWithPhysics) Destroy(col, destroyPhysicsTime);
         
         Rigidbody rigid = obj.AddComponent<Rigidbody>();
+        rigid.excludeLayers = playerLayer;
         rigid.centerOfMass = (v[0] + v[1] + v[2]) / 3f;
         if (addTorques && preCalculate == false) rigid.AddTorque(new Vector3(Random.value > 0.5f ? Random.value * 50 : -Random.value * 50, Random.value > 0.5f ? Random.value * 50 : -Random.value * 50, Random.value > 0.5f ? Random.value * 50 : -Random.value * 50));
         if (destroyPhysicsTime > 0) Destroy(rigid, destroyPhysicsTime);
