@@ -33,6 +33,7 @@ public class UIManager : MonoBehaviour
     public Texture2D defaultCursor;
     public Texture2D deleteCursor;
     public Texture2D placeCursor;
+    public Texture2D jobCursor;
     [Header("HUD")]
     public TextMeshProUGUI minionCountHUDText;
     public TextMeshProUGUI timeHUDText;
