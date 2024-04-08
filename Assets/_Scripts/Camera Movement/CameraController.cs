@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
     [Tooltip("Minimum and maximum distance the camera can go from the pivotPoint")]
     [SerializeField] Vector2 minMaxDistance = new Vector2(10, 40);
     [Tooltip("Speed in units per second")]
-    [SerializeField, DisableIf("useFollowTarget")] float speed = 15f; 
+    [SerializeField, DisableIf("useFollowTarget")] float speed = 15f;
     [Tooltip("Speed to add when sprinting")]
     [SerializeField, DisableIf("useFollowTarget")] float sprintSpeedAddition = 5f;
     [SerializeField] bool useFollowTarget = true;
@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] float CamResetSpeed = 1f;
     bool sprinting;
 
-    [Header("Drag Settings")]
+    [Header("Drag Move Settings")]
     [SerializeField] KeyCode dragToMoveCameraKeyCode = KeyCode.Mouse2;
     [SerializeField] float dragSmoothing = 2;
     [SerializeField] LayerMask draggableLayers;
@@ -24,14 +24,19 @@ public class CameraController : MonoBehaviour
     Vector3 dragDiff;
     bool isDragging;
 
+    [Header("Drag Rotation Settings")]
+    [SerializeField] float dragRotationSpeed = 25f;
+    Vector3 lastMousePosition;
+    bool isRotating = false;
+
     [Header("Rotation Settings")]
     [Tooltip("Initial speed of rotation in degrees per second")]
-    [SerializeField] float initialRotationSpeed = 45f; 
+    [SerializeField] float initialRotationSpeed = 45f;
     [Tooltip("Maximum speed of rotation in degrees per second")]
-    [SerializeField] float maxRotationSpeed = 90f; 
+    [SerializeField] float maxRotationSpeed = 90f;
     [Tooltip("Speed of acceleration in degrees per second")]
-    [SerializeField] float rotationAcceleration = 22.5f; 
-    float currentRotationSpeed = 0f; 
+    [SerializeField] float rotationAcceleration = 22.5f;
+    float currentRotationSpeed = 0f;
 
     [Header("References")]
     [Tooltip("The point in the world the camera rotates around")]
@@ -55,8 +60,10 @@ public class CameraController : MonoBehaviour
         ScrollToZoom();
         DragToMove();
         Movement();
+        DragToRotate();
         Rotation();
     }
+
     void LateUpdate()
     {
         if (isDragging)
@@ -108,6 +115,33 @@ public class CameraController : MonoBehaviour
         }
 
     }
+
+    void DragToRotate()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            lastMousePosition = Input.mousePosition;
+            isRotating = true;
+        }
+
+        if (Input.GetKey(KeyCode.Mouse1) && isRotating)
+        {
+            // Calculate the difference in position
+            Vector3 dragDiff = Input.mousePosition - lastMousePosition;
+
+            // Apply rotation
+            cameraPivot.Rotate(Vector3.up, dragDiff.x * dragRotationSpeed * Time.deltaTime, Space.World);
+
+            // Update lastMousePosition for the next frame
+            lastMousePosition = Input.mousePosition;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Mouse1))
+        {
+            isRotating = false;
+        }
+    }
+
     void Rotation()
     {
         // Check for input to start rotation
