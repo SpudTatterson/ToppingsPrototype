@@ -419,7 +419,8 @@ MonoBehaviour:
   draggableLayers:
     serializedVersion: 2
     m_Bits: 4096
-  dragRotationSpeed: 25
+  dragToRotateCameraKeyCode: 324
+  dragRotationSpeed: 8
   initialRotationSpeed: 45
   maxRotationSpeed: 90
   rotationAcceleration: 22.5
