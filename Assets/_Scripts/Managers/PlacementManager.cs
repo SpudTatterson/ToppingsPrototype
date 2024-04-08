@@ -135,7 +135,7 @@ public class PlacementManager : MonoBehaviour
         {
             guideLine.toggle = true;
             Texture2D placeCursor = UIManager.instance.placeCursor;
-            Cursor.SetCursor(placeCursor, new Vector2(placeCursor.width / 2, placeCursor.height), CursorMode.Auto);
+            Cursor.SetCursor(placeCursor, Vector2.zero, CursorMode.Auto); //new Vector2(placeCursor.width / 2, placeCursor.height)
 
             tempGO = Instantiate(itemToPlace);// spawn visual aid if it doesn't exist
             mr = tempGO.GetComponentInChildren<MeshRenderer>(); // get mesh render for later
