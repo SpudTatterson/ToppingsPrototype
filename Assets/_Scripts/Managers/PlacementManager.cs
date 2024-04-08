@@ -45,35 +45,7 @@ public class PlacementManager : MonoBehaviour
 
         if (Physics.Raycast(camRay, out hit, Mathf.Infinity, groundLayer) && itemToPlace != null)
         {
-            if (tempGO == null && itemToPlace != null)// initialization 
-            {
-                guideLine.toggle = true;
-                Texture2D placeCursor = UIManager.instance.placeCursor;
-                Cursor.SetCursor(placeCursor, new Vector2(placeCursor.width / 2, placeCursor.height), CursorMode.Auto);
-
-                tempGO = Instantiate(itemToPlace);// spawn visual aid if it doesn't exist
-                mr = tempGO.GetComponentInChildren<MeshRenderer>(); // get mesh render for later
-
-                Collider[] colliders = tempGO.GetComponentsInChildren<Collider>(); // get all colliders
-                foreach (Collider c in colliders) // disable collider on tempGameObject so it wont interrupt placement
-                {
-                    c.enabled = false;
-                }
-                if (tempGO.TryGetComponent<Placeable>(out Placeable placeable))
-                {
-                    placeable.enabled = false;
-                }
-
-
-                if (unplacedMaterial != null)
-                {
-                    MeshRenderer[] mrs = tempGO.GetComponentsInChildren<MeshRenderer>();
-                    foreach (MeshRenderer mr in mrs)
-                    {
-                        unplacedMaterial = mr.material;
-                    }
-                }
-            }
+            Initialize();
 
             if (heldPlaceable == null)
                 heldPlaceable = itemToPlace.GetComponent<Placeable>();
@@ -112,7 +84,8 @@ public class PlacementManager : MonoBehaviour
             }
             bool canPlace = CheckIfObjectFits();
 
-            unplacedMaterial.color = canPlace ? canPlaceColor : cantPlaceColor; // visually show if player can or cant place object
+            if(mr)
+                mr.material.color = canPlace ? canPlaceColor : cantPlaceColor; // visually show if player can or cant place object
 
             if (Input.GetButtonDown("Fire1"))
             {
@@ -155,6 +128,39 @@ public class PlacementManager : MonoBehaviour
             Destroy(tempGO);    // destroy temp if player isn't pointing at ground
         }
 
+    }
+
+    private void Initialize()
+    {
+        if (tempGO == null && itemToPlace != null)// initialization 
+        {
+            guideLine.toggle = true;
+            Texture2D placeCursor = UIManager.instance.placeCursor;
+            Cursor.SetCursor(placeCursor, Vector2.zero, CursorMode.Auto); //new Vector2(placeCursor.width / 2, placeCursor.height)
+
+            tempGO = Instantiate(itemToPlace);// spawn visual aid if it doesn't exist
+            mr = tempGO.GetComponentInChildren<MeshRenderer>(); // get mesh render for later
+
+            Collider[] colliders = tempGO.GetComponentsInChildren<Collider>(); // get all colliders
+            foreach (Collider c in colliders) // disable collider on tempGameObject so it wont interrupt placement
+            {
+                c.enabled = false;
+            }
+            if (tempGO.TryGetComponent<Placeable>(out Placeable placeable))
+            {
+                placeable.enabled = false;
+            }
+
+
+            if (unplacedMaterial != null)
+            {
+                MeshRenderer[] mrs = tempGO.GetComponentsInChildren<MeshRenderer>();
+                foreach (MeshRenderer mr in mrs)
+                {
+                    mr.material = unplacedMaterial;
+                }
+            }
+        }
     }
 
     void CheckForDestroyShortCut()
