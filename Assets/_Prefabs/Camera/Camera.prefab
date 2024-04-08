@@ -411,18 +411,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minMaxDistance: {x: 10, y: 40}
   speed: 0.1
-  rotationIncrement: 45
+  sprintSpeedAddition: 5
   useFollowTarget: 0
   CamResetSpeed: 1
   dragToMoveCameraKeyCode: 325
-  dragSmoothing: 2
+  dragSmoothing: 7
   draggableLayers:
     serializedVersion: 2
     m_Bits: 4096
+  dragToRotateCameraKeyCode: 324
+  dragRotationSpeed: 8
+  initialRotationSpeed: 45
+  maxRotationSpeed: 90
+  rotationAcceleration: 22.5
   cameraPivot: {fileID: 3355208447924296158}
   cameraHolder: {fileID: 1894024929182567880}
   cam: {fileID: 6131836505824572164}
   followTarget: {fileID: 0}
+  sprintKey: 304
 --- !u!1 &7960975670961759739
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,9 +489,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 1
   m_FollowOffset: {x: 0, y: 0, z: 0}
-  m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 1
+  m_XDamping: 0.2
+  m_YDamping: 0.2
+  m_ZDamping: 0.2
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -507,8 +513,8 @@ MonoBehaviour:
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
-  m_HorizontalDamping: 0.5
-  m_VerticalDamping: 0.5
+  m_HorizontalDamping: 0
+  m_VerticalDamping: 0
   m_ScreenX: 0.5
   m_ScreenY: 0.5
   m_DeadZoneWidth: 0

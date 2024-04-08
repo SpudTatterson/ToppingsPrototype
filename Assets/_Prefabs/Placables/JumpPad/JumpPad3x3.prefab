@@ -280,7 +280,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5e4a3b14cd866c14ead76db3df31cd6f, type: 3}
   endPoint: {fileID: 3197293596424300494}
   lineRenderer: {fileID: 6005879439112842613}
-  speed: 20
+  speed: 25
   LinePoints: 25
   TimeBetweenPoints: 0.1
   groundLayer:
@@ -305,8 +305,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 0.2
+  m_Radius: 1.2196804
+  m_Height: 2.4393609
   m_Direction: 1
   m_Center: {x: 0, y: 0.4, z: 0}
 --- !u!1 &8335445645703859904

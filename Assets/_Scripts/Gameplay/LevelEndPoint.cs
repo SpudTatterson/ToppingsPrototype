@@ -1,23 +1,19 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LevelEndPoint : MonoBehaviour
 {
+    public static LevelEndPoint instance;
     [Header("Settings")]
     [SerializeField] string minionTag = "Lemming";
     [Tooltip("Minimum amount of minions that need to pass to qualify for the next level")]
     [SerializeField] int minPassedForVictory = 10;
     int passedMinionCount = 0;
     int initialMinionCount;
-    UIManager uiManager;
 
-    void Start()
+    void Awake()
     {
+        instance = this;
         initialMinionCount = FindAnyObjectByType<LemmingSpawner>().lemmingCount;
-        uiManager = FindAnyObjectByType<UIManager>();
     }
     void OnTriggerEnter(Collider other)
     {
@@ -29,15 +25,15 @@ public class LevelEndPoint : MonoBehaviour
     void MinionPassed(Collider minion)
     {
         passedMinionCount++;
+        HUDUpdater.instance.UpdateStarHUD();
         Destroy(minion.gameObject);
         if (CheckForVictory())
         {
-            uiManager.victoryButton.SetActive(true);
+            UIManager.instance.victoryButton.SetActive(true);
             if (LevelFinished())
             {
-
+                VictoryManager.instance.TriggerWin();
             }
-
         }
     }
 

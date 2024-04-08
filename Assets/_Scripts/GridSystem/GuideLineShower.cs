@@ -9,6 +9,8 @@ public class GuideLineShower : MonoBehaviour
     [SerializeField] float showRadius = 5f;
 
     List<GridGuideLine> oldGrids = new List<GridGuideLine>();
+
+    public bool toggle = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +19,18 @@ public class GuideLineShower : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if(oldGrids != null)
+    {  
+        if(oldGrids != null || oldGrids.Count != 0)
         {
             foreach (GridGuideLine grid in oldGrids)
             {
                 grid.DoNotShow();
             }
+        }
+        if(!toggle) 
+        {
+            oldGrids.Clear();
+            return;
         }
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -38,5 +45,10 @@ public class GuideLineShower : MonoBehaviour
                 grid.UpdateTrans(distance);
             }
         }
+    }
+
+    public void SetShowRadius(float radius)
+    {
+        showRadius = radius;
     }
 }
