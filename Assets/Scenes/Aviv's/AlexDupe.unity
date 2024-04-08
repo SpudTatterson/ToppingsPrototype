@@ -4351,26 +4351,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 429427980379961099, guid: a81fc51a9bf42a4428406576b5286d14,
+    - target: {fileID: 1933078512526811821, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
-      value: 57.9656
-      objectReference: {fileID: 0}
-    - target: {fileID: 429427980379961099, guid: a81fc51a9bf42a4428406576b5286d14,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 57.9659
-      objectReference: {fileID: 0}
-    - target: {fileID: 429427980379961099, guid: a81fc51a9bf42a4428406576b5286d14,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 429427980379961099, guid: a81fc51a9bf42a4428406576b5286d14,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-      propertyPath: m_SizeDelta.x
+      propertyPath: jobCursor
+      value: 
+      objectReference: {fileID: 2800000, guid: 3d8e60c78c4446f4c9cc14d09d45ba13, type: 3}
     - target: {fileID: 4837751775857390807, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4421,63 +4406,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6039980087016475019, guid: a81fc51a9bf42a4428406576b5286d14,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: dab391518c9f84b45bde9d5bd2702bfe,
-        type: 3}
-    - target: {fileID: 6039980087016475019, guid: a81fc51a9bf42a4428406576b5286d14,
-        type: 3}
-      propertyPath: m_PreserveAspect
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6767588351406685900, guid: a81fc51a9bf42a4428406576b5286d14,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 50.5655
-      objectReference: {fileID: 0}
-    - target: {fileID: 6767588351406685900, guid: a81fc51a9bf42a4428406576b5286d14,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 48.8924
-      objectReference: {fileID: 0}
-    - target: {fileID: 6767588351406685900, guid: a81fc51a9bf42a4428406576b5286d14,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -26
-      objectReference: {fileID: 0}
-    - target: {fileID: 6767588351406685900, guid: a81fc51a9bf42a4428406576b5286d14,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6782993807151070542, guid: a81fc51a9bf42a4428406576b5286d14,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: b4b372f46115f5944937648eadf4bfea,
-        type: 3}
-    - target: {fileID: 6782993807151070542, guid: a81fc51a9bf42a4428406576b5286d14,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6782993807151070542, guid: a81fc51a9bf42a4428406576b5286d14,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6782993807151070542, guid: a81fc51a9bf42a4428406576b5286d14,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6782993807151070542, guid: a81fc51a9bf42a4428406576b5286d14,
-        type: 3}
-      propertyPath: m_PreserveAspect
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7937059915191258928, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_Name
@@ -4499,7 +4427,7 @@ PrefabInstance:
     - target: {fileID: 3127030685187591112, guid: 0d36631ddb19e1642a34071573259124,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.3557615
+      value: 1.19
       objectReference: {fileID: 0}
     - target: {fileID: 3127030685187591112, guid: 0d36631ddb19e1642a34071573259124,
         type: 3}
