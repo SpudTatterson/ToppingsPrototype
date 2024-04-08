@@ -25,6 +25,7 @@ public class CameraController : MonoBehaviour
     bool isDragging;
 
     [Header("Drag Rotation Settings")]
+    [SerializeField] KeyCode dragToRotateCameraKeyCode = KeyCode.Mouse1;
     [SerializeField] float dragRotationSpeed = 25f;
     Vector3 lastMousePosition;
     bool isRotating = false;
@@ -118,7 +119,7 @@ public class CameraController : MonoBehaviour
 
     void DragToRotate()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(dragToRotateCameraKeyCode))
         {
             lastMousePosition = Input.mousePosition;
             isRotating = true;
