@@ -46,4 +46,9 @@ public class GuideLineShower : MonoBehaviour
             }
         }
     }
+
+    public void SetShowRadius(float radius)
+    {
+        showRadius = radius;
+    }
 }

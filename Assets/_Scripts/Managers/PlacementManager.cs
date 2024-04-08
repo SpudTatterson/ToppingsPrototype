@@ -134,7 +134,7 @@ public class PlacementManager : MonoBehaviour
     {
         if (tempGO == null && itemToPlace != null)// initialization 
         {
-            guideLine.toggle = true;
+            
             Texture2D placeCursor = UIManager.instance.placeCursor;
             Cursor.SetCursor(placeCursor, Vector2.zero, CursorMode.Auto); //new Vector2(placeCursor.width / 2, placeCursor.height)
 
@@ -150,7 +150,12 @@ public class PlacementManager : MonoBehaviour
             {
                 placeable.enabled = false;
             }
-
+            
+            guideLine.toggle = true;
+            if(placeable)
+                guideLine.SetShowRadius(placeable.GetShowRadius());
+            else
+                guideLine.SetShowRadius(3f);
 
             if (unplacedMaterial != null)
             {
