@@ -197,10 +197,12 @@ MonoBehaviour:
   lockToGrid: 1
   lockToCenter: 0
   hasSecondaryPlacement: 0
-  showRadius: 5
+  showRadius: 1
+  halfExtents: {x: 2, y: 0.5, z: 4}
   FullyPlaced: 0
   secondaryPlacable: {fileID: 0}
   maxSecondaryObjectDistance: 5
+  radiusShape: 1
 --- !u!1 &8563089321921398122
 GameObject:
   m_ObjectHideFlags: 0

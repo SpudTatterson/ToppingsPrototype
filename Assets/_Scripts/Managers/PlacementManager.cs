@@ -84,7 +84,7 @@ public class PlacementManager : MonoBehaviour
             }
             bool canPlace = CheckIfObjectFits();
 
-            if(mr)
+            if (mr)
                 mr.material.color = canPlace ? canPlaceColor : cantPlaceColor; // visually show if player can or cant place object
 
             if (Input.GetButtonDown("Fire1"))
@@ -134,7 +134,7 @@ public class PlacementManager : MonoBehaviour
     {
         if (tempGO == null && itemToPlace != null)// initialization 
         {
-            
+
             Texture2D placeCursor = UIManager.instance.placeCursor;
             Cursor.SetCursor(placeCursor, Vector2.zero, CursorMode.Auto); //new Vector2(placeCursor.width / 2, placeCursor.height)
 
@@ -150,10 +150,16 @@ public class PlacementManager : MonoBehaviour
             {
                 placeable.enabled = false;
             }
-            
+
             guideLine.toggle = true;
-            if(placeable)
-                guideLine.SetShowRadius(placeable.GetShowRadius());
+            if (placeable)
+            {
+                guideLine.SetShowShape(placeable.radiusShape);
+                if (placeable.radiusShape == ShowRadiusShape.Sphere)
+                    guideLine.SetShowRadius(placeable.GetShowRadius());
+                if (placeable.radiusShape == ShowRadiusShape.Box)
+                    guideLine.SetHalfExtents(placeable.GetHalfExtents());
+            }
             else
                 guideLine.SetShowRadius(3f);
 

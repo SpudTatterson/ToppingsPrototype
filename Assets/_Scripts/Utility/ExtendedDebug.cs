@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExtendedDebug : MonoBehaviour
 {
-    public static void DrawCheckBox(Vector3 center, Vector3 size, Quaternion rotation)
+    public static void DrawBox(Vector3 center, Vector3 size, Quaternion rotation)
 {
     Vector3 halfExtents = size / 2;
     var points = new Vector3[8];
