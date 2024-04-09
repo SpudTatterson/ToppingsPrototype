@@ -10,8 +10,8 @@ public class Placeable : MonoBehaviour
     public bool lockToGrid = true;
     public bool lockToCenter = true;
     public bool hasSecondaryPlacement = false;
-    [SerializeField] float showRadius = 3f;
-    [SerializeField] Vector3 halfExtents = new Vector3(0.5f, 0.5f, 0.5f);
+    [SerializeField, HideIf("radiusShape", ShowRadiusShape.Box)] float showRadius = 3f;
+    [SerializeField, HideIf("radiusShape", ShowRadiusShape.Sphere)] Vector3 halfExtents = new Vector3(0.5f, 0.5f, 0.5f);
     [HideInInspector] public bool FullyPlaced = false;
     [ShowIf("hasSecondaryPlacement")] public GameObject secondaryPlacable;
     [ShowIf("hasSecondaryPlacement")] public float maxSecondaryObjectDistance = 5;
