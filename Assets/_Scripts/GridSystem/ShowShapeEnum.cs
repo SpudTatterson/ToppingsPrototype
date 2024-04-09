@@ -1,4 +1,4 @@
-public enum ShowRadiusShape
+public enum GridGuideLineShape
 {
     Sphere,
     Box

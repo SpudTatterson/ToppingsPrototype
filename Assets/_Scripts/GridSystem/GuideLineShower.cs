@@ -12,7 +12,7 @@ public class GuideLineShower : MonoBehaviour
     List<GridGuideLine> oldGrids = new List<GridGuideLine>();
 
     public bool toggle = false;
-    ShowRadiusShape shape;
+    GridGuideLineShape shape;
 
     // Update is called once per frame
     void Update()
@@ -36,9 +36,9 @@ public class GuideLineShower : MonoBehaviour
             List<GridGuideLine> grids = new List<GridGuideLine>();
             Vector3 point = hit.transform.GetComponentInParent<GridInfo>().GetCenter();
 
-            if (shape == ShowRadiusShape.Sphere)
+            if (shape == GridGuideLineShape.Sphere)
                 grids = ComponentUtility.GetComponentsInRadius<GridGuideLine>(point, showRadius);
-            else if (shape == ShowRadiusShape.Box)
+            else if (shape == GridGuideLineShape.Box)
             {
                 grids = ComponentUtility.GetComponentsInBox<GridGuideLine>(point, halfExtents);
                 Debug.Log("test");
@@ -47,7 +47,7 @@ public class GuideLineShower : MonoBehaviour
             foreach (GridGuideLine grid in grids)
             {
                 float distance = Vector3.Distance(point, grid.GetCenter());
-                float maxDistance = (shape ==  ShowRadiusShape.Box) ? halfExtents.magnitude : showRadius; 
+                float maxDistance = (shape ==  GridGuideLineShape.Box) ? halfExtents.magnitude : showRadius; 
                 distance = Mathf.InverseLerp(maxDistance , 0, distance);
                 grid.UpdateTrans(distance);
             }
@@ -59,7 +59,7 @@ public class GuideLineShower : MonoBehaviour
         showRadius = radius;
         halfExtents = Vector3.zero;
     }
-    public void SetShowShape(ShowRadiusShape shape)
+    public void SetShowShape(GridGuideLineShape shape)
     {
         this.shape = shape;
     }

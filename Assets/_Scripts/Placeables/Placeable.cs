@@ -11,10 +11,10 @@ public class Placeable : MonoBehaviour
     [ShowIf("hasSecondaryPlacement")] public float maxSecondaryObjectDistance = 5;
 
     [Header("Grid Guide Line Settings")]
-    public ShowRadiusShape radiusShape;
+    public GridGuideLineShape radiusShape;
 
-    [SerializeField, HideIf("radiusShape", ShowRadiusShape.Box)] float showRadius = 3f;
-    [SerializeField, HideIf("radiusShape", ShowRadiusShape.Sphere)] Vector3 halfExtents = new Vector3(0.5f, 0.5f, 0.5f);
+    [SerializeField, HideIf("radiusShape", GridGuideLineShape.Box)] float showRadius = 3f;
+    [SerializeField, HideIf("radiusShape", GridGuideLineShape.Sphere)] Vector3 halfExtents = new Vector3(0.5f, 0.5f, 0.5f);
 
     public virtual void SecondaryPlacement()
     {
@@ -31,11 +31,11 @@ public class Placeable : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        if (radiusShape == ShowRadiusShape.Box)
+        if (radiusShape == GridGuideLineShape.Box)
         {
             Gizmos.DrawWireCube(transform.position, halfExtents * 2);
         }
-        if(radiusShape == ShowRadiusShape.Sphere)
+        if(radiusShape == GridGuideLineShape.Sphere)
         {
             Gizmos.DrawWireSphere(transform.position, showRadius);
         }

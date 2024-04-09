@@ -155,9 +155,9 @@ public class PlacementManager : MonoBehaviour
             if (placeable)
             {
                 guideLine.SetShowShape(placeable.radiusShape);
-                if (placeable.radiusShape == ShowRadiusShape.Sphere)
+                if (placeable.radiusShape == GridGuideLineShape.Sphere)
                     guideLine.SetShowRadius(placeable.GetShowRadius());
-                if (placeable.radiusShape == ShowRadiusShape.Box)
+                if (placeable.radiusShape == GridGuideLineShape.Box)
                     guideLine.SetHalfExtents(placeable.GetHalfExtents());
             }
             else
