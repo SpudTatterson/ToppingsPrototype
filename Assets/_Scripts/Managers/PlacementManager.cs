@@ -47,41 +47,25 @@ public class PlacementManager : MonoBehaviour
         {
             Initialize();
 
-            if (heldPlaceable == null)
-                heldPlaceable = itemToPlace.GetComponent<Placeable>();
-            if (isPlacingSecondaryObject)
-                heldPlaceable = lastPlaced;
-
             if (Input.GetButtonDown("Fire2")) // if pressed right click cancel everything
             {
                 ResetAllVariables();
                 return;
             }
-            Vector3 placementPoint;
-            if (heldPlaceable.lockToGrid)
-            {
-                GridInfo currentGrid = hit.collider.GetComponentInParent<GridInfo>();
-                if (heldPlaceable.lockToCenter)
-                    placementPoint = currentGrid.GetCenter();
-                else
-                    placementPoint = currentGrid.FindClosestPoint(hit.point);
-            }
-            else
-                placementPoint = hit.point;
+
+            Vector3 placementPoint = HandlePlacementPoint(hit);
 
             if (Input.GetKeyDown(KeyCode.R))
             {
                 tempGO.transform.Rotate(Vector3.up * 90);
             }
+
             tempGO.transform.position = placementPoint;
             if (isPlacingSecondaryObject && CanPlaceSecondaryObject())
-            {
                 itemToPlace.transform.position = tempGO.transform.position;
-            }
             if (isPlacingSecondaryObject && !CanPlaceSecondaryObject())
-            {
                 tempGO.transform.position = itemToPlace.transform.position;
-            }
+
             bool canPlace = CheckIfObjectFits();
 
             if (mr)
@@ -89,8 +73,6 @@ public class PlacementManager : MonoBehaviour
 
             if (Input.GetButtonDown("Fire1"))
             {
-                // in real game this func should be on the 
-                // parent class of all placeable object so it can be customized for each
                 if (canPlace)
                 {
                     GameObject actualGO = SpawnPrefab(tempGO.transform.position, tempGO.transform.rotation); // spawn actual object
@@ -103,9 +85,6 @@ public class PlacementManager : MonoBehaviour
                         itemToPlace.GetComponentInParent<Placeable>().FullyPlaced = true;
                         itemToPlace.transform.position = actualGO.transform.position;
                         Destroy(actualGO);
-                        itemToPlace = null;
-                        heldPlaceable = null;
-                        isPlacingSecondaryObject = false;
                         ResetAllVariables();
                     }
                     if (placeable != null && placeable.hasSecondaryPlacement)
@@ -130,48 +109,77 @@ public class PlacementManager : MonoBehaviour
 
     }
 
-    private void Initialize()
+    Vector3 HandlePlacementPoint(RaycastHit hit)
     {
-        if (tempGO == null && itemToPlace != null)// initialization 
+        Vector3 placementPoint;
+        if (heldPlaceable.lockToGrid)
+        {
+            GridInfo currentGrid = hit.collider.GetComponentInParent<GridInfo>();
+            if (heldPlaceable.lockToCenter)
+                placementPoint = currentGrid.GetCenter();
+            else
+                placementPoint = currentGrid.FindClosestPoint(hit.point);
+        }
+        else
+            placementPoint = hit.point;
+        return placementPoint;
+    }
+
+    void Initialize()
+    {
+        if (tempGO == null && itemToPlace != null)
         {
 
             Texture2D placeCursor = UIManager.instance.placeCursor;
             Cursor.SetCursor(placeCursor, Vector2.zero, CursorMode.Auto); //new Vector2(placeCursor.width / 2, placeCursor.height)
 
-            tempGO = Instantiate(itemToPlace);// spawn visual aid if it doesn't exist
-            mr = tempGO.GetComponentInChildren<MeshRenderer>(); // get mesh render for later
+            HandleTempGO();
 
-            Collider[] colliders = tempGO.GetComponentsInChildren<Collider>(); // get all colliders
-            foreach (Collider c in colliders) // disable collider on tempGameObject so it wont interrupt placement
-            {
-                c.enabled = false;
-            }
             if (tempGO.TryGetComponent<Placeable>(out Placeable placeable))
-            {
-                placeable.enabled = false;
-            }
+                placeable.enabled = false; // disable the placeable component in the temp game object so it wont interact with the world
 
-            guideLine.toggle = true;
-            if (placeable)
-            {
-                guideLine.SetShowShape(placeable.radiusShape);
-                if (placeable.radiusShape == GridGuideLineShape.Sphere)
-                    guideLine.SetShowRadius(placeable.GetShowRadius());
-                if (placeable.radiusShape == GridGuideLineShape.Box)
-                    guideLine.SetHalfExtents(placeable.GetHalfExtents());
-            }
-            else
-                guideLine.SetShowRadius(3f);
+            HandleGridGuideLines(placeable);
+        }
+        if (heldPlaceable == null)
+            heldPlaceable = itemToPlace.GetComponent<Placeable>();
+        if (isPlacingSecondaryObject)
+            heldPlaceable = lastPlaced;
 
-            if (unplacedMaterial != null)
+    }
+
+    void HandleTempGO()
+    {
+        tempGO = Instantiate(itemToPlace);// spawn visual aid if it doesn't exist
+        mr = tempGO.GetComponentInChildren<MeshRenderer>(); // get mesh render for later
+
+        Collider[] colliders = tempGO.GetComponentsInChildren<Collider>(); // get all colliders
+        foreach (Collider c in colliders) // disable collider on tempGameObject so it wont interrupt placement
+        {
+            c.enabled = false;
+        }
+        if (unplacedMaterial != null) // set temp gameObject mats to the unplaced mat
+        {
+            MeshRenderer[] mrs = tempGO.GetComponentsInChildren<MeshRenderer>();
+            foreach (MeshRenderer mr in mrs)
             {
-                MeshRenderer[] mrs = tempGO.GetComponentsInChildren<MeshRenderer>();
-                foreach (MeshRenderer mr in mrs)
-                {
-                    mr.material = unplacedMaterial;
-                }
+                mr.material = unplacedMaterial;
             }
         }
+    }
+
+    void HandleGridGuideLines(Placeable placeable)
+    {
+        guideLine.toggle = true;
+        if (placeable)
+        {
+            guideLine.SetShowShape(placeable.radiusShape);
+            if (placeable.radiusShape == GridGuideLineShape.Sphere)
+                guideLine.SetShowRadius(placeable.GetShowRadius());
+            if (placeable.radiusShape == GridGuideLineShape.Box)
+                guideLine.SetHalfExtents(placeable.GetHalfExtents());
+        }
+        else
+            guideLine.SetShowRadius(3f);
     }
 
     void CheckForDestroyShortCut()
