@@ -1,41 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class JobsSelector : MonoBehaviour
 {
-    [SerializeField] Button woodCutter;
-
-    private bool woodCutterSelected;
-
-    private void Update()
+    [SerializeField] LayerMask minionLayer;
+    bool toggle = false;
+    WorkerType type;
+    void Update()
     {
-        if (EventSystem.current.currentSelectedGameObject != null)
+        if (!toggle) return;
+
+        if(Input.GetKeyDown(KeyCode.Mouse1))
         {
-            if (EventSystem.current.currentSelectedGameObject.name == woodCutter.name)
-            {
-                woodCutterSelected = true;
-            }
+            toggle = false;
+            type = WorkerType.Default;
+            Debug.Log("cancel");
         }
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        Physics.Raycast(ray, out hit);
-
-        if (woodCutterSelected)
+        if(Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity, minionLayer, QueryTriggerInteraction.Ignore) && Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (hit.collider != null && hit.collider.CompareTag("Lemming") && Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                hit.collider.GetComponent<LemmingWorker>().woodCutter = true;
-                hit.collider.GetComponent<LemmingWorker>().SetWorkerOutfit();
-                woodCutterSelected = false;
-            }
-            else if (Input.GetKeyDown(KeyCode.Mouse0) && !hit.collider.CompareTag("Lemming"))
-            {
-                woodCutterSelected = false;
-            }
+            Debug.Log("working");
+            if(type == WorkerType.WoodWorker)
+            hit.transform.gameObject.GetComponentInChildren<WoodWorker>().enabled = true;
         }
+
+
+    }
+
+    public void SetWoodWorker()
+    {
+        toggle = true;
+        type = WorkerType.WoodWorker;
     }
 }
