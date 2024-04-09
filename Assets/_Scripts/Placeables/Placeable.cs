@@ -1,22 +1,20 @@
 using UnityEngine;
 using NaughtyAttributes;
-public enum ShowRadiusShape
-{
-    Sphere,
-    Box
-}
 public class Placeable : MonoBehaviour
 {
+    [Header("Placement Settings")]
     public bool lockToGrid = true;
     public bool lockToCenter = true;
     public bool hasSecondaryPlacement = false;
-    [SerializeField, HideIf("radiusShape", ShowRadiusShape.Box)] float showRadius = 3f;
-    [SerializeField, HideIf("radiusShape", ShowRadiusShape.Sphere)] Vector3 halfExtents = new Vector3(0.5f, 0.5f, 0.5f);
     [HideInInspector] public bool FullyPlaced = false;
     [ShowIf("hasSecondaryPlacement")] public GameObject secondaryPlacable;
     [ShowIf("hasSecondaryPlacement")] public float maxSecondaryObjectDistance = 5;
 
+    [Header("Grid Guide Line Settings")]
     public ShowRadiusShape radiusShape;
+
+    [SerializeField, HideIf("radiusShape", ShowRadiusShape.Box)] float showRadius = 3f;
+    [SerializeField, HideIf("radiusShape", ShowRadiusShape.Sphere)] Vector3 halfExtents = new Vector3(0.5f, 0.5f, 0.5f);
 
     public virtual void SecondaryPlacement()
     {
