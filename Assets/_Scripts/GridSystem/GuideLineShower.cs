@@ -13,11 +13,6 @@ public class GuideLineShower : MonoBehaviour
 
     public bool toggle = false;
     ShowRadiusShape shape;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -51,7 +46,7 @@ public class GuideLineShower : MonoBehaviour
             oldGrids = grids;
             foreach (GridGuideLine grid in grids)
             {
-                float distance = Vector3.Distance(hit.point, grid.GetCenter());
+                float distance = Vector3.Distance(point, grid.GetCenter());
                 float maxDistance = (shape ==  ShowRadiusShape.Box) ? halfExtents.magnitude : showRadius; 
                 distance = Mathf.InverseLerp(maxDistance , 0, distance);
                 grid.UpdateTrans(distance);

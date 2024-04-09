@@ -37,5 +37,9 @@ public class Placeable : MonoBehaviour
         {
             Gizmos.DrawWireCube(transform.position, halfExtents * 2);
         }
+        if(radiusShape == ShowRadiusShape.Sphere)
+        {
+            Gizmos.DrawWireSphere(transform.position, showRadius);
+        }
     }
 }
