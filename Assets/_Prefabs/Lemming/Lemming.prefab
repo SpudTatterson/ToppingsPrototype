@@ -114,13 +114,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8553272647436627794}
+  - component: {fileID: 996015248542258268}
   m_Layer: 6
   m_Name: Lemming_Paratrooper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8553272647436627794
 Transform:
   m_ObjectHideFlags: 0
@@ -134,11 +135,27 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7125291881687417030}
-  - {fileID: 38191315315233309}
-  - {fileID: 5861785669779336210}
+  - {fileID: 2209784801845126935}
   m_Father: {fileID: 6727730002719883008}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &996015248542258268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641319572095750431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5035eae66aabc84095e93187c9f90cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smokeVFX: {fileID: 4205210673636375058}
+  clothSet: {fileID: 3209559386858791402}
+  defaultClothSet: {fileID: 6072829812595883047}
+  workerType: 3
+  parachuteFloat: 0
+  velocityStop: 0
 --- !u!1 &899535659441890149
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +270,7 @@ Transform:
   m_Children:
   - {fileID: 7324434428719850068}
   - {fileID: 3512787496393090091}
-  m_Father: {fileID: 8553272647436627794}
+  m_Father: {fileID: 2209784801845126935}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1385723183956263404
 GameObject:
@@ -588,6 +605,40 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &3209559386858791402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2209784801845126935}
+  m_Layer: 6
+  m_Name: Art
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2209784801845126935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3209559386858791402}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7125291881687417030}
+  - {fileID: 38191315315233309}
+  - {fileID: 5861785669779336210}
+  m_Father: {fileID: 8553272647436627794}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3515155732238982179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,7 +1193,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8553272647436627794}
+  m_Father: {fileID: 2209784801845126935}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5603592779246556462
 MeshFilter:
@@ -1821,13 +1872,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4030775331889667381}
+  - component: {fileID: 888574518020017653}
   m_Layer: 6
   m_Name: Lemming_Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4030775331889667381
 Transform:
   m_ObjectHideFlags: 0
@@ -1847,6 +1899,23 @@ Transform:
   - {fileID: 3954000685865504626}
   m_Father: {fileID: 6727730002719883008}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &888574518020017653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5818376540280807464}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd7d477976f4127438607c5fb860f3a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smokeVFX: {fileID: 4205210673636375058}
+  clothSet: {fileID: 3574625615360202297}
+  defaultClothSet: {fileID: 6072829812595883047}
+  workerType: 2
+  animationIDName: 
 --- !u!1 &6121094245912164246
 GameObject:
   m_ObjectHideFlags: 0
@@ -2354,7 +2423,7 @@ Transform:
   m_LocalScale: {x: 0.6, y: 0.25, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8553272647436627794}
+  m_Father: {fileID: 2209784801845126935}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &432647925294011161
 MeshFilter:
@@ -2666,6 +2735,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShieldLemming
       objectReference: {fileID: 0}
+    - target: {fileID: 3869706741618919205, guid: 83583dccb7886d749987a3d0c3c0edd1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4537417770321649055, guid: 83583dccb7886d749987a3d0c3c0edd1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2721,6 +2795,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83583dccb7886d749987a3d0c3c0edd1, type: 3}
+--- !u!1 &3574625615360202297 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3869706741618919205, guid: 83583dccb7886d749987a3d0c3c0edd1,
+    type: 3}
+  m_PrefabInstance: {fileID: 299606789957079324}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4237974807670344835 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4537417770321649055, guid: 83583dccb7886d749987a3d0c3c0edd1,
