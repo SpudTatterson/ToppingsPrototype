@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class JobsSelector : MonoBehaviour
 {
+    public static JobsSelector instance;
     [SerializeField] LayerMask minionLayer;
     [SerializeField] float castRadius = 0.5f;
     bool toggle = false;
     WorkerType type;
+
+    void Awake()
+    {
+        instance = this;
+    }
     void Update()
     {
         if (!toggle) return;
@@ -42,7 +48,7 @@ public class JobsSelector : MonoBehaviour
 
     }
 
-    private void Reset()
+    public void Reset()
     {
         toggle = false;
         type = WorkerType.Default;

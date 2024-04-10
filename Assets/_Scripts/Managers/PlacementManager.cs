@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlacementManager : MonoBehaviour
 {
+    public static PlacementManager instance;
     // this code is disgusting 
     Camera cam;
     [SerializeField] LayerMask groundLayer;
@@ -26,6 +27,7 @@ public class PlacementManager : MonoBehaviour
 
     void Awake()
     {
+        instance = this;
         cam = Camera.main;
         guideLine = GetComponent<GuideLineShower>();
     }
@@ -190,7 +192,7 @@ public class PlacementManager : MonoBehaviour
             ResetAllVariables();
     }
 
-    void ResetAllVariables()
+    public void ResetAllVariables()
     {
         isDestroying = false;
         itemToPlace = null;
