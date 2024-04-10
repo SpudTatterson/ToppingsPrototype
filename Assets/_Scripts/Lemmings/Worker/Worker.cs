@@ -26,7 +26,6 @@ public class Worker : MonoBehaviour
     public bool CheckIfAlreadyWorking()
     {
         List<Worker> workerList = GetWorkers();
-        workerList.Remove(this);
         foreach (Worker worker in workerList)
         {
             if (worker.enabled == true) return true;
