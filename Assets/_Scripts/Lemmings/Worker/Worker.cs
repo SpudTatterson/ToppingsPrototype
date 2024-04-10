@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -21,9 +23,25 @@ public class Worker : MonoBehaviour
     {
         SetClothing();
     }
-    public virtual void Work()
+    public bool CheckIfAlreadyWorking()
+    {
+        GameObject parent = transform.parent.gameObject;
+        List<Worker> workerList = parent.GetComponentsInChildren<Worker>().ToList<Worker>();
+        workerList.Remove(this);
+        foreach (Worker worker in workerList)
+        {
+            if(worker.enabled == true) return true;
+        }
+        return false;
+    }
+
+    public virtual void WorkerLogic()
     {
 
+    }
+        void Update()
+    {
+        WorkerLogic();
     }
     void OnDisable()
     {
