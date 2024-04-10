@@ -2389,7 +2389,9 @@ MonoBehaviour:
   workerType: 1
   ignoredLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 16192
+  castRadius: 0.5
+  interactionDistance: 0.85
   timeBetweenHits: 1.5
   ChoppingSoundClips:
   - {fileID: 8300000, guid: 3cd07582c4312f542b97cf4fa4ca649c, type: 3}
@@ -2961,7 +2963,7 @@ PrefabInstance:
     - target: {fileID: 7376210024415039433, guid: e1e218cb679e45340b290aaa2b9fd30a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.273
       objectReference: {fileID: 0}
     - target: {fileID: 7376210024415039433, guid: e1e218cb679e45340b290aaa2b9fd30a,
         type: 3}

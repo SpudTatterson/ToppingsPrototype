@@ -194,6 +194,10 @@ public class LemmingMovement : MonoBehaviour
             }
         }
     }
+    public void StopMovement()
+    {
+        rb.velocity = Vector3.zero;
+    }
     void OnDrawGizmos()
     {
         Vector3 offset = transform.position + groundedOffset;
