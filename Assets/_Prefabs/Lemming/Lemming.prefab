@@ -145,7 +145,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 641319572095750431}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5035eae66aabc84095e93187c9f90cb, type: 3}
   m_Name: 
@@ -154,8 +154,8 @@ MonoBehaviour:
   clothSet: {fileID: 3209559386858791402}
   defaultClothSet: {fileID: 6072829812595883047}
   workerType: 3
-  parachuteFloat: 0
-  velocityStop: 0
+  parachuteFloat: 2
+  velocityStop: 1.01
 --- !u!1 &899535659441890149
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,6 +401,9 @@ MonoBehaviour:
   ignoreThis:
     serializedVersion: 2
     m_Bits: 64
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 11137
   groundStomp: {fileID: 3469237661159358257}
   groundedOffset: {x: 0, y: 0.1, z: 0}
   maxDistanceOffGround: 0.2
