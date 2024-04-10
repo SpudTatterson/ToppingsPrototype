@@ -87,6 +87,7 @@ public class PlacementManager : MonoBehaviour
                         itemToPlace.GetComponentInParent<Placeable>().FullyPlaced = true;
                         itemToPlace.transform.position = actualGO.transform.position;
                         Destroy(actualGO);
+                        isPlacingSecondaryObject = false;
                         ResetAllVariables();
                     }
                     if (placeable != null && placeable.hasSecondaryPlacement)
