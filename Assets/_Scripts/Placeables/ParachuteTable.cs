@@ -28,6 +28,7 @@ public class ParachuteTable : Placeable
         Paratrooper paratrooper = other.GetComponentInChildren<Paratrooper>();
         if (paratrooper && parachutes.Count > 0)
         {
+            paratrooper.enabled = true;
             if (unlimitedParachutes) return;
             RemoveParachute();
         }

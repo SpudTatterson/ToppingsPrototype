@@ -3,8 +3,8 @@ using UnityEngine;
 public class Paratrooper : Worker
 {
     [Header("Worker Settings")]
-    [SerializeField] float parachuteFloat;
-    [SerializeField][Range(1.01f, 1.1f)] private float velocityStop;
+    [SerializeField] float parachuteFloat = 2f;
+    [SerializeField][Range(1.01f, 1.1f)] private float velocityStop = 1.01f;
     LemmingMovement movement;
     float timer;
     void Start()
