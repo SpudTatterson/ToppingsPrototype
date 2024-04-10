@@ -30,7 +30,6 @@ public class JobsSelector : MonoBehaviour
         {
             Worker worker = hit.transform.gameObject.GetComponentInChildren<Worker>();
             if (worker.CheckIfAlreadyWorking()) return;
-            Debug.Log("working");
 
             List<Worker> workers = worker.GetWorkers();
             foreach (Worker workScript in workers)
