@@ -18,11 +18,7 @@ public class WoodWorker : Worker
         movement = GetComponentInParent<LemmingMovement>();
         ignoredLayers = ~ignoredLayers;
     }
-    void Update()
-    {
-        Work();
-    }
-    public override void Work()
+    public override void WorkerLogic()
     {
         {
             //Physics.BoxCast(transform.localPosition + transform.up, new Vector3(.4f, 0.99f, .4f), transform.forward, out RaycastHit hit, transform.localRotation, 1.5f, ignoredLayers);
