@@ -25,14 +25,20 @@ public class Worker : MonoBehaviour
     }
     public bool CheckIfAlreadyWorking()
     {
-        GameObject parent = transform.parent.gameObject;
-        List<Worker> workerList = parent.GetComponentsInChildren<Worker>().ToList<Worker>();
+        List<Worker> workerList = GetWorkers();
         workerList.Remove(this);
         foreach (Worker worker in workerList)
         {
-            if(worker.enabled == true) return true;
+            if (worker.enabled == true) return true;
         }
         return false;
+    }
+
+    public List<Worker> GetWorkers()
+    {
+        GameObject parent = transform.parent.gameObject;
+        List<Worker> workerList = parent.GetComponentsInChildren<Worker>().ToList<Worker>();
+        return workerList;
     }
 
     public virtual void WorkerLogic()

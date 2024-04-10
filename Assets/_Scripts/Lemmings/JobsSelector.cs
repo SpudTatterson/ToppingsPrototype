@@ -21,18 +21,20 @@ public class JobsSelector : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity, minionLayer, QueryTriggerInteraction.Ignore) && Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (hit.transform.gameObject.GetComponentInChildren<Worker>().CheckIfAlreadyWorking()) return;
+            Worker worker = hit.transform.gameObject.GetComponentInChildren<Worker>();
+            if (worker.CheckIfAlreadyWorking()) return;
             Debug.Log("working");
-            if (type == WorkerType.WoodWorker)
+            
+            List<Worker> workers = worker.GetWorkers();
+            foreach (Worker workScript in workers)
             {
-                hit.transform.gameObject.GetComponentInChildren<WoodWorker>().enabled = true;
-                Reset();
-            }
+                if(workScript.workerType == type)
+                    {
+                        workScript.enabled = true;
+                        Reset();
+                        return;
+                    }
 
-            if (type == WorkerType.Shield)
-            {
-                hit.transform.gameObject.GetComponentInChildren<Shield>().enabled = true;
-                Reset();
             }
         }
 
