@@ -31,7 +31,7 @@ public class LevelEndPoint : MonoBehaviour
         
     }
 
-    bool CheckForVictory()
+    public bool CheckForVictory()
     {
         return passedMinionCount >= minPassedForVictory;
     }
