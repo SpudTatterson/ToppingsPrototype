@@ -2089,6 +2089,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lemming
       objectReference: {fileID: 0}
+    - target: {fileID: 1385723183956263404, guid: 8443945175bc0304d80f07448ec4de15,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2894957118168397020, guid: 8443945175bc0304d80f07448ec4de15,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6727730002719883008, guid: 8443945175bc0304d80f07448ec4de15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2137,6 +2147,11 @@ PrefabInstance:
     - target: {fileID: 6727730002719883008, guid: 8443945175bc0304d80f07448ec4de15,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669825718566648938, guid: 8443945175bc0304d80f07448ec4de15,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4485,7 +4500,7 @@ PrefabInstance:
     - target: {fileID: 3127030685187591112, guid: 0d36631ddb19e1642a34071573259124,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.29
+      value: -5.85
       objectReference: {fileID: 0}
     - target: {fileID: 3127030685187591112, guid: 0d36631ddb19e1642a34071573259124,
         type: 3}
