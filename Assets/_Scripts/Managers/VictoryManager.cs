@@ -42,7 +42,8 @@ public class VictoryManager : MonoBehaviour
     }
     public void TriggerLoss()
     {
-        Debug.Log("lost");
+        Time.timeScale = 0f;
+        UIManager.instance.loseScreen.SetActive(true);
     }
     void UpdateVictoryScreenUI()
     {
