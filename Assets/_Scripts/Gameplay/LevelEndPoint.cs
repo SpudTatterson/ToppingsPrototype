@@ -26,15 +26,9 @@ public class LevelEndPoint : MonoBehaviour
     {
         passedMinionCount++;
         HUDUpdater.instance.UpdateStarHUD();
+        MinionManager.instance.Remove(minion.GetComponent<LemmingHealth>());
         Destroy(minion.gameObject);
-        if (CheckForVictory())
-        {
-            UIManager.instance.victoryButton.SetActive(true);
-            if (LevelFinished())
-            {
-                VictoryManager.instance.TriggerWin();
-            }
-        }
+        
     }
 
     bool CheckForVictory()
