@@ -26,6 +26,7 @@ public class ParachuteTable : Placeable
     private void GiveParachute(Collider other)
     {
         Paratrooper paratrooper = other.GetComponentInChildren<Paratrooper>();
+        if(paratrooper.enabled) return;
         if (paratrooper && parachutes.Count > 0)
         {
             paratrooper.enabled = true;
