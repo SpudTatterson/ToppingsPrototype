@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ParachuteTable : Placeable
 {
-    public bool unlimitedParachutes;
+
+    [SerializeField] bool unlimitedParachutes;
+    [SerializeField] string minionTag = "Lemming";
     public List<GameObject> parachutes = new List<GameObject>();
 
     private void Update()
@@ -17,25 +19,25 @@ public class ParachuteTable : Placeable
 
     private void OnTriggerEnter(Collider other)
     {
-        GiveParachute(other);
+        if (other.CompareTag(minionTag))
+            GiveParachute(other);
     }
 
     private void GiveParachute(Collider other)
     {
-        if (other.TryGetComponent(out WorkerLogic workerLogic) && parachutes.Count > 0)
+        Paratrooper paratrooper = other.GetComponentInChildren<Paratrooper>();
+        if (paratrooper && parachutes.Count > 0)
         {
-            if (workerLogic.paratrooper == true) return;
-            workerLogic.paratrooper = true;
-            workerLogic.SetWorkerOutfit();
-
+            paratrooper.enabled = true;
             if (unlimitedParachutes) return;
             RemoveParachute();
         }
+
     }
 
     private void RemoveParachute()
     {
-        if(parachutes.Count > 0)
+        if (parachutes.Count > 0)
         {
             var index = parachutes.Count - 1;
             parachutes[index].SetActive(false);

@@ -14,7 +14,9 @@ public class LemmingMovement : MonoBehaviour
     public string[] collidingObjects;
 
     public LayerMask ignoreThis;
+    [SerializeField] LayerMask groundLayer;
     public VisualEffect groundStomp;
+
 
     public Vector3 groundedOffset = new Vector3(0, 0.1f, 0);
     public float maxDistanceOffGround = 0.2f;
@@ -96,7 +98,7 @@ public class LemmingMovement : MonoBehaviour
     bool GroundCheck()
     {
         Vector3 offset = transform.position + groundedOffset;
-        return Physics.Raycast(offset, Vector3.down, maxDistanceOffGround);
+        return Physics.Raycast(offset, Vector3.down, maxDistanceOffGround, groundLayer);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -191,6 +193,10 @@ public class LemmingMovement : MonoBehaviour
                 knockable = true;
             }
         }
+    }
+    public void StopMovement()
+    {
+        rb.velocity = Vector3.zero;
     }
     void OnDrawGizmos()
     {
