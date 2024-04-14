@@ -13,7 +13,7 @@ public class SpikeTrap : MonoBehaviour
         {
             SoundsFXManager.instance.PlayRandomSoundFXClip(DeathSoundClips, transform, 1f);
 
-            Destroy(other.gameObject);
+            other.GetComponent<LemmingHealth>().TakeDamage(100);
         }
     }
 }

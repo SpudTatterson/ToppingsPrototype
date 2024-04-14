@@ -40,6 +40,11 @@ public class VictoryManager : MonoBehaviour
         UIManager.instance.victoryScreen.SetActive(true);
         UpdateVictoryScreenUI();
     }
+    public void TriggerLoss()
+    {
+        Time.timeScale = 0f;
+        UIManager.instance.loseScreen.SetActive(true);
+    }
     void UpdateVictoryScreenUI()
     {
         CheckForBestTime(Time.timeSinceLevelLoad);

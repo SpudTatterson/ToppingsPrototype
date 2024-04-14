@@ -13,6 +13,10 @@ public class LemmingHealth : MonoBehaviour
 
     public bool usingJumpPad = false;
 
+    void Awake()
+    {
+        MinionManager.instance.Add(this);
+    }
     private void Start()
     {
         lemmingMovement = GetComponent<LemmingMovement>();
@@ -31,6 +35,7 @@ public class LemmingHealth : MonoBehaviour
 
     private void Death()
     {
+        MinionManager.instance.Remove(this);
         Destroy(gameObject);
     }
 
