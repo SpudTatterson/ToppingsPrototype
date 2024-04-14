@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smokeVFX: {fileID: 4205210673636375058}
-  clothSet: {fileID: 3209559386858791402}
+  clothingSet: {fileID: 11400000, guid: af7683b9be892c444bd630b31f6c6846, type: 2}
   defaultClothSet: {fileID: 6072829812595883047}
   workerType: 3
   parachuteFloat: 2
@@ -285,6 +285,8 @@ GameObject:
   - component: {fileID: 5010955515207986907}
   - component: {fileID: 6858213277738819070}
   - component: {fileID: 1166977942748086502}
+  - component: {fileID: 5116558555320284551}
+  - component: {fileID: 6296177033808484660}
   m_Layer: 6
   m_Name: Lemming
   m_TagString: Lemming
@@ -420,6 +422,34 @@ MonoBehaviour:
   startRotationTest: {x: 0, y: 0, z: 0, w: 0}
   startRotation: {x: 0, y: 0, z: 0}
   endRotation: {x: 0, y: 0, z: 0}
+--- !u!114 &5116558555320284551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385723183956263404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c657ea696a22ed4d83eee0c197dfb9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  head: {fileID: 2321900239147217136}
+  back: {fileID: 5199899788132491634}
+  hand: {fileID: 4698313866974281406}
+--- !u!114 &6296177033808484660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385723183956263404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2137fe869d137844b87f870d9275ed4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultClothing: {fileID: 11400000, guid: c91dd9adf17c4b94c9c7164f519a47ac, type: 2}
 --- !u!1 &2129188674362226817
 GameObject:
   m_ObjectHideFlags: 0
@@ -1915,7 +1945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smokeVFX: {fileID: 4205210673636375058}
-  clothSet: {fileID: 3574625615360202297}
+  clothingSet: {fileID: 11400000, guid: 2678b73b4af09b946a198fc1b91bc3cd, type: 2}
   defaultClothSet: {fileID: 6072829812595883047}
   workerType: 2
   animationIDName: 
@@ -2384,7 +2414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smokeVFX: {fileID: 4205210673636375058}
-  clothSet: {fileID: 4605973403322146653}
+  clothingSet: {fileID: 11400000, guid: 2dba7a9b60d446d478ac7e4576b40138, type: 2}
   defaultClothSet: {fileID: 6072829812595883047}
   workerType: 1
   ignoredLayers:
@@ -2800,12 +2830,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83583dccb7886d749987a3d0c3c0edd1, type: 3}
---- !u!1 &3574625615360202297 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3869706741618919205, guid: 83583dccb7886d749987a3d0c3c0edd1,
-    type: 3}
-  m_PrefabInstance: {fileID: 299606789957079324}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4237974807670344835 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4537417770321649055, guid: 83583dccb7886d749987a3d0c3c0edd1,
@@ -2930,6 +2954,24 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44b440a128d5cf2459a3111fbee9ffea, type: 3}
+--- !u!4 &2321900239147217136 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 435304487284371617, guid: 44b440a128d5cf2459a3111fbee9ffea,
+    type: 3}
+  m_PrefabInstance: {fileID: 2752694330957512785}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4698313866974281406 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7422015170710306543, guid: 44b440a128d5cf2459a3111fbee9ffea,
+    type: 3}
+  m_PrefabInstance: {fileID: 2752694330957512785}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5199899788132491634 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7933734671965249827, guid: 44b440a128d5cf2459a3111fbee9ffea,
+    type: 3}
+  m_PrefabInstance: {fileID: 2752694330957512785}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6072829812595883047 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8247373372583427190, guid: 44b440a128d5cf2459a3111fbee9ffea,
@@ -3018,12 +3060,6 @@ PrefabInstance:
 --- !u!4 &3792141682432640487 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7376210024415039433, guid: e1e218cb679e45340b290aaa2b9fd30a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5980194450313742894}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4605973403322146653 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7860574941784003955, guid: e1e218cb679e45340b290aaa2b9fd30a,
     type: 3}
   m_PrefabInstance: {fileID: 5980194450313742894}
   m_PrefabAsset: {fileID: 0}
