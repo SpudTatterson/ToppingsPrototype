@@ -2084,15 +2084,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 996015248542258268, guid: 8443945175bc0304d80f07448ec4de15,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 996015248542258268, guid: 8443945175bc0304d80f07448ec4de15,
+        type: 3}
+      propertyPath: parachute
+      value: 
+      objectReference: {fileID: 8801148601966364575, guid: cc07127bf0cd68240ac1b8434cf848ee,
+        type: 3}
     - target: {fileID: 1385723183956263404, guid: 8443945175bc0304d80f07448ec4de15,
         type: 3}
       propertyPath: m_Name
       value: Lemming
-      objectReference: {fileID: 0}
-    - target: {fileID: 3574625615360202297, guid: 8443945175bc0304d80f07448ec4de15,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6727730002719883008, guid: 8443945175bc0304d80f07448ec4de15,
         type: 3}
