@@ -24,8 +24,10 @@ public class MinionManager : MonoBehaviour
     }
     void CheckWinState()
     {
-        Debug.Log("Checking");
-        Debug.Log(minions.Count.ToString());
+        if(minions.Count != 0 && LevelEndPoint.instance.CheckForVictory())
+        {
+            UIManager.instance.victoryButton.SetActive(true);
+        } 
         if(minions.Count == 0 && LevelEndPoint.instance.GetPassedMinionCount() == 0)
         {
             VictoryManager.instance.TriggerLoss();
