@@ -50,6 +50,8 @@ MonoBehaviour:
   workerType: 3
   parachuteFloat: 2
   velocityStop: 1.01
+  parachute: {fileID: 8801148601966364575, guid: cc07127bf0cd68240ac1b8434cf848ee,
+    type: 3}
 --- !u!1 &1385723183956263404
 GameObject:
   m_ObjectHideFlags: 0
