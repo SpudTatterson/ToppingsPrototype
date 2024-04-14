@@ -32,6 +32,7 @@ public class MinionCustomizer : MonoBehaviour
         if(clothingSet.backpack != null)
         {
             GameObject backpack = Instantiate(clothingSet.backpack, bones.back.position, Quaternion.identity, bones.back);
+            backpack.transform.localRotation = Quaternion.Euler(0, 0, 0);
             oldClothes.Add(backpack);
         }
         if(clothingSet.handItem != null)
