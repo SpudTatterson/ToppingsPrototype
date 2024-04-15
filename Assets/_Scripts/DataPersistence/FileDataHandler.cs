@@ -16,7 +16,6 @@ public class FileDataHandler<T> where T : Data
     public T Load()
     {
         string fullPath = Path.Combine(dataDirPath, dataFileName);
-        //fullPath = fullPath.Replace("\\", "/");
         Debug.Log(fullPath);
         T loadedData = null;
         if (File.Exists(fullPath))
@@ -46,7 +45,6 @@ public class FileDataHandler<T> where T : Data
     public void Save(T data)
     {
         string fullPath = Path.Combine(dataDirPath, dataFileName);
-        //fullPath = fullPath.Replace("\\", "/");
         Debug.Log(fullPath +"save path");
         try
         {
