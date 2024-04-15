@@ -9,7 +9,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     [Header("Storage Config")]
     [SerializeField] string settingFileName = "settings.json";
-    [SerializeField] string levelDataFileName = "playerData.json";
+    [SerializeField] string playerDataFileName = "playerData.json";
 
     // data objects
     SettingsData settingsData;
@@ -23,13 +23,11 @@ public class DataPersistenceManager : MonoBehaviour
     void Awake()
     {
         instance = this;
-    }
-    void Start()
-    {
+
         settingDataHandler = new FileDataHandler<SettingsData>(Application.persistentDataPath, settingFileName);
         settingsDataPersistenceObjects = GetSettingsDataPersistenceObjects();
 
-        playerDataHandler = new FileDataHandler<GameData>(Application.persistentDataPath, levelDataFileName);
+        playerDataHandler = new FileDataHandler<GameData>(Application.persistentDataPath, playerDataFileName);
         playerDataPersistenceObjects = GetPlayerDataPersistenceObjects();
 
         LoadGame();
@@ -37,9 +35,15 @@ public class DataPersistenceManager : MonoBehaviour
     public void NewGame()
     {
         if (settingsData == null)
+        {
+            Debug.Log("settings file missing");
             settingsData = new SettingsData();
+        }
         if (playerData == null)
+        {
+            Debug.Log("Game data file missing");
             playerData = new GameData();
+        }
     }
 
     public void SaveGame()
@@ -49,12 +53,13 @@ public class DataPersistenceManager : MonoBehaviour
             data.SaveData(settingsData);
         }
 
+        settingDataHandler.Save(settingsData);
+
         foreach (IPlayerDataPersistence data in playerDataPersistenceObjects)
         {
             data.SaveData(playerData);
         }
 
-        settingDataHandler.Save(settingsData);
         playerDataHandler.Save(playerData);
     }
     public void LoadGame()
