@@ -16,9 +16,16 @@ public class Worker : MonoBehaviour
 {
     [Header("Effects")]
     [SerializeField] VisualEffect smokeVFX;
-    [SerializeField] GameObject clothSet;
+    [SerializeField] ClothingSet clothingSet;
     [SerializeField] GameObject defaultClothSet;
     public WorkerType workerType;
+
+    MinionCustomizer minionCustomizer;
+
+    void Awake()
+    {
+        minionCustomizer = GetComponentInParent<MinionCustomizer>();
+    }
     void OnEnable()
     {
         SetClothing();
@@ -55,14 +62,12 @@ public class Worker : MonoBehaviour
     void SetClothing()
     {
         smokeVFX.Play();
-        clothSet.SetActive(true);
-        defaultClothSet.SetActive(false);
+        minionCustomizer.UpdateClothing(clothingSet);
     }
     void Finish()
     {
         smokeVFX.Play();
-        clothSet.SetActive(false);
-        defaultClothSet.SetActive(true);
+        minionCustomizer.UpdateClothing(minionCustomizer.defaultClothing);
     }
 
 }
