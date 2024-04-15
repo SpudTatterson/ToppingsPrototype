@@ -13,11 +13,6 @@ public class LevelDataSer
         this.bestTime = bestTime;
         this.bestStarCount = bestStarCount;
     }
-    public LevelDataSer(int levelID)
-    {
-        bestTime = 0;
-        bestStarCount = 0;
-    }
     public LevelDataSer()
     {
         bestTime = 0;
