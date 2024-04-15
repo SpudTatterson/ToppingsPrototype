@@ -21,8 +21,8 @@ public class VictoryManager : MonoBehaviour
     void Awake()
     {
         instance = this;
-
     }
+
     void Start()
     {
         // make scene unique keys for playerPrefs  
