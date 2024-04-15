@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class VictoryManager : MonoBehaviour
+public class VictoryManager : MonoBehaviour, IPlayerDataPersistence
 {
     public static VictoryManager instance;
 
@@ -11,34 +11,44 @@ public class VictoryManager : MonoBehaviour
 
     int initialMinionCount;
     int passedMinionCount;
+
     float bestTime;
-    string bestTimeKey;
     float starCount;
     float bestScore;
-    string highScoreKey;
 
-
+    LevelDataSer levelData = new LevelDataSer();
+    string id;
     void Awake()
     {
         instance = this;
-
+        id = SceneManager.GetActiveScene().name;
     }
-    void Start()
+
+    public void SaveData(GameData data)
     {
-        // make scene unique keys for playerPrefs  
-        bestTimeKey = "BestTimeScene" + SceneManager.GetActiveScene().buildIndex.ToString();
-        highScoreKey = "BestScoreScene" + SceneManager.GetActiveScene().buildIndex.ToString();
-        // get playerPrefs
-        bestTime = PlayerPrefs.GetFloat(bestTimeKey);
-        bestScore = PlayerPrefs.GetFloat(highScoreKey, 0);
-
+        if (data.levelDict.ContainsKey(id))
+            data.levelDict[id] = levelData;
+        else
+            data.levelDict.Add(id, levelData);
     }
+
+    public void LoadData(GameData data)
+    {
+        if (data.levelDict.ContainsKey(id))
+            levelData = data.levelDict[id];
+        else
+            data.levelDict.Add(id, levelData);
+        bestScore = levelData.bestStarCount;
+        bestTime = levelData.bestTime;
+    }
+
     public void TriggerWin() //this goes on the button that ends the level
     {
         GetComponent<TimeManager>().toggle = false;
         Time.timeScale = 0f;
         UIManager.instance.victoryScreen.SetActive(true);
         UpdateVictoryScreenUI();
+        DataPersistenceManager.instance.SaveGame();
     }
     public void TriggerLoss()
     {
@@ -95,7 +105,7 @@ public class VictoryManager : MonoBehaviour
 
     void SetNewHighScore()
     {
-        PlayerPrefs.SetFloat(highScoreKey, starCount);
+        levelData.bestStarCount = starCount;
     }
 
 
@@ -112,7 +122,7 @@ public class VictoryManager : MonoBehaviour
     void TriggerNewBestTime()
     {
         UIManager.instance.newBestTimeScreen.SetActive(true);
-        PlayerPrefs.SetFloat(bestTimeKey, bestTime);
+        levelData.bestTime = bestTime;
     }
 
     string FormatTime(float timeInSeconds)
@@ -129,4 +139,5 @@ public class VictoryManager : MonoBehaviour
     {
         return bestScore;
     }
+
 }
