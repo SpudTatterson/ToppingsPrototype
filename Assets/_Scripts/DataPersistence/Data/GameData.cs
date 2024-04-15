@@ -29,7 +29,7 @@ public class GameData : Data
 
     public LevelDataSer GetLevelData(int buildIndex)
     {
-        if (levels.Count > 1)
+        if (levels.Count > buildIndex)
         {
             foreach (LevelDataSer data in levels)
             {
@@ -37,13 +37,15 @@ public class GameData : Data
                     return data;
             }
         }
-        if (levels.Count < buildIndex)
-        {
-            int missingLevels = buildIndex - levels.Count + 1;
-            for (int i = 0; i < missingLevels; i++)
+        if (levels.Count <= buildIndex)
+        {    
+            int initialMissingLevels = buildIndex - levels.Count + 1;
+            int missingLevelIndex = levels.Count;
+            for (int i = 0; i < initialMissingLevels; i++)
             {
-                LevelDataSer data = new LevelDataSer(i);
+                LevelDataSer data = new LevelDataSer(missingLevelIndex);
                 levels.Add(data);
+                missingLevelIndex++;
             }
         }
         LevelDataSer levelData = new LevelDataSer(buildIndex);
