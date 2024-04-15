@@ -16,20 +16,28 @@ public class VictoryManager : MonoBehaviour, IPlayerDataPersistence
     float starCount;
     float bestScore;
 
-    LevelDataSer levelData;
+    LevelDataSer levelData = new LevelDataSer();
+    string id;
     void Awake()
     {
         instance = this;
+        id = SceneManager.GetActiveScene().name;
     }
 
     public void SaveData(GameData data)
     {
-        data.levels[levelData.levelID] = levelData;
+        if (data.levelDict.ContainsKey(id))
+            data.levelDict[id] = levelData;
+        else
+            data.levelDict.Add(id, levelData);
     }
 
     public void LoadData(GameData data)
     {
-        levelData = data.GetLevelData(SceneManager.GetActiveScene().buildIndex);
+        if (data.levelDict.ContainsKey(id))
+            levelData = data.levelDict[id];
+        else
+            data.levelDict.Add(id, levelData);
         bestScore = levelData.bestStarCount;
         bestTime = levelData.bestTime;
     }

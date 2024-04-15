@@ -25,35 +25,10 @@ public class SettingsData : Data
 [System.Serializable]
 public class GameData : Data
 {
-    public List<LevelDataSer> levels = new List<LevelDataSer>();
-
-    public LevelDataSer GetLevelData(int buildIndex)
-    {
-        if (levels.Count > buildIndex)
-        {
-            foreach (LevelDataSer data in levels)
-            {
-                if (data.levelID == buildIndex)
-                    return data;
-            }
-        }
-        if (levels.Count <= buildIndex)
-        {    
-            int initialMissingLevels = buildIndex - levels.Count + 1;
-            int missingLevelIndex = levels.Count;
-            for (int i = 0; i < initialMissingLevels; i++)
-            {
-                LevelDataSer data = new LevelDataSer(missingLevelIndex);
-                levels.Add(data);
-                missingLevelIndex++;
-            }
-        }
-        LevelDataSer levelData = new LevelDataSer(buildIndex);
-        levels[buildIndex] = levelData;
-        return levelData;
-    }
+    public SerializableDictionary<string, LevelDataSer> levelDict = new SerializableDictionary<string, LevelDataSer>();
+    
     public GameData()
     {
-        this.levels = new List<LevelDataSer>();
+        levelDict = new SerializableDictionary<string, LevelDataSer>();
     }
 }
