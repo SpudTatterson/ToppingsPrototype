@@ -9,4 +9,10 @@ public class LevelDataSer
     public float bestTime;
     public float bestStarCount;
     
+    public LevelDataSer(int buildIndex, float bestTime, float bestStarCount)
+    {   
+        this.buildIndex = buildIndex;
+        this.bestTime = bestTime;   
+        this.bestStarCount = bestStarCount;
+    }
 }
