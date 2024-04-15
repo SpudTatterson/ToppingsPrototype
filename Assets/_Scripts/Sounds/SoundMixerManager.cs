@@ -15,18 +15,18 @@ public class SoundMixerManager : MonoBehaviour, ISettingDataPersistence
     const string masterKey = "MasterVolume";
     const string soundFXKey = "SoundFXVolume";
     const string musicKey = "MusicVolume";
-    public void LoadData(SettingsData gameData)
+    public void LoadData(SettingsData settingData)
     {
-        masterVolume = gameData.masterVolume;
-        fxVolume = gameData.fxVolume;
-        musicVolume = gameData.musicVolume;
+        masterVolume = settingData.masterVolume;
+        fxVolume = settingData.fxVolume;
+        musicVolume = settingData.musicVolume;
         Initialize();
     }
-    public void SaveData(ref SettingsData gameData)
+    public void SaveData(SettingsData settingData)
     {
-        gameData.masterVolume = masterVolume;
-        gameData.musicVolume = musicVolume;
-        gameData.fxVolume = fxVolume;  
+        settingData.masterVolume = masterVolume;
+        settingData.musicVolume = musicVolume;
+        settingData.fxVolume = fxVolume;  
     }
 
     void Initialize()
