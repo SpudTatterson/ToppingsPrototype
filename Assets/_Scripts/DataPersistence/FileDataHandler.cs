@@ -45,7 +45,7 @@ public class FileDataHandler<T> where T : Data
     public void Save(T data)
     {
         string fullPath = Path.Combine(dataDirPath, dataFileName);
-        Debug.Log(fullPath +"save path");
+        Debug.Log(fullPath +" save path");
         try
         {
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
