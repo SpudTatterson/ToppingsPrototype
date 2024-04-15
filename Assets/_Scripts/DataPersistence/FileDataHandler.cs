@@ -1,8 +1,8 @@
 using System;
 using System.IO;
 using UnityEngine;
-
-public class FileDataHandler
+//handles file loading and saving for any class that inherits from the data class
+public class FileDataHandler<T> where T : Data
 {
     string dataDirPath = "";
     string dataFileName = "";
@@ -13,12 +13,12 @@ public class FileDataHandler
         this.dataFileName = dataFileName;
     }
 
-    public SettingsData Load()
+    public T Load()
     {
         string fullPath = Path.Combine(dataDirPath, dataFileName);
         //fullPath = fullPath.Replace("\\", "/");
         Debug.Log(fullPath);
-        SettingsData loadedData = null;
+        T loadedData = null;
         if (File.Exists(fullPath))
         {
             Debug.Log("File exists");
@@ -34,7 +34,7 @@ public class FileDataHandler
                 }
 
                 // deserialize
-                loadedData = JsonUtility.FromJson<SettingsData>(dataToLoad);
+                loadedData = JsonUtility.FromJson<T>(dataToLoad);
             }
             catch (Exception e)
             {
@@ -43,7 +43,7 @@ public class FileDataHandler
         }
         return loadedData;
     }
-    public void Save(SettingsData data)
+    public void Save(T data)
     {
         string fullPath = Path.Combine(dataDirPath, dataFileName);
         //fullPath = fullPath.Replace("\\", "/");
