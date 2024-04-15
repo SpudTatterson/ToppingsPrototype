@@ -115,7 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 845c7adf5adcd5c4aa7fbe1d5c6bdefc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: GameData
+  settingFileName: settings.json
+  levelDataFileName: playerData.json
 --- !u!114 &3777285664324936292
 MonoBehaviour:
   m_ObjectHideFlags: 0
