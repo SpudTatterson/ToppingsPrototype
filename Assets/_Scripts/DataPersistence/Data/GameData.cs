@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class GameData 
+public class SettingsData 
 {
     [Header("Sound")]
     public float masterVolume;
     public float fxVolume;
     public float musicVolume;
     
-    public GameData()
+    public SettingsData()
     {
         this.masterVolume = 1;
         this.fxVolume = 1;

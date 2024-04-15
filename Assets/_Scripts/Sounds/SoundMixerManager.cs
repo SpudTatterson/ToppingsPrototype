@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class SoundMixerManager : MonoBehaviour, IDataPersistence
+public class SoundMixerManager : MonoBehaviour, ISettingDataPersistence
 {
     [SerializeField] AudioMixer audioMixer;
 
@@ -15,14 +15,14 @@ public class SoundMixerManager : MonoBehaviour, IDataPersistence
     const string masterKey = "MasterVolume";
     const string soundFXKey = "SoundFXVolume";
     const string musicKey = "MusicVolume";
-    public void LoadData(GameData gameData)
+    public void LoadData(SettingsData gameData)
     {
         masterVolume = gameData.masterVolume;
         fxVolume = gameData.fxVolume;
         musicVolume = gameData.musicVolume;
         Initialize();
     }
-    public void SaveData(ref GameData gameData)
+    public void SaveData(ref SettingsData gameData)
     {
         gameData.masterVolume = masterVolume;
         gameData.musicVolume = musicVolume;

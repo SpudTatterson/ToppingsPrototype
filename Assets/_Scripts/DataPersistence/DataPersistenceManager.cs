@@ -9,59 +9,60 @@ public class DataPersistenceManager : MonoBehaviour
     public static DataPersistenceManager instance { get; private set; }
 
     [Header("Storage Config")]
-    [SerializeField] string fileName;
+    [SerializeField] string settingFileName = "settings.json";
+    [SerializeField] string levelDataFileName = "playerData";
 
 
-    GameData gameData;
-    List<IDataPersistence> dataPersistenceObjects = new List<IDataPersistence>();
-    FileDataHandler dataHandler;
+    SettingsData settingsData;
+    List<ISettingDataPersistence> settingsDataPersistenceObjects = new List<ISettingDataPersistence>();
+    FileDataHandler settingDataHandler;
     void Awake()
     {
         instance = this;
     }
     void Start()
     {
-        dataHandler= new FileDataHandler(Application.persistentDataPath, fileName);
-        dataPersistenceObjects = GetDataPersistenceObjects();
+        settingDataHandler= new FileDataHandler(Application.persistentDataPath, settingFileName);
+        settingsDataPersistenceObjects = GetSettingsDataPersistenceObjects();
 
         LoadGame();
     }
     public void NewGame()
     {
-        gameData = new GameData();
+        settingsData = new SettingsData();
     }
 
     public void SaveGame()
     {
-        foreach (IDataPersistence data in dataPersistenceObjects)
+        foreach (IDataPersistence data in settingsDataPersistenceObjects)
         {
-            data.SaveData(ref gameData);
+            data.SaveData(ref settingsData);
         }
 
-        dataHandler.Save(gameData);
+        settingDataHandler.Save(settingsData);
     }
     public void LoadGame()
     {
-        gameData = dataHandler.Load();
+        settingsData = settingDataHandler.Load();
 
-        if (gameData == null)
+        if (settingsData == null)
         {
             Debug.Log("No data starting new game");
             NewGame();
         }
 
-        foreach (IDataPersistence item in dataPersistenceObjects)
+        foreach (IDataPersistence item in settingsDataPersistenceObjects)
         {
-            item.LoadData(gameData);            
+            item.LoadData(settingsData);            
         }
     }
     private void OnApplicationQuit()
     {
         SaveGame();
     }
-    List<IDataPersistence> GetDataPersistenceObjects()
+    List<ISettingDataPersistence> GetSettingsDataPersistenceObjects()
     {
-        List <IDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistence>().ToList();
+        List <ISettingDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>().OfType<ISettingDataPersistence>().ToList();
         return dataPersistenceObjects;
     }
 }

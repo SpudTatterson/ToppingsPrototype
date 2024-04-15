@@ -2,6 +2,11 @@
 
 public interface IDataPersistence 
 {
-    public void SaveData(ref GameData data);
-    public void LoadData(GameData data);
+    public void SaveData(ref SettingsData data);
+    public void LoadData(SettingsData data);
+}
+
+public interface ISettingDataPersistence : IDataPersistence
+{
+
 }

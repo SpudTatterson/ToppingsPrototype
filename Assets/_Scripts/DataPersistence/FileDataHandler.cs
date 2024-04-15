@@ -13,12 +13,12 @@ public class FileDataHandler
         this.dataFileName = dataFileName;
     }
 
-    public GameData Load()
+    public SettingsData Load()
     {
         string fullPath = Path.Combine(dataDirPath, dataFileName);
         //fullPath = fullPath.Replace("\\", "/");
         Debug.Log(fullPath);
-        GameData loadedData = null;
+        SettingsData loadedData = null;
         if (File.Exists(fullPath))
         {
             Debug.Log("File exists");
@@ -34,7 +34,7 @@ public class FileDataHandler
                 }
 
                 // deserialize
-                loadedData = JsonUtility.FromJson<GameData>(dataToLoad);
+                loadedData = JsonUtility.FromJson<SettingsData>(dataToLoad);
             }
             catch (Exception e)
             {
@@ -43,7 +43,7 @@ public class FileDataHandler
         }
         return loadedData;
     }
-    public void Save(GameData data)
+    public void Save(SettingsData data)
     {
         string fullPath = Path.Combine(dataDirPath, dataFileName);
         //fullPath = fullPath.Replace("\\", "/");
