@@ -7050,6 +7050,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1023287519}
     m_Modifications:
+    - target: {fileID: 1736419623742103402, guid: 2151af8eb993f0f42a134c5e4430efac,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736419623742103402, guid: 2151af8eb993f0f42a134c5e4430efac,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736419623742103402, guid: 2151af8eb993f0f42a134c5e4430efac,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5065307233217970697, guid: 2151af8eb993f0f42a134c5e4430efac,
         type: 3}
       propertyPath: m_Pivot.x
@@ -7148,6 +7163,31 @@ PrefabInstance:
     - target: {fileID: 5065307233217970697, guid: 2151af8eb993f0f42a134c5e4430efac,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308236481362714861, guid: 2151af8eb993f0f42a134c5e4430efac,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308236481362714861, guid: 2151af8eb993f0f42a134c5e4430efac,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103319022120726488, guid: 2151af8eb993f0f42a134c5e4430efac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164122096992005149, guid: 2151af8eb993f0f42a134c5e4430efac,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164122096992005149, guid: 2151af8eb993f0f42a134c5e4430efac,
+        type: 3}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7704836147844573876, guid: 2151af8eb993f0f42a134c5e4430efac,
