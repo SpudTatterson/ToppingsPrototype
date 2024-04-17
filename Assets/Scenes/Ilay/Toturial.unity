@@ -3895,10 +3895,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 888574518020017653, guid: 8443945175bc0304d80f07448ec4de15,
+        type: 3}
+      propertyPath: defaultClothSet
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 996015248542258268, guid: 8443945175bc0304d80f07448ec4de15,
+        type: 3}
+      propertyPath: defaultClothSet
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1385723183956263404, guid: 8443945175bc0304d80f07448ec4de15,
         type: 3}
       propertyPath: m_Name
       value: Lemming
+      objectReference: {fileID: 0}
+    - target: {fileID: 5849381826002909335, guid: 8443945175bc0304d80f07448ec4de15,
+        type: 3}
+      propertyPath: defaultClothSet
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6727730002719883008, guid: 8443945175bc0304d80f07448ec4de15,
         type: 3}
@@ -4462,7 +4477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &435888658
 Light:
   m_ObjectHideFlags: 0
@@ -22091,6 +22106,79 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1001 &1708813799
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2662730854732636516, guid: e1e218cb679e45340b290aaa2b9fd30a,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376210024415039433, guid: e1e218cb679e45340b290aaa2b9fd30a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.74508333
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376210024415039433, guid: e1e218cb679e45340b290aaa2b9fd30a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.50000095
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376210024415039433, guid: e1e218cb679e45340b290aaa2b9fd30a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15.913776
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376210024415039433, guid: e1e218cb679e45340b290aaa2b9fd30a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376210024415039433, guid: e1e218cb679e45340b290aaa2b9fd30a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376210024415039433, guid: e1e218cb679e45340b290aaa2b9fd30a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376210024415039433, guid: e1e218cb679e45340b290aaa2b9fd30a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376210024415039433, guid: e1e218cb679e45340b290aaa2b9fd30a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376210024415039433, guid: e1e218cb679e45340b290aaa2b9fd30a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376210024415039433, guid: e1e218cb679e45340b290aaa2b9fd30a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7860574941784003955, guid: e1e218cb679e45340b290aaa2b9fd30a,
+        type: 3}
+      propertyPath: m_Name
+      value: WorkerLemming 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e1e218cb679e45340b290aaa2b9fd30a, type: 3}
 --- !u!4 &1722075529 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6685741922627053002, guid: 328b6b130ad31f847ad545ac3194310a,
@@ -26349,3 +26437,4 @@ SceneRoots:
   - {fileID: 1310787312}
   - {fileID: 1454071235}
   - {fileID: 419198886}
+  - {fileID: 1708813799}
