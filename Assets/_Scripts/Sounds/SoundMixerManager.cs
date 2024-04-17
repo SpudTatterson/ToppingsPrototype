@@ -3,39 +3,57 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class SoundMixerManager : MonoBehaviour
+public class SoundMixerManager : MonoBehaviour, ISettingDataPersistence
 {
     [SerializeField] AudioMixer audioMixer;
 
 
+    float masterVolume;
+    float fxVolume;
+    float musicVolume;
+
     const string masterKey = "MasterVolume";
     const string soundFXKey = "SoundFXVolume";
     const string musicKey = "MusicVolume";
-
-    void Start()
+    public void LoadData(SettingsData settingData)
     {
-        UIManager.instance.masterVolume.value = PlayerPrefs.GetFloat(masterKey, 1);
-        UIManager.instance.soundFXVolume.value = PlayerPrefs.GetFloat(soundFXKey, 1);
-        UIManager.instance.musicVolume.value = PlayerPrefs.GetFloat(musicKey, 1);
+        masterVolume = settingData.masterVolume;
+        fxVolume = settingData.fxVolume;
+        musicVolume = settingData.musicVolume;
+        Initialize();
     }
+    public void SaveData(SettingsData settingData)
+    {
+        settingData.masterVolume = masterVolume;
+        settingData.musicVolume = musicVolume;
+        settingData.fxVolume = fxVolume;  
+    }
+
+    void Initialize()
+    {
+        UIManager.instance.masterVolume.value = masterVolume;
+        UIManager.instance.soundFXVolume.value = fxVolume;
+        UIManager.instance.musicVolume.value = musicVolume;
+    }
+
     public void SetMasterVolume(float level)
     {
         //  audioMixer.SetFloat("MasterVolume", level);
         audioMixer.SetFloat(masterKey, Mathf.Log10(level) * 20f);
-        PlayerPrefs.SetFloat(masterKey, level);
+        masterVolume = level;
     }
 
     public void SetSoundFXVolume(float level)
     {
         // audioMixer.SetFloat("SoundFXVolume", level);
         audioMixer.SetFloat(soundFXKey, Mathf.Log10(level) * 20f);
-        PlayerPrefs.SetFloat(soundFXKey, level);
+        fxVolume = level;
     }
 
     public void SetMusicVolume(float level)
     {
         //  audioMixer.SetFloat("MusicVolume", level);
         audioMixer.SetFloat(musicKey, Mathf.Log10(level) * 20f);
-        PlayerPrefs.SetFloat(musicKey, level);
+        musicVolume = level;
     }
 }

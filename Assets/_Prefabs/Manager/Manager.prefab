@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1676456626429935202}
   - component: {fileID: 4660443121711575765}
   - component: {fileID: 3823491961714522819}
+  - component: {fileID: 2562213458925331666}
+  - component: {fileID: 6451033821990062783}
   - component: {fileID: 3777285664324936292}
   m_Layer: 0
   m_Name: Manager
@@ -89,6 +91,32 @@ MonoBehaviour:
   canPlaceColor: {r: 0.25564253, g: 0.8113208, b: 0.25564253, a: 0.29803923}
   cantPlaceColor: {r: 0.79622644, g: 0.21483088, b: 0.21483088, a: 0.29803923}
   destroyShortCut: 308
+--- !u!114 &2562213458925331666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7547876916279834406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02aa394f986be2a4890a51b3696a8382, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6451033821990062783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7547876916279834406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 845c7adf5adcd5c4aa7fbe1d5c6bdefc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settingFileName: settings.json
+  levelDataFileName: playerData.json
 --- !u!114 &3777285664324936292
 MonoBehaviour:
   m_ObjectHideFlags: 0

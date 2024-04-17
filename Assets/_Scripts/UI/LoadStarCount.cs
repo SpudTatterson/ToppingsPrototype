@@ -4,13 +4,32 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LoadStarCount : MonoBehaviour
+public class LoadStarCount : MonoBehaviour, IPlayerDataPersistence
 {
     [SerializeField] int levelBuildIndex;
+
+    float bestScore;
+    string id;
+    public void LoadData(GameData data)
+    {
+        LevelDataSer levelData = new LevelDataSer();
+        if (data.levelDict.ContainsKey(id))
+            levelData = data.levelDict[id];
+        else
+            data.levelDict.Add(id, levelData);
+        bestScore = levelData.bestStarCount;
+    }
+
+    public void SaveData(GameData data)
+    {
+    }
+    void Awake()
+    {
+        id = SceneManager.GetActiveScene().name;
+    }
     void Start()
     {
-        string bestScoreKey = "BestScoreScene" + levelBuildIndex.ToString();
-        float starCount = PlayerPrefs.GetFloat(bestScoreKey, 0);
-        GetComponent<Image>().fillAmount = starCount;
+        GetComponent<Image>().fillAmount = bestScore;
     }
+
 }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager instance {get; private set;}
+    public static UIManager instance { get; private set; }
     [Header("Victory UI")]
     [Tooltip("Container of the button to finish the level")]
     public GameObject victoryButton;
@@ -23,6 +23,10 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI bestTimeText;
     public Image starFillUpBar;
     public Image bestStarFillUpBar;
+    
+    [Header("LoseScreen")]
+    [Tooltip("Container of lose screen")]
+    public GameObject loseScreen;
     [Header("Pause Menu")]
     public GameObject PauseScreen;
     [Header("Sound Settings")]

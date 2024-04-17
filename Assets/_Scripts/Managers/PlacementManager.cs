@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlacementManager : MonoBehaviour
 {
+    public static PlacementManager instance;
     // this code is disgusting 
     Camera cam;
     [SerializeField] LayerMask groundLayer;
@@ -26,6 +27,7 @@ public class PlacementManager : MonoBehaviour
 
     void Awake()
     {
+        instance = this;
         cam = Camera.main;
         guideLine = GetComponent<GuideLineShower>();
     }
@@ -85,6 +87,7 @@ public class PlacementManager : MonoBehaviour
                         itemToPlace.GetComponentInParent<Placeable>().FullyPlaced = true;
                         itemToPlace.transform.position = actualGO.transform.position;
                         Destroy(actualGO);
+                        isPlacingSecondaryObject = false;
                         ResetAllVariables();
                     }
                     if (placeable != null && placeable.hasSecondaryPlacement)
@@ -190,7 +193,7 @@ public class PlacementManager : MonoBehaviour
             ResetAllVariables();
     }
 
-    void ResetAllVariables()
+    public void ResetAllVariables()
     {
         isDestroying = false;
         itemToPlace = null;

@@ -1,41 +1,66 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class JobsSelector : MonoBehaviour
 {
-    [SerializeField] Button woodCutter;
+    public static JobsSelector instance;
+    [SerializeField] LayerMask minionLayer;
+    [SerializeField] float castRadius = 0.5f;
+    bool toggle = false;
+    WorkerType type;
 
-    private bool woodCutterSelected;
-
-    private void Update()
+    void Awake()
     {
-        if (EventSystem.current.currentSelectedGameObject != null)
+        instance = this;
+    }
+    void Update()
+    {
+        if (!toggle) return;
+
+        if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            if (EventSystem.current.currentSelectedGameObject.name == woodCutter.name)
-            {
-                woodCutterSelected = true;
-            }
+            Reset();
+            Debug.Log("cancel");
         }
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        Physics.Raycast(ray, out hit);
-
-        if (woodCutterSelected)
+        if (Physics.SphereCast(ray.origin, castRadius, ray.direction, out hit, Mathf.Infinity, minionLayer, QueryTriggerInteraction.Ignore) && Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (hit.collider != null && hit.collider.CompareTag("Lemming") && Input.GetKeyDown(KeyCode.Mouse0))
+            Worker worker = hit.transform.gameObject.GetComponentInChildren<Worker>();
+            if (worker.CheckIfAlreadyWorking()) return;
+
+            List<Worker> workers = worker.GetWorkers();
+            foreach (Worker workScript in workers)
             {
-                hit.collider.GetComponent<LemmingWorker>().woodCutter = true;
-                hit.collider.GetComponent<LemmingWorker>().SetWorkerOutfit();
-                woodCutterSelected = false;
-            }
-            else if (Input.GetKeyDown(KeyCode.Mouse0) && !hit.collider.CompareTag("Lemming"))
-            {
-                woodCutterSelected = false;
+                if (workScript.workerType == type)
+                {
+                    workScript.enabled = true;
+                    Reset();
+                    return;
+                }
+
             }
         }
+
+
+    }
+
+    public void Reset()
+    {
+        toggle = false;
+        type = WorkerType.Default;
+    }
+
+    public void SetWoodWorker()
+    {
+        toggle = true;
+        type = WorkerType.WoodWorker;
+    }
+    public void SetShieldWorker()
+    {
+        toggle = true;
+        type = WorkerType.Shield;
     }
 }
