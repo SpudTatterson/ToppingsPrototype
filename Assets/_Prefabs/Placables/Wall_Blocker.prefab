@@ -50,7 +50,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3392007171709460621
 Transform:
   m_ObjectHideFlags: 0
@@ -197,12 +197,12 @@ MonoBehaviour:
   lockToGrid: 1
   lockToCenter: 0
   hasSecondaryPlacement: 0
-  showRadius: 1
-  halfExtents: {x: 2, y: 0.5, z: 4}
   FullyPlaced: 0
   secondaryPlacable: {fileID: 0}
   maxSecondaryObjectDistance: 5
   radiusShape: 1
+  showRadius: 1
+  halfExtents: {x: 2, y: 0.5, z: 4}
 --- !u!1 &8563089321921398122
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,7 +282,7 @@ PrefabInstance:
     - target: {fileID: 4892887417133948678, guid: 529cb020fab155442a97db896629a0f6,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8137759473615568676, guid: 529cb020fab155442a97db896629a0f6,
         type: 3}
