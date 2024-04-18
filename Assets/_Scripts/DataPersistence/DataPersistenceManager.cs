@@ -48,12 +48,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void SaveGame()
     {
-        foreach (ISettingDataPersistence data in settingsDataPersistenceObjects)
-        {
-            data.SaveData(settingsData);
-        }
-
-        settingDataHandler.Save(settingsData);
+        SaveSettings();
 
         foreach (IPlayerDataPersistence data in playerDataPersistenceObjects)
         {
@@ -62,26 +57,49 @@ public class DataPersistenceManager : MonoBehaviour
 
         playerDataHandler.Save(playerData);
     }
+
+    public void SaveSettings()
+    {
+        foreach (ISettingDataPersistence data in settingsDataPersistenceObjects)
+        {
+            data.SaveData(settingsData);
+        }
+
+        settingDataHandler.Save(settingsData);
+    }
+
     public void LoadGame()
     {
-        settingsData = settingDataHandler.Load();
+        LoadSettings();
+
         playerData = playerDataHandler.Load();
 
-        if (settingsData == null || playerData == null)
+        if (playerData == null)
         {
-            Debug.Log("Some files missing \n starting to generate");
             NewGame();
         }
 
-        foreach (ISettingDataPersistence item in settingsDataPersistenceObjects)
-        {
-            item.LoadData(settingsData);
-        }
         foreach (IPlayerDataPersistence item in playerDataPersistenceObjects)
         {
             item.LoadData(playerData);
         }
     }
+
+    public void LoadSettings()
+    {
+        settingsData = settingDataHandler.Load();
+
+        if (settingsData == null )
+        {
+            NewGame();
+        }
+        
+        foreach (ISettingDataPersistence item in settingsDataPersistenceObjects)
+        {
+            item.LoadData(settingsData);
+        }
+    }
+
     private void OnApplicationQuit()
     {
         SaveGame();
