@@ -20,7 +20,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     List<IPlayerDataPersistence> playerDataPersistenceObjects = new List<IPlayerDataPersistence>();
     FileDataHandler<GameData> playerDataHandler;
-    void Awake()
+    void Start()
     {
         instance = this;
 
