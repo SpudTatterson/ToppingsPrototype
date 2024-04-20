@@ -29,14 +29,15 @@ public class PauseManager : MonoBehaviour
 
     public void Pause()
     {
-        UIManager.instance.PauseScreen.SetActive(true);
+        UIManager.instance.pauseScreen.SetActive(true);
         Time.timeScale = 0;
         paused = true;
     }
 
     public void UnPause()
     {
-        UIManager.instance.PauseScreen.SetActive(false);
+        UIManager.instance.pauseScreen.SetActive(false);
+        UIManager.instance.settingsScreen.SetActive(false);
         Time.timeScale = 1;
         paused = false;
     }
