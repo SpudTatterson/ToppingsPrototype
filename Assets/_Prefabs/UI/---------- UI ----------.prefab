@@ -512,6 +512,7 @@ GameObject:
   - component: {fileID: 783725992047851663}
   - component: {fileID: 4931909535151569277}
   - component: {fileID: 805967306080586708}
+  - component: {fileID: 8429259066774305453}
   m_Layer: 5
   m_Name: Placeables_Button
   m_TagString: Untagged
@@ -693,6 +694,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8429259066774305453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782400806816302100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87834699e2b332b43a197b5f074fa213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2078556389977881730
 GameObject:
   m_ObjectHideFlags: 0
@@ -1763,7 +1776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7490196, g: 0.45882353, b: 0.13725491, a: 1}
+  m_Color: {r: 0.9647059, g: 0.57254905, b: 0.13725491, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
