@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class MinionCustomizer : MonoBehaviour
 {
-    public ClothingSet defaultClothing;
+    //public ClothingSet defaultClothing;
+    //make all minionCustomizer's reference 1 default clothing set on the minion manager class and have methods to change the accessories  
+    //also add colors to the clothingSet Class and have methods to change that as well 
+    //finally use the dataPersistenceManager to save and load between scenes and when closing and opening the game  
 
     BoneContainer bones;
 
@@ -11,7 +14,10 @@ public class MinionCustomizer : MonoBehaviour
     void Awake()
     {
         bones = GetComponent<BoneContainer>();
-        UpdateClothing(defaultClothing);
+    }
+    void Start()
+    {
+        UpdateClothing(MinionManager.instance.GetDefaultClothing());
     }
 
     public void UpdateClothing(ClothingSet clothingSet)
@@ -29,13 +35,13 @@ public class MinionCustomizer : MonoBehaviour
             hat.transform.localRotation = Quaternion.Euler(0, 0, 0);
             oldClothes.Add(hat);
         }
-        if(clothingSet.backpack != null)
+        if (clothingSet.backpack != null)
         {
             GameObject backpack = Instantiate(clothingSet.backpack, bones.back.position, Quaternion.identity, bones.back);
             backpack.transform.localRotation = Quaternion.Euler(0, 0, 0);
             oldClothes.Add(backpack);
         }
-        if(clothingSet.handItem != null)
+        if (clothingSet.handItem != null)
         {
             GameObject handItem = Instantiate(clothingSet.handItem, bones.hand.position, Quaternion.identity, bones.hand);
             handItem.transform.localRotation = Quaternion.Euler(0, 0, 0);

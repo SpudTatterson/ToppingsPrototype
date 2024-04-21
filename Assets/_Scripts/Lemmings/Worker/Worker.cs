@@ -67,7 +67,7 @@ public class Worker : MonoBehaviour
     void Finish()
     {
         smokeVFX.Play();
-        minionCustomizer.UpdateClothing(minionCustomizer.defaultClothing);
+        minionCustomizer.UpdateClothing(MinionManager.instance.GetDefaultClothing());
     }
 
 }
