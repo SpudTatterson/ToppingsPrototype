@@ -91,6 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02aa394f986be2a4890a51b3696a8382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minions: []
+  defaultClothSet: {fileID: 11400000, guid: c91dd9adf17c4b94c9c7164f519a47ac, type: 2}
 --- !u!114 &6451033821990062783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +146,8 @@ MonoBehaviour:
   starFillUpBar: {fileID: 0}
   bestStarFillUpBar: {fileID: 0}
   loseScreen: {fileID: 0}
-  PauseScreen: {fileID: 0}
+  pauseScreen: {fileID: 0}
+  settingsScreen: {fileID: 0}
   masterVolume: {fileID: 0}
   soundFXVolume: {fileID: 0}
   musicVolume: {fileID: 0}
