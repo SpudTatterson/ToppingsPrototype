@@ -33,7 +33,6 @@ public class ParachuteTable : Placeable
             if (unlimitedParachutes) return;
             RemoveParachute();
         }
-
     }
 
     private void RemoveParachute()
