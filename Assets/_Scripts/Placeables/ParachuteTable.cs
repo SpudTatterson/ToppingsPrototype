@@ -27,6 +27,13 @@ public class ParachuteTable : Placeable
     {
         Paratrooper paratrooper = other.GetComponentInChildren<Paratrooper>();
         if(paratrooper.enabled) return;
+        List<Worker> workers = new List<Worker>();
+        other.GetComponentsInChildren<Worker>(workers);
+        foreach(Worker worker in workers)
+        {
+            worker.enabled = false;
+        }
+
         if (paratrooper && parachutes.Count > 0)
         {
             paratrooper.enabled = true;
