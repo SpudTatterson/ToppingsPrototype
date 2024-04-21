@@ -74,12 +74,7 @@ public class MinionManager : MonoBehaviour, ISettingDataPersistence
     public void SaveData(SettingsData data)
     {
         DefaultClothing clothing = defaultClothSet;
-        if (defaultClothSet.hat)
-            clothing.hatPrefabName = defaultClothSet.hat.name;
-        if (defaultClothSet.backpack)
-            clothing.backpackPrefabName = defaultClothSet.backpack.name;
-        clothing.clothingColor = new Vector3(defaultClothSet.clothColor.r, defaultClothSet.clothColor.g, defaultClothSet.clothColor.b);
-        clothing.skinColor = new Vector3(defaultClothSet.skinColor.r, defaultClothSet.skinColor.g, defaultClothSet.skinColor.b);
+        data.defaultClothing = clothing;
     }
 
     public void LoadData(SettingsData data)
@@ -92,5 +87,6 @@ public class MinionManager : MonoBehaviour, ISettingDataPersistence
          data.defaultClothing.clothingColor.z);
         defaultClothSet.skinColor = new Color(data.defaultClothing.skinColor.x, data.defaultClothing.skinColor.y,
          data.defaultClothing.skinColor.z);
+        //defaultClothSet = data.defaultClothing; not working
     }
 }
