@@ -14,6 +14,7 @@ public class CustomizerDropDown : MonoBehaviour
 {
     public CustomizationType customizationType;
     [SerializeField] List<GameObject> clothingOptions;
+    [SerializeField] TextMeshProUGUI activeText;
     TMP_Dropdown dropdown;
     // Start is called before the first frame update
     void Start()
@@ -21,11 +22,12 @@ public class CustomizerDropDown : MonoBehaviour
         dropdown = GetComponent<TMP_Dropdown>();
 
         List<string> clothingNames = new List<string>();
+        clothingNames.Add("");
         foreach (GameObject clothing in clothingOptions)
         {
             clothingNames.Add(clothing.name);
         }
-
+        clothingOptions.Insert(0, new GameObject(""));
         dropdown.AddOptions(clothingNames);
     }
 
@@ -37,10 +39,14 @@ public class CustomizerDropDown : MonoBehaviour
 
     public void Select()
     {
-        Debug.Log(clothingOptions[dropdown.value].name);
+        activeText.text = clothingOptions[dropdown.value].name;
         if(customizationType == CustomizationType.Hat)
         {
             MinionManager.instance.SetNewDefaultHat(clothingOptions[dropdown.value]);
+        }
+        if(customizationType == CustomizationType.BackPack)
+        {
+            MinionManager.instance.SetNewDefaultBackPack(clothingOptions[dropdown.value]);
         }
     }
 }
