@@ -309,7 +309,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -410,7 +410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minMaxDistance: {x: 10, y: 40}
-  speed: 0.1
+  speed: 15
   sprintSpeedAddition: 5
   useFollowTarget: 0
   CamResetSpeed: 1
