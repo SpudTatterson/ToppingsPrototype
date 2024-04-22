@@ -28,7 +28,8 @@ public class UIManager : MonoBehaviour
     [Tooltip("Container of lose screen")]
     public GameObject loseScreen;
     [Header("Pause Menu")]
-    public GameObject PauseScreen;
+    public GameObject pauseScreen;
+    public GameObject settingsScreen;
     [Header("Sound Settings")]
     public Slider masterVolume;
     public Slider soundFXVolume;

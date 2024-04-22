@@ -34,6 +34,7 @@ public class VictoryManager : MonoBehaviour, IPlayerDataPersistence
 
     public void LoadData(GameData data)
     {
+        if(id == null) id = SceneManager.GetActiveScene().name;
         if (data.levelDict.ContainsKey(id))
             levelData = data.levelDict[id];
         else

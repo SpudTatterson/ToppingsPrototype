@@ -10,11 +10,16 @@ GameObject:
   m_Component:
   - component: {fileID: 8068630254324757782}
   - component: {fileID: 1676456626429935202}
-  - component: {fileID: 4660443121711575765}
   - component: {fileID: 3823491961714522819}
   - component: {fileID: 2562213458925331666}
   - component: {fileID: 6451033821990062783}
   - component: {fileID: 3777285664324936292}
+  - component: {fileID: 8481510730143694438}
+  - component: {fileID: 9025596427236410109}
+  - component: {fileID: 6132881727858444411}
+  - component: {fileID: 5848901315194382835}
+  - component: {fileID: 6136661451304380573}
+  - component: {fileID: 2140098048823944162}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -54,23 +59,6 @@ MonoBehaviour:
   jobsButton: {fileID: 0}
   placeablesButton: {fileID: 0}
   toggle: 1
---- !u!114 &4660443121711575765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7547876916279834406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6ee83c420738874cacb380742134c1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  woodCutter: {fileID: 0}
-  shieldLemming: {fileID: 0}
-  lemmingLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!114 &3823491961714522819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,6 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02aa394f986be2a4890a51b3696a8382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minions: []
+  defaultClothSet: {fileID: 11400000, guid: c91dd9adf17c4b94c9c7164f519a47ac, type: 2}
 --- !u!114 &6451033821990062783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingFileName: settings.json
-  levelDataFileName: playerData.json
+  playerDataFileName: playerData.json
 --- !u!114 &3777285664324936292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,3 +124,106 @@ MonoBehaviour:
     m_Bits: 512
   showRadius: 5
   toggle: 0
+--- !u!114 &8481510730143694438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7547876916279834406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1408e532d6d794b44a74f0a2c4998db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  victoryButton: {fileID: 0}
+  victoryScreen: {fileID: 0}
+  newBestTimeScreen: {fileID: 0}
+  aliveNumberText: {fileID: 0}
+  alivePercentageText: {fileID: 0}
+  timeText: {fileID: 0}
+  bestTimeText: {fileID: 0}
+  starFillUpBar: {fileID: 0}
+  bestStarFillUpBar: {fileID: 0}
+  loseScreen: {fileID: 0}
+  pauseScreen: {fileID: 0}
+  settingsScreen: {fileID: 0}
+  masterVolume: {fileID: 0}
+  soundFXVolume: {fileID: 0}
+  musicVolume: {fileID: 0}
+  defaultCursor: {fileID: 2800000, guid: f8fccb4f656707045b93b59c5e662042, type: 3}
+  deleteCursor: {fileID: 2800000, guid: d6f064df196d41d4aa9cafc962ee4e5d, type: 3}
+  placeCursor: {fileID: 2800000, guid: 04aa3f70e3acd98469adadf95903f56f, type: 3}
+  jobCursor: {fileID: 0}
+  minionCountHUDText: {fileID: 0}
+  timeHUDText: {fileID: 0}
+  starFillUpBarHUD: {fileID: 0}
+  bestStarFillUpBarHUD: {fileID: 0}
+--- !u!114 &9025596427236410109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7547876916279834406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a452ae9804553444391b3d6c22fb6027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minOneStar: 1
+--- !u!114 &6132881727858444411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7547876916279834406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db91882d5845aea498f20f2ef2f12ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartEvents:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5848901315194382835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7547876916279834406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d2707d0a966bb44eb596d2b9edbdfae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6136661451304380573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7547876916279834406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de5cfc4ef8a62f9418aa62acbb9713a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2140098048823944162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7547876916279834406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4a985d135e7fc438c746c31afec890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minionLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  castRadius: 0.5

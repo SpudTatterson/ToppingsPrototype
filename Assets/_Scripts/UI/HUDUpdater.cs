@@ -18,12 +18,17 @@ public class HUDUpdater : MonoBehaviour
     }
     void Start()
     {
-        bestStarCount = VictoryManager.instance.GetBestStarCount();
-        UIManager.instance.bestStarFillUpBarHUD.fillAmount = bestStarCount;
+        Invoke("UpdateBestScoreUI", 0.5f);
 
         initialMinionCount = LevelEndPoint.instance.GetInitialMinionCount();
 
         UpdateStarHUD();
+    }
+
+    private void UpdateBestScoreUI()
+    {
+        bestStarCount = VictoryManager.instance.GetBestStarCount();
+        UIManager.instance.bestStarFillUpBarHUD.fillAmount = bestStarCount;
     }
 
     // Update is called once per frame
