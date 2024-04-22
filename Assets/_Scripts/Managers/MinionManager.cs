@@ -87,6 +87,7 @@ public class MinionManager : MonoBehaviour, ISettingDataPersistence
          data.defaultClothing.clothingColor.z);
         defaultClothSet.skinColor = new Color(data.defaultClothing.skinColor.x, data.defaultClothing.skinColor.y,
          data.defaultClothing.skinColor.z);
+        UpdateAllMinionClothes();
         //defaultClothSet = data.defaultClothing; not working
     }
 }
