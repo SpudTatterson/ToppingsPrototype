@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using NaughtyAttributes;
 
 public enum CustomizationType
 {
@@ -12,8 +13,10 @@ public enum CustomizationType
 }
 public class CustomizerDropDown : MonoBehaviour
 {
-    public CustomizationType customizationType;
-    [SerializeField] List<GameObject> clothingOptions;
+    public CustomizationType customizationType; //[ShowIf("enumFlag", EMyEnum.Case0)]
+    [SerializeField, HideIf("IsCustomizingColor")] List<GameObject> clothingOptions;
+    [SerializeField, ShowIf("IsCustomizingColor")] List<ColorOption> colorOptions;
+
     [SerializeField] TextMeshProUGUI activeText;
     TMP_Dropdown dropdown;
     // Start is called before the first frame update
@@ -31,10 +34,13 @@ public class CustomizerDropDown : MonoBehaviour
         dropdown.AddOptions(clothingNames);
     }
 
-    // Update is called once per frame
-    void Update()
+    bool IsCustomizingColor()
     {
-        
+        if (customizationType == CustomizationType.ClothColor || customizationType == CustomizationType.SkinColor)
+            return true;
+        else
+            return false;
+
     }
 
     public void Select()
