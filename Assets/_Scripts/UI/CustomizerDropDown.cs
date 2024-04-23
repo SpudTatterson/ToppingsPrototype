@@ -24,14 +24,24 @@ public class CustomizerDropDown : MonoBehaviour
     {
         dropdown = GetComponent<TMP_Dropdown>();
 
-        List<string> clothingNames = new List<string>();
-        clothingNames.Add("");
-        foreach (GameObject clothing in clothingOptions)
+        List<string> options = new List<string>();
+        if (!IsCustomizingColor())
         {
-            clothingNames.Add(clothing.name);
+            clothingOptions.Insert(0, new GameObject(""));
+            foreach (GameObject clothing in clothingOptions)
+            {
+                options.Add(clothing.name);
+            }
         }
-        clothingOptions.Insert(0, new GameObject(""));
-        dropdown.AddOptions(clothingNames);
+        else
+        {
+            foreach (ColorOption color in colorOptions)
+            {
+                options.Add(color.name);
+            }
+        }
+
+        dropdown.AddOptions(options);
     }
 
     bool IsCustomizingColor()
@@ -45,14 +55,33 @@ public class CustomizerDropDown : MonoBehaviour
 
     public void Select()
     {
-        activeText.text = clothingOptions[dropdown.value].name;
-        if(customizationType == CustomizationType.Hat)
+        if (!IsCustomizingColor())
+            activeText.text = clothingOptions[dropdown.value].name;
+        else
+            activeText.text = colorOptions[dropdown.value].name;
+
+
+        if (customizationType == CustomizationType.Hat)
         {
             MinionManager.instance.SetNewDefaultHat(clothingOptions[dropdown.value]);
         }
-        if(customizationType == CustomizationType.BackPack)
+        if (customizationType == CustomizationType.BackPack)
         {
             MinionManager.instance.SetNewDefaultBackPack(clothingOptions[dropdown.value]);
         }
+        if (customizationType == CustomizationType.ClothColor)
+        {
+            MinionManager.instance.SetNewClothingColor(colorOptions[dropdown.value].color);
+        }
+        if (customizationType == CustomizationType.SkinColor)
+        {
+            MinionManager.instance.SetNewSkinColor(colorOptions[dropdown.value].color);
+        }
     }
+}
+[System.Serializable]
+class ColorOption
+{
+    public string name;
+    public Color color;
 }
