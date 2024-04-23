@@ -83,10 +83,8 @@ public class MinionManager : MonoBehaviour, ISettingDataPersistence
             defaultClothSet.hat = Resources.Load<GameObject>(data.defaultClothing.hatPrefabName);
         if (data.defaultClothing.backpackPrefabName != null)
             defaultClothSet.backpack = Resources.Load<GameObject>(data.defaultClothing.backpackPrefabName);
-        defaultClothSet.clothColor = new Color(data.defaultClothing.clothingColor.x, data.defaultClothing.clothingColor.y,
-         data.defaultClothing.clothingColor.z);
-        defaultClothSet.skinColor = new Color(data.defaultClothing.skinColor.x, data.defaultClothing.skinColor.y,
-         data.defaultClothing.skinColor.z);
+        defaultClothSet.clothColor = VectorUtility.ToColor(data.defaultClothing.clothingColor);
+        defaultClothSet.skinColor = VectorUtility.ToColor(data.defaultClothing.skinColor);
         UpdateAllMinionClothes();
         //defaultClothSet = data.defaultClothing; not working
     }
