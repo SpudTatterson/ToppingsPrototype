@@ -21,12 +21,10 @@ public class DragToRotate : MonoBehaviour
         {
             lastMousePosition = Input.mousePosition;
             isRotating = true;
-            Debug.Log("test1");
         }
 
         if (Input.GetKey(dragKeyCode) && isRotating)
         {
-            Debug.Log("test2");
             // Calculate the difference in position
             Vector3 dragDiff = Input.mousePosition - lastMousePosition;
 
@@ -39,7 +37,6 @@ public class DragToRotate : MonoBehaviour
 
         if (Input.GetKeyUp(dragKeyCode))
         {
-            Debug.Log("test3");
             isRotating = false;
         }
     }
