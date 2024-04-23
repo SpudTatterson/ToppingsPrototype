@@ -4444,6 +4444,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 328b6b130ad31f847ad545ac3194310a, type: 3}
+--- !u!114 &2070032914 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4716517237219828359, guid: a81fc51a9bf42a4428406576b5286d14,
+    type: 3}
+  m_PrefabInstance: {fileID: 617495031960721648}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4a985d135e7fc438c746c31afec890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2086630279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4645,6 +4657,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.27790427
       objectReference: {fileID: 0}
+    - target: {fileID: 4181230442417931228, guid: a81fc51a9bf42a4428406576b5286d14,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2070032914}
     - target: {fileID: 4837751775857390807, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_LocalPosition.x
