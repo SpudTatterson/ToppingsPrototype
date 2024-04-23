@@ -20,10 +20,8 @@ public class ClothingSet : ScriptableObject
             clothingSet.hat = Resources.Load<GameObject>(defaultClothing.hatPrefabName);
         if (defaultClothing.backpackPrefabName != null)
             clothingSet.backpack = Resources.Load<GameObject>(defaultClothing.backpackPrefabName);
-        clothingSet.clothColor = new Color(defaultClothing.clothingColor.x, defaultClothing.clothingColor.y,
-         defaultClothing.clothingColor.z);
-        clothingSet.skinColor = new Color(defaultClothing.skinColor.x, defaultClothing.skinColor.y,
-         defaultClothing.skinColor.z);
+        clothingSet.clothColor = VectorUtility.ToColor(defaultClothing.clothingColor);
+        clothingSet.skinColor = VectorUtility.ToColor(defaultClothing.skinColor);
 
          return clothingSet;
     }
