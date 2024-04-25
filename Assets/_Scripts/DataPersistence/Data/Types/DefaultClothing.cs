@@ -7,6 +7,13 @@ public class DefaultClothing
     public string backpackPrefabName;
     public Vector3 clothingColor;
     public Vector3 skinColor;
+    public DefaultClothing()
+    {
+        hatPrefabName = "";
+        backpackPrefabName = "";
+        clothingColor = new Vector3(1, 1, 1);
+        skinColor = new Vector3(1, 1, 1);
+    }
 
     public static implicit operator DefaultClothing(ClothingSet clothingSet)
     {

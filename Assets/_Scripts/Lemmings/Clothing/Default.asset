@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4258d3f6d553adb46bb87326e37f51e2, type: 3}
   m_Name: Default
   m_EditorClassIdentifier: 
-  hat: {fileID: 4886241776018282736, guid: 6eac1924bc500bc44b0144f50fc293b9, type: 3}
+  hat: {fileID: 0}
   backpack: {fileID: 0}
   handItem: {fileID: 0}
   clothColor: {r: 1, g: 1, b: 1, a: 1}

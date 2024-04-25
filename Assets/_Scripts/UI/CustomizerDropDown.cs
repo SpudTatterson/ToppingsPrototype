@@ -11,19 +11,24 @@ public enum CustomizationType
     ClothColor,
     SkinColor
 }
-public class CustomizerDropDown : MonoBehaviour
+public class CustomizerDropDown : MonoBehaviour, ISettingDataPersistence
 {
-    public CustomizationType customizationType; //[ShowIf("enumFlag", EMyEnum.Case0)]
+    public CustomizationType customizationType; 
     [SerializeField, HideIf("IsCustomizingColor")] List<GameObject> clothingOptions;
     [SerializeField, ShowIf("IsCustomizingColor")] List<ColorOption> colorOptions;
 
     [SerializeField] TextMeshProUGUI activeText;
+
+    const int Custom_Color_Index = 0;
     TMP_Dropdown dropdown;
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         dropdown = GetComponent<TMP_Dropdown>();
+        Initialize();
+    }
 
+    void Initialize()
+    {
         List<string> options = new List<string>();
         if (!IsCustomizingColor())
         {
@@ -34,7 +39,8 @@ public class CustomizerDropDown : MonoBehaviour
             }
         }
         else
-        {
+        {   
+            colorOptions[Custom_Color_Index] = new ColorOption("Custom", Color.white);
             foreach (ColorOption color in colorOptions)
             {
                 options.Add(color.name);
@@ -52,7 +58,18 @@ public class CustomizerDropDown : MonoBehaviour
             return false;
 
     }
-
+    public ColorOption GetCustomColorOption()
+    {
+        return colorOptions[Custom_Color_Index];
+    }
+    public int GetCurrentDropDownValue()
+    {
+        return dropdown.value;
+    }
+    public int GetCustomColorIndex()
+    {
+        return Custom_Color_Index;
+    }
     public void Select()
     {
         if (!IsCustomizingColor())
@@ -78,10 +95,30 @@ public class CustomizerDropDown : MonoBehaviour
             MinionManager.instance.SetNewSkinColor(colorOptions[dropdown.value].color);
         }
     }
+
+    public void SaveData(SettingsData data)
+    {
+        data.customizationPicks[customizationType] = dropdown.value;
+    }
+
+    public void LoadData(SettingsData data)
+    {
+        dropdown.value = data.customizationPicks[customizationType];
+    }
 }
 [System.Serializable]
-class ColorOption
+public class ColorOption
 {
     public string name;
     public Color color;
+
+    public ColorOption(string name, Color color)
+    {
+        this.name = name;
+        this.color = color;
+    }
+    public ColorOption()
+    {
+
+    }
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 public class MinionManager : MonoBehaviour, ISettingDataPersistence
 {
     public static MinionManager instance;
-    [SerializeField]List<GameObject> minions = new List<GameObject>();
-    [SerializeField]ClothingSet defaultClothSet;
+    [SerializeField] List<GameObject> minions = new List<GameObject>();
+    [SerializeField] ClothingSet defaultClothSet;
 
     void Awake()
     {
@@ -44,7 +44,7 @@ public class MinionManager : MonoBehaviour, ISettingDataPersistence
     }
     public ClothingSet GetDefaultClothing()
     {
-            return defaultClothSet;
+        return defaultClothSet;
     }
     public void Add(GameObject minion)
     {
