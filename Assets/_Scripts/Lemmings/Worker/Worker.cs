@@ -21,12 +21,14 @@ public class Worker : MonoBehaviour
     public WorkerType workerType;
 
     MinionCustomizer minionCustomizer;
+    protected Animator animator;
 
     void Awake()
     {
         minionCustomizer = GetComponentInParent<MinionCustomizer>();
+        animator = minionCustomizer.GetComponentInChildren<Animator>();
     }
-    void OnEnable()
+    protected void OnEnable()
     {
         SetClothing();
     }
@@ -55,7 +57,7 @@ public class Worker : MonoBehaviour
     {
         WorkerLogic();
     }
-    void OnDisable()
+    protected void OnDisable()
     {
         Finish();
     }

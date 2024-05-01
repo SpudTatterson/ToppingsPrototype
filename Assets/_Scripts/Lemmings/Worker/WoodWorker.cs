@@ -46,8 +46,10 @@ public class WoodWorker : Worker
                         timer = 0;
                         logScript.logHealth -= 25;
                         SoundsFXManager.instance.PlayRandomSoundFXClip(ChoppingSoundClips, transform, 1f);
+                        animator.SetBool("SwingAxe", true);
                         if (logScript.logHealth <= 0)
                         {
+                            animator.SetBool("SwingAxe", false);
                             movement.walking = true;
                             this.enabled = false;
                         }

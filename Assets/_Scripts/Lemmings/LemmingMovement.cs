@@ -36,6 +36,7 @@ public class LemmingMovement : MonoBehaviour
 
     public Vector3 boxCastSize;
     private RaycastHit[] allHits;
+    [SerializeField] Animator animator;
 
     [HideInInspector] public Quaternion targetRotationTest;
     [HideInInspector] public Quaternion startRotationTest;
@@ -47,6 +48,7 @@ public class LemmingMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponentInChildren<Animator>();
         walking = true;
         knockable = true;
         stompTimer = 1;
@@ -57,7 +59,7 @@ public class LemmingMovement : MonoBehaviour
     {
         if (isGrounded)
         {
-            if(stompTimer == 0)
+            if (stompTimer == 0)
             {
                 groundStomp.Play();
             }
@@ -71,6 +73,11 @@ public class LemmingMovement : MonoBehaviour
         isGrounded = GroundCheck();
 
         rb.drag = isGrounded ? 1 : 0;
+
+
+        animator.SetBool("Walking", walking);
+        animator.SetBool("Grounded", isGrounded);
+        animator.SetBool("UsingStairs", climbStairs);
 
         LemmingRotation();
         Climb();
@@ -108,7 +115,7 @@ public class LemmingMovement : MonoBehaviour
 
     private void Climb()
     {
-        Ray ray = new Ray(transform.position + new Vector3(0,0.1f,0), transform.forward);
+        Ray ray = new Ray(transform.position + new Vector3(0, 0.1f, 0), transform.forward);
         RaycastHit hitStair;
         Physics.Raycast(ray, out hitStair, 0.5f);
 
@@ -158,9 +165,9 @@ public class LemmingMovement : MonoBehaviour
         if (!tagged) return;
         if (allHits == null) return;
 
-        for (int i = 0; i < allHits.Length; i++) 
+        for (int i = 0; i < allHits.Length; i++)
         {
-            if(collision.collider == allHits[i].collider)
+            if (collision.collider == allHits[i].collider)
             {
                 Knockback();
                 startRotationTest = transform.rotation;
@@ -175,7 +182,7 @@ public class LemmingMovement : MonoBehaviour
     {
         /* Rotating the lemming after the knockback effect and only after the lemming
          has stopped moving */
-         
+
         delayVelocityCheck += Time.deltaTime;
         turnComplete = rotationTimer / RotationTime;
         RotationLogic();
@@ -186,7 +193,7 @@ public class LemmingMovement : MonoBehaviour
         if (rb.velocity == Vector3.zero && delayVelocityCheck > 0.1f && !knockable)
         {
             rotationTimer += Time.deltaTime;
-            transform.rotation = Quaternion.Slerp(startRotationTest, targetRotationTest, Mathf.SmoothStep(0,1,turnComplete));
+            transform.rotation = Quaternion.Slerp(startRotationTest, targetRotationTest, Mathf.SmoothStep(0, 1, turnComplete));
             if (turnComplete >= 1)
             {
                 walking = true;
