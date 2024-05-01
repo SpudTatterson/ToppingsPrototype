@@ -12,7 +12,7 @@ public enum WorkerType
 }
 
 
-public class Worker : MonoBehaviour
+public abstract class Worker : MonoBehaviour
 {
     [Header("Effects")]
     [SerializeField] VisualEffect smokeVFX;
@@ -53,7 +53,7 @@ public class Worker : MonoBehaviour
     {
 
     }
-        void Update()
+    void Update()
     {
         WorkerLogic();
     }
