@@ -33,5 +33,14 @@ public class VectorUtility : MonoBehaviour
             Mathf.Round(vector3.y),
             Mathf.Round(vector3.z));
     }
+    static public Vector3 FromColor(Color color)
+    {
+        return new Vector3(color.r, color.g, color.b);
+    }
+    static public Color ToColor(Vector3 color)
+    {
+        return new Color(color.x, color.y, color.z);
+    }
+
 }
 
