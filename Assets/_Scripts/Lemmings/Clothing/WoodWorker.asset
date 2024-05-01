@@ -15,5 +15,5 @@ MonoBehaviour:
   hat: {fileID: 4886241776018282736, guid: 6eac1924bc500bc44b0144f50fc293b9, type: 3}
   backpack: {fileID: 0}
   handItem: {fileID: 0}
-  clothColor: {r: 0, g: 0, b: 0, a: 0}
-  skinColor: {r: 0, g: 0, b: 0, a: 0}
+  clothColor: {r: 1, g: 1, b: 1, a: 0}
+  skinColor: {r: 1, g: 1, b: 1, a: 0}
