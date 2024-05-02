@@ -13,3 +13,7 @@ MonoBehaviour:
   m_Name: Default
   m_EditorClassIdentifier: 
   hat: {fileID: 0}
+  backpack: {fileID: 0}
+  handItem: {fileID: 0}
+  clothColor: {r: 1, g: 1, b: 1, a: 1}
+  skinColor: {r: 1, g: 1, b: 1, a: 1}

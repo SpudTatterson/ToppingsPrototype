@@ -229,7 +229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2137fe869d137844b87f870d9275ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultClothing: {fileID: 11400000, guid: c91dd9adf17c4b94c9c7164f519a47ac, type: 2}
+  skinMatRef: {fileID: 2100000, guid: 64da51ca0069f2545af7b96ce22d33c4, type: 2}
+  clothingMatRef: {fileID: 2100000, guid: c044594dc46e556489363a231d1572c0, type: 2}
 --- !u!1 &4121918541406346735
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,7 +880,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c044594dc46e556489363a231d1572c0, type: 2}
+      objectReference: {fileID: 2100000, guid: 64da51ca0069f2545af7b96ce22d33c4, type: 2}
     - target: {fileID: 6810095966836589425, guid: 44b440a128d5cf2459a3111fbee9ffea,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

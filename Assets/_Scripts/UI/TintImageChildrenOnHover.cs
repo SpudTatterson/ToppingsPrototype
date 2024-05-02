@@ -7,11 +7,13 @@ public class TintImageChildrenOnHover : MonoBehaviour, IPointerEnterHandler, IPo
 {
     List<Image> images = new List<Image>();
     Image original;
+    Button button;
     Color highlightedColor;
     Color normalColor;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if(!button.interactable) return;
         foreach (var img in images)
         {
             img.color = highlightedColor;
@@ -30,7 +32,7 @@ public class TintImageChildrenOnHover : MonoBehaviour, IPointerEnterHandler, IPo
     void Start()
     {
         original = GetComponent<Image>();
-        Button button = GetComponent<Button>();
+        button = GetComponent<Button>();
         highlightedColor = button.colors.highlightedColor;
         normalColor = button.colors.normalColor;
 

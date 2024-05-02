@@ -12,7 +12,7 @@ public enum WorkerType
 }
 
 
-public class Worker : MonoBehaviour
+public abstract class Worker : MonoBehaviour
 {
     [Header("Effects")]
     [SerializeField] VisualEffect smokeVFX;
@@ -21,12 +21,14 @@ public class Worker : MonoBehaviour
     public WorkerType workerType;
 
     MinionCustomizer minionCustomizer;
+    protected Animator animator;
 
     void Awake()
     {
         minionCustomizer = GetComponentInParent<MinionCustomizer>();
+        animator = minionCustomizer.GetComponentInChildren<Animator>();
     }
-    void OnEnable()
+    protected void OnEnable()
     {
         SetClothing();
     }
@@ -51,11 +53,11 @@ public class Worker : MonoBehaviour
     {
 
     }
-        void Update()
+    void Update()
     {
         WorkerLogic();
     }
-    void OnDisable()
+    protected void OnDisable()
     {
         Finish();
     }
@@ -67,7 +69,7 @@ public class Worker : MonoBehaviour
     void Finish()
     {
         smokeVFX.Play();
-        minionCustomizer.UpdateClothing(minionCustomizer.defaultClothing);
+        minionCustomizer.UpdateClothing(MinionManager.instance.GetDefaultClothing());
     }
 
 }

@@ -7,25 +7,26 @@ public class LemmingHealth : MonoBehaviour
 {
     [SerializeField] private float health;
     [SerializeField] private float velocityForDeath;
+    [SerializeField] float timeToDestroy = 4;
+    bool dead = false;
 
     public float currentVelocity;
     private LemmingMovement lemmingMovement;
+    Animator animator;
 
     public bool usingJumpPad = false;
 
-    void Awake()
-    {
-        MinionManager.instance.Add(this);
-    }
     private void Start()
     {
+        MinionManager.instance.Add(this.gameObject);
         lemmingMovement = GetComponent<LemmingMovement>();
+        animator = GetComponentInChildren<Animator>();
         velocityForDeath = -velocityForDeath;
     }
 
     private void Update()
     {
-        if (health <= 0)
+        if (health <= 0 && !dead)
         {
             Death();
         }
@@ -35,8 +36,11 @@ public class LemmingHealth : MonoBehaviour
 
     private void Death()
     {
-        MinionManager.instance.Remove(this);
-        Destroy(gameObject);
+        MinionManager.instance.Remove(this.gameObject);
+        animator.SetTrigger("Death");
+        lemmingMovement.walking = false;
+        dead = true;
+        Destroy(gameObject, timeToDestroy); 
     }
 
     public void TakeDamage(float damage)

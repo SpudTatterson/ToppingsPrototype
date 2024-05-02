@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4258d3f6d553adb46bb87326e37f51e2, type: 3}
   m_Name: Shield
   m_EditorClassIdentifier: 
-  hat: {fileID: 5329687785377083093, guid: 20894d84977d9544b844c5e3c322b953, type: 3}
+  hat: {fileID: 5329687785377083093, guid: c70c76f049eb7684bba894f86e7c3dfb, type: 3}
   backpack: {fileID: 0}
   handItem: {fileID: 2594435344842615219, guid: cb16717f2d71ff5439d1f8c86cb4c41d,
     type: 3}
+  clothColor: {r: 1, g: 1, b: 1, a: 0}
+  skinColor: {r: 1, g: 1, b: 1, a: 0}
