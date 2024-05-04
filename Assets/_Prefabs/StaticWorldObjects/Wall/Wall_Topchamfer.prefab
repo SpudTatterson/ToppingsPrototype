@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3002119081901420661}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3002119081901420661
 Transform:
@@ -41,12 +41,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4847313611380828617}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4847313611380828617
 Transform:
@@ -74,12 +74,12 @@ GameObject:
   m_Component:
   - component: {fileID: 490401232347704742}
   - component: {fileID: 2090947534248239588}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Box Collider
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &490401232347704742
 Transform:
@@ -128,12 +128,12 @@ GameObject:
   - component: {fileID: 1418965424496854359}
   - component: {fileID: 334212229501335035}
   - component: {fileID: 1820331073747450869}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_ChamferOnlytop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1418965424496854359
 Transform:
@@ -178,7 +178,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a4182b374ac35dd4b9f105cd2587d17b, type: 2}
+  - {fileID: 2100000, guid: 80ceec10db105d64cbc09ffa76c92e47, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -209,12 +209,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5093955005498117472}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_Topchamfer
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5093955005498117472
 Transform:
