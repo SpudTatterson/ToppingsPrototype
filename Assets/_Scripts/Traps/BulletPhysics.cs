@@ -12,8 +12,8 @@ public class BulletPhysics : MonoBehaviour
     [HideInInspector] public float bulletSpeed;
 
     [SerializeField] public LayerMask seeThrough;
-    [SerializeField] public string shieldTag;
 
+    private string shieldTag = "Shield";
     private Vector3 startPosition;
     private Vector3 previousPosition;
     private Vector3 currentPosition;
@@ -54,7 +54,7 @@ public class BulletPhysics : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (hit.collider.CompareTag("Shield"))
+        if (hit.collider.CompareTag(shieldTag))
         {
             ReflectBullet();
         }
@@ -73,15 +73,17 @@ public class BulletPhysics : MonoBehaviour
             turret.TakeDamage(bulletDamage);
             Destroy(gameObject);
         }
-
-        if (collision.collider.CompareTag("Shield"))
+        else if (collision.collider.CompareTag(shieldTag))
         {
             ReflectBullet();
         }
-
-        if (collision.collider.TryGetComponent(out LemmingHealth lemmingHealth))
+        else if (collision.collider.TryGetComponent(out LemmingHealth lemmingHealth))
         {
             lemmingHealth.TakeDamage(bulletDamage);
+            Destroy(gameObject);
+        }
+        else if (collision.collider)
+        {
             Destroy(gameObject);
         }
     }

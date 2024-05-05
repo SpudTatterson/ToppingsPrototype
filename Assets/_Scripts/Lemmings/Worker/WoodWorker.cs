@@ -23,37 +23,49 @@ public class WoodWorker : Worker
     }
     public override void WorkerLogic()
     {
+        //Physics.BoxCast(transform.localPosition + transform.up, new Vector3(.4f, 0.99f, .4f), transform.forward, out RaycastHit hit, transform.localRotation, 1.5f, ignoredLayers);
+        if (Physics.SphereCast(transform.position, castRadius, transform.forward, out hit, interactionDistance, ignoredLayers))
         {
-            //Physics.BoxCast(transform.localPosition + transform.up, new Vector3(.4f, 0.99f, .4f), transform.forward, out RaycastHit hit, transform.localRotation, 1.5f, ignoredLayers);
-            if (Physics.SphereCast(transform.position, castRadius, transform.forward, out hit, interactionDistance, ignoredLayers))
+            if (logScript == null) foundLog = hit.collider.TryGetComponent(out logScript);
+            if (foundLog)
             {
-                if (logScript == null) foundLog = hit.collider.TryGetComponent(out logScript);
-                if (foundLog)
+                if (logScript.lemmingCutting == null) logScript.lemmingCutting = gameObject; // initialize 
+
+                if (logScript.lemmingCutting == gameObject)
                 {
-                    if (logScript.lemmingCutting == null) logScript.lemmingCutting = gameObject; // initialize 
+                    print("cut");
+                    movement.walking = false;
+                    movement.StopMovement();
+                    timer += Time.deltaTime;
+                    // Insert cutting log animation here.
+                }
 
-                    if (logScript.lemmingCutting == gameObject)
+                if (timer > timeBetweenHits)
+                {
+                    timer = 0;
+                    logScript.logHealth -= 25;
+                    SoundsFXManager.instance.PlayRandomSoundFXClip(ChoppingSoundClips, transform, 1f);
+                    if (logScript.logHealth <= 0)
                     {
-                        print("cut");
-                        movement.walking = false;
-                        movement.StopMovement();
-                        timer += Time.deltaTime;
-                        // Insert cutting log animation here.
-                    }
-
-                    if (timer > timeBetweenHits)
-                    {
-                        timer = 0;
-                        logScript.logHealth -= 25;
-                        SoundsFXManager.instance.PlayRandomSoundFXClip(ChoppingSoundClips, transform, 1f);
-                        if (logScript.logHealth <= 0)
-                        {
-                            movement.walking = true;
-                            this.enabled = false;
-                        }
+                        FinishJob();
                     }
                 }
             }
         }
+        if(logScript == null)
+        {
+            jobTime -= Time.deltaTime;
+        }
+
+        if (jobTime <= 0)
+        {
+            FinishJob();
+        }
+    }
+
+    private void FinishJob()
+    {
+        movement.walking = true;
+        this.enabled = false;
     }
 }
