@@ -25,9 +25,9 @@ TagManager:
   - Ground
   - Bullet
   - Shield
-  - 
-  - 
-  - 
+  - Draggable
+  - Glass
+  - RagdollParts
   - 
   - 
   - 

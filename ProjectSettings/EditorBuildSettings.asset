@@ -6,6 +6,39 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/Menu/MainMenuV2.unity
+    guid: eca91dd37b01ba343b7cb031155e62cf
+  - enabled: 1
+    path: Assets/Scenes/Menu/LevelPicker.unity
+    guid: 5d1584efcdaef484ea37f08ec9ca7c08
+  - enabled: 0
+    path: Assets/Scenes/Ilay/Toturial.unity
+    guid: a83f96cbc4d625441af77f4a0266b6c9
+  - enabled: 0
+    path: Assets/Scenes/Ilay/Level_01.unity
+    guid: 24b19c7b7ba759148bc432e46671e241
+  - enabled: 0
+    path: Assets/Scenes/Ilay/Level_2.unity
+    guid: 62beab786b982b74698a00baeee722d3
+  - enabled: 0
+    path: Assets/Scenes/Ilay/Level_3.unity
+    guid: a7a7fafad4930f34a9aabce58805a584
+  - enabled: 1
+    path: Assets/Scenes/Ilay/Tutorial Levels/Tutorial Sign Level.unity
+    guid: db411e6bee329504abdb1a85aa42b078
+  - enabled: 1
+    path: Assets/Scenes/Ilay/Tutorial Levels/Tutorial Log Level 1.unity
+    guid: e335c9143dc89114d80afbcdc959f761
+  - enabled: 1
+    path: Assets/Scenes/Ilay/Tutorial Levels/Tutorial Junpad Level.unity
+    guid: ff93a35053c0cc2458f43d21013b6fee
+  - enabled: 1
+    path: Assets/Scenes/Ilay/Tutorial Levels/Tutorial Fan Level.unity
+    guid: a95117aea96b18e4ab1d4331b82013a0
+  - enabled: 1
+    path: Assets/Scenes/Ilay/Tutorial Levels/Tutorial Parachute Level.unity
+    guid: cbea9d5c09886c142bdb1993f1d4c775
+  - enabled: 1
+    path: Assets/Scenes/Ilay/Tutorial Levels/Tutorial Turret Level.unity
+    guid: c27f051d52d278a46a65b423c987e4db
   m_configObjects: {}
