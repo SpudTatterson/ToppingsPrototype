@@ -106,12 +106,12 @@ public class DataPersistenceManager : MonoBehaviour
     }
     List<ISettingDataPersistence> GetSettingsDataPersistenceObjects()
     {
-        List<ISettingDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>().OfType<ISettingDataPersistence>().ToList();
+        List<ISettingDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>(true).OfType<ISettingDataPersistence>().ToList();
         return dataPersistenceObjects;
     }
     List<IPlayerDataPersistence> GetPlayerDataPersistenceObjects()
     {
-        List<IPlayerDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>().OfType<IPlayerDataPersistence>().ToList();
+        List<IPlayerDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>(true).OfType<IPlayerDataPersistence>().ToList();
         return dataPersistenceObjects;
     }
 }

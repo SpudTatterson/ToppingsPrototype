@@ -20,7 +20,7 @@ public class JobsSelector : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            Reset();
+            ResetVars();
             Debug.Log("cancel");
         }
 
@@ -37,7 +37,7 @@ public class JobsSelector : MonoBehaviour
                 if (workScript.workerType == type)
                 {
                     workScript.enabled = true;
-                    Reset();
+                    ResetVars();
                     return;
                 }
 
@@ -47,7 +47,7 @@ public class JobsSelector : MonoBehaviour
 
     }
 
-    public void Reset()
+    public void ResetVars()
     {
         toggle = false;
         type = WorkerType.Default;

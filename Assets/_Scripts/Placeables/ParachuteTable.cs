@@ -26,14 +26,20 @@ public class ParachuteTable : Placeable
     private void GiveParachute(Collider other)
     {
         Paratrooper paratrooper = other.GetComponentInChildren<Paratrooper>();
-        if (paratrooper.enabled) return;
+        if(paratrooper.enabled) return;
+        List<Worker> workers = new List<Worker>();
+        other.GetComponentsInChildren<Worker>(workers);
+        foreach(Worker worker in workers)
+        {
+            worker.enabled = false;
+        }
+
         if (paratrooper && parachutes.Count > 0)
         {
             paratrooper.enabled = true;
             if (unlimitedParachutes) return;
             RemoveParachute();
         }
-
     }
 
     private void RemoveParachute()

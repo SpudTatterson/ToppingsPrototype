@@ -44,6 +44,13 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI timeHUDText;
     public Image starFillUpBarHUD;
     public Image bestStarFillUpBarHUD;
+    [Header("Customization")]
+    public Slider rSkinColor;
+    public Slider gSkinColor;
+    public Slider bSkinColor;
+    public Slider rClothingColor;
+    public Slider gClothingColor;
+    public Slider bClothingColor;
 
 
 

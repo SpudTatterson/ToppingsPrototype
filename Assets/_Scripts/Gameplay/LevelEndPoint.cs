@@ -26,7 +26,7 @@ public class LevelEndPoint : MonoBehaviour
     {
         passedMinionCount++;
         HUDUpdater.instance.UpdateStarHUD();
-        MinionManager.instance.Remove(minion.GetComponent<LemmingHealth>());
+        MinionManager.instance.Remove(minion.GetComponent<LemmingHealth>().gameObject);
         Destroy(minion.gameObject);
         
     }
