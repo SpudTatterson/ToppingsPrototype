@@ -640,7 +640,7 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 2840337446012440887}
   seeThrough:
     serializedVersion: 2
-    m_Bits: 3072
+    m_Bits: 19456
   timeBetweenShots: 0.05
   timeBetweenShotSounds: 0.5
   bulletDamage: 5

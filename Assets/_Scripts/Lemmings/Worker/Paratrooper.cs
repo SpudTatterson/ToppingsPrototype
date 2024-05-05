@@ -17,7 +17,6 @@ public class Paratrooper : Worker
     }
     public override void WorkerLogic()
     {
-        
         var rb = GetComponentInParent<Rigidbody>();
 
         if (movement.isGrounded == false && rb.velocity.y < -parachuteFloat)
@@ -39,6 +38,15 @@ public class Paratrooper : Worker
         {
             Destroy(parachuteGO);
             timer = 0;
+            this.enabled = false;
+        }
+
+        if(movement.isGrounded == true)
+        {
+            jobTime -= Time.deltaTime;
+        }
+        else if(jobTime <= 0)
+        {
             this.enabled = false;
         }
     }

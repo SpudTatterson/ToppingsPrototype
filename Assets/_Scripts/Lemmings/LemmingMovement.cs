@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -28,8 +29,7 @@ public class LemmingMovement : MonoBehaviour
     private float delayVelocityCheck;
     [HideInInspector] public float turnComplete;
 
-    [HideInInspector] public bool walking;
-    [HideInInspector] public bool rotateBack, rotateLeft, rotateRight;
+    [HideInInspector] public bool walking, turning;
     [HideInInspector] public bool climbStairs;
     [HideInInspector] public bool knockable;
     [HideInInspector] public bool isGrounded;
@@ -80,6 +80,7 @@ public class LemmingMovement : MonoBehaviour
         animator.SetBool("UsingStairs", climbStairs);
 
         LemmingRotation();
+        TriggerRotationLogic();
         Climb();
 
         allHits = Physics.BoxCastAll(transform.localPosition + transform.up, boxCastSize, transform.forward, transform.localRotation, 1, ignoreThis);
@@ -146,6 +147,14 @@ public class LemmingMovement : MonoBehaviour
         delayVelocityCheck = 0; //This is here to make the rotation work better (Temporary untill I find a better solution)
     }
 
+    public void ResetTurnStats()
+    {
+        walking = false;
+        turning = true;
+        rotationTimer = 0;
+        delayVelocityCheck = 0;
+    }
+
     private void TurnBackOnCollision(Collision collision)
     {
         /* Sets the current position and the position the Lemming will rotate to,
@@ -201,6 +210,22 @@ public class LemmingMovement : MonoBehaviour
             }
         }
     }
+
+    public void TriggerRotationLogic()
+    {
+        if (/*rb.velocity == Vector3.zero*//* &&*/ delayVelocityCheck > .5f & turning)
+        {
+        rotationTimer += Time.deltaTime;
+        transform.rotation = Quaternion.Slerp(startRotationTest, targetRotationTest, Mathf.SmoothStep(0, 1, turnComplete));
+        }
+
+        if (turnComplete >= 1)
+        {
+            walking = true;
+            turning = false;
+        }
+    }
+
     public void StopMovement()
     {
         rb.velocity = Vector3.zero;
