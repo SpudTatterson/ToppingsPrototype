@@ -16,7 +16,6 @@ public class LemmingHealth : MonoBehaviour
     Animator animator;
 
     public bool usingJumpPad = false;
-    public bool dead = false;
 
     List<Collider> ragdollParts = new List<Collider>();
     public Animator rigAnimator;
