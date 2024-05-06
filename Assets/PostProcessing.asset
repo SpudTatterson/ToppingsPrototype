@@ -21,13 +21,13 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.353
+    m_Value: 0.22
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.225
+    m_Value: 0.5
   rounded:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
 --- !u!114 &-1596725782871726016
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -46,7 +46,7 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.68
+    m_Value: 1.2
   intensity:
     m_OverrideState: 1
     m_Value: 3.92
@@ -91,6 +91,7 @@ MonoBehaviour:
   - {fileID: -1596725782871726016}
   - {fileID: -8728029881957285213}
   - {fileID: 7929557308998487693}
+  - {fileID: 8607842857300435651}
 --- !u!114 &7929557308998487693
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -106,10 +107,44 @@ MonoBehaviour:
   active: 1
   lift:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.99835324, z: 0.99341303, w: 0}
+    m_Value: {x: 0.9767113, y: 1, z: 0.99999994, w: 0}
   gamma:
     m_OverrideState: 1
     m_Value: {x: 0.93529356, y: 0.93557006, z: 1, w: 0}
   gain:
     m_OverrideState: 1
     m_Value: {x: 0.8892882, y: 1, z: 0.97302157, w: 0}
+--- !u!114 &8607842857300435651
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558a8e2b6826cf840aae193990ba9f2e, type: 3}
+  m_Name: ShadowsMidtonesHighlights
+  m_EditorClassIdentifier: 
+  active: 1
+  shadows:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 0.9998827, z: 0.8977426, w: 0}
+  midtones:
+    m_OverrideState: 0
+    m_Value: {x: 0.9133624, y: 1, z: 0.922394, w: 0}
+  highlights:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 0.98830277, z: 0.89007473, w: 0}
+  shadowsStart:
+    m_OverrideState: 0
+    m_Value: 0
+  shadowsEnd:
+    m_OverrideState: 0
+    m_Value: 0.3
+  highlightsStart:
+    m_OverrideState: 0
+    m_Value: 0.55
+  highlightsEnd:
+    m_OverrideState: 0
+    m_Value: 1
