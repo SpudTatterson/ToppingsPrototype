@@ -923,7 +923,7 @@ GameObject:
   - component: {fileID: 8444422551205644782}
   - component: {fileID: 4299545297918880498}
   - component: {fileID: 6019666951839019732}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Parachute_Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1008,7 +1008,11 @@ MonoBehaviour:
   FullyPlaced: 0
   secondaryPlacable: {fileID: 0}
   maxSecondaryObjectDistance: 5
+  radiusShape: 0
+  showRadius: 3
+  halfExtents: {x: 0.5, y: 0.5, z: 0.5}
   unlimitedParachutes: 0
+  minionTag: Lemming
   parachutes:
   - {fileID: 2168144339582712328}
   - {fileID: 7767019574417444342}
