@@ -177,7 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accelerationSpeed: 500
   maxWalkSpeed: 5
-  climbForce: 350
+  climbForce: 450
   knockbackPower: 150
   RotationTime: 0.8
   collidingObjects:
@@ -191,7 +191,8 @@ MonoBehaviour:
     m_Bits: 11137
   groundStomp: {fileID: 3469237661159358257}
   groundedOffset: {x: 0, y: 0.1, z: 0}
-  maxDistanceOffGround: 0.2
+  maxDistanceOffGround: 0.3
+  stairCheckDistance: 0.7
   turnComplete: 0
   walking: 0
   turning: 0

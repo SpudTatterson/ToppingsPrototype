@@ -19,8 +19,9 @@ public class LemmingMovement : MonoBehaviour
     public VisualEffect groundStomp;
 
 
-    public Vector3 groundedOffset = new Vector3(0, 0.1f, 0);
-    public float maxDistanceOffGround = 0.2f;
+    [SerializeField] Vector3 groundedOffset = new Vector3(0, 0.1f, 0);
+    [SerializeField] float maxDistanceOffGround = 0.2f;
+    [SerializeField] float stairCheckDistance = 0.7f;
 
     private float stompTimer;
     private Rigidbody rb;
@@ -117,9 +118,10 @@ public class LemmingMovement : MonoBehaviour
 
     private void Climb()
     {
-        Ray ray = new Ray(transform.position + new Vector3(0, 0.1f, 0), transform.forward);
+        Ray ray = new Ray(transform.position + groundedOffset, transform.forward);
+        Debug.DrawRay(ray.origin, ray.direction * stairCheckDistance);
         RaycastHit hitStair;
-        Physics.Raycast(ray, out hitStair, 0.5f);
+        Physics.Raycast(ray, out hitStair, stairCheckDistance, groundLayer);
 
         if (hitStair.collider == null)
         {
