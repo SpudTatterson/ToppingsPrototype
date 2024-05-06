@@ -179,7 +179,7 @@ MonoBehaviour:
   maxWalkSpeed: 5
   climbForce: 350
   knockbackPower: 150
-  RotationTime: 0.5
+  RotationTime: 0.8
   collidingObjects:
   - Wall
   - Obstacle
