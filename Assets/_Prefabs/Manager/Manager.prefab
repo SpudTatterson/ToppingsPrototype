@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 5848901315194382835}
   - component: {fileID: 6136661451304380573}
   - component: {fileID: 2140098048823944162}
+  - component: {fileID: 394689772149493428}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -159,6 +160,12 @@ MonoBehaviour:
   timeHUDText: {fileID: 0}
   starFillUpBarHUD: {fileID: 0}
   bestStarFillUpBarHUD: {fileID: 0}
+  rSkinColor: {fileID: 0}
+  gSkinColor: {fileID: 0}
+  bSkinColor: {fileID: 0}
+  rClothingColor: {fileID: 0}
+  gClothingColor: {fileID: 0}
+  bClothingColor: {fileID: 0}
 --- !u!114 &9025596427236410109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,3 +234,23 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   castRadius: 0.5
+--- !u!114 &394689772149493428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7547876916279834406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f4682c7371ca54ebf597abbdbbc503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jobsButtons:
+  - {fileID: 0}
+  - {fileID: 0}
+  placeablesButtons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

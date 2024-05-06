@@ -16,4 +16,14 @@ public class Shield : Worker
         animator.SetBool("HoldShield", false);
         base.OnDisable();
     }
+
+    private void Update()
+    {
+        jobTime -= Time.deltaTime;
+
+        if (jobTime <= 0)
+        {
+            this.enabled = false;
+        }
+    }
 }
