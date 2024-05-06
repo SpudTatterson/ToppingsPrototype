@@ -77,7 +77,7 @@ public class LemmingHealth : MonoBehaviour
         {
             foreach (Collider collider in ragdollParts)
             {
-                collider.gameObject.GetComponent<Rigidbody>().AddForceAtPosition(bulletForce * 75, bulletPos);
+                collider.gameObject.GetComponent<Rigidbody>().AddForceAtPosition(bulletForce * 60, bulletPos);
             }
             deathBullet = false;
         }
