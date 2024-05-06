@@ -50,6 +50,12 @@ public class BulletPhysics : MonoBehaviour
 
         if (hit.collider.TryGetComponent(out LemmingHealth lemmingHealth))
         {
+            if (lemmingHealth.health <= bulletDamage)
+            {
+                lemmingHealth.deathBullet = true;
+                lemmingHealth.bulletForce = gameObject.GetComponent<Rigidbody>().velocity;
+                lemmingHealth.bulletPos = gameObject.transform.position;
+            }
             lemmingHealth.TakeDamage(bulletDamage);
             Destroy(gameObject);
         }
