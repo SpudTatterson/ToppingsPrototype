@@ -48079,7 +48079,7 @@ PrefabInstance:
     - target: {fileID: 2131796194579368419, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.2527803
+      value: 0.25278026
       objectReference: {fileID: 0}
     - target: {fileID: 2131796194579368419, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
@@ -48089,8 +48089,18 @@ PrefabInstance:
     - target: {fileID: 2131796194579368419, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.24927127
+      value: -0.24927126
       objectReference: {fileID: 0}
+    - target: {fileID: 3164444609424003256, guid: a81fc51a9bf42a4428406576b5286d14,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.083
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164444609424003256, guid: a81fc51a9bf42a4428406576b5286d14,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 73362a40ec6383b47906d7f589991b0a, type: 3}
     - target: {fileID: 3571136671110128373, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_IsActive
@@ -48119,7 +48129,7 @@ PrefabInstance:
     - target: {fileID: 3982876594345514639, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.2527803
+      value: 0.25278026
       objectReference: {fileID: 0}
     - target: {fileID: 3982876594345514639, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
@@ -48129,7 +48139,7 @@ PrefabInstance:
     - target: {fileID: 3982876594345514639, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.24927127
+      value: -0.24927126
       objectReference: {fileID: 0}
     - target: {fileID: 4215508603477785886, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
