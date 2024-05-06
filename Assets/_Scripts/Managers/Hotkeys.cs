@@ -8,6 +8,9 @@ using UnityEngine.UI;
 
 public class Hotkeys : MonoBehaviour
 {
+    [SerializeField] private GameObject jobsButtonsParent;
+    [SerializeField] private GameObject placeablesButtonsParent;
+
     [SerializeField] private Button[] jobsButtons;
     [SerializeField] private Button[] placeablesButtons;
 
@@ -15,27 +18,31 @@ public class Hotkeys : MonoBehaviour
 
     private void Update()
     {
-        ActivateKey(jobsButtons); 
-        ActivateKey(placeablesButtons);
+        ActivateHotkey();
     }
 
-    private void ActivateKey(Button[] buttonList)
+    private void ActivateHotkey()
     {
-        if (PressedHotkey() != 0)
+        if (ActiveButtonList() == null || ActiveUI() == null) return;
+
+        if (PressedHotkey() == 11)
         {
-            if (buttonList.Length !>= PressedHotkey()) 
+            ActiveUI().GetComponent<Button>().onClick.Invoke();
+        }
+        else if (PressedHotkey() != 0)
+        {
+            if (ActiveButtonList().Length! >= PressedHotkey())
             {
-                int num = PressedHotkey() - 1;
+                int objectOrder = PressedHotkey() - 1;
 
-                if (buttonList[num] == null) return;
-                if (buttonList[num].gameObject.activeInHierarchy == false) return;
+                if (ActiveButtonList()[objectOrder] == null) return;
 
-                buttonList[num].onClick.Invoke();
+                ActiveButtonList()[objectOrder].onClick.Invoke();
 
                 PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
-                buttonList[num].OnPointerDown(pointerEventData);
+                ActiveButtonList()[objectOrder].OnPointerDown(pointerEventData);
 
-                activeButton = buttonList[num];
+                activeButton = ActiveButtonList()[objectOrder];
             }
 
             ResetButtonState(activeButton);
@@ -56,7 +63,11 @@ public class Hotkeys : MonoBehaviour
 
             return numberPressed;
         }
-        
+        else if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            return 11;
+        }
+
         return 0;
     }
 
@@ -64,5 +75,33 @@ public class Hotkeys : MonoBehaviour
     {
         PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
         button.OnPointerUp(pointerEventData);
+    }
+
+    private Button[] ActiveButtonList()
+    {
+        if (jobsButtons[0].gameObject.activeInHierarchy)
+        {
+            return jobsButtons;
+        }
+        else if (placeablesButtons[0].gameObject.activeInHierarchy)
+        {
+            return placeablesButtons;
+        }
+
+        return null;
+    }
+
+    private GameObject ActiveUI()
+    {
+        if (jobsButtonsParent.activeInHierarchy)
+        {
+            return jobsButtonsParent;
+        }
+        else if (placeablesButtonsParent.activeInHierarchy)
+        {
+            return placeablesButtonsParent;
+        }
+
+        return null;
     }
 }

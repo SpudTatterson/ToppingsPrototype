@@ -6,10 +6,14 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class LemmingHealth : MonoBehaviour
 {
-    [SerializeField] private float health;
+    [SerializeField] public float health;
     [SerializeField] private float velocityForDeath;
     [SerializeField] float timeToDestroy = 4;
     bool dead = false;
+
+    [HideInInspector] public bool deathBullet;
+    [HideInInspector] public Vector3 bulletForce;
+    [HideInInspector] public Vector3 bulletPos;
 
     public float currentVelocity;
     private LemmingMovement lemmingMovement;
@@ -63,14 +67,21 @@ public class LemmingHealth : MonoBehaviour
 
         foreach (Collider collider in ragdollParts)
         {
-            //collider.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             collider.isTrigger = false;
         }
     }
 
     private void RestrictRagdoll()
     {
-        if (!dead)
+        if (deathBullet)
+        {
+            foreach (Collider collider in ragdollParts)
+            {
+                collider.gameObject.GetComponent<Rigidbody>().AddForceAtPosition(bulletForce * 60, bulletPos);
+            }
+            deathBullet = false;
+        }
+        else if (!dead)
         {
             foreach (Collider collider in ragdollParts)
             {
