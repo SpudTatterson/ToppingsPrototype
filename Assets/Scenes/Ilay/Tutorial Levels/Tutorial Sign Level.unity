@@ -1837,6 +1837,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 8124221833987198516, guid: 0d36631ddb19e1642a34071573259124,
+        type: 3}
+      propertyPath: minPassedForVictory
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3915,7 +3920,7 @@ PrefabInstance:
     - target: {fileID: 5440665837334927486, guid: 90d6cc9d0b9d73b4897014e37af1db4f,
         type: 3}
       propertyPath: lemmingCount
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

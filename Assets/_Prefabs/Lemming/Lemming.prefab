@@ -159,9 +159,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   velocityForDeath: 8
+  timeToDestroy: 4
+  deathBullet: 0
+  bulletForce: {x: 0, y: 0, z: 0}
+  bulletPos: {x: 0, y: 0, z: 0}
   currentVelocity: 0
   usingJumpPad: 0
-  dead: 0
   rigAnimator: {fileID: 715222358383688935}
 --- !u!114 &1166977942748086502
 MonoBehaviour:
@@ -199,6 +202,7 @@ MonoBehaviour:
   knockable: 0
   isGrounded: 1
   boxCastSize: {x: 0.4, y: 1, z: 0.4}
+  animator: {fileID: 0}
   targetRotationTest: {x: 0, y: 0, z: 0, w: 0}
   startRotationTest: {x: 0, y: 0, z: 0, w: 0}
   startRotation: {x: 0, y: 0, z: 0}
@@ -748,7 +752,6 @@ MonoBehaviour:
   clothingSet: {fileID: 11400000, guid: 2678b73b4af09b946a198fc1b91bc3cd, type: 2}
   defaultClothSet: {fileID: 6072829812595883047}
   workerType: 2
-  animationIDName: 
 --- !u!1 &6993598415611193169
 GameObject:
   m_ObjectHideFlags: 0
