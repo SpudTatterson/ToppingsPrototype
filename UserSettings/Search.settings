@@ -11,6 +11,9 @@ scopes = {
 	"last_search.310DEAF3" = "h:#timebetweenshotsounds=0.15"
 	"OpenInspectorPreview.310DEAF3" = "0"
 	"currentGroup.310DEAF3" = "all"
+	"last_search.3BE40471" = "t:drag"
+	"OpenInspectorPreview.3BE40471" = "0"
+	"currentGroup.3BE40471" = "scene"
 }
 providers = {
 	packages = {
@@ -72,7 +75,7 @@ expandedQueries = [
 ]
 queryBuilder = false
 ignoredProperties = "id;name;classname;imagecontentshash"
-helperWidgetCurrentArea = "all"
+helperWidgetCurrentArea = "h:"
 disabledIndexers = ""
 minIndexVariations = 2
 findProviderIndexHelper = true
