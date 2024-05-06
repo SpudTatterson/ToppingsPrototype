@@ -30,6 +30,8 @@ public class PauseManager : MonoBehaviour
     public void Pause()
     {
         UIManager.instance.pauseScreen.SetActive(true);
+        PlacementManager.instance.ResetAllVariables();
+        JobsSelector.instance.ResetVars();
         Time.timeScale = 0;
         paused = true;
     }
