@@ -2157,12 +2157,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lemming
       objectReference: {fileID: 0}
-    - target: {fileID: 6296177033808484660, guid: 8443945175bc0304d80f07448ec4de15,
-        type: 3}
-      propertyPath: testHat
-      value: 
-      objectReference: {fileID: 4886241776018282736, guid: e9d5322222d360149ae5a837d90541ea,
-        type: 3}
     - target: {fileID: 6727730002719883008, guid: 8443945175bc0304d80f07448ec4de15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4630,32 +4624,32 @@ PrefabInstance:
     - target: {fileID: 2131796194579368419, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.22091459
+      value: 0.22091456
       objectReference: {fileID: 0}
     - target: {fileID: 2131796194579368419, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.73181045
+      value: 0.7318104
       objectReference: {fileID: 0}
     - target: {fileID: 2131796194579368419, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.27790427
+      value: -0.2779042
       objectReference: {fileID: 0}
     - target: {fileID: 3982876594345514639, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.22091459
+      value: 0.22091456
       objectReference: {fileID: 0}
     - target: {fileID: 3982876594345514639, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.73181045
+      value: 0.7318104
       objectReference: {fileID: 0}
     - target: {fileID: 3982876594345514639, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.27790427
+      value: -0.2779042
       objectReference: {fileID: 0}
     - target: {fileID: 4181230442417931228, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
