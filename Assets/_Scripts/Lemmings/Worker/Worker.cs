@@ -14,6 +14,9 @@ public enum WorkerType
 
 public abstract class Worker : MonoBehaviour
 {
+    [SerializeField] protected float jobTime = 10;
+    private float defaultJobTime;
+
     [Header("Effects")]
     [SerializeField] VisualEffect smokeVFX;
     [SerializeField] ClothingSet clothingSet;
@@ -27,6 +30,7 @@ public abstract class Worker : MonoBehaviour
     {
         minionCustomizer = GetComponentInParent<MinionCustomizer>();
         animator = minionCustomizer.GetComponentInChildren<Animator>();
+        defaultJobTime = jobTime;
     }
     protected void OnEnable()
     {
@@ -70,6 +74,6 @@ public abstract class Worker : MonoBehaviour
     {
         smokeVFX.Play();
         minionCustomizer.UpdateClothing(MinionManager.instance.GetDefaultClothing());
+        jobTime = defaultJobTime;
     }
-
 }
