@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_Prefabs/StaticWorldObjects/JC_StylizedRocks_Lite/Prefabs/SM_Rocks_01.prefab.meta
+guid: 20edbaadc4fe9a44a9602f1366ea3852
+========
 guid: f8e02a319ec656c49b12742570e5f187
+>>>>>>>> main:Assets/_Prefabs/Lemming_Spawner/LevelPortal 1.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 
