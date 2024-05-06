@@ -9,7 +9,7 @@ public class LemmingHealth : MonoBehaviour
     [SerializeField] public float health;
     [SerializeField] private float velocityForDeath;
     [SerializeField] float timeToDestroy = 4;
-    bool dead = false;
+    public bool dead = false;
 
     [HideInInspector] public bool deathBullet;
     [HideInInspector] public Vector3 bulletForce;
@@ -61,8 +61,9 @@ public class LemmingHealth : MonoBehaviour
     public void ActivateRagdoll()
     {
         this.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        lemmingMovement.enabled = false;
+        this.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
         this.gameObject.GetComponent<Collider>().enabled = false;
+        lemmingMovement.enabled = false;
         rigAnimator.enabled = false;
 
         foreach (Collider collider in ragdollParts)
