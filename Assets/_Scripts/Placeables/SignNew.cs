@@ -5,6 +5,7 @@ using UnityEngine;
 public class SignNew : Placeable
 {
     private List<GameObject> lemmings = new List<GameObject>();
+    private string lemmingTag = "Lemming";
 
     private void Update()
     {
@@ -18,7 +19,7 @@ public class SignNew : Placeable
 
     private void KnockbackLemming(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Lemming"))
+        if (collision.gameObject.CompareTag(lemmingTag))
         {
             var lemmingScript = collision.gameObject.GetComponent<LemmingMovement>();
 
