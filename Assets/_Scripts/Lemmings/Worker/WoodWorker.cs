@@ -33,35 +33,21 @@ public class WoodWorker : Worker
 
                 if (logScript.lemmingCutting == gameObject)
                 {
-                    print("cut");
                     movement.walking = false;
                     movement.StopMovement();
                     timer += Time.deltaTime;
+                    animator.SetBool("SwingAxe", true);
                     // Insert cutting log animation here.
                 }
 
                 if (timer > timeBetweenHits)
                 {
                     timer = 0;
-                    logScript.logHealth -= 25;
+                    DamageLog();
                     SoundsFXManager.instance.PlayRandomSoundFXClip(ChoppingSoundClips, transform, 1f);
                     if (logScript.logHealth <= 0)
                     {
                         FinishJob();
-                    }
-
-                    if (timer > timeBetweenHits)
-                    {
-                        timer = 0;
-                        logScript.logHealth -= 25;
-                        SoundsFXManager.instance.PlayRandomSoundFXClip(ChoppingSoundClips, transform, 1f);
-                        animator.SetBool("SwingAxe", true);
-                        if (logScript.logHealth <= 0)
-                        {
-                            animator.SetBool("SwingAxe", false);
-                            movement.walking = true;
-                            this.enabled = false;
-                        }
                     }
                 }
             }
@@ -77,8 +63,14 @@ public class WoodWorker : Worker
         }
     }
 
+    public void DamageLog()
+    {
+        logScript.logHealth -= 25;
+    }
+
     private void FinishJob()
     {
+        animator.SetBool("SwingAxe", false);
         movement.walking = true;
         this.enabled = false;
     }
