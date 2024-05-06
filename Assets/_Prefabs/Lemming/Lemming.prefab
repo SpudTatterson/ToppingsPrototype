@@ -159,9 +159,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   velocityForDeath: 8
+  timeToDestroy: 4
   currentVelocity: 0
   usingJumpPad: 0
-  dead: 0
   rigAnimator: {fileID: 715222358383688935}
 --- !u!114 &1166977942748086502
 MonoBehaviour:
@@ -199,6 +199,7 @@ MonoBehaviour:
   knockable: 0
   isGrounded: 1
   boxCastSize: {x: 0.4, y: 1, z: 0.4}
+  animator: {fileID: 0}
   targetRotationTest: {x: 0, y: 0, z: 0, w: 0}
   startRotationTest: {x: 0, y: 0, z: 0, w: 0}
   startRotation: {x: 0, y: 0, z: 0}
@@ -231,7 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skinMatRef: {fileID: 2100000, guid: 64da51ca0069f2545af7b96ce22d33c4, type: 2}
-  clothingMatRef: {fileID: 2100000, guid: c044594dc46e556489363a231d1572c0, type: 2}
+  clothingMatRef: {fileID: 2100000, guid: a1f5ab088d4cf2148b891d38fe1100f6, type: 2}
 --- !u!1 &4121918541406346735
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,7 +749,6 @@ MonoBehaviour:
   clothingSet: {fileID: 11400000, guid: 2678b73b4af09b946a198fc1b91bc3cd, type: 2}
   defaultClothSet: {fileID: 6072829812595883047}
   workerType: 2
-  animationIDName: 
 --- !u!1 &6993598415611193169
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,7 +803,7 @@ MonoBehaviour:
     m_Bits: 16192
   castRadius: 0.5
   interactionDistance: 0.85
-  timeBetweenHits: 1.5
+  timeBetweenHits: 1.9
   ChoppingSoundClips:
   - {fileID: 8300000, guid: 3cd07582c4312f542b97cf4fa4ca649c, type: 3}
   - {fileID: 8300000, guid: 8413442508cd0344995a2757fc0a1052, type: 3}
@@ -888,7 +888,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c044594dc46e556489363a231d1572c0, type: 2}
+      objectReference: {fileID: 2100000, guid: a1f5ab088d4cf2148b891d38fe1100f6, type: 2}
     - target: {fileID: 1288122337910320132, guid: 44b440a128d5cf2459a3111fbee9ffea,
         type: 3}
       propertyPath: m_Layer
@@ -923,12 +923,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c044594dc46e556489363a231d1572c0, type: 2}
+      objectReference: {fileID: 2100000, guid: a1f5ab088d4cf2148b891d38fe1100f6, type: 2}
     - target: {fileID: 3141936855535384892, guid: 44b440a128d5cf2459a3111fbee9ffea,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c044594dc46e556489363a231d1572c0, type: 2}
+      objectReference: {fileID: 2100000, guid: a1f5ab088d4cf2148b891d38fe1100f6, type: 2}
     - target: {fileID: 3143267842776610220, guid: 44b440a128d5cf2459a3111fbee9ffea,
         type: 3}
       propertyPath: m_Layer
@@ -1038,7 +1038,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c044594dc46e556489363a231d1572c0, type: 2}
+      objectReference: {fileID: 2100000, guid: 64da51ca0069f2545af7b96ce22d33c4, type: 2}
     - target: {fileID: 6425808658335957802, guid: 44b440a128d5cf2459a3111fbee9ffea,
         type: 3}
       propertyPath: m_Layer
