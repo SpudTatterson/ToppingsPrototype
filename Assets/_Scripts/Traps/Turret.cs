@@ -50,7 +50,8 @@ public class Turret : MonoBehaviour
     private float timerToIdle;
     private float shotCooldown;
     private float soundCooldown;
-    private Quaternion lastIdlePos; 
+    private Quaternion lastIdlePos;
+    private Animator animator;
 
     private void OnDrawGizmos()
     {
@@ -60,6 +61,7 @@ public class Turret : MonoBehaviour
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         lerpTime = Random.Range(0, rotationSpeed);                            // Sets the starting rotation the turret wil be in.
         scanCooldown = Random.Range(0f, 0.15f);                               // Sets a random delay time between rotations.
         randomBool = Random.value > 0.5f;                                     // Sets the starting side that the turret will rotate towards. 50/50
@@ -75,6 +77,7 @@ public class Turret : MonoBehaviour
     private void Update()
     {
         Spotting();
+        AnimationHandler();
 
         if (targettedLemming != null)
         {
@@ -287,5 +290,17 @@ public class Turret : MonoBehaviour
     {
         yield return new WaitForSeconds(.02f);
         gameObject.SetActive(false);
+    }
+
+    private void AnimationHandler()
+    {
+        if (shoot)
+        {
+            animator.SetBool("Shooting", true);
+        }
+        else
+        {
+            animator.SetBool("Shooting", false);
+        }
     }
 }

@@ -12,11 +12,19 @@ public class Fan : MonoBehaviour
     [SerializeField] float fanForce;
     [SerializeField] LayerMask ignoreThis;
 
-    List<GameObject> lemmings = new List<GameObject>();
+    public List<GameObject> lemmings = new List<GameObject>();
 
     private void Start()
     {
         ignoreThis = ~ignoreThis;
+    }
+
+    private void Update()
+    {
+        foreach (var lemming in lemmings)
+        {
+            if (lemming == null) lemmings.Remove(lemming);
+        }
     }
 
     private void FixedUpdate()
@@ -46,8 +54,8 @@ public class Fan : MonoBehaviour
         {
             var rb = lemmings[i].GetComponent<Rigidbody>();
 
-            Physics.Raycast(lemmings[i].transform.position + new Vector3(0, 1f, 0), -transform.forward, out RaycastHit hit, 10f, ignoreThis);
-            Debug.DrawRay(lemmings[i].transform.position + new Vector3(0, 1f, 0), -transform.forward * 10, Color.red);
+            Physics.Raycast(lemmings[i].transform.position + new Vector3(0, 1f, 0), -transform.forward, out RaycastHit hit, 10f, ignoreThis, QueryTriggerInteraction.Ignore);
+            Debug.DrawRay(lemmings[i].transform.position + new Vector3(0, 1f, 0), -transform.forward * hit.distance, Color.red);
 
             if (hit.collider != null && hit.collider.gameObject.GetComponentInParent<Fan>() != null)
             {
