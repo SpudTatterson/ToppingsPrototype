@@ -7,14 +7,12 @@ public class TimeManager : MonoBehaviour
 {
     [SerializeField] float fastForwardMultiplier = 1;
     [SerializeField] float slowDownMultiplier = .1f;
-    [SerializeField] GameObject jobsButton;
-    [SerializeField] GameObject placeablesButton;
     [HideInInspector]public bool toggle = true;
 
     private void Update()
     {
         //ManipulateTime(); i ruined it for now sorry
-        Hotkeys();
+                         // nooooooooooooo!
     }
 
     private void ManipulateTime()
@@ -32,20 +30,5 @@ public class TimeManager : MonoBehaviour
         {
             Time.timeScale = 1; 
         }
-    }
-
-    private void Hotkeys()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            jobsButton.SetActive(true);
-            placeablesButton.SetActive(false);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            placeablesButton.SetActive(true);
-            jobsButton.SetActive(false);
-        }
-
     }
 }

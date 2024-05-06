@@ -12,6 +12,7 @@ TagManager:
   - Obstacle
   - Shield
   - Stair
+  - Spikes
   layers:
   - Default
   - TransparentFX

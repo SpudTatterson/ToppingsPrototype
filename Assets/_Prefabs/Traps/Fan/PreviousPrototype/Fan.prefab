@@ -468,6 +468,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fanForce: 1150
+  ignoreThis:
+    serializedVersion: 2
+    m_Bits: 16384
 --- !u!82 &7358771534479230291
 AudioSource:
   m_ObjectHideFlags: 0
