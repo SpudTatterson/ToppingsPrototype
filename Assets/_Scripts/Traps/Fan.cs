@@ -12,11 +12,19 @@ public class Fan : MonoBehaviour
     [SerializeField] float fanForce;
     [SerializeField] LayerMask ignoreThis;
 
-    List<GameObject> lemmings = new List<GameObject>();
+    public List<GameObject> lemmings = new List<GameObject>();
 
     private void Start()
     {
         ignoreThis = ~ignoreThis;
+    }
+
+    private void Update()
+    {
+        foreach (var lemming in lemmings)
+        {
+            if (lemming == null) lemmings.Remove(lemming);
+        }
     }
 
     private void FixedUpdate()
