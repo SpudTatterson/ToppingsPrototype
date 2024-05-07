@@ -50,7 +50,7 @@ public class LemmingHealth : MonoBehaviour
         animator.SetTrigger("Death");
         lemmingMovement.walking = false;
         dead = true;
-        Destroy(gameObject, timeToDestroy); 
+        Destroy(gameObject, timeToDestroy);
         ActivateRagdoll();
     }
 
@@ -99,16 +99,15 @@ public class LemmingHealth : MonoBehaviour
     }
 
     private void FallCheck()
-
     {
-        
+
         var rb = GetComponent<Rigidbody>();
 
         if (lemmingMovement.isGrounded)
         {
             if (currentVelocity < velocityForDeath)
             {
-                if(usingJumpPad) 
+                if (usingJumpPad)
                 {
                     usingJumpPad = false;
                     currentVelocity = 0;
