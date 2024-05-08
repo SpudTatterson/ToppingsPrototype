@@ -3381,7 +3381,7 @@ PrefabInstance:
     - target: {fileID: 5440665837334927486, guid: 90d6cc9d0b9d73b4897014e37af1db4f,
         type: 3}
       propertyPath: lemmingCount
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3938,7 +3938,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.43
+  m_Intensity: 0.27
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -4294,7 +4294,7 @@ PrefabInstance:
     - target: {fileID: 2131796194579368419, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.2527803
+      value: 0.25278026
       objectReference: {fileID: 0}
     - target: {fileID: 2131796194579368419, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
@@ -4304,7 +4304,7 @@ PrefabInstance:
     - target: {fileID: 2131796194579368419, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.24927127
+      value: -0.24927126
       objectReference: {fileID: 0}
     - target: {fileID: 2162434781842514641, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
@@ -4344,7 +4344,7 @@ PrefabInstance:
     - target: {fileID: 3982876594345514639, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.2527803
+      value: 0.25278026
       objectReference: {fileID: 0}
     - target: {fileID: 3982876594345514639, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
@@ -4354,7 +4354,7 @@ PrefabInstance:
     - target: {fileID: 3982876594345514639, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.24927127
+      value: -0.24927126
       objectReference: {fileID: 0}
     - target: {fileID: 4215508603477785886, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
@@ -6711,7 +6711,7 @@ PrefabInstance:
     - target: {fileID: 3127030685187591112, guid: 0d36631ddb19e1642a34071573259124,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.08930874
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: 3127030685187591112, guid: 0d36631ddb19e1642a34071573259124,
         type: 3}
@@ -6752,6 +6752,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EndPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 8124221833987198516, guid: 0d36631ddb19e1642a34071573259124,
+        type: 3}
+      propertyPath: minPassedForVictory
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
