@@ -63,6 +63,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor_Spikes
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc059e13ca7ae5343ad80e35ca4804d3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Spikes
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

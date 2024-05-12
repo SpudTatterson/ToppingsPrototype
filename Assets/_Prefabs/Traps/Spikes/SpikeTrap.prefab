@@ -83,8 +83,68 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpikeTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: eda3925c9132d674a8dd2be8e4b0e0b9,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: eda3925c9132d674a8dd2be8e4b0e0b9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8515066566986323505}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: eda3925c9132d674a8dd2be8e4b0e0b9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5521848872954614752}
   m_SourcePrefab: {fileID: 100100000, guid: eda3925c9132d674a8dd2be8e4b0e0b9, type: 3}
+--- !u!1 &3156700334672172038 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: eda3925c9132d674a8dd2be8e4b0e0b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2814666115545885015}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8515066566986323505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3156700334672172038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0520f12f96d1edd489a028bbc1e1e9ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeathSoundClips:
+  - {fileID: 8300000, guid: 0af93cee858374548bd6c449c0aa7cfa, type: 3}
+  - {fileID: 8300000, guid: d070692c2e697d842b1f7e4070c10863, type: 3}
+  - {fileID: 8300000, guid: a15d693d61cd2bb48aa054cbee52ffa1, type: 3}
+  - {fileID: 8300000, guid: 6db998ae514238144bc5084539fb7fff, type: 3}
+  - {fileID: 8300000, guid: 050e96a71d1875343b2a55ea8bc55090, type: 3}
+  - {fileID: 8300000, guid: 4dc428be0e275574f8c792af1941d3ba, type: 3}
+  playerTag: Lemming
+--- !u!65 &5521848872954614752
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3156700334672172038}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7588632, y: 1.4768944, z: 0.18134806}
+  m_Center: {x: -2.8138985e-16, y: -1.01538405e-16, z: 0.091782555}

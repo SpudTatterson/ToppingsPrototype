@@ -8,6 +8,7 @@ public class WoodWorker : Worker
     [SerializeField] float interactionDistance = 0.2f;
     [SerializeField] float timeBetweenHits = 1.5f;
     float timer;
+    
 
     [SerializeField] private AudioClip[] ChoppingSoundClips;
 
@@ -18,6 +19,7 @@ public class WoodWorker : Worker
 
     private void Start()
     {
+       
         movement = GetComponentInParent<LemmingMovement>();
         ignoredLayers = ~ignoredLayers;
     }
