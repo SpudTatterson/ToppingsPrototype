@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_Prefabs/Lemming_Wardrobe/CowboyHat/Cowboy Hat.prefab.meta
+guid: b7b11db962035b647917271e51c793f3
+PrefabImporter:
+========
 guid: 27182eda4341154409929cf9984e29c4
 folderAsset: yes
 DefaultImporter:
+>>>>>>>> main:Assets/_Prefabs/StaticWorldObjects/Pillars.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

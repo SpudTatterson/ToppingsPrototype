@@ -39,8 +39,17 @@ public class MinionCustomizer : MonoBehaviour
         SetHat(clothingSet);
         SetBackpack(clothingSet);
         SetHandItem(clothingSet);
-        SetClothingColor(clothingSet);
-        SetSkinColor(clothingSet);
+        if (!clothingSet.copyColorsFromDefault)
+        {
+            SetClothingColor(clothingSet);
+            SetSkinColor(clothingSet);
+        }
+        else
+        {
+            SetClothingColor(MinionManager.instance.GetDefaultClothing());
+            SetSkinColor(MinionManager.instance.GetDefaultClothing());
+        }
+
     }
 
     void SetClothingColor(ClothingSet clothingSet)

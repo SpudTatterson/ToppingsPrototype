@@ -41,7 +41,6 @@ public class GuideLineShower : MonoBehaviour
             else if (shape == GridGuideLineShape.Box)
             {
                 grids = ComponentUtility.GetComponentsInBox<GridGuideLine>(point, halfExtents);
-                Debug.Log("test");
             }
             oldGrids = grids;
             foreach (GridGuideLine grid in grids)

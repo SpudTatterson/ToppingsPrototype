@@ -9,6 +9,7 @@ public class ClothingSet : ScriptableObject
 
     public Color clothColor;
     public Color skinColor;
+    public bool copyColorsFromDefault = true;
 
     
     public static implicit operator ClothingSet(DefaultClothing defaultClothing)

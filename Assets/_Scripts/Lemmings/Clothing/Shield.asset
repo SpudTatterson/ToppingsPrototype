@@ -18,3 +18,4 @@ MonoBehaviour:
     type: 3}
   clothColor: {r: 1, g: 1, b: 1, a: 0}
   skinColor: {r: 1, g: 1, b: 1, a: 0}
+  copyColorsFromDefault: 1
