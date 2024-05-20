@@ -19,8 +19,9 @@ public class LemmingMovement : MonoBehaviour
     public VisualEffect groundStomp;
 
 
-    public Vector3 groundedOffset = new Vector3(0, 0.1f, 0);
-    public float maxDistanceOffGround = 0.2f;
+    [SerializeField] Vector3 groundedOffset = new Vector3(0, 0.1f, 0);
+    [SerializeField] float maxDistanceOffGround = 0.2f;
+    [SerializeField] float stairCheckDistance = 0.7f;
 
     private float stompTimer;
     private Rigidbody rb;
@@ -29,7 +30,7 @@ public class LemmingMovement : MonoBehaviour
     private float delayVelocityCheck;
     [HideInInspector] public float turnComplete;
 
-    [HideInInspector] public bool walking, turning;
+     public bool walking, turning;
     [HideInInspector] public bool climbStairs;
     [HideInInspector] public bool knockable;
     [HideInInspector] public bool isGrounded;
@@ -78,6 +79,7 @@ public class LemmingMovement : MonoBehaviour
         animator.SetBool("Walking", walking);
         animator.SetBool("Grounded", isGrounded);
         animator.SetBool("UsingStairs", climbStairs);
+        animator.SetBool("Turning", turning);
 
         LemmingRotation();
         TriggerRotationLogic();
@@ -116,9 +118,10 @@ public class LemmingMovement : MonoBehaviour
 
     private void Climb()
     {
-        Ray ray = new Ray(transform.position + new Vector3(0, 0.1f, 0), transform.forward);
+        Ray ray = new Ray(transform.position + groundedOffset, transform.forward);
+        Debug.DrawRay(ray.origin, ray.direction * stairCheckDistance);
         RaycastHit hitStair;
-        Physics.Raycast(ray, out hitStair, 0.5f);
+        Physics.Raycast(ray, out hitStair, stairCheckDistance, groundLayer);
 
         if (hitStair.collider == null)
         {
@@ -145,6 +148,7 @@ public class LemmingMovement : MonoBehaviour
         rb.AddRelativeForce(new Vector3(0, 0, -knockbackPower));
         rotationTimer = 0;
         delayVelocityCheck = 0; //This is here to make the rotation work better (Temporary untill I find a better solution)
+        ResetTurnStats();
     }
 
     public void ResetTurnStats()
@@ -213,10 +217,11 @@ public class LemmingMovement : MonoBehaviour
 
     public void TriggerRotationLogic()
     {
+
         if (/*rb.velocity == Vector3.zero*//* &&*/ delayVelocityCheck > .5f & turning)
         {
-        rotationTimer += Time.deltaTime;
-        transform.rotation = Quaternion.Slerp(startRotationTest, targetRotationTest, Mathf.SmoothStep(0, 1, turnComplete));
+            rotationTimer += Time.deltaTime;
+            transform.rotation = Quaternion.Slerp(startRotationTest, targetRotationTest, Mathf.SmoothStep(0, 1, turnComplete));
         }
 
         if (turnComplete >= 1)

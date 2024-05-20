@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hat: {fileID: 4886241776018282736, guid: 6eac1924bc500bc44b0144f50fc293b9, type: 3}
   backpack: {fileID: 0}
-  handItem: {fileID: 0}
+  handItem: {fileID: 4317886345230960101, guid: 9aaaa249f122dff4f83e13126099907c,
+    type: 3}
   clothColor: {r: 1, g: 1, b: 1, a: 0}
   skinColor: {r: 1, g: 1, b: 1, a: 0}
+  copyColorsFromDefault: 1
