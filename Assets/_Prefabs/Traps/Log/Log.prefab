@@ -175,8 +175,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 955548612747153527}
-  - component: {fileID: 1438201187119601890}
   - component: {fileID: 199829949524865664}
+  - component: {fileID: 2205196015194527650}
   m_Layer: 0
   m_Name: Log
   m_TagString: Obstacle
@@ -204,29 +204,6 @@ Transform:
   - {fileID: 5656801263781702880}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!136 &1438201187119601890
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4446256663041134334}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.55458856
-  m_Height: 5.4860287
-  m_Direction: 1
-  m_Center: {x: 0.020615458, y: -0.3509245, z: -0.0018959045}
 --- !u!114 &199829949524865664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +222,29 @@ MonoBehaviour:
   badlyDamaged: {fileID: 572275299525863199}
   logHealth: 100
   lemmingCutting: {fileID: 0}
+--- !u!136 &2205196015194527650
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4446256663041134334}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.55439985
+  m_Height: 5.49
+  m_Direction: 1
+  m_Center: {x: -0.13, y: 0.38000008, z: 0.054399848}
 --- !u!1 &6969224495230607682
 GameObject:
   m_ObjectHideFlags: 0
