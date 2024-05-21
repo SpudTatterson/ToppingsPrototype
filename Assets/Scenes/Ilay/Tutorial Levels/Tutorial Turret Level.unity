@@ -5731,6 +5731,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3164444609424003256, guid: a81fc51a9bf42a4428406576b5286d14,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 401c6adfb5a899943992a1a0ef63eb1c, type: 3}
+    - target: {fileID: 3322985739119681110, guid: a81fc51a9bf42a4428406576b5286d14,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3571136671110128373, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_IsActive
@@ -5884,6 +5894,11 @@ PrefabInstance:
     - target: {fileID: 4837751775857390807, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5266082514979678731, guid: a81fc51a9bf42a4428406576b5286d14,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5382576096434935613, guid: a81fc51a9bf42a4428406576b5286d14,

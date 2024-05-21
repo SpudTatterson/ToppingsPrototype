@@ -656,7 +656,6 @@ GameObject:
   - component: {fileID: 3818669171471070948}
   - component: {fileID: 6894041285684417686}
   - component: {fileID: 4105366752761931845}
-  - component: {fileID: 8982297785696017713}
   m_Layer: 0
   m_Name: Barrells
   m_TagString: Untagged
@@ -729,29 +728,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &8982297785696017713
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8682068221991750885}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.17871161
-  m_Height: 0.8988449
-  m_Direction: 1
-  m_Center: {x: -0.0010275547, y: 0.41557854, z: 0.00089230936}
 --- !u!1 &8737040978072879005
 GameObject:
   m_ObjectHideFlags: 0
