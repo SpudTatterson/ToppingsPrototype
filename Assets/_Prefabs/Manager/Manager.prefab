@@ -75,6 +75,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
+  itemLayers:
+    serializedVersion: 2
+    m_Bits: 8321
   itemToPlace: {fileID: 0}
   unplacedMaterial: {fileID: 2100000, guid: 50e868728a5f34347b39f128a4a9887b, type: 2}
   canPlaceColor: {r: 0.25564253, g: 0.8113208, b: 0.25564253, a: 0.29803923}
