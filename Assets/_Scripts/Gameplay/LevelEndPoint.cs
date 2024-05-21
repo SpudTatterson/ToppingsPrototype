@@ -14,6 +14,7 @@ public class LevelEndPoint : MonoBehaviour
     {
         instance = this;
         initialMinionCount = FindAnyObjectByType<LemmingSpawner>().lemmingCount;
+        if(minPassedForVictory > initialMinionCount) Debug.LogError("Minimum victory requirement larger then minion count");
     }
     void OnTriggerEnter(Collider other)
     {
