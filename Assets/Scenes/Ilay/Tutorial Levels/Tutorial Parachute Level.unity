@@ -25720,6 +25720,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 8124221833987198516, guid: 0d36631ddb19e1642a34071573259124,
+        type: 3}
+      propertyPath: minPassedForVictory
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -48091,6 +48096,16 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.24927127
       objectReference: {fileID: 0}
+    - target: {fileID: 2162434781842514641, guid: a81fc51a9bf42a4428406576b5286d14,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2283916727399681302, guid: a81fc51a9bf42a4428406576b5286d14,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3164444609424003256, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_Volume
@@ -48101,6 +48116,11 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 73362a40ec6383b47906d7f589991b0a, type: 3}
+    - target: {fileID: 3322985739119681110, guid: a81fc51a9bf42a4428406576b5286d14,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3571136671110128373, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_IsActive
@@ -48250,6 +48270,11 @@ PrefabInstance:
     - target: {fileID: 7681962920769246812, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845714458908089612, guid: a81fc51a9bf42a4428406576b5286d14,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7937059915191258928, guid: a81fc51a9bf42a4428406576b5286d14,
