@@ -69,6 +69,10 @@ public class MinionManager : MonoBehaviour, ISettingDataPersistence
         {
             VictoryManager.instance.TriggerWin();
         }
+        else if(minions.Count == 0)
+        {
+            VictoryManager.instance.TriggerLoss();
+        }
     }
 
     public void SaveData(SettingsData data)

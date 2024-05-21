@@ -9,6 +9,7 @@ public class PlacementManager : MonoBehaviour
     // this code is disgusting 
     Camera cam;
     [SerializeField] LayerMask groundLayer;
+    [SerializeField] LayerMask itemLayers;
     [SerializeField] GameObject itemToPlace;
     [SerializeField] Material unplacedMaterial;
     [SerializeField] Color canPlaceColor = Color.green;
@@ -222,7 +223,7 @@ public class PlacementManager : MonoBehaviour
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit) && Input.GetKeyDown(KeyCode.Mouse0))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, itemLayers) && Input.GetKeyDown(KeyCode.Mouse0))
         {
             GameObject selectedGameObject = hit.collider.gameObject.GetComponentInParent<Placeable>().gameObject;
             if (IsPlaced(selectedGameObject))

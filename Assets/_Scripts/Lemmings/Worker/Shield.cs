@@ -7,7 +7,6 @@ public class Shield : Worker
     new void OnEnable()
     {
         animator.SetBool("HoldShield", true);
-        Debug.Log("test");
         base.OnEnable();
     }
 
