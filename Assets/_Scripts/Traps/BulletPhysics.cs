@@ -101,7 +101,7 @@ public class BulletPhysics : MonoBehaviour
             var direction = Vector3.Reflect(transform.forward, hit.normal);
             var position = hit.point - (transform.forward * .2f);
             var cloneBullet = Instantiate(gameObject, position, Quaternion.LookRotation(direction));
-            cloneBullet.GetComponent<BulletPhysics>().seeThrough = ~seeThrough;
+            cloneBullet.GetComponent<BulletPhysics>().seeThrough = seeThrough;
             Destroy(cloneBullet, 5f);
             Destroy(gameObject);
         }
@@ -110,7 +110,7 @@ public class BulletPhysics : MonoBehaviour
             var direction = startPosition - transform.position;
             var position = hit.point - (transform.forward * .2f);
             var cloneBullet = Instantiate(gameObject, position, Quaternion.LookRotation(direction));
-            cloneBullet.GetComponent<BulletPhysics>().seeThrough = ~seeThrough;
+            cloneBullet.GetComponent<BulletPhysics>().seeThrough = seeThrough;
             Destroy(cloneBullet, 5f);
             Destroy(gameObject);
         }
