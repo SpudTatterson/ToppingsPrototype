@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu/MainMenuV2.unity
     guid: eca91dd37b01ba343b7cb031155e62cf
   - enabled: 1
-    path: Assets/Scenes/Menu/LevelPicker.unity
-    guid: 5d1584efcdaef484ea37f08ec9ca7c08
+    path: Assets/Scenes/Menu/LevelPickerV3.unity
+    guid: cdb22b185eedf9b408f7fdf720dea1d7
   - enabled: 1
     path: Assets/Scenes/Ilay/Tutorial Levels/Tutorial Sign Level.unity
     guid: db411e6bee329504abdb1a85aa42b078

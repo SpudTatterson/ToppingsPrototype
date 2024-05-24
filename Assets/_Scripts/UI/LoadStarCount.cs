@@ -13,6 +13,7 @@ public class LoadStarCount : MonoBehaviour, IPlayerDataPersistence
     public void LoadData(GameData data)
     {
         LevelDataSer levelData = new LevelDataSer();
+        id = SceneManager.GetActiveScene().name;
         if (data.levelDict.ContainsKey(id))
             levelData = data.levelDict[id];
         else
@@ -25,7 +26,7 @@ public class LoadStarCount : MonoBehaviour, IPlayerDataPersistence
     }
     void Awake()
     {
-        id = SceneManager.GetActiveScene().name;
+        
     }
     void Start()
     {

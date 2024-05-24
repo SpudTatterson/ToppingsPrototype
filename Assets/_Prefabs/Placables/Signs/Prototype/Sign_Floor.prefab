@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3812836029062408391}
   - component: {fileID: 6458705154611654912}
   - component: {fileID: 2913351593048149966}
+  - component: {fileID: 1175674907813440717}
   m_Layer: 0
   m_Name: Sign_Floor
   m_TagString: Left_Sign
@@ -76,6 +77,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.3, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &1175674907813440717
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882610876595308751}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.92, z: 0.25}
 --- !u!1 &1617910891373836342
 GameObject:
   m_ObjectHideFlags: 0
