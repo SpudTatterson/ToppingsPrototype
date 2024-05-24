@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5035eae66aabc84095e93187c9f90cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jobTime: 10
+  jobTime: 20
   smokeVFX: {fileID: 4205210673636375058}
   clothingSet: {fileID: 11400000, guid: af7683b9be892c444bd630b31f6c6846, type: 2}
   defaultClothSet: {fileID: 6072829812595883047}
@@ -160,6 +160,7 @@ MonoBehaviour:
   health: 100
   velocityForDeath: 8
   timeToDestroy: 4
+  dead: 0
   deathBullet: 0
   bulletForce: {x: 0, y: 0, z: 0}
   bulletPos: {x: 0, y: 0, z: 0}
@@ -748,7 +749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd7d477976f4127438607c5fb860f3a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jobTime: 10
+  jobTime: 15
   smokeVFX: {fileID: 4205210673636375058}
   clothingSet: {fileID: 11400000, guid: 2678b73b4af09b946a198fc1b91bc3cd, type: 2}
   defaultClothSet: {fileID: 6072829812595883047}
