@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class PlacementManager : MonoBehaviour
     Camera cam;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] LayerMask itemLayers;
+    [SerializeField] LayerMask minionAndGroundLayers;
     [SerializeField] GameObject itemToPlace;
     [SerializeField] Material unplacedMaterial;
     [SerializeField] Color canPlaceColor = Color.green;
@@ -17,7 +19,7 @@ public class PlacementManager : MonoBehaviour
     [SerializeField] KeyCode destroyShortCut = KeyCode.LeftAlt;
 
     GameObject tempGO;
-    MeshRenderer mr;
+    List<MeshRenderer> mrs;
     bool isPlacingSecondaryObject = false;
     bool isDestroying = false;
     Placeable heldPlaceable;
@@ -71,8 +73,13 @@ public class PlacementManager : MonoBehaviour
 
             bool canPlace = CheckIfObjectFits();
 
-            if (mr)
-                mr.material.color = canPlace ? canPlaceColor : cantPlaceColor; // visually show if player can or cant place object
+            if (mrs.Count != 0)
+            {
+                Color newColor = canPlace ? canPlaceColor : cantPlaceColor; // visually show if player can or cant place object
+                foreach (MeshRenderer mr in mrs)
+                    mr.material.SetColor("_EmissionColor", newColor);
+            }
+
 
             if (Input.GetButtonDown("Fire1"))
             {
@@ -154,7 +161,7 @@ public class PlacementManager : MonoBehaviour
     void HandleTempGO()
     {
         tempGO = Instantiate(itemToPlace);// spawn visual aid if it doesn't exist
-        mr = tempGO.GetComponentInChildren<MeshRenderer>(); // get mesh render for later
+        mrs = tempGO.GetComponentsInChildren<MeshRenderer>().ToList(); // get mesh render for later
 
         Collider[] colliders = tempGO.GetComponentsInChildren<Collider>(); // get all colliders
         foreach (Collider c in colliders) // disable collider on tempGameObject so it wont interrupt placement
@@ -207,8 +214,8 @@ public class PlacementManager : MonoBehaviour
     }
     bool CheckIfObjectFits()
     {
-        if (mr == null) return true;
-        return !Physics.CheckBox(mr.bounds.center, mr.bounds.size / 2, mr.transform.localRotation, ~groundLayer, QueryTriggerInteraction.Ignore);
+        if (mrs.Count == 0 || mrs[0] == null) return true;
+        return !Physics.CheckBox(mrs[0].bounds.center, mrs[0].bounds.size / 2, mrs[0].transform.localRotation, ~minionAndGroundLayers, QueryTriggerInteraction.Ignore);
     }
     bool CanPlaceSecondaryObject()
     {

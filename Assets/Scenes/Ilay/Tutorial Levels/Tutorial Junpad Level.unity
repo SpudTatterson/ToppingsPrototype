@@ -630,7 +630,7 @@ PrefabInstance:
     - target: {fileID: 8124221833987198516, guid: 0d36631ddb19e1642a34071573259124,
         type: 3}
       propertyPath: minPassedForVictory
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4099,7 +4099,7 @@ PrefabInstance:
     - target: {fileID: 2131796194579368419, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.25278026
+      value: 0.2527803
       objectReference: {fileID: 0}
     - target: {fileID: 2131796194579368419, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
@@ -4109,7 +4109,7 @@ PrefabInstance:
     - target: {fileID: 2131796194579368419, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.24927126
+      value: -0.24927127
       objectReference: {fileID: 0}
     - target: {fileID: 2162434781842514641, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
@@ -4199,7 +4199,7 @@ PrefabInstance:
     - target: {fileID: 3982876594345514639, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.25278026
+      value: 0.2527803
       objectReference: {fileID: 0}
     - target: {fileID: 3982876594345514639, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
@@ -4209,7 +4209,7 @@ PrefabInstance:
     - target: {fileID: 3982876594345514639, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.24927126
+      value: -0.24927127
       objectReference: {fileID: 0}
     - target: {fileID: 4129247192716600029, guid: a81fc51a9bf42a4428406576b5286d14,
         type: 3}

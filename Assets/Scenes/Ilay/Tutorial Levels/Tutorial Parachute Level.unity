@@ -25723,7 +25723,7 @@ PrefabInstance:
     - target: {fileID: 8124221833987198516, guid: 0d36631ddb19e1642a34071573259124,
         type: 3}
       propertyPath: minPassedForVictory
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
