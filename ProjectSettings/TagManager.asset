@@ -13,6 +13,7 @@ TagManager:
   - Shield
   - Stair
   - Spikes
+  - Camera
   layers:
   - Default
   - TransparentFX
