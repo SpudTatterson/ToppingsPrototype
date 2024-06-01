@@ -53,6 +53,59 @@ MonoBehaviour:
   velocityStop: 1.01
   parachute: {fileID: 8801148601966364575, guid: cc07127bf0cd68240ac1b8434cf848ee,
     type: 3}
+--- !u!1 &1211081319014404765
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5626836662227111989}
+  - component: {fileID: 7937137026039596873}
+  m_Layer: 11
+  m_Name: Shield_Collider
+  m_TagString: Shield
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &5626836662227111989
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211081319014404765}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6727730002719883008}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7937137026039596873
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211081319014404765}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 31479
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2.2312722, z: 0.52203786}
+  m_Center: {x: 0, y: 1.0884032, z: 0.8779959}
 --- !u!1 &1385723183956263404
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,6 +141,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5626836662227111989}
   - {fileID: 3982712130865887787}
   - {fileID: 4411672692253369883}
   - {fileID: 8553272647436627794}
@@ -754,6 +808,7 @@ MonoBehaviour:
   clothingSet: {fileID: 11400000, guid: 2678b73b4af09b946a198fc1b91bc3cd, type: 2}
   defaultClothSet: {fileID: 6072829812595883047}
   workerType: 2
+  shieldCollider: {fileID: 1211081319014404765}
 --- !u!1 &6993598415611193169
 GameObject:
   m_ObjectHideFlags: 0

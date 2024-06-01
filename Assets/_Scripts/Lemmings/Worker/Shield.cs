@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Shield : Worker
 {
+    [SerializeField] GameObject shieldCollider;
+
     new void OnEnable()
     {
         animator.SetBool("HoldShield", true);
+        shieldCollider.SetActive(true);
         base.OnEnable();
     }
 
     new void OnDisable()
     {
         animator.SetBool("HoldShield", false);
+        shieldCollider.SetActive(false);        
         base.OnDisable();
     }
 

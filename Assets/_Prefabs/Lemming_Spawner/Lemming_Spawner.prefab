@@ -386,7 +386,7 @@ GameObject:
   - component: {fileID: 7405849132184954277}
   m_Layer: 8
   m_Name: Cube (9)
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 5268766871221859252}
   m_Layer: 8
   m_Name: Collider
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -720,7 +720,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1373, y: 1.1649, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6968524332709867509}
@@ -1827,10 +1827,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8281482504677882342, guid: 684f0725a4239c0498b0732fdfcf06ad,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8367094869157207013, guid: 684f0725a4239c0498b0732fdfcf06ad,
         type: 3}
       propertyPath: m_Name
       value: Wall_Topchamfer (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8367094869157207013, guid: 684f0725a4239c0498b0732fdfcf06ad,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2010,10 +2020,20 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8281482504677882342, guid: 684f0725a4239c0498b0732fdfcf06ad,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8367094869157207013, guid: 684f0725a4239c0498b0732fdfcf06ad,
         type: 3}
       propertyPath: m_Name
       value: Wall_Topchamfer (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8367094869157207013, guid: 684f0725a4239c0498b0732fdfcf06ad,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2099,10 +2119,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8281482504677882342, guid: 684f0725a4239c0498b0732fdfcf06ad,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8367094869157207013, guid: 684f0725a4239c0498b0732fdfcf06ad,
         type: 3}
       propertyPath: m_Name
       value: Wall_Topchamfer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8367094869157207013, guid: 684f0725a4239c0498b0732fdfcf06ad,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2193,10 +2223,20 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8281482504677882342, guid: 684f0725a4239c0498b0732fdfcf06ad,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8367094869157207013, guid: 684f0725a4239c0498b0732fdfcf06ad,
         type: 3}
       propertyPath: m_Name
       value: Wall_Topchamfer (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8367094869157207013, guid: 684f0725a4239c0498b0732fdfcf06ad,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
