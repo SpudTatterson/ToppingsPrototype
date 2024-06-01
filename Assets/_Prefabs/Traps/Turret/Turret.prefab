@@ -219,8 +219,8 @@ MonoBehaviour:
   rotationSpeed: 4
   scanCooldown: 0.1
   detectionRadius: 15
-  aimRotationSpeed: 70
-  delayToShoot: 1
+  aimRotationSpeed: 140
+  delayToShoot: 0.5
   muzzleFlash: {fileID: 3690093002855873211}
   bullet: {fileID: 6036712357776560034, guid: 0ebbabb01cf6ad744946b3c6650c2b7a, type: 3}
   bulletSpawnPoint: {fileID: 2840337446012440887}
@@ -232,8 +232,8 @@ MonoBehaviour:
   bulletDamage: 5
   bulletSpeed: 7000
   bulletMass: 0.1
-  reflectRealistic: 1
-  reflectBackToShooter: 0
+  reflectRealistic: 0
+  reflectBackToShooter: 1
   bulletDispersion: 0.2
   accuracy: 3.5
 --- !u!95 &8601388197071129087
