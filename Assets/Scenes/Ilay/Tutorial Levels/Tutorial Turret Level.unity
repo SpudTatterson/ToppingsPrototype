@@ -1198,11 +1198,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret
       objectReference: {fileID: 0}
-    - target: {fileID: 4773553594949285670, guid: 8025e3360ed99d343b3c6ab702040741,
-        type: 3}
-      propertyPath: turretHealth
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4377,7 +4372,7 @@ PrefabInstance:
     - target: {fileID: 5440665837334927486, guid: 90d6cc9d0b9d73b4897014e37af1db4f,
         type: 3}
       propertyPath: lemmingCount
-      value: 50
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

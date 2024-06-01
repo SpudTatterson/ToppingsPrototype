@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 1901009302392397638}
   - component: {fileID: 40631798077985343}
   - component: {fileID: 2602850894821454131}
-  - component: {fileID: 3450555088315530683}
   m_Layer: 11
   m_Name: RiotShield
   m_TagString: Shield
@@ -116,24 +115,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3450555088315530683
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7850754347163735335}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 31479
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.4533865, y: 0.3559223, z: 2.1358397}
-  m_Center: {x: 0.00000029802322, y: 0.1417282, z: 1.2521547}
