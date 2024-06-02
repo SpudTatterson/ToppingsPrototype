@@ -38,13 +38,14 @@ public class DataPersistenceManager : MonoBehaviour
         {
             Debug.Log("settings file missing");
             settingsData = new SettingsData();
-            SaveSettings();
+            //SaveSettings();
         }
         if (playerData == null)
         {
             Debug.Log("Game data file missing");
             playerData = new GameData();
         }
+        SaveGame();
     }
 
     public void SaveGame()
