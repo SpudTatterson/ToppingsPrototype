@@ -215,7 +215,8 @@ public class PlacementManager : MonoBehaviour
     bool CheckIfObjectFits()
     {
         if (mrs.Count == 0 || mrs[0] == null) return true;
-        return !Physics.CheckBox(mrs[0].bounds.center, mrs[0].bounds.size / 2, mrs[0].transform.localRotation, ~minionAndGroundLayers, QueryTriggerInteraction.Ignore);
+        ExtendedDebug.DrawBox(mrs[0].bounds.center, mrs[0].bounds.size, Quaternion.identity);
+        return !Physics.CheckBox(mrs[0].bounds.center, mrs[0].bounds.size / 2, Quaternion.identity, ~minionAndGroundLayers, QueryTriggerInteraction.Ignore);
     }
     bool CanPlaceSecondaryObject()
     {
