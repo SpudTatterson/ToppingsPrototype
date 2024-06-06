@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9647059, g: 0.57254905, b: 0.13725491, a: 1}
+  m_Color: {r: 0.85098046, g: 0.7137255, b: 0.050980397, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -112,7 +112,7 @@ PrefabInstance:
     - target: {fileID: 1448209331189918223, guid: 2231a3babd0413b41bca0f19a2f88483,
         type: 3}
       propertyPath: m_Name
-      value: Sign Variant
+      value: SquareButtonWIthIcon
       objectReference: {fileID: 0}
     - target: {fileID: 4010133820309690268, guid: 2231a3babd0413b41bca0f19a2f88483,
         type: 3}

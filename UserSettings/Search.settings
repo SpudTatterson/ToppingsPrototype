@@ -8,7 +8,7 @@ onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
-	"last_search.310DEAF3" = "h:#timebetweenshotsounds=0.15"
+	"last_search.310DEAF3" = "h:#color=#D9B60D"
 	"OpenInspectorPreview.310DEAF3" = "0"
 	"currentGroup.310DEAF3" = "all"
 	"last_search.3BE40471" = "t:drag"

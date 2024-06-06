@@ -21,6 +21,9 @@ public class GridGuideLine : MonoBehaviour
     {
         gridGuideline.enabled = true;
         gridGuideMat.color = new Color(guideColor.r, guideColor.g, guideColor.b,transparency);
+        Color emission = new Color(guideColor.r, guideColor.g, guideColor.b);
+        float strength = Mathf.InverseLerp(0, 1, transparency);
+        gridGuideMat.SetColor("_EmissionColor", emission * strength);
         
     }
     public void DoNotShow()

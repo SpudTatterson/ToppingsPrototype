@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4258d3f6d553adb46bb87326e37f51e2, type: 3}
   m_Name: Default
   m_EditorClassIdentifier: 
-  hat: {fileID: 0}
+  hat: {fileID: 7060709134128224614, guid: e976318c055ddd744a3c581d061c6504, type: 3}
   backpack: {fileID: 0}
   handItem: {fileID: 0}
-  clothColor: {r: 1, g: 1, b: 1, a: 1}
-  skinColor: {r: 1, g: 1, b: 1, a: 1}
+  clothColor: {r: 0.2876772, g: 0.43179882, b: 0.16276243, a: 1}
+  skinColor: {r: 0.5981755, g: 0.6047566, b: 1, a: 1}
+  copyColorsFromDefault: 1
