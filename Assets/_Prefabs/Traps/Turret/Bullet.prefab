@@ -193,7 +193,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 32768
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
@@ -213,14 +213,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36c8361e08e0c5b4b85e231de9c0cf7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reflectRealistic: 1
-  reflectBackToShooter: 0
+  reflectRealistic: 0
+  reflectBackToShooter: 1
   bulletDamage: 5
   bulletSpeed: 7000
   seeThrough:
     serializedVersion: 2
     m_Bits: 1028
-  shieldTag: Shield
 --- !u!96 &-7257222466587410682
 TrailRenderer:
   serializedVersion: 3
