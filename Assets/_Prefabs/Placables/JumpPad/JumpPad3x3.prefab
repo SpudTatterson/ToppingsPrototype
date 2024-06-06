@@ -274,6 +274,9 @@ MonoBehaviour:
   FullyPlaced: 0
   secondaryPlacable: {fileID: 8335445645703859904}
   maxSecondaryObjectDistance: 15
+  radiusShape: 0
+  showRadius: 3
+  halfExtents: {x: 1.94, y: 1.71, z: 1.84}
   JumpSoundClips:
   - {fileID: 8300000, guid: 101ecdf4b5c4a8149bfe2b4d72854001, type: 3}
   - {fileID: 8300000, guid: f06714b0ba7e1db44af57f3e87bc5ae0, type: 3}
@@ -335,7 +338,7 @@ Transform:
   m_GameObject: {fileID: 8335445645703859904}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.873}
+  m_LocalPosition: {x: 1.485, y: 0, z: -5.907}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
