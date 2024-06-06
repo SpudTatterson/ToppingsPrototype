@@ -35,7 +35,7 @@ public class HUDUpdater : MonoBehaviour
     void Update()
     {
         time = FormatTime(Time.timeSinceLevelLoad);
-    
+
         UIManager.instance.timeHUDText.text = time;
     }
 
@@ -56,6 +56,11 @@ public class HUDUpdater : MonoBehaviour
         // Calculate minutes and seconds from the total seconds
         int minutes = Mathf.FloorToInt(timeInSeconds / 60);
         int seconds = Mathf.FloorToInt(timeInSeconds % 60);
+        if (seconds < 10)
+        {
+            string secondsString = "0" + seconds.ToString();
+            return string.Format("{0}:{1}", minutes, secondsString);
+        }
 
         // Format and return the string
         return string.Format("{0}:{1}", minutes, seconds);
